@@ -15,7 +15,7 @@ app.get('/' , function(req,res) {
    
 
 
-app.set('port', process.env.PORT || 1337);
+app.set('port', process.env.PORT || 3001);
 app.use(express.static(__dirname + '/client')); 
 app.use(errorHandler());
 app.listen(app.get('port'), function () {
