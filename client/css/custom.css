@@ -43,6 +43,12 @@ body{
     height:70px;
     width:200px;
 }
+.user-image-section-2 img{
+    background-color: rgb(255, 255, 255);
+    padding:30px;
+    height:70px;
+    width:200px;
+}
 .user-welcoming{
     padding:20px;
 }
