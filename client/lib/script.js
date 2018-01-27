@@ -16,13 +16,15 @@ testApp.controller('testController' , function ($scope, $http, $window) {
     } 
 
     $scope.redirect = function () {
+        $scope.data = "success";
+        /*
         $http({method: 'GET', url: '/redirect'}).
         success(function(data, status) { 
           $scope.dataset = data; 
         }).
         error(function(data, status) {
           $scope.dataset = data || "Request failed "; 
-      });
+      });*/
     } 
 /*    
     $scope.accessDatabase = function () {
