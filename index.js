@@ -13,6 +13,10 @@ app.get('/', function(req, res) {
     res.sendfile(__dirname + '/views/index.html');    
 });
 
+app.get('/views/redirect.html' , function(req,res) {
+    //res.redirect('https://' + req.get('host') + req.url)
+    res.redirect(__dirname + '/views/redirect.html');    
+});
 
 
 app.set('port', process.env.PORT || 1337);
@@ -23,7 +27,3 @@ app.listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
 });
 
-app.get('/views/redirect.html' , function(req,res) {
-    res.redirect('https://' + req.get('host') + req.url)
-    //res.sendfile(__dirname + '/views/redirect.html');    
-});
