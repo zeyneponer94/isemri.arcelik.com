@@ -7,14 +7,14 @@ var express = require('express'),
 
 var logFmt = require("logfmt");
 
-app.set('views', __dirname + '/views') ;
+//app.set('views', __dirname + '/views') ;
 
 app.get('/', function(req, res) {
-    res.sendfile('views/index.html');    
+    res.sendfile(__dirname + '/views/index.html');    
 });
 
 app.get('/redirect' , function(req,res) {
-    res.sendfile('../redirect.html');    
+    res.sendfile(__dirname + '/redirect.html');    
 });
 
 
