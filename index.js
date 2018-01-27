@@ -14,7 +14,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/redirect' , function(req,res) {
-    res.sendfile('/redirect.html');    
+    res.sendfile('../redirect.html');    
 });
 
 
