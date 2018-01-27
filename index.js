@@ -13,8 +13,8 @@ app.get('/', function(req, res) {
     res.sendfile(__dirname + '/views/index.html');    
 });
 
-app.get('/views/redirect.html' , function(req,res) {
-    res.sendFile(__dirname + '../views/redirect.html');    
+app.get('/workorder' , function(req,res) {
+    res.sendFile('views/redirect.html', {root: __dirname });   
     //res.sendfile(__dirname + '/views/redirect.html');
 });
 
