@@ -9,10 +9,7 @@ testApp.controller('testController' , function ($scope, $http, $window) {
        }) 
        .then(function(response){
             $scope.redirect(); 
-        })
-       .error(function (response) {
-           $scope.data = response.data; 
-       });
+        });
     } 
 
     $scope.redirect = function () {     
