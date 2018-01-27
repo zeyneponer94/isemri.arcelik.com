@@ -9,12 +9,12 @@ var logFmt = require("logfmt");
 
 app.set('views', __dirname + '/views') ;
 
-/*
+
 app.get('/' , function(req,res) {
     res.sendfile('views/index.html');
 } );
-*/
-app.get('/' , function(req,res) {
+
+app.get('/redirect' , function(req,res) {
     res.sendfile('views/redirect.html');
 } );
 
