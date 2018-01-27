@@ -54,7 +54,7 @@ body{
 .user-login-box,.last-part{
     padding:20px;
 }
-.user-login-box a,.user-login-box a:hover{
+.user-login-box button,.user-login-box button:hover{
     background: -webkit-linear-gradient(to right, rgb(255, 63, 194), rgb(16, 26, 99));  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right,  rgb(255, 63, 194), rgb(16, 26, 99));
     width: 100%;
