@@ -14,7 +14,7 @@ testApp.controller('testController' , function ($scope, $http, $window) {
     } 
 
     $scope.redirect = function () {    
-        var url = "https://localhost:1337/redirect.html";
+        var url = "https://thworkorder.azurewebsites.net/redirect.html";
         $window.location = url;
         /* 
         $http({method: 'GET', url: '/redirect'}).
