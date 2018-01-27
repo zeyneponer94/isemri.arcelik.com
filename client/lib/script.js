@@ -9,8 +9,7 @@ testApp.controller('testController' , function ($scope, $http, $window) {
             params: {name:$scope.username_id, password:$scope.password_id}
        }) 
        .then(function(response){
-           $scope.data = "success";
-            //$scope.redirect(); 
+            $scope.redirect(); 
         });
     } 
 
