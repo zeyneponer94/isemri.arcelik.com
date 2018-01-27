@@ -8,13 +8,14 @@ testApp.controller('testController' , function ($scope, $http, $window, $routePr
             params: {name:$scope.username_id, password:$scope.password_id}
        }) 
        .then(function(response){
+           
         });
     } 
 
     $scope.redirect = function () {     
-        $http({method: 'GET', url: '/redirect'}).
+      /*  $http({method: 'GET', url: '/redirect'}).
         then(function(response) { 
-        });
+        });*/s
     } 
 /*    
     $scope.accessDatabase = function () {
