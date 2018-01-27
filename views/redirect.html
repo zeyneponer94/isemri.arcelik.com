@@ -1,0 +1,236 @@
+﻿<!doctype html>
+<html>
+  <head>
+    <style>
+        .box{
+            position: relative;
+            left: -300px;
+            width: 500px;
+            margin: 30px auto;
+            top: -205px;
+        }
+        .box2{
+            position: relative;
+            left: -250px;
+            width: 500px;
+            margin: 30px auto;
+            top: -205px;
+        }
+        .box3{
+            position: relative;
+            left: -250px;
+            width: 500px;
+            margin: 30px auto;
+            top: -205px;
+        }
+        header {
+            padding: 2em;
+            color: white;
+            background-color: rgb(15, 15, 15);
+            clear: left;
+            text-align: left;
+        }
+        center {
+            padding: 15em;
+            background-color: rgb(255, 255, 255);
+            clear: left;
+            text-align: left;
+        }
+        footer {
+            padding: 5em;
+            color: rgb(204, 200, 200);
+            background-color: rgb(255, 255, 255);
+            clear: left;
+            text-align: left;
+        }
+    
+    </style>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
+    <script src="example.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <link data-require="bootstrap-css@*" data-semver="3.3.1" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+    <script data-require="angular.js@1.3.15" data-semver="1.3.15" src="https://code.angularjs.org/1.3.15/angular.js"></script>
+    <script data-require="ui-bootstrap@*" data-semver="0.13.0" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.0.min.js"></script>
+    
+  </head>
+  <body style="background-color:rgba(218, 218, 218, 0.897);">
+    <div class="container" ng-app="myApp" ng-controller="myController">
+        <header>                    
+            <img src="altus-logo.png" alt="Altus Logo" width="120" height="30">      
+            <img src="grundig.png" alt="Grundig Logo" width="150" height="42" hspace="20">                      
+        </header>
+        <center>
+        <div class="box">                                                                
+            <ul class="nav nav-tabs">
+                <li class="active"><a class="pull-left" ng-click="createWorkOrder()"><img src="olustur.png">İŞ EMRİ OLUŞTUR</a></li>
+                <li><a class="pull-left" ng-click="queryWorkOrder()"><img src="sorgula.png">İŞ EMRİ SORGULA</a></li>                  
+            </ul>
+        </div> 
+    <div class="box2" ng-show="activation">                     
+        <div class="row">
+            <h3><b>MÜŞTERİ</b></h3>                  
+                <div class="col-sm-4">
+                    <div class="form-group">                                
+                        <input type="text" id="name" name="name" 
+                        class="form-control" placeholder="Ad*" ng-model="name_id">
+                    </div> 
+                    <div class="form-group">                                                            
+                    <input type="text" id="phoneNumber_1" name="phoneNumber_1" 
+                        class="form-control" placeholder="(___) ___ __ __">
+                    </div>  
+                </div>       
+                <div class="col-sm-4">
+                    <div class="form-group">                                                                
+                        <input type="text" id="surname" name="surname" 
+                        class="form-control" placeholder="Soyad*" ng-model="surname_id">
+                    </div>                                        
+                    <div class="form-group">                                                                
+                    <input type="text" id="phoneNumber_2" name="phoneNumber_2" 
+                        class="form-control" placeholder="(___) ___ __ __">
+                    </div>                                        
+                </div>     
+                <div class="col-sm-4"> 
+                    <div class="form-group">                                                                                                
+                        <input type="text" id="phoneNumber_3" name="phoneNumber_3" 
+                        class="form-control" placeholder="(___) ___ __ __"  ng-model="phone_id">
+                    </div>                                                            
+                    <div class="form-group">                                                                                                
+                        <input type="text" id="email" name="email" 
+                        class="form-control" placeholder="E-Posta Adresi" ng-model="email_id"> 
+                    </div>   
+                </div>
+        </div>
+        <div class="row">
+            <h3><b>ÜRÜN SEÇİMİ</b></h3>
+            <div class="form-group">                                                                                                                    
+                <select class="form-control" ng-model="singleSelect" ng-change="update()">
+                    <option value="">Ürün Seçiniz *</option> 
+                    <option ng-repeat="option in data" value="{{option.name}}">{{option.name}}</option>
+                 </select>
+            </div>                                                                                                                                                                                                                       
+            <div class="form-group">                                                                                                                                            
+                 <select class="form-control">
+                    <option value="">İş Emri Türü Seçiniz *</option> 
+                    <option ng-repeat="option in workordertype" value="{{option.name}}">{{option.name}}</option>                    
+                </select>
+            </div>
+            <div class="form-group">                                                                                                                                            
+                <select class="form-control">
+                    <option value="">Satış Noktası Seçiniz *</option> 
+                </select>
+            </div>                                                                                                                                                                                                        
+        </div>
+        <div class="row" >
+            <h3><b>MÜŞTERİ ADRESİ</b></h3>
+                <div class="form-group">                                                                                                                    
+                    <select class="form-control">
+                        <option value="">Teslimat İli Seçiniz *</option> 
+                     </select>
+                </div>                                                                                                                                                                                                                       
+                <div class="form-group">                                                                                                                                            
+                     <select class="form-control">
+                        <option value="">Teslimat İlçesi Seçiniz *</option> 
+                    </select>
+                </div>
+                <div class="form-group">                                                                                                                                            
+                    <select class="form-control">
+                        <option value="">Teslimat Mahallesi Seçiniz *</option> 
+                    </select>
+                </div> 
+                <input type="text" id="adres" name="adres" 
+                class="form-control" placeholder="Adres*" ng-model="adres_id">                                                                                                                                                                                                       
+        </div>
+        <div class="row">
+            <h3><b>EK BİLGİLER</b></h3>    
+            
+                <div class="form-group">                                
+                    <input type="text" id="satis" name="satis" 
+                        class="form-control" placeholder="Satış Yetkilisi" ng-model="satis_id">
+                </div> 
+                <div class="form-group">                                                            
+                <input type="text" id="phoneNumber" name="phoneNumber" 
+                        class="form-control" placeholder="(___) ___ __ __">
+                </div>  
+                <div class="form-group">
+                    <input type="text" id="isemri_notu" name="isemri_notu" 
+                    class="form-control" placeholder="İş Emri Notu">                       
+                </div> 
+                <div class="form-group" ng-controller="DatepickerDemoCtrl">                                                                                                                                        
+                    <pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>
+                    <div style="display:inline-block; min-height:290px;">
+                        <datepicker ng-model="dt" min-date="minDate" show-weeks="true" class="well well-sm"></datepicker>
+                    </div>   
+                </div> 
+                <div class="form-group" ng-controller="updatingDB">                                                                                                                                        
+                    <button type="button" class="btn btn-success btn-lg btn-block" ng-click="customer()">İŞ EMRİ OLUŞTUR</button>                                                                                                                                                              
+                    <footer>&copy; 2017 Arçelik All rights reserved.</footer>   
+                </div>             
+        </div>
+    </div>
+    <div class="box3" ng-show="activation_query">
+        <div class="row">
+            <div class="col-sm-3 form-group">                                
+               <input type="text" id="name" name="name" 
+                    class="form-control" placeholder="Ad" ng-model="name_id">
+            </div> 
+            <div class="col-sm-3 form-group">                                                                
+                <input type="text" id="surname" name="surname" 
+                    class="form-control" placeholder="Soyad" ng-model="surname_id">
+            </div>                                                                             
+            <div class="col-sm-3 form-group">                                                                                                
+                <input type="text" id="phoneNumber_3" name="phoneNumber_3" 
+                    class="form-control" placeholder="(___) ___ __ __"  ng-model="phone_id">
+            </div>     
+            <div class="col-sm-3 form-group">                                                                                                
+                <button type="button" class="btn btn-success btn-lg btn-block">ARA</button>                                                                                                                                                                                  
+            </div>                                                                    
+        </div>
+        <div class="row" ng-show="query">
+            <div class="col-lg-1">    
+                <h6>İş Emri No </h6>                    
+            </div>
+            <div class="col-lg-1">  
+                <h6>Ürün</h6>                                        
+            </div>
+            <div class="col-lg-1">
+                <h6>İş Emri Türü</h6>                                                            
+            </div>
+            <div class="col-lg-1">  
+                <h6>Müşteri</h6>                                                            
+            </div>
+            <div class="col-lg-1">     
+                <h6>Sevk Noktası</h6>                                                                                
+            </div>
+            <div class="col-lg-1">
+            </div>
+            <div class="col-lg-1">
+                <h6>Teslimat Adr.</h6>                                                                                                    
+            </div>
+            <div class="col-lg-1">
+            </div>
+            <div class="col-lg-1">  
+                <h6>İş Emri Durumu </h6>                                                                                                                        
+            </div>             
+            <div class="col-lg-1">                                                                                                                                                                                                                                                         
+                <h6>At. Yet. Servis </h6>
+            </div>       
+            <div class="col-lg-1">                                                                                                                                                                                                                                                       
+                <h6>İş Teslimat Tarihi </h6>
+            </div>         
+            <div class="col-lg-1">
+            </div>     
+            <div class="col-lg-1">                                                                                                                                                                                                                                                            
+                <h6>Plan. Randevu Tarihi </h6>
+            </div>                
+        </div>
+    </div>
+        </center>                
+    </div>
+  </body>
+</html>
+
+
+
+

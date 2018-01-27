@@ -9,8 +9,8 @@ testApp.controller('testController' , function ($scope, $http, $window) {
        }) 
        .then(function(response){ 
            $scope.data = response.data;
-        /*   var url = "http://10.134.51.93:8080/redirect.html";
-           $window.location = url;*/
+           var url = "https://thworkorder.azurewebsites.net/redirect.html";
+           $window.location = url;
         })
        .error(function (response) {
            $scope.data = response.data; 
