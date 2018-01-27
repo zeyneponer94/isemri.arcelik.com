@@ -7,7 +7,7 @@ var express = require('express'),
 
 var logFmt = require("logfmt");
 
-app.set('views', __dirname + '/views') ;
+//app.set('views', __dirname + '/views') ;
 
 /*
 app.get('/' , function(req,res) {
@@ -15,13 +15,14 @@ app.get('/' , function(req,res) {
 } );
 */
 app.get('/', function(req, res) {
-    res.sendfile('views/index.html')
-
+    //res.sendfile('views/index.html')
+    res.sendFile('index.html', { root: path.join(__dirname, '../views') });
+    
 });
 
-app.get('/redirect.html' , function(req,res) {
-    res.render('views/redirect.html')
-} );
+app.get('/redirect' , function(req,res) {
+    res.sendFile('redirect.html', { root: path.join(__dirname, '../views') });
+});
 
 
 app.set('port', process.env.PORT || 1337);
