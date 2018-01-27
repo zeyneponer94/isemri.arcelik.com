@@ -1,5 +1,5 @@
 var testApp = angular.module("testApp", []);
-testApp.controller('testController' , function ($scope, $http, $window) {
+testApp.controller('testController' , function ($scope, $http, $window, $routeProvider) {
     //$return dene!
     $scope.data = "not yet";    
     $scope.submit = function () {
