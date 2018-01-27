@@ -15,7 +15,7 @@ app.get('/' , function(req,res) {
 } );
 
 app.get('/redirect' , function(req,res) {
-    res.sendfile('views/redirect.html');
+    res.render('views/redirect.html');
 } );
 
 
