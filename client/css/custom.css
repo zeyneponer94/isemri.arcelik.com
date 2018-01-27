@@ -39,10 +39,9 @@ body{
 }
 .user-image-section img{
     background-color: rgb(255, 255, 255);
-    padding:30px;
-    height:150px;
-    width:250px;
-    border-radius: 50%;
+    padding:10px;
+    height:100px;
+    width:200px;
 }
 .user-welcoming{
     padding:20px;
