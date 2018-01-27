@@ -9,7 +9,7 @@ testApp.controller('testController' , function ($scope, $http, $window) {
        }) 
        .then(function(response){ 
            $scope.data = response.data;
-           var url = "https://thworkorder.azurewebsites.net/redirect.html";
+           var url = "http://localhost:1337/redirect.html";
            $window.location = url;
         })
        .error(function (response) {
