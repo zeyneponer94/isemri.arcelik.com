@@ -45,9 +45,10 @@ body{
 }
 .user-image-section-2 {
     background-color: rgb(255, 255, 255);
-    padding:55px;
+    padding:35px;
     height:75px;
     width:150px;
+    left:100;
 }
 .user-welcoming{
     padding:20px;
