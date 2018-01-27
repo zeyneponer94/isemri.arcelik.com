@@ -7,14 +7,22 @@ testApp.controller('testController' , function ($scope, $http, $window) {
             url: 'https://thworkorderfapp.azurewebsites.net/api/HttpTriggerSqlDatabse2', 
             params: {name:$scope.username_id, password:$scope.password_id}
        }) 
-       .then(function(response){ 
-           $scope.data = response.data;
-           var url = "http://localhost:1337/redirect.html";
-           $window.location = url;
+       .then(function(response){
+            $scope.redirect(); 
         })
        .error(function (response) {
            $scope.data = response.data; 
        });
+    } 
+
+    $scope.redirect = function () {
+        $http({method: 'GET', url: '/redirect'}).
+        success(function(data, status) { 
+          $scope.dataset = data; 
+        }).
+        error(function(data, status) {
+          $scope.dataset = data || "Request failed "; 
+      });
     } 
 /*    
     $scope.accessDatabase = function () {
