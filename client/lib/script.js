@@ -8,7 +8,6 @@ testApp.controller('testController' , function ($scope, $http, $window) {
             params: {name:$scope.username_id, password:$scope.password_id}
        }) 
        .then(function(response){
-            alert("1");
             $scope.redirect(); 
         })
        .error(function (response) {
@@ -17,14 +16,10 @@ testApp.controller('testController' , function ($scope, $http, $window) {
     } 
 
     $scope.redirect = function () {     
-        alert("2");   
         $http({method: 'GET', url: '/redirect'}).
         then(function(response) { 
           $scope.data = response.data; 
-        }).
-        error(function(response) {
-          $scope.data = response.data || "Request failed "; 
-      });
+        });
     } 
 /*    
     $scope.accessDatabase = function () {
