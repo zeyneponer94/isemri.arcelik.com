@@ -16,6 +16,13 @@ body{
     position:absolute;
     width: 100%;
 }
+.main-section-redirect{
+    bottom:0px;
+    top:0px;
+    margin: 0px;
+    position:absolute;
+    width: 100%;
+}
 .user-login-header,.login-image-main{
     margin-top: 15px;
 }
