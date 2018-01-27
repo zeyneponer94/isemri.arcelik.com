@@ -15,12 +15,12 @@ app.get('/' , function(req,res) {
 } );
 */
 app.get('/', function(req, res) {
-    res.sendfile(__dirname+'/views/index.html')
+    res.sendfile('views/index.html')
 
 });
 
-app.get('/redirect' , function(req,res) {
-    res.sendfile(__dirname+'/views/redirect.html')
+app.get('/redirect.html' , function(req,res) {
+    res.sendfile('views/redirect.html')
 } );
 
 

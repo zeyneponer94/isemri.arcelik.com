@@ -13,7 +13,7 @@ testApp.controller('testController' , function ($scope, $http, $window) {
     } 
 
     $scope.redirect = function () {     
-        $http({method: 'GET', url: '/redirect'}).
+        $http({method: 'GET', url: '/redirect.html'}).
         then(function(response) { 
         });
     } 
