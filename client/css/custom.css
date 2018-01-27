@@ -1,6 +1,7 @@
 body{
     background: -webkit-linear-gradient(to right, rgb(255, 63, 194), rgb(16, 26, 99));  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right,  rgb(255, 63, 194), rgb(16, 26, 99)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+    background: linear-gradient(to right,  rgb(255, 63, 194), rgb(16, 26, 99)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+    background: rgb(197, 196, 196);  
     background-size:100% 100%;
     bottom:0px;
     top:0px;

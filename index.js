@@ -14,7 +14,8 @@ app.get('/', function(req, res) {
 });
 
 app.get('/views/redirect.html' , function(req,res) {
-    res.sendfile(__dirname + '/views/redirect.html')
+    //res.sendfile(__dirname + '/views/redirect.html');
+    res.sendfile('https://thworkorder.azurewebsites.net/redirect.html');
 });
 
 
