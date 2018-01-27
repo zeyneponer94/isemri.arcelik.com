@@ -8,7 +8,6 @@ testApp.controller('testController' , function ($scope, $http, $window, $routePr
             params: {name:$scope.username_id, password:$scope.password_id}
        }) 
        .then(function(response){
-            $scope.redirect(); 
         });
     } 
 
