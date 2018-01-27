@@ -14,8 +14,10 @@ app.get('/', function(req, res) {
 });
 
 app.get('/views/redirect.html' , function(req,res) {
-    res.redirect(__dirname + '/views/redirect.html');
+    res.sendFile(path.join(__dirname, '../views/redirect.html'));    
+    //res.sendfile(__dirname + '/views/redirect.html');
 });
+
 
 
 app.set('port', process.env.PORT || 1337);
