@@ -18,11 +18,11 @@ app.get('/', function(req, res) {
     res.sendfile(__dirname+'/views/index.html')
 
 });
-/*
+
 app.get('/redirect' , function(req,res) {
     res.sendfile(__dirname+'/views/redirect.html')
 } );
-*/
+
 
 app.set('port', process.env.PORT || 1337);
 
