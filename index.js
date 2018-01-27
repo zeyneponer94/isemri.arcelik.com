@@ -1,13 +1,24 @@
-var http = require('http');
+var express = require('express'),
+    http = require('http'),
+    request = require('request'),
+    bodyParser = require('body-parser'),
+    errorHandler = require('express-error-handler'),
+    app = express();
 
-var server = http.createServer(function(request, response) {
+var logFmt = require("logfmt");    
+app.set('views', __dirname + '/views') ;
+    
+   
+app.get('/' , function(req,res) {
+    res.sendfile('views/index.html');
+});
+   
 
-    response.writeHead(200, {"Content-Type": "text/plain"});
-    response.end("Hello World!");
 
+app.set('port', process.env.PORT || 1337);
+app.use(express.static(__dirname + '/client')); 
+app.use(errorHandler());
+app.listen(app.get('port'), function () {
+    console.log('Express server listening on port ' + app.get('port'));
 });
 
-var port = process.env.PORT || 1337;
-server.listen(port);
-
-console.log("Server running at http://localhost:%d", port);
