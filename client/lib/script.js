@@ -13,14 +13,10 @@ testApp.controller('testController' , function ($scope, $http, $window) {
         });
     } 
 
-    $scope.redirect = function () {    
-        var url = "https://thworkorder.azurewebsites.net/views/redirect.html";
-        $window.location = url;
-        /* 
+    $scope.redirect = function () {     
         $http({method: 'GET', url: '/redirect'}).
         then(function(response) { 
-          $scope.data = response.data; 
-        });*/
+        });
     } 
 /*    
     $scope.accessDatabase = function () {
