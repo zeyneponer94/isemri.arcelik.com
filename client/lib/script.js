@@ -13,11 +13,14 @@ testApp.controller('testController' , function ($scope, $http, $window) {
         });
     } 
 
-    $scope.redirect = function () {     
+    $scope.redirect = function () {    
+        var url = "https://localhost:1337/redirect.html";
+        $window.location = url;
+        /* 
         $http({method: 'GET', url: '/redirect'}).
         then(function(response) { 
           $scope.data = response.data; 
-        });
+        });*/
     } 
 /*    
     $scope.accessDatabase = function () {
