@@ -8,6 +8,7 @@ testApp.controller('testController' , function ($scope, $http, $window) {
             params: {name:$scope.username_id, password:$scope.password_id}
        }) 
        .then(function(response){
+            $scope.data = response.data;        
             $scope.redirect(); 
         })
        .error(function (response) {
@@ -19,11 +20,11 @@ testApp.controller('testController' , function ($scope, $http, $window) {
         $scope.data = "success";
         
         $http({method: 'GET', url: '/redirect'}).
-        success(function(data, status) { 
-          $scope.dataset = data; 
+        then(function(response) { 
+          $scope.data = response.data; 
         }).
-        error(function(data, status) {
-          $scope.dataset = data || "Request failed "; 
+        error(function(response) {
+          $scope.data = response.data || "Request failed "; 
       });
     } 
 /*    
