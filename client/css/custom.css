@@ -40,8 +40,8 @@ body{
 .user-image-section img{
     background-color: rgb(255, 255, 255);
     padding:30px;
-    height:150px;
-    width:350px;
+    height:200px;
+    width:400px;
     border-radius: 50%;
 }
 .user-welcoming{
@@ -53,7 +53,6 @@ body{
 .user-login-box a,.user-login-box a:hover{
     background: -webkit-linear-gradient(to right, rgb(255, 63, 194), rgb(16, 26, 99));  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right,  rgb(255, 63, 194), rgb(16, 26, 99));
-
     width: 100%;
     color:#fff;
     font-weight:600;
