@@ -4,7 +4,7 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     errorHandler = require('express-error-handler'),
     app = express();
-
+var router = express.Router();
 var logFmt = require("logfmt");
 
 app.set('views', __dirname + '/views') ;
@@ -14,7 +14,7 @@ app.get('/' , function(req,res) {
     res.sendfile('views/index.html');
 } );
 
-app.get('/redirect' , function(req,res) {
+router.get('/redirect' , function(req,res) {
     res.render('views/redirect.html');
 } );
 
