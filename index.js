@@ -13,10 +13,10 @@ app.set('views', __dirname + '/views') ;
 app.get('/' , function(req,res) {
     res.sendfile('views/index.html');
 } );
-app.get('/redirect' , function(req,res) {
-    res.sendfile(path.join(__dirname+'/redirect.html'));
-} );
 
+app.get('/redirect' , function(req,res) {
+    res.send('views/redirect.html');
+} );
 
 
 app.set('port', process.env.PORT || 1337);
