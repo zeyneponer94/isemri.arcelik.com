@@ -16,12 +16,14 @@ app.get('/' , function(req,res) {
 */
 app.get('/', function(req, res) {
     //res.sendfile('views/index.html')
-    res.sendFile('index.html', { root: path.join(__dirname, '../views') });
+    res.sendFile('../views/index.html', {root: __dirname});
+    //res.sendFile('index.html', { root: path.join(__dirname, '../views') });
     
 });
 
 app.get('/redirect' , function(req,res) {
-    res.sendFile('redirect.html', { root: path.join(__dirname, '../views') });
+    res.sendFile('../views/redirect.html', {root: __dirname});    
+    //res.sendFile('redirect.html', { root: path.join(__dirname, '../views') });
 });
 
 
