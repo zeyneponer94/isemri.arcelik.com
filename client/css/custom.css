@@ -1,6 +1,6 @@
 body{
-    background: -webkit-linear-gradient(to right, #1D2671, rgb(241, 26, 170));  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, rgb(26, 37, 121), #C33764); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+    background: -webkit-linear-gradient(to right, rgb(255, 63, 194), rgb(16, 26, 99));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right,  rgb(255, 63, 194), rgb(16, 26, 99)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
     background-size:100% 100%;
     bottom:0px;
     top:0px;
@@ -51,8 +51,9 @@ body{
     padding:20px;
 }
 .user-login-box a,.user-login-box a:hover{
-    background-color: rgb(10, 163, 35);
-    border:1px solid rgb(10, 163, 35);
+    background: -webkit-linear-gradient(to right, rgb(255, 63, 194), rgb(16, 26, 99));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right,  rgb(255, 63, 194), rgb(16, 26, 99));
+
     width: 100%;
     color:#fff;
     font-weight:600;
