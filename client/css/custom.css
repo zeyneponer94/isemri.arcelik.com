@@ -43,6 +43,9 @@ body{
     width:350px;
     border-radius: 50%;
 }
+.user-welcoming{
+    padding:20px;
+}
 .user-login-box,.last-part{
     padding:20px;
 }
