@@ -14,7 +14,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/workorder' , function(req,res) {
-    res.sendFile('views/redirect.html', {root: __dirname });   
+    res.sendfile('views/redirect.html', {root: __dirname });   
     //res.sendfile(__dirname + '/views/redirect.html');
 });
 
