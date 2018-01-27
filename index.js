@@ -14,8 +14,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/views/redirect.html' , function(req,res) {
-    //res.redirect('https://' + req.get('host') + req.url)
-    res.redirect(__dirname + '/redirect.html');    
+    res.sendfile(__dirname + '/views/redirect.html')
 });
 
 
