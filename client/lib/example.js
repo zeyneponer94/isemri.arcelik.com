@@ -69,7 +69,7 @@
          
       }
    });
-   
+
    app.controller('DatepickerDemoCtrl', function ($scope) {
     $scope.today = function() {
       $scope.dt = new Date();
@@ -82,8 +82,3 @@
   
     $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
   });
-
-  app.controller('productInfo', function($scope, $http) {
-    $http.get("customers.php")
-    .then(function (response) {$scope.products = response.data.records;});
-});
