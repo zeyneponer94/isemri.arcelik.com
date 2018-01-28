@@ -35,7 +35,7 @@
        $scope.queryWorkOrder = function () {
          $scope.activation = false;
          $scope.activation_query=true;
-
+/*
          $http({
           method: "GET",        
           url: 'https://thworkorderfapp.azurewebsites.net/api/HttpTrigger_WorkOrderType', 
@@ -45,7 +45,7 @@
         })
        .error(function (response) {
           $scope.data = response.data; 
-        })
+        }) */
 
       }
       $scope.createWorkOrder = function () {
@@ -55,6 +55,7 @@
 
     });
     app.controller('updatingDB', function ($scope, $http, $q) {
+      //sends customer info as parameter to check whether operating user exists or not. if not new customer is created.
       $scope.customer = function () {
           $http({
             method: "GET",        
@@ -68,6 +69,7 @@
          
       }
    });
+   
    app.controller('DatepickerDemoCtrl', function ($scope) {
     $scope.today = function() {
       $scope.dt = new Date();
