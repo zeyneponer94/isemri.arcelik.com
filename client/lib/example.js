@@ -1,7 +1,7 @@
     app = angular.module('myApp', [])
     app.controller('myController', function ($scope, $http,$q) {
         $scope.activation = true;  
-        $scope.query = true;      
+        $scope.query = false;      
         //connecting to azure db, getting required records from specified table and displaying them in selection list
         $http({
           method: "GET", 
@@ -35,6 +35,7 @@
        $scope.queryWorkOrder = function () {
          $scope.activation = false;
          $scope.activation_query=true;
+         $scope.query=false;
 /*
          $http({
           method: "GET",        
