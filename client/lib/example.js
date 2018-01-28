@@ -1,4 +1,4 @@
-    app = angular.module('myApp', ['ui.bootstrap'])
+    app = angular.module('myApp', [])
     app.controller('myController', function ($scope, $http,$q) {
         $scope.activation = true;  
         $scope.query = true;      
