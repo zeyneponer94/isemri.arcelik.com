@@ -2,7 +2,7 @@
     app.controller('myController', function ($scope, $http,$q) {
         $scope.activation = true;  
         $scope.query = true;      
-        
+        //connecting to azure db, getting required records from specified table and displaying them in selection list
         $http({
           method: "GET", 
           url: 'https://thworkorderfapp.azurewebsites.net/api/getProductList',           
@@ -14,7 +14,7 @@
                 {name: ""+response.data[1]}
               ];       
         });
-
+        //when user selects a product from selection list, ng-change calls that function to get the work order types available for chosen product
         $scope.update = function() {
           $http({
             method: "GET", 
