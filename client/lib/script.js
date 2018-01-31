@@ -115,7 +115,7 @@ testApp.controller('testController' , ['$scope','$http','$window', function ($sc
           //xhr.setRequestHeader("Cache-Control", "no-cache");
           //xhr.setRequestHeader("Postman-Token", "62c7c72a-6088-d796-6495-c41e526c85aa");
           xhr.setRequestHeader("Access-Control-Allow-Origin", "*");          
-          //xhr.setRequestHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");       
+          xhr.setRequestHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");       
           xhr.setRequestHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
           
           xhr.withCredentials = false;
