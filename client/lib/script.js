@@ -180,9 +180,9 @@ var data = JSON.stringify({
           xhr.setRequestHeader("Postman-Token", "228cda55-1f70-8fb0-4fdc-5994783f19a2");
 
 
-          xhr.setRequestHeader("Access-Control-Allow-Origin", "*");          
-          xhr.setRequestHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Cache-Control,Content-Encoding ,Date, SessionToken, Cache-Control, Postman-Token, Origin,Accept, X-Requested-With, Content-Type,Server,Set-Cookie,Transfer-Encoding,X-AspNet-Version ,X-IP,X-Powered-By, Access-Control-Request-Method, Access-Control-Request-Headers, Access-Control-Allow-Origin");       
-          xhr.setRequestHeader("Access-Control-Allow-Methods", "POST");
+          //xhr.setRequestHeader("Access-Control-Allow-Origin", "*");          
+          //xhr.setRequestHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Cache-Control,Content-Encoding ,Date, SessionToken, Cache-Control, Postman-Token, Origin,Accept, X-Requested-With, Content-Type,Server,Set-Cookie,Transfer-Encoding,X-AspNet-Version ,X-IP,X-Powered-By, Access-Control-Request-Method, Access-Control-Request-Headers, Access-Control-Allow-Origin");       
+          //xhr.setRequestHeader("Access-Control-Allow-Methods", "POST");
           
           xhr.withCredentials = true;
           
