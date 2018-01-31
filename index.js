@@ -79,10 +79,31 @@ body:
            SectorId: '01' } ] } },
 json: true };
 
+
+request(options)
+.then(function (response) {
+    res.send(response);
+  // Handle the response
+})
+.catch(function (err) {
+    res.send(err);
+    
+  // Deal with the error
+})
+/*
 request(options, function (error, response, body) {
-    if (error) throw new Error(error);
-    res.send(response.statusMessage);
-});
+
+
+
+
+    if (!error && response.statusCode == 200) {
+        res.send(body);
+      } else {
+        res.send(error);
+      }
+    //if (error) throw new Error(error);
+    //res.send(response.statusMessage);
+});*/
     
         
     
