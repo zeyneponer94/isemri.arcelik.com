@@ -17,6 +17,10 @@ app.get('/workorder' , function(req,res) {
     res.sendfile('views/redirect.html', {root: __dirname });   
 });
 
+app.get('/json' , function(req,res) {
+    res.sendfile(__dirname + '/client/lib/header.json');        
+});
+
 app.set('port', process.env.PORT || 1337);
 
 app.use(express.static(__dirname + '/client')); 
