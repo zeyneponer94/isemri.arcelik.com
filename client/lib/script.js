@@ -112,8 +112,8 @@ testApp.controller('testController' , ['$scope','$http','$window', function ($sc
           xhr.open("POST", "https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService");
           xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
           xhr.setRequestHeader("SessionToken", "Guld");
-          xhr.setRequestHeader("Cache-Control", "no-cache");
-          xhr.setRequestHeader("Postman-Token", "62c7c72a-6088-d796-6495-c41e526c85aa");
+          //xhr.setRequestHeader("Cache-Control", "no-cache");
+          //xhr.setRequestHeader("Postman-Token", "62c7c72a-6088-d796-6495-c41e526c85aa");
           xhr.setRequestHeader("Access-Control-Allow-Origin", "*");          
           xhr.setRequestHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");       
           xhr.setRequestHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
