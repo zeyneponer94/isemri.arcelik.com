@@ -1,15 +1,12 @@
 var testApp = angular.module("testApp", []);
-testApp.controller('testController' , ['$scope','$http','$window','$q', function ($scope, $http, $window,$q) {
+testApp.controller('testController' , ['$scope','$http','$window', function ($scope, $http, $window) {
     //$return dene!
     $scope.submit = function () {
         var deferred = $q.defer();
 
         $http({method: 'GET', url: '/json'}).
-        success(function(data, status) { 
-            alert(status);
-            alert(data.headers);
-            alert(data.resolve)
-            deferred.resolve(data);
+        then(function(response) { 
+            alert(response.data);
             $scope.data = angular.fromJson(data);
             $http({
                 method: 'POST',
@@ -24,10 +21,7 @@ testApp.controller('testController' , ['$scope','$http','$window','$q', function
                 alert("failed!");
             });
 
-        }).
-        error(function(data, status) {
         });
-
     
 
 
