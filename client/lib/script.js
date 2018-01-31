@@ -13,7 +13,7 @@ testApp.controller('testController' , function ($scope, $http, $window) {
           method:'POST',
           body:formData   
         }).then(function(res) {
-          alert(res);
+          alert(res.status);
         }).catch(function(e) {
           alert(e);
         });
