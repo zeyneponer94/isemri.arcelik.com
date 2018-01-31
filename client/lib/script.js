@@ -101,7 +101,7 @@ testApp.controller('testController' , ['$scope','$http','$window', function ($sc
           var data = null;
           
           var xhr = new XMLHttpRequest();
-          xhr.withCredentials = true;
+          //xhr.withCredentials = true;
           
           xhr.addEventListener("readystatechange", function () {
             if (this.readyState === 4) {
