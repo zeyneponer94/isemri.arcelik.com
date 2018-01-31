@@ -17,7 +17,7 @@ testApp.controller('testController' , function ($scope, $http, $window) {
         }).catch(function(e) {
           alert(e);
         });
-
+    }
 
         /*
         $http({
