@@ -3,20 +3,26 @@ testApp.controller('testController' , function ($scope, $http, $window) {
     //$return dene!
     $scope.submit = function () {
 
-
-
-        var file = new File([""],"/application/header.json");                      
-        var formData = new FormData();
-        formData.append("myJsonFile",file);    
-
-        fetch('https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc?wsdl', {
-          method:'POST',
-          body:formData   
-        }).then(function(res) {
-          alert(res.status);
-        }).catch(function(e) {
-          alert(e);
+        $http.get('header.json')
+        .success(function(result) {
+                $scope.data = angular.fromJson(result);
+                alert($scope.data)
+                $http({
+                    method: 'POST',
+                    url: "https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc?wsdl",
+                    headers: { 'Content-Type': false },
+                    body: $scope.data
+                }).
+                success(function (data, status, headers, config) {
+                    alert("success!");
+                }).
+                error(function (data, status, headers, config) {
+                    alert("failed!");
+                });
         });
+    
+
+
     }
 
         /*
