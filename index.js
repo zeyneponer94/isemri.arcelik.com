@@ -11,9 +11,9 @@ var logFmt = require("logfmt");
 
 app.get('/', function(req, res) {
     res.sendfile(__dirname + '/views/index.html'); 
+    console.log("heyo");
     
-    var request = require("request");
-    
+        
     var options = { method: 'POST',
       url: 'https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService',
       headers: 
@@ -84,7 +84,7 @@ app.get('/', function(req, res) {
     request(options, function (error, response, body) {
       if (error) throw new Error(error);
     
-      alert(body);
+      console.log(body);
     });
 });
 
