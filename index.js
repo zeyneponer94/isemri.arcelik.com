@@ -11,7 +11,7 @@ var logFmt = require("logfmt");
 
 app.get('/', function(req, res) {
 
-
+    res.sendfile(__dirname + '/views/index.html');        
      
     var options = { method: 'POST',
     url: 'https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService',
@@ -25,7 +25,6 @@ app.get('/', function(req, res) {
       if (error) throw new Error(error);
     
       alert(body);
-    res.sendfile(__dirname + '/views/index.html');    
 });
 
 app.get('/workorder' , function(req,res) {
