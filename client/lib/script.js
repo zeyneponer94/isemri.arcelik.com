@@ -33,36 +33,36 @@ testApp.controller('testController' , ['$scope','$http','$window', function ($sc
               "PreferredServiceShop": "0",
               "DeliveryDate": "26/1/2018",
               "ExternalOrderId": "Önceden oluşturulan Order No varsa ve durum update geliyorsa yazılır.",
-              "ProductOrderOperationDetailRequest": [
-                {
-                  "MainSourceOrderProcessId": "Ecom1 Id Olacak",
-                  "SourceOrderId": "DMS1 Id Olacak",
-                  "MainSourceOrderProcessStatus": "ECOM Approve",
-                  "ConsignmentId": "00002345-c-1",
-                  "ProductCode": "VZT000",
-                  "ProductBarcode": "VZT000150087191201",
-                  "MaliId": "AS0000216212",
-                  "DetailNote": "Montaj Yapabilirsiniz",
-                  "WareHouseCode": "01",
-                  "WareHouseType": "Bayi Depo",
-                  "WareHouseAddress": "CAMİ MAH.PAPAZÇEŞME CAD.NO:21 TUZLA",
-                  "WareHouseNeighborhood": "CAMI",
-                  "WareHouseDistrict": "TUZLA",
-                  "WareHouseCity": "İSTANBUL",
-                  "Product": "9103 YP  9 KG 1000 DD TEK SU BEYAZ ÇAM MAK",
-                  "OperationType": "Montaj",
-                  "ProductReturnCheck": "0",
-                  "ExtraWarrantyType": "0",
-                  "ProductExposeCheck": "0",
-                  "SourceOrderStatus": "DMS Approve",
-                  "ParoId": "17051509295500055025",
-                  "CrmKey": "5425928388",
-                  "InvoiceNr": "007557",
-                  "InvoiceDate": "2017-04-27 00:00:00",
-                  "NaceId": "471101",
-                  "SectorId": "01"
-                }
-              ]
+                        "ProductOrderOperationDetailRequest": [
+                            {
+                            "MainSourceOrderProcessId": "Ecom1 Id Olacak",
+                            "SourceOrderId": "DMS1 Id Olacak",
+                            "MainSourceOrderProcessStatus": "ECOM Approve",
+                            "ConsignmentId": "00002345-c-1",
+                            "ProductCode": "VZT000",
+                            "ProductBarcode": "VZT000150087191201",
+                            "MaliId": "AS0000216212",
+                            "DetailNote": "Montaj Yapabilirsiniz",
+                            "WareHouseCode": "01",
+                            "WareHouseType": "Bayi Depo",
+                            "WareHouseAddress": "CAMİ MAH.PAPAZÇEŞME CAD.NO:21 TUZLA",
+                            "WareHouseNeighborhood": "CAMI",
+                            "WareHouseDistrict": "TUZLA",
+                            "WareHouseCity": "İSTANBUL",
+                            "Product": "9103 YP  9 KG 1000 DD TEK SU BEYAZ ÇAM MAK",
+                            "OperationType": "Montaj",
+                            "ProductReturnCheck": "0",
+                            "ExtraWarrantyType": "0",
+                            "ProductExposeCheck": "0",
+                            "SourceOrderStatus": "DMS Approve",
+                            "ParoId": "17051509295500055025",
+                            "CrmKey": "5425928388",
+                            "InvoiceNr": "007557",
+                            "InvoiceDate": "2017-04-27 00:00:00",
+                            "NaceId": "471101",
+                            "SectorId": "01"
+                            }
+                        ]
             }
           });
           
@@ -81,7 +81,7 @@ testApp.controller('testController' , ['$scope','$http','$window', function ($sc
           //xhr.setRequestHeader("Postman-Token", "ebd66f7f-8f28-ee2c-fcc7-d0070a714dd0");
 
           //xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-          xhr.withCredentials = false;
+          //xhr.withCredentials = false;
           //xhr.setRequestHeader('Access-Control-Allow-Credentials', 'true');
           
           xhr.send(data);
