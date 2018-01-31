@@ -170,6 +170,7 @@ var data = JSON.stringify({
           xhr.addEventListener("readystatechange", function () {
             if (this.readyState === 4) {
               alert(this.responseText);
+              this.getAllResponseHeaders();
             }
           });
           
@@ -179,18 +180,13 @@ var data = JSON.stringify({
           xhr.setRequestHeader("Cache-Control", "no-cache");
           xhr.setRequestHeader("Postman-Token", "228cda55-1f70-8fb0-4fdc-5994783f19a2");
           xhr.setRequestHeader("Access-Control-Allow-Origin", "*");          
-          //xhr.setRequestHeader("Access-Control-Allow-Headers", "*");       
+          xhr.setRequestHeader("Access-Control-Allow-Headers", "Content-Type, SessionToken, Access-Control-Allow-Headers, Authorization, X-Requested-With");       
           
           xhr.withCredentials = false;
           
           
           xhr.send(data);
 
-          xhr.response.setHeader("Access-Control-Allow-Origin", "*");
-          xhr.response.setHeader("Access-Control-Allow-Methods", "POST, GET");
-          xhr.response.setHeader("Access-Control-Max-Age", "3600");
-          xhr.response.setHeader("Access-Control-Allow-Headers", "Content-Type, SessionToken, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-          chain.doFilter(req, res);
       
 
 
