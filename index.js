@@ -81,11 +81,11 @@ json: true };
 
 
 request(options)
-.then(function (response) {
+.success(function (response) {
     res.send(response);
   // Handle the response
 })
-.catch(function (err) {
+.error(function (err) {
     res.send(err);
     
   // Deal with the error
