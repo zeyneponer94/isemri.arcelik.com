@@ -4,15 +4,6 @@ testApp.controller('testController' , ['$scope','$http','$window', function ($sc
     $scope.submit = function () {
 
 
-        $http({method: 'GET', url: '/postman'}).
-        success(function(data, status) { 
-            alert(data);
-          $scope.dataset = data; 
-        }).
-        error(function(data, status) {
-            alert(data);
-          $scope.dataset = data || "Request failed "; 
-        });
 
         /*
         var data = JSON.stringify({
