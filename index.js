@@ -10,6 +10,10 @@ var logFmt = require("logfmt");
 //app.set('views', __dirname + '/views') ;
 
 
+
+app.get('/', function(req, res) {
+    //res.sendfile(__dirname + '/views/index.html'); 
+
 var options = { method: 'POST',
 url: 'https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService',
 headers: 
@@ -79,12 +83,9 @@ json: true };
 
 request(options, function (error, response, body) {
 if (error) throw new Error(error);
-
+res.send(body);
 console.log(body);
 });
-
-app.get('/', function(req, res) {
-    res.sendfile(__dirname + '/views/index.html'); 
     
         
     
