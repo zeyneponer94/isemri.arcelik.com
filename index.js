@@ -80,17 +80,7 @@ body:
 json: true };
 
 
-request(options)
-.success(function (response) {
-    res.send(response);
-  // Handle the response
-})
-.error(function (err) {
-    res.send(err);
-    
-  // Deal with the error
-})
-/*
+
 request(options, function (error, response, body) {
 
 
@@ -103,7 +93,7 @@ request(options, function (error, response, body) {
       }
     //if (error) throw new Error(error);
     //res.send(response.statusMessage);
-});*/
+});
     
         
     
