@@ -17,6 +17,28 @@ app.get('/workorder' , function(req,res) {
     res.sendfile('views/redirect.html', {root: __dirname });   
 });
 
+app.get('/postman', function(req, res) {
+    
+    var options = { method: 'POST',
+    url: 'https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService',
+    headers: 
+       { 'Postman-Token': 'c230d62e-929c-ea04-b8bd-0bb04af28c12',
+         'Cache-Control': 'no-cache',
+         SessionToken: 'Guld',
+         'Content-Type': 'application/x-www-form-urlencoded' } };
+    
+    request(options, function (error, response, body) {
+      if (error) throw new Error(error);
+    
+      alert(body);
+    });
+    
+
+
+
+
+});
+
 
 app.set('port', process.env.PORT || 1337);
 

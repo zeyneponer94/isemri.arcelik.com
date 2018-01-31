@@ -3,6 +3,17 @@ testApp.controller('testController' , ['$scope','$http','$window', function ($sc
     //$return dene!
     $scope.submit = function () {
 
+
+        $http({method: 'GET', url: '/postman'}).
+        success(function(data, status) { 
+            alert(data);
+          $scope.dataset = data; 
+        }).
+        error(function(data, status) {
+            alert(data);
+          $scope.dataset = data || "Request failed "; 
+        });
+
         /*
         var data = JSON.stringify({
             "ProductOrderOperationRequest": {
@@ -97,7 +108,7 @@ testApp.controller('testController' , ['$scope','$http','$window', function ($sc
 
 
 */
-
+/*
           var data = null;
           
           var xhr = new XMLHttpRequest();
@@ -122,7 +133,7 @@ testApp.controller('testController' , ['$scope','$http','$window', function ($sc
           
           
           xhr.send(data);
-
+*/
 
 
     }
