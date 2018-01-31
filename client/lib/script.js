@@ -1,5 +1,5 @@
 var testApp = angular.module("testApp", []);
-testApp.controller('testController' , ['$http','$q' function ($scope, $http, $window) {
+testApp.controller('testController' , ['$scope','$http','$window','$q', function ($scope, $http, $window,$q) {
     //$return dene!
     $scope.submit = function () {
         var deferred = $q.defer();
