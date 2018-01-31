@@ -7,7 +7,7 @@ testApp.controller('testController' , function ($scope, $http, $window) {
         $http({method: 'GET', url: '/json'}).
         success(function(data, status) { 
             $scope.data = angular.fromJson(data);
-            alert(data)
+            alert(data[0])
             $http({
                 method: 'POST',
                 url: "https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc?wsdl",
