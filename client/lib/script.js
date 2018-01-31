@@ -2,7 +2,6 @@ var testApp = angular.module("testApp", []);
 testApp.controller('testController' , ['$scope','$http','$window', function ($scope, $http, $window) {
     //$return dene!
     $scope.submit = function () {
-        var deferred = $q.defer();
 
         $http({method: 'GET', url: '/json'}).
         then(function(response) { 
