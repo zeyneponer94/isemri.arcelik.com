@@ -113,11 +113,11 @@ testApp.controller('testController' , ['$scope','$http','$window', function ($sc
           
           xhr.open("POST", "https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService");
           xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-          xhr.setRequestHeader("SessionToken", "Guld");
+          xhr.setRequestHeader("SessionToken", "12345678-1234-1234-1234-123456789101");
           xhr.setRequestHeader("Cache-Control", "no-cache");
           xhr.setRequestHeader("Postman-Token", "62c7c72a-6088-d796-6495-c41e526c85aa");
           xhr.setRequestHeader("Access-Control-Allow-Origin", "*");          
-          xhr.setRequestHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, SessionToken, Cache-Control, Postman-Token, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Access-Control-Allow-Origin");       
+          xhr.setRequestHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Cache-Control,Content-Encoding ,Date, SessionToken, Cache-Control, Postman-Token, Origin,Accept, X-Requested-With, Content-Type,Server,Set-Cookie,Transfer-Encoding,X-AspNet-Version ,X-IP,X-Powered-By, Access-Control-Request-Method, Access-Control-Request-Headers, Access-Control-Allow-Origin");       
           xhr.setRequestHeader("Access-Control-Allow-Methods", "POST");
           
           xhr.withCredentials = false;
