@@ -82,7 +82,7 @@ testApp.controller('testController' , ['$scope','$http','$window', function ($sc
 
           xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
           //xhr.withCredentials = false;
-          //xhr.setRequestHeader('Access-Control-Allow-Credentials', 'true');
+          xhr.setRequestHeader('Access-Control-Allow-Credentials', 'true');
           
           xhr.send(data);
 
