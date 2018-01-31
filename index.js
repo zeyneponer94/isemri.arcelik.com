@@ -81,7 +81,7 @@ json: true };
 
 request(options, function (error, response, body) {
     if (error) throw new Error(error);
-    res.send(body.response);
+    res.send(body.MainSourceApplicationProcces);
 });
     
         
