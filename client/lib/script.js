@@ -6,7 +6,6 @@ testApp.controller('testController' , ['$scope','$http','$window', function ($sc
         $http({method: 'GET', url: '/json'}).
         then(function(response) { 
             $scope.data = angular.fromJson(response.data);
-            alert($scope.data);
             $http({
                 method: 'POST',
                 url: "https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc?wsdl",
@@ -17,6 +16,10 @@ testApp.controller('testController' , ['$scope','$http','$window', function ($sc
                 alert("success!");
             }).
             error(function (data, status, headers, config) {
+                alert(data);
+                alert(status);
+                alert(headers);
+                alert(config);
                 alert("failed!");
             });
 
