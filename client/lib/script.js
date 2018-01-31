@@ -1,8 +1,8 @@
 var testApp = angular.module("testApp", []);
-testApp.controller('testController' , function ($scope, $http, $window) {
+testApp.controller('testController' , ['$http','$q' function ($scope, $http, $window) {
     //$return dene!
     $scope.submit = function () {
-
+        var deferred = $q.defer();
 
         $http({method: 'GET', url: '/json'}).
         success(function(data, status) { 
@@ -86,7 +86,7 @@ testApp.controller('testController' , function ($scope, $http, $window) {
         .error(function (data, status, headers, config) {
         });*/
  
-});
+}]);
 
 
 
