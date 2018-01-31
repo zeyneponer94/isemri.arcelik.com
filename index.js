@@ -83,7 +83,7 @@ json: true };
 
 request(options, function (error, response, body) {
 if (error) throw new Error(error);
-res.send("heyo");
+res.send(response);
 console.log(body);
 });
     
