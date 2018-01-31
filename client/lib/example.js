@@ -1,5 +1,5 @@
     app = angular.module('myApp', [])
-    app.controller('myController', function ($scope, $http,$q) {
+    app.controller('myController', function ($scope, $http) {
         $scope.activation = true;  
         $scope.query = false;      
         //connecting to azure db, getting required records from specified table and displaying them in selection list
@@ -56,8 +56,42 @@
 
     });
     app.controller('updatingDB', function ($scope, $http, $q) {
-      //sends customer info as parameter to check whether operating user exists or not. if not new customer is created.
-      $scope.customer = function () {
+      $scope.customer = function () {        
+
+        /*
+        var file = new File([""],"/application/header.json");
+        $http({
+          method: 'POST',
+          url: "https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc?wsdl",
+          headers: { 'Content-Type': false },
+          transformRequest: function (data) {
+              var formData = new FormData();
+              formData.append("myJsonFile",file);
+              return formData;
+          }
+        }).
+        success(function (data, status, headers, config) {
+          alert("success!");
+        }).
+        error(function (data, status, headers, config) {
+          alert("failed!");
+        });*/
+
+          // Post a user
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST','https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc?wsdl', true);
+            xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+            var file = new File([""],"/application/header.json");            
+            var formData = new FormData();
+            formData.append("myJsonFile",file);        
+            xhr.send(formData);
+            alert(xhr.response);
+
+            
+                    
+        //makeRequest('test.php',$scope.name_id); 
+        //sends customer info as parameter to check whether operating user exists or not. if not new customer is created.
+        /*
           $http({
             method: "GET",        
             url: 'https://thworkorderfapp.azurewebsites.net/api/UpdatingDB', 
@@ -68,8 +102,57 @@
             $scope.data = response.data;
           })
          
-      }
+    */
+   /*
+        Service = new ServicePaperService.ServicePaperServiceClient();
+        Result() = ServicePaperService.ProductOrderOperationReponse;        
+        using (new OperationContextScope(Service.InnerChannel))
+        {
+          requestMessage = new HttpRequestMessageProperty();  
+          requestMessage.Method = "POST";          
+          requestMessage.SuppressEntityBody = false;
+          client.Headers[HttpRequestHeader.ContentType] = "application/json";          
+
+          requestMessage.Headers["ServiceType"] = HttpContext.Current.Session("ServiceType");          
+          requestMessage.Headers("Guld") = HttpContext.Current.Session("Guld").ToString();
+          var response = client.UploadString(url, jsonObj);
+          responseMessage = new HttpResponseMessageProperty();
+          //convert json to xml
+          header = MessageHeader.CreateHeader(
+            "Service-Bound-CustomHeader",
+            "https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc?wsdl",
+            "Custom Happy Value."
+            );
+          OperationContext.Current.OutgoingMessageHeaders.Add(header);          
+          OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = requestMessage;
+          Result = Service.ProductOrderOperationService(Request);*/
+        
+        } 
+
+
    });
+/*
+   function makeRequest(url, userName) {
+    
+        httpRequest = new XMLHttpRequest();    
+        httpRequest.onreadystatechange = alertContents;
+        httpRequest.open('POST', url);
+        httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        httpRequest.send('userName=' + encodeURIComponent(userName));
+    }
+
+
+
+    function alertContents() {
+      if (httpRequest.readyState === XMLHttpRequest.DONE) {
+        if (httpRequest.status === 200) {
+          var response = JSON.parse(httpRequest.responseText);
+          alert(response.computedString);
+        } else {
+          alert('There was a problem with the request.');
+        }
+      }
+    }*/
 
    app.controller('DatepickerDemoCtrl', function ($scope) {
     $scope.today = function() {
