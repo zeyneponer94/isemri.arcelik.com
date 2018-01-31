@@ -2,6 +2,24 @@ var testApp = angular.module("testApp", []);
 testApp.controller('testController' , function ($scope, $http, $window) {
     //$return dene!
     $scope.submit = function () {
+
+
+
+        var file = new File([""],"/application/header.json");                      
+        var formData = new FormData();
+        formData.append("myJsonFile",file);    
+
+        fetch('https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc?wsdl', {
+          method:'POST',
+          body:formData   
+        }).then(function(res) {
+          alert(res);
+        }).catch(function(e) {
+          alert(e);
+        });
+
+
+        /*
         $http({
             method: "GET",        
             url: 'https://thworkorderfapp.azurewebsites.net/api/HttpTriggerSqlDatabse2', 
@@ -20,7 +38,7 @@ testApp.controller('testController' , function ($scope, $http, $window) {
             error(function(data, status) {
               $scope.dataset = data || "Request failed "; 
         });
-    }
+    }*/
     
 /*    
     $scope.accessDatabase = function () {

@@ -78,6 +78,22 @@
         });*/
 
           // Post a user
+          /*
+          var file = new File([""],"/application/header.json");                      
+          var formData = new FormData();
+          formData.append("myJsonFile",file);    
+
+          fetch('https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc?wsdl', {
+            method:'POST',
+            body:formData   
+          }).then(function(res) {
+            alert(res);
+          }).catch(function(e) {
+            alert(e);
+          });*/
+
+      /*
+
             var xhr = new XMLHttpRequest();
             xhr.open('POST','https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc?wsdl', true);
             xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
@@ -85,8 +101,10 @@
             var formData = new FormData();
             formData.append("myJsonFile",file);        
             xhr.send(formData);
-            alert(xhr.response);
-
+            xhr.onload = function(e) {
+              alert(request.status);
+            };
+*/
             
                     
         //makeRequest('test.php',$scope.name_id); 
