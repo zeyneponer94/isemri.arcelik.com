@@ -81,6 +81,8 @@ testApp.controller('testController' , ['$scope','$http','$window', function ($sc
           //xhr.setRequestHeader("Postman-Token", "ebd66f7f-8f28-ee2c-fcc7-d0070a714dd0");
 
           xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+          xhr.setHeader("Access-Control-Allow-Methods", "POST, GET");    
+          xhr.setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");          
           xhr.withCredentials = false;
           //xhr.setRequestHeader('Access-Control-Allow-Credentials', 'true');
           
