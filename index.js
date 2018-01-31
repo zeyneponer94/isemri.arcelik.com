@@ -84,15 +84,8 @@ json: true };
 request(options, function (error, response, body) {
 
 
-
-
-    if (!error) {
-        res.send(response);
-      } else {
-        res.send(error);
-      }
-    //if (error) throw new Error(error);
-    //res.send(response.statusMessage);
+    if (error) throw new Error(error);
+    res.send(response);
 });
     
         
