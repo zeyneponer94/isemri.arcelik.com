@@ -6,7 +6,7 @@ testApp.controller('testController' , ['$scope','$http','$window', function ($sc
         $http({method: 'GET', url: '/json'}).
         then(function(response) { 
             alert(response.data);
-            $scope.data = angular.fromJson(data);
+            $scope.data = angular.fromJson(response.data);
             $http({
                 method: 'POST',
                 url: "https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc?wsdl",
