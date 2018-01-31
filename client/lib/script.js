@@ -2,6 +2,8 @@ var testApp = angular.module("testApp", []);
 testApp.controller('testController' , ['$scope','$http','$window', function ($scope, $http, $window) {
     //$return dene!
     $scope.submit = function () {
+
+        /*
         var data = JSON.stringify({
             "ProductOrderOperationRequest": {
               "MainSourceApplicationProcces": "ECOM Uygulama İsimi",
@@ -81,7 +83,7 @@ testApp.controller('testController' , ['$scope','$http','$window', function ($sc
           //xhr.setRequestHeader("Postman-Token", "ebd66f7f-8f28-ee2c-fcc7-d0070a714dd0");
 
 
-          xhr.setRequestHeader("Access-Control-Allow-Origin", "https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc?wsdl=");
+          xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
           xhr.setRequestHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
           xhr.setRequestHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");       
           xhr.withCredentials = false;
@@ -92,6 +94,29 @@ testApp.controller('testController' , ['$scope','$http','$window', function ($sc
           alert(xhr.responseText.substring(0, 150));
    
           alert('status: ' + xhr.statusText);
+
+
+*/
+
+          var data = null;
+          
+          var xhr = new XMLHttpRequest();
+          xhr.withCredentials = true;
+          
+          xhr.addEventListener("readystatechange", function () {
+            if (this.readyState === 4) {
+              console.log(this.responseText);
+            }
+          });
+          
+          xhr.open("POST", "https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService");
+          xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+          xhr.setRequestHeader("SessionToken", "Guld");
+          xhr.setRequestHeader("Cache-Control", "no-cache");
+          xhr.setRequestHeader("Postman-Token", "62c7c72a-6088-d796-6495-c41e526c85aa");
+          
+          xhr.send(data);
+
 
 
     }
