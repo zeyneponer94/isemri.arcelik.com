@@ -71,11 +71,11 @@ testApp.controller('testController' , ['$scope','$http','$window', function ($sc
           
           xhr.addEventListener("readystatechange", function () {
             if (this.readyState === 4) {
-              console.log(this.responseText);
+              alert(this.responseText);
             }
           });
           
-          xhr.open("POST", "https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc?wsdl");
+          xhr.open("POST", "https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc?wsdl=");
           xhr.setRequestHeader("Content-Type", "application/json");
           //xhr.setRequestHeader("Cache-Control", "no-cache");
           //xhr.setRequestHeader("Postman-Token", "ebd66f7f-8f28-ee2c-fcc7-d0070a714dd0");
