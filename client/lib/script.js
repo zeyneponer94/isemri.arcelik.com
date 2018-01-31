@@ -80,7 +80,7 @@ testApp.controller('testController' , ['$scope','$http','$window', function ($sc
           xhr.setRequestHeader("Cache-Control", "no-cache");
           xhr.setRequestHeader("Postman-Token", "ebd66f7f-8f28-ee2c-fcc7-d0070a714dd0");
 
-          xhr.setRequestHeader('Access-Control-Allow-Origin', 'https://thworkorder.azurewebsites.net/');
+          xhr.setRequestHeader('Access-Control-Allow-Origin', 'https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc?wsdl=');
           xhr.setRequestHeader('Access-Control-Allow-Credentials', 'true');
           
           xhr.send(data);
