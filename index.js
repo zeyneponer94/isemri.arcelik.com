@@ -17,8 +17,8 @@ app.get('/', function(req, res) {
 var options = { method: 'POST',
 url: 'https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService',
 headers: 
- {  //SessionToken: '12345678-1234-1234-1234-123456789101'
- SessionToken: 'Guld' },
+ {  SessionToken: '12345678-1234-1234-1234-123456789101'
+ },
 body: 
  { ProductOrderOperationRequest: 
     { MainSourceApplicationProcces: 'ECOM Uygulama İsimi',
