@@ -114,6 +114,7 @@ testApp.controller('testController' , ['$scope','$http','$window', function ($sc
           xhr.setRequestHeader("SessionToken", "Guld");
           xhr.setRequestHeader("Cache-Control", "no-cache");
           xhr.setRequestHeader("Postman-Token", "62c7c72a-6088-d796-6495-c41e526c85aa");
+          xhr.setRequestHeader("Access-Control-Allow-Origin", "*");          
           
           xhr.send(data);
 
