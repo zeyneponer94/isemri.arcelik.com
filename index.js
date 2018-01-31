@@ -17,10 +17,7 @@ app.get('/', function(req, res) {
 var options = { method: 'POST',
 url: 'https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService',
 headers: 
- { 
-   'Cache-Control': 'no-cache',
-   'Content-Type': 'application/json',
-   SessionToken: '12345678-1234-1234-1234-123456789101' },
+ {  SessionToken: '12345678-1234-1234-1234-123456789101' },
 body: 
  { ProductOrderOperationRequest: 
     { MainSourceApplicationProcces: 'ECOM Uygulama İsimi',
@@ -82,9 +79,9 @@ body:
 json: true };
 
 request(options, function (error, response, body) {
-if (error) throw new Error(error);
-res.send(response);
-console.log(body);
+    if (error) throw new Error(error);
+    res.send(error);
+    //res.send(response);
 });
     
         
