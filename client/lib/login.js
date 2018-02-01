@@ -16,6 +16,8 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
     $scope.login = function(){ 
         $http({method: 'GET', url: '/workorder'}).
             success(function(data, status) { 
+                var url = "https://thworkorder.azurewebsites.net/workorder";
+                $window.location = url;
             }).
             error(function(data, status) {
                 alert("Request failed");

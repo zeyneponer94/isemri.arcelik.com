@@ -24,6 +24,6 @@
         "pg": "*"
     },
     "scripts": {
-        "start": "node index.js"
+        "start": "node main.js"
     }
 }

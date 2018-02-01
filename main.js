@@ -8,17 +8,14 @@ var express = require('express'),
 var logFmt = require("logfmt");
 
 app.get('/', function(req, res) {
-    res.sendfile(__dirname + '/views/index.html');      
+    res.sendfile(__dirname + '/views/login_page.html');      
 });
 
 app.get('/workorder' , function(req,res) {
-    res.sendfile('views/redirect.html', {root: __dirname });   
+    res.sendfile('views/create_workorder.html', {root: __dirname });   
 });
 
-
-
 app.set('port', process.env.PORT || 1337);
-
 app.use(express.static(__dirname + '/client')); 
 app.use(errorHandler());
 app.listen(app.get('port'), function () {
