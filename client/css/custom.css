@@ -34,18 +34,6 @@ body{
     border-radius:5px;
     box-shadow: 0 0 5px 0 #fff;
 }
-.user-image-section img{
-    background-color: rgb(255, 255, 255);
-    padding:20px;
-    height:75px;
-    width:180px;
-}
-.user-image-section-2 {
-    background-color: rgb(255, 255, 255);
-    padding:55px;
-    height:75px;
-    width:120px;
-}
 .user-welcoming{
     padding:20px;
 }
