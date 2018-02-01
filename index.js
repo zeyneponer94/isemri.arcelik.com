@@ -83,21 +83,12 @@ body:
 json: true };
 
 
-request(options)
-.then(function (response) {
-    res.send(response.data);
-  // Request was successful, use the response object at will
-})
-.catch(function (err) {
-  // Something bad happened, handle the error
-})
 
-/*
 request(options, function (error, response, body) {
-
+    res.send(options.body)
     if (error) throw new Error(error);
-    res.send(respone.SourceStatus);
-});*/
+    //res.send(respone.SourceStatus);
+});
     
         
     
