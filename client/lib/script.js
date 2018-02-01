@@ -9,9 +9,6 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
        }) 
        .then(function(response){
             $scope.login();
-        })
-        .error(function(response){
-            alert("Error Occured!")
         });
     } 
                                                                             
