@@ -3,7 +3,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
 
     $scope.submit = function () {
         $http({
-            method: "POST",        
+            method: "GET",        
             url: 'https://thworkorderfapp.azurewebsites.net/api/systemlogin', 
             params: {name:$scope.username, password:$scope.password}
        }) 
