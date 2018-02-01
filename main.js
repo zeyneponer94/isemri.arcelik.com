@@ -19,7 +19,6 @@ app.get('/workorder' , function(req,res) {
     headers: 
      { 'Content-Type': 'application/json',
        servicetype: 'INTHEBOX1',
-       'Postman-Token': '59108a65-9268-41ee-61b2-87c6f5eec9bc',
        'Cache-Control': 'no-cache',
        SessionToken: '40F181E3-7BD9-4BA1-BAF2-36E2BDC2F29D' },
     body: 
@@ -90,7 +89,7 @@ app.get('/workorder' , function(req,res) {
   
   request(options, function (error, response, body) {
     if (error) throw new Error(error);
-    res.send(response);
+    res.send(body);
     console.log(body);
   });
 
