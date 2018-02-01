@@ -27,6 +27,9 @@
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                                             <input type="password" name="password" id="focusedInput" class="form-control" placeholder="Şifre" ng-model="password" required pattern=".{2,}"/>
                                         </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" name="remember"> Remember me</label>
+                                        </div>
                                         <button type="button" class="btn btn-default" ng-click="submit()" ng-disabled="form.$invalid">Giriş</button>                                    
                                     </div>
                                 </form>
