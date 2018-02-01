@@ -2,7 +2,6 @@ var testApp = angular.module("App", []);
 testApp.controller('Controller' , ['$scope','$http','$window', function ($scope, $http, $window) {
 
     $scope.submit = function (model) {
-        alert("submit");
         if ($scope.login.$valid) {      
            $http({
                 method: "GET",        
@@ -17,10 +16,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
             });
         }
         else 
-        {
             $scope.login.submitted=true;    
-alert("sdfsf");            
-        }
     };       
                                                                             
     $scope.login = function(){ 
