@@ -7,6 +7,10 @@ body{
     position:absolute;
     width: 100%;
 }
+form.submitted .ng-invalid
+{
+    border:1px solid #f00;
+}
 .main-section{
     bottom:0px;
     top:0px;
