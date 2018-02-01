@@ -7,9 +7,8 @@ body{
     position:absolute;
     width: 100%;
 }
-form.submitted .ng-invalid
-{
-    border:1px solid #f00;
+input:invalid {
+    border: 1px solid red;
 }
 .main-section{
     bottom:0px;

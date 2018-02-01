@@ -1,22 +1,18 @@
 var testApp = angular.module("App", []);
 testApp.controller('Controller' , ['$scope','$http','$window', function ($scope, $http, $window) {
 
-    $scope.submit = function (model) {
-        if ($scope.login.$valid) {      
-           $http({
-                method: "GET",        
-                url: 'https://thworkorderfapp.azurewebsites.net/api/systemlogin', 
-                params: {username:$scope.username, password:$scope.password}
-            }) 
-            .then(function(response){
-                if(response.status == 200)
-                    $scope.login();
-                else
-                    alert(response.data); 
-            });
-        }
-        else 
-            $scope.login.submitted=true;    
+    $scope.submit = function (model) {     
+        $http({
+            method: "GET",        
+            url: 'https://thworkorderfapp.azurewebsites.net/api/systemlogin',             
+            params: {username:$scope.username, password:$scope.password}
+        }) 
+        .then(function(response){
+            if(response.status == 200)
+                $scope.login();
+            else
+                alert(response.data); 
+        }); 
     };       
                                                                             
     $scope.login = function(){ 
