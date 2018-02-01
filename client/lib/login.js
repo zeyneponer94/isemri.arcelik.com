@@ -8,8 +8,10 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
             params: {username:$scope.username, password:$scope.password}
        }) 
        .then(function(response){
-            alert(response.status);
-            $scope.login();
+            if(response.status == 200)
+                $scope.login();
+            else
+                alert(response.data); 
         });
     } 
                                                                             
