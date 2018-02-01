@@ -17,7 +17,9 @@ app.get('/', function(req, res) {
 var options = { method: 'POST',
 url: 'https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService',
 headers: 
- {  SessionToken: '92D37F38-9607-4DE8-A0DE-074B936C8E20',
+ {      'Cache-Control': 'no-cache',
+        'Content-Type': 'application/json',
+         SessionToken: '92D37F38-9607-4DE8-A0DE-074B936C8E20',
  },
 body: 
  { ProductOrderOperationRequest: 
@@ -84,7 +86,7 @@ json: true };
 request(options, function (error, response, body) {
 
     if (error) throw new Error(error);
-    res.send(response.SourceOrderId);
+    res.send(body);
 });
     
         
