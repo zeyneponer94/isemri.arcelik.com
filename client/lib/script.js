@@ -8,6 +8,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
             params: {username:$scope.username, password:$scope.password}
        }) 
        .then(function(response){
+            alert(response.data);
             $scope.login();
         });
     } 
