@@ -90,7 +90,7 @@ app.get('/workorder' , function(req,res) {
     request(options, function (error, response, body) {
     //if (error) throw new Error(error);
     res.send(error);
-    console.log(body);
+
   });
 
 });
