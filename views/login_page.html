@@ -17,15 +17,23 @@
                                     <p>Altus ve Grundig İş Emri Girişine Hoşgeldiniz.</p>                                        
                                     <p> Şifreniz ile güvenli giriş yapabilirsiniz.</p>
                                 </div>  
-                                <form name="login" ng-class="{submitted:login.submitted}">                                        
+                                <form name="form" novalidate>                                        
                                     <div class="col-md-12 col-sm-12 col-xs-12 user-login-box" ng-controller="Controller">
                                         <div class="form-group input-group">
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                            <input type="text" name="username" id="focusedInput" class="form-control" placeholder="Kullanıcı Adı" ng-model="username" required pattern=".{2,}"/>  
+                                            <input type="text" name="username" id="focusedInput" class="form-control" placeholder="Kullanıcı Adı" ng-model="username" required pattern=".{2,}"/>
+                                            <div class="error-message"
+                                                ng-show="form.username.$invalid">
+                                                username is required
+                                            </div>  
                                         </div>
                                         <div class="form-group input-group">
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                                             <input type="password" name="password" id="focusedInput" class="form-control" placeholder="Şifre" ng-model="password" required pattern=".{2,}"/>
+                                            <div class="error-message"
+                                                ng-show="form.password.$invalid">
+                                                password is required
+                                            </div>  
                                         </div>
                                         <button type="button" class="btn btn-default" ng-click="submit()">Giriş</button>                                    
                                     </div>
