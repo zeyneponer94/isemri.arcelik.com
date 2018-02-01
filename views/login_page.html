@@ -17,7 +17,7 @@
                                     <p>Altus ve Grundig İş Emri Girişine Hoşgeldiniz.</p>                                        
                                     <p> Şifreniz ile güvenli giriş yapabilirsiniz.</p>
                                 </div>  
-                                <form name="form">                                        
+                                <form name="form" novalidate>                                        
                                     <div class="col-md-12 col-sm-12 col-xs-12 user-login-box" ng-controller="Controller">
                                         <div class="form-group input-group">
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -27,7 +27,7 @@
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                                             <input type="password" name="password" id="focusedInput" class="form-control" placeholder="Şifre" ng-model="password"/>
                                         </div>
-                                        <button type="button" class="btn btn-default" ng-click="submit()" ng-disabled="form.$invalid">Giriş</button>                                    
+                                        <button type="button" class="btn btn-default" ng-click="submit()">Giriş</button>                                    
                                     </div>
                                 </form>
                                 <div class="col-md-12 col-sm-12 col-xs-12 last-part">
