@@ -5,7 +5,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
         $http({
             method: "GET",        
             url: 'https://thworkorderfapp.azurewebsites.net/api/systemlogin', 
-            params: {name:$scope.username, password:$scope.password}
+            params: {username:$scope.username, password:$scope.password}
        }) 
        .then(function(response){
             $scope.login();
