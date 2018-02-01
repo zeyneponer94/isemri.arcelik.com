@@ -20,11 +20,15 @@
                                 <div class="col-md-12 col-sm-12 col-xs-12 user-login-box" ng-controller="Controller">
                                     <div class="form-group input-group">
                                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                          <input type="text" name="username" id="focusedInput" class="form-control" placeholder="Kullanıcı Adı" ng-model="username"/>                                            
+                                          <input type="text" name="username" id="focusedInput" class="form-control" placeholder="Kullanıcı Adı" ng-model="username"/>
+                                          <span ng-show="(username.$dirty || submitted) && username.$error.required">
+                                                username is required
+                                          </span>                                
                                     </div>
                                     <div class="form-group input-group">
                                           <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                          <input type="password" name="password" id="focusedInput" class="form-control" placeholder="Şifre" ng-model="password"/>                                            
+                                          <input type="password" name="password" id="focusedInput" class="form-control" placeholder="Şifre" ng-model="password"/>
+                                          <span ng-show="hasError('password', 'required')">required</span>                                                                                    
                                     </div>
                                     <button type="button" class="btn btn-default" ng-click="submit()">Giriş</button>                                    
                                 </div>

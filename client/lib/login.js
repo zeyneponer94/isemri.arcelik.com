@@ -2,7 +2,8 @@ var testApp = angular.module("App", []);
 testApp.controller('Controller' , ['$scope','$http','$window', function ($scope, $http, $window) {
 
     $scope.submit = function () {
-        $http({
+        $scope.submitted = true;        
+ /*       $http({
             method: "GET",        
             url: 'https://thworkorderfapp.azurewebsites.net/api/systemlogin', 
             params: {username:$scope.username, password:$scope.password}
@@ -12,7 +13,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
                 $scope.login();
             else
                 alert(response.data); 
-        });
+        });*/
     } 
                                                                             
     $scope.login = function(){ 
