@@ -86,7 +86,7 @@ app.get('/workorder' , function(req,res) {
               SectorId: '27',
               CrmKey: '28' } ] } ],
     json: true };
-  
+    res.send("body");
   request(options, function (error, response, body) {
     if (error) throw new Error(error);
     res.send(body);
