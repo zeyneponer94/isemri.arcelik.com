@@ -7,12 +7,9 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
             url: 'https://thworkorderfapp.azurewebsites.net/api/systemlogin', 
             params: {username:$scope.username, password:$scope.password}
        }) 
-       .success(function(response){
-            alert(response.data);
+       .then(function(response){
+            alert(response.status);
             $scope.login();
-        })
-        .error(function (response) {
-            alert(response.data);
         });
     } 
                                                                             
