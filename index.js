@@ -84,7 +84,7 @@ json: true };
 request(options, function (error, response, body) {
 
     if (error) throw new Error(error);
-    res.send(response);
+    res.send(response[0].SourceOrderId);
 });
     
         
