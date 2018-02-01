@@ -49,6 +49,7 @@ body{
 }
 .buttonlink{
     text-decoration: none;    
+    color: rgb(197, 196, 196);
     background-color:#fff;
     width: 100%;
     font-weight:600;
