@@ -1,7 +1,7 @@
 var testApp = angular.module("App", []);
 testApp.controller('Controller' , ['$scope','$http','$window', function ($scope, $http, $window) {
 
-    $scope.submit = function () {
+    $scope.submit = function (model) {
         if ($scope.login.$valid) {      
            $http({
                 method: "GET",        
