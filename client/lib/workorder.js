@@ -34,7 +34,7 @@
         $scope.choose_workordertype = function() {
           $http({
             method: "GET", 
-            url: 'https://thworkorderfapp.azurewebsites.net/api/workordertypelist',
+            url: 'https://thworkorderfapp.azurewebsites.net/api/workordertype',
             params: {productname:$scope.singleSelect}          
           }) 
           .then(function(response){ 
