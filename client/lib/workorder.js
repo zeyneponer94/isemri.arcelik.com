@@ -88,11 +88,11 @@
             url: 'http://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService',
             headers: {
               "SessionToken": "4737B2FC-DE66-4741-B7A8-07646813D890",
-              'Access-Control-Allow-Headers':'Access-Control-Allow-Headers, Content-Type, servicetype, SessionToken',              
+              'Access-Control-Allow-Headers':'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Access-Control-Request-Method, Access-Control-Request-Headers,Content-Type,Access-Control-Allow-Origin,servicetype, Cache-Control, SessionToken, Authorization ',
+              
             /*  "Cache-Control": "no-cache",
               'Access-Control-Allow-Origin':'*',
               'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE',
-              'Access-Control-Allow-Headers':'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Access-Control-Request-Method, Access-Control-Request-Headers,Content-Type,Access-Control-Allow-Origin,servicetype, Cache-Control, SessionToken, **Authorization** ',
               'Access-Control-Allow-Credentials':false,*/
               "servicetype": "INTHEBOX1",
               "Content-Type": "application/json"
