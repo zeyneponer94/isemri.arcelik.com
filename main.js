@@ -24,7 +24,7 @@ app.get('/postman' , function(req,res) {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin':'*',
         'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE',
-        'Access-Control-Allow-Headers':'Content-Type,Access-Control-Allow-Origin,servicetype, Cache-Control, SessionToken, **Authorization** ',
+        'Access-Control-Allow-Headers':'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Access-Control-Request-Method, Access-Control-Request-Headers,Content-Type,Access-Control-Allow-Origin,servicetype, Cache-Control, SessionToken, **Authorization** ',
         'Access-Control-Allow-Credentials':false,
         servicetype: 'INTHEBOX1',
         'Cache-Control': 'no-cache',
