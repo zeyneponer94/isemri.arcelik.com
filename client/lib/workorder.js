@@ -41,7 +41,7 @@
 
         $scope.queryWorkOrder = function () {
           $scope.create = false;
-          $scope.query=false;
+          $scope.query=true;
        }
 
 
