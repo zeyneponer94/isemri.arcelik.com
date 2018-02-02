@@ -79,7 +79,7 @@
               }
           });          
         }
-
+/*
         $scope.createWorkOrder = function () 
         {        
 
@@ -94,7 +94,7 @@
               alert("fail");
               $scope.dataset = data || "Request failed "; 
           });
-        } 
+        } */
 
 
 
