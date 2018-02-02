@@ -16,7 +16,7 @@ app.get('/workorder' , function(req,res) {
 
 
 app.get('/postman' , function(req,res) {
-
+/*
     
     // Set the headers
     var headers = {
@@ -104,11 +104,7 @@ app.get('/postman' , function(req,res) {
     request(options, function (error, response, body) {
             res.send(error);
     
-    })
-
-    
-
-
+    })*/
 });
 
 app.set('port', process.env.PORT || 1337);
