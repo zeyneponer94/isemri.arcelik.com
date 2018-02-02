@@ -79,8 +79,8 @@
               }
           });          
         }
-/*
-        $scope.createWorkOrder = function () 
+
+        $scope.create = function () 
         {        
 
           $http({method: 'GET', url: '/postman'}).
@@ -94,7 +94,7 @@
               alert("fail");
               $scope.dataset = data || "Request failed "; 
           });
-        } */
+        } 
 
 
 
