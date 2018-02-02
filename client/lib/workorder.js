@@ -1,5 +1,5 @@
     app = angular.module('App', [])
-    app.controller('Controller', function ($scope, $http) {
+    app.controller('Controller', ['$scope','$http','$window', function ($scope, $http, $window) {
         $scope.create = true;  
         $scope.query = false;      
 
