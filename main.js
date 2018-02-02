@@ -101,9 +101,9 @@ app.get('/postman' , function(req,res) {
     var bodystring;
     request(options, function (err, response, body) {
         if (err) {
-            bodystring=err;
+            bodystring=""+err;
         }
-        bodystring = body;
+        bodystring = ""+body;
       });
 
       res.send(bodystring);
