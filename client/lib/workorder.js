@@ -30,28 +30,12 @@
        }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         //when user selects a product from selection list, ng-change calls that function to get the work order types available for chosen product
-        $scope.update = function() {
+        $scope.choose_workordertype = function() {
           $http({
             method: "GET", 
-            url: 'https://thworkorderfapp.azurewebsites.net/api/HttpTrigger_WorkOrderType',
-            params: {name:$scope.singleSelect}          
+            url: 'https://thworkorderfapp.azurewebsites.net/api/workordertypelist',
+            params: {productname:$scope.singleSelect}          
           }) 
           .then(function(response){ 
               $scope.workordertype = [];                    
@@ -62,7 +46,7 @@
                 i++;
               }
           });          
-       }
+        }
 
 
 
