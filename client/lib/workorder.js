@@ -13,6 +13,22 @@
           $scope.query=false;
        }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
         //connecting to azure db, getting required records from specified table and displaying them in selection list
         $http({
           method: "GET", 
