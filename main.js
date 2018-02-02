@@ -106,7 +106,7 @@ app.get('/postman' , function(req,res) {
         console.log(' Body :', body);
       
       });
-      send.file(body);
+    res.send("heyo");
 
 });
 
