@@ -159,7 +159,7 @@
           
           xhr.addEventListener("readystatechange", function () {
             if (this.readyState === 4) {
-              console.log(this.responseText);
+              alert(this.responseText);
             }
           });
           
@@ -168,11 +168,8 @@
           xhr.setRequestHeader("Cache-Control", "no-cache");
           xhr.setRequestHeader("servicetype", "INTHEBOX1");
           xhr.setRequestHeader("Content-Type", "application/json");
-          xhr.onload = function() {
-            alert(request.response);
-            alert(request.response.byteLength);
-          };
           xhr.send(data);
+          alert(request.statusText);
           
           
           
