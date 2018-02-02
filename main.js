@@ -21,6 +21,7 @@ app.get('/postman' , function(req,res) {
     // Set the headers
     var headers = {
         'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin':'*',
         servicetype: 'INTHEBOX1',
         'Cache-Control': 'no-cache',
         SessionToken: '4737B2FC-DE66-4741-B7A8-07646813D890'
