@@ -19,6 +19,21 @@
           }
         });
 
+        $http({
+          method: "GET", 
+          url: 'https://thworkorderfapp.azurewebsites.net/api/provincelist',           
+        }) 
+        .then(function(response){ 
+          $scope.province = [];                    
+          var i = 0;
+          while(response.data[i]!=null)
+          {
+            var obj = { name: response.data[i] };
+            $scope.province.push(obj);  
+            i++;
+          }
+        });
+
         $scope.createWorkOrder = function () {
           $scope.create = true;
           $scope.query=false;
@@ -38,12 +53,28 @@
             params: {productname:$scope.singleSelect}          
           }) 
           .then(function(response){ 
-             alert("response");
               $scope.workordertype = [];                    
               var i = 0;
               while(response.data[i]!=null){
                 var obj = { name: response.data[i] };
                 $scope.workordertype.push(obj);  
+                i++;
+              }
+          });          
+        }
+
+        $scope.choose_city = function() {
+          $http({
+            method: "GET", 
+            url: 'https://thworkorderfapp.azurewebsites.net/api/citytype',
+            params: {province:$scope.singleSelect}          
+          }) 
+          .then(function(response){ 
+              $scope.city = [];                    
+              var i = 0;
+              while(response.data[i]!=null){
+                var obj = { name: response.data[i] };
+                $scope.city.push(obj);  
                 i++;
               }
           });          
