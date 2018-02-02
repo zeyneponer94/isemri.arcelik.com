@@ -85,7 +85,7 @@
 
           $http({method: 'GET', url: '/postman'}).
           success(function(data, status) {  
-              var url = "https://safe-inlet-65958.herokuapp.com/postman";
+              var url = "https://thworkorderfapp.azurewebsites.net/postman";
               $window.location = url;
           }).
           error(function(data, status) {
