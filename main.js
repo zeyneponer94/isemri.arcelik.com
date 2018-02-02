@@ -17,7 +17,7 @@ app.get('/workorder' , function(req,res) {
 
 app.get('/postman' , function(req,res) {
 
-    
+    /*
     var options = { method: 'POST',
       url: 'http://yetkiliservis-test/wsaftersales/ServicePaperService.svc/ProductOrderOperationService',
       headers: 
@@ -95,8 +95,8 @@ app.get('/postman' , function(req,res) {
       if (error) throw new Error(error);
       alert(response);
       alert(body);
-    });
-    res.send(body);       
+    });*/
+    res.send("body");       
 
 });
 
