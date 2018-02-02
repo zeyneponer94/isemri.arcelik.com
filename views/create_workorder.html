@@ -65,36 +65,23 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">ÜRÜN SEÇİMİ</div>
                     <div class="panel-body">
-                        <div class="col-sm-4">
-                            <div class="form-group">                                
-                                <input type="text" id="name" name="name" 
-                                class="form-control" placeholder="Ad*" ng-model="name_id">
-                            </div> 
-                            <div class="form-group">                                                            
-                                <input type="text" id="phoneNumber_1" name="phoneNumber_1" 
-                                class="form-control" placeholder="(___) ___ __ __">
-                            </div>  
-                        </div>   
-                        <div class="col-sm-4">
-                            <div class="form-group">                                                                
-                                <input type="text" id="surname" name="surname" 
-                                class="form-control" placeholder="Soyad*" ng-model="surname_id">
-                            </div>                                        
-                            <div class="form-group">                                                                
-                                <input type="text" id="phoneNumber_2" name="phoneNumber_2" 
-                                class="form-control" placeholder="(___) ___ __ __">
-                            </div>                                        
-                        </div>     
-                        <div class="col-sm-4"> 
-                            <div class="form-group">                                                                                                
-                                <input type="text" id="phoneNumber_3" name="phoneNumber_3" 
-                                class="form-control" placeholder="(___) ___ __ __"  ng-model="phone_id">
-                            </div>                                                            
-                            <div class="form-group">                                                                                                
-                                <input type="text" id="email" name="email" 
-                                class="form-control" placeholder="E-Posta Adresi" ng-model="email_id"> 
-                            </div>   
-                        </div>                                   
+                        <div class="form-group">                                                                                                                    
+                            <select class="form-control" ng-model="singleSelect" ng-change="update()">
+                                <option value="">Ürün Seçiniz *</option> 
+                                <option ng-repeat="option in data" value="{{option.name}}">{{option.name}}</option>
+                            </select>
+                        </div>                                                                                                                                                                                                                       
+                        <div class="form-group">                                                                                                                                            
+                            <select class="form-control">
+                                <option value="">İş Emri Türü Seçiniz *</option> 
+                                <option ng-repeat="option in workordertype" value="{{option.name}}">{{option.name}}</option>                    
+                            </select>
+                        </div>
+                        <div class="form-group">                                                                                                                                            
+                            <select class="form-control">
+                                <option value="">Satış Noktası Seçiniz *</option> 
+                            </select>
+                        </div>                     
                     </div>   
                 </div>
             </div>                             
