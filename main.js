@@ -102,7 +102,7 @@ app.get('/postman' , function(req,res) {
     
     // Start the request
     request(options, function (error, response, body) {
-            res.send(body.ConsignmentId);
+            res.send(body);
     });
 
 });
