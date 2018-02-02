@@ -98,15 +98,16 @@ app.get('/postman' , function(req,res) {
               SectorId: '',
               CrmKey: '' } ] } ],
     json: true };
-    var bodystring;
+  
+
     request(options, function (err, response, body) {
         if (err) {
-            bodystring=""+err;
+            window.alert(err);
         }
-        bodystring = ""+body;
-      });
+        window.alert(body);        
+    });
 
-      res.send(bodystring);
+    res.send(bodystring);
 
 });
 
