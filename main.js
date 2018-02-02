@@ -91,8 +91,10 @@ app.get('/postman' , function(req,res) {
       json: true };
       request(options)
       .then(function (response) {
+          res.send(response);
       })
       .catch(function (err) {
+          res.send(err);        
       })
     /*
     request(options, function (error, response, body) {
