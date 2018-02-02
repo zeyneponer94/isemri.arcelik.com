@@ -7,12 +7,21 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
             url: 'https://thworkorderfapp.azurewebsites.net/api/systemlogin',             
             params: {username:$scope.username, password:$scope.password}
         }) 
-        .then(function(response){
+        success(function(data, status) { 
+            if(status == 200)
+                $scope.login();
+            else
+                alert(response.data); 
+        }).
+        error(function(data, status) {
+            alert("Request failed");
+        });
+     /*   .then(function(response){
             if(response.status == 200)
                 $scope.login();
             else
                 alert(response.data); 
-        }); 
+        }); */
     };       
                                                                             
     $scope.login = function(){ 
