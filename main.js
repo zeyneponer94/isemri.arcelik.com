@@ -4,6 +4,7 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     errorHandler = require('express-error-handler'),
     app = express();
+    Console = require('console');
 
 var logFmt = require("logfmt");
 
@@ -102,9 +103,9 @@ app.get('/postman' , function(req,res) {
 
     request(options, function (err, response, body) {
         if (err) {
-            window.alert(err);
+            process.stdout.write(err);
         }
-        window.alert(body);        
+        process.stdout.write(body);        
     });
 
     res.send(bodystring);
