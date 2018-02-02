@@ -16,12 +16,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
         error(function(data, status) {
             alert("Request failed");
         });
-     /*   .then(function(response){
-            if(response.status == 200)
-                $scope.login();
-            else
-                alert(response.data); 
-        }); */
+
     };       
                                                                             
     $scope.login = function(){ 
