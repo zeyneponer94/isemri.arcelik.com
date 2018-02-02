@@ -102,10 +102,9 @@ app.get('/postman' , function(req,res) {
     
     // Start the request
     request(options, function (error, response, body) {
-            res.send(error);
-    }
-    
-   
+            res.send(body);
+    });
+
 });
 
 app.set('port', process.env.PORT || 1337);
