@@ -16,7 +16,7 @@ app.get('/workorder' , function(req,res) {
 
 
 app.get('/postman' , function(req,res) {
-/*
+
     
     // Set the headers
     var headers = {
@@ -31,7 +31,7 @@ app.get('/postman' , function(req,res) {
 
 
     var options = { method: 'POST',
-    url: 'http://yetkiliservis-test/wsaftersales/ServicePaperService.svc/ProductOrderOperationService',
+    url: 'http://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService',
     headers: headers,
     body: 
      [ { PK: '',
@@ -103,8 +103,9 @@ app.get('/postman' , function(req,res) {
     // Start the request
     request(options, function (error, response, body) {
             res.send(error);
+    }
     
-    })*/
+   
 });
 
 app.set('port', process.env.PORT || 1337);
