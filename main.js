@@ -16,7 +16,6 @@ app.get('/workorder' , function(req,res) {
 
 
 app.get('/postman' , function(req,res) {
-    console.log("heyo");
     
     
     // Set the headers
@@ -100,15 +99,14 @@ app.get('/postman' , function(req,res) {
               CrmKey: '' } ] } ],
     json: true };
     
-    
-    // Start the request
-    request(options, function (error, response, body) {
-        if(error){
-            console.log(reject(error));
+    request(options, function (err, res, body) {
+        if (err) {
+          res.send('Error :', err);
         }
-        console.log(resolve(body));
-        res.send("heyo");
-    });
+        res.send(' Body :', body);
+      
+      });
+    
 
 });
 

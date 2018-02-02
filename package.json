@@ -9,19 +9,19 @@
         "node": ">=6.9.1"
     },
     "dependencies": {
-        "http": "~0.0.0",
-        "request": "~2.36.0",
-        "express": "~4.4.5",
-        "logfmt": "~1.1.2",
         "body-parser": "~1.6.2",
-        "serve-favicon": "*",
         "cookie-parser": "~1.0.1",
-        "jade": "*",
-        "jaydata" : "*",
-        "xmldom" : "*",
-        "q" : "*",
+        "express": "~4.4.5",
         "express-error-handler": "*",
-        "pg": "*"
+        "http": "~0.0.0",
+        "jade": "*",
+        "jaydata": "*",
+        "logfmt": "~1.1.2",
+        "pg": "*",
+        "q": "*",
+        "request": "^2.36.0",
+        "serve-favicon": "*",
+        "xmldom": "*"
     },
     "scripts": {
         "start": "node main.js"
