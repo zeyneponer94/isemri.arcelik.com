@@ -88,6 +88,7 @@
             url: 'http://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService',
             headers: {
               "SessionToken": "4737B2FC-DE66-4741-B7A8-07646813D890",
+              'Access-Control-Allow-Headers':'Access-Control-Allow-Headers, Content-Type, servicetype, SessionToken',              
             /*  "Cache-Control": "no-cache",
               'Access-Control-Allow-Origin':'*',
               'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE',
