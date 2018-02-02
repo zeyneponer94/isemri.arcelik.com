@@ -169,7 +169,7 @@
           xhr.setRequestHeader("servicetype", "INTHEBOX1");
           xhr.setRequestHeader("Content-Type", "application/json");
           xhr.send(data);
-          alert(request.statusText);
+          alert(xhr.statusText);
           
           
           
