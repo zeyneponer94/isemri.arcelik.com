@@ -163,7 +163,7 @@
             }
           });
           
-          xhr.open("POST", "http://yetkiliservis-test/wsaftersales/ServicePaperService.svc/ProductOrderOperationService");
+          xhr.open("POST", "https://yetkiliservis-test/wsaftersales/ServicePaperService.svc/ProductOrderOperationService");
           xhr.setRequestHeader("SessionToken", "4737B2FC-DE66-4741-B7A8-07646813D890");
           xhr.setRequestHeader("Cache-Control", "no-cache");
           xhr.setRequestHeader("servicetype", "INTHEBOX1");
