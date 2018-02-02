@@ -109,7 +109,7 @@ app.get('/postman' , function(req,res) {
         return body;
       });
 
-    res.send(bodystring);
+    res.send("bodystring");
 
 });
 
