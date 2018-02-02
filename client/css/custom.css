@@ -56,3 +56,44 @@ body{
 .last-part a{
     text-decoration: none;
 }
+
+.box{
+    position: relative;
+    left: -300px;
+    width: 500px;
+    margin: 30px auto;
+    top: -205px;
+}
+.box2{
+    position: relative;
+    left: -250px;
+    width: 500px;
+    margin: 30px auto;
+    top: -205px;
+}
+.box3{
+    position: relative;
+    left: -250px;
+    width: 500px;
+    margin: 30px auto;
+    top: -205px;
+} 
+header {
+    background: -webkit-linear-gradient(to right, rgb(255, 63, 194), rgb(16, 26, 99));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right,  rgb(255, 63, 194), rgb(16, 26, 99));
+    padding: 2em;
+    text-align: left;
+}
+center {
+    padding: 15em;
+    background-color: rgb(255, 255, 255);
+    clear: left;
+    text-align: left;
+}
+footer {
+    padding: 5em;
+    color: rgb(204, 200, 200);
+    background-color: rgb(255, 255, 255);
+    clear: left;
+    text-align: left;
+}

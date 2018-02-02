@@ -1,5 +1,5 @@
-    app = angular.module('myApp', [])
-    app.controller('myController', function ($scope, $http) {
+    app = angular.module('App', [])
+    app.controller('Controller', function ($scope, $http) {
         $scope.activation = true;  
         $scope.query = false;      
         //connecting to azure db, getting required records from specified table and displaying them in selection list

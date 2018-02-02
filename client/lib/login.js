@@ -11,12 +11,11 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
             if(status == 200)
                 $scope.login();
             else
-                alert(data); 
+                alert("There is no such user with given username and password!"); 
         }).
         error(function(data, status) {
             alert("Request failed");
         });
-
     };       
                                                                             
     $scope.login = function(){ 
@@ -29,7 +28,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
                 alert("Request failed");
         });
     }
-    
+}]);
     
 /*    
     $scope.accessDatabase = function () {
@@ -62,8 +61,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
          })
         .error(function (data, status, headers, config) {
         });*/
- 
-}]);
+
 
 
 
