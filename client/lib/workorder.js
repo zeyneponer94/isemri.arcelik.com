@@ -1,7 +1,18 @@
     app = angular.module('App', [])
     app.controller('Controller', function ($scope, $http) {
-        $scope.activation = true;  
+        $scope.create = true;  
         $scope.query = false;      
+
+        $scope.createWorkOrder = function () {
+          $scope.create = true;
+          $scope.query=false;
+        }
+
+        $scope.queryWorkOrder = function () {
+          $scope.create = false;
+          $scope.query=false;
+       }
+
         //connecting to azure db, getting required records from specified table and displaying them in selection list
         $http({
           method: "GET", 
@@ -32,27 +43,8 @@
           });          
        }
 
-       $scope.queryWorkOrder = function () {
-         $scope.activation = false;
-         $scope.activation_query=true;
-         $scope.query=false;
-/*
-         $http({
-          method: "GET",        
-          url: 'https://thworkorderfapp.azurewebsites.net/api/HttpTrigger_WorkOrderType', 
-        }) 
-        .then(function(response){ 
-          alert(response.data.ProductName);          
-        })
-       .error(function (response) {
-          $scope.data = response.data; 
-        }) */
 
-      }
-      $scope.createWorkOrder = function () {
-        $scope.activation = true;
-        $scope.activation_query=false;
-      }
+
 
     });
     app.controller('updatingDB', function ($scope, $http, $q) {

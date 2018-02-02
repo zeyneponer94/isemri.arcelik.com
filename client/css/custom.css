@@ -57,7 +57,7 @@ body{
     text-decoration: none;
 }
 header {
-    background: linear-gradient(to right, rgb(255, 255, 255), rgb(218, 6, 150), rgb(3, 18, 114));
+    background: white;
     padding: 2em;
     text-align: left;
 }

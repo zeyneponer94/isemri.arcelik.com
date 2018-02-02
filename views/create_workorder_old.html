@@ -54,35 +54,19 @@
     <script src="lib/workorder.js"></script>
   </head>
   <body style="background-color:#D3D3D3;">
- <!--   <div class="container" ng-app="myApp" ng-controller="myController">
-        <div class="row">               
-                <div class="row">          
-                    <div style="background-color:rgb(255, 255, 255);">
-                        <div class="user-image-section">
-                            <img src="images/altus-logo.png">  
-                            <img src="images/grundig-logo-2.png">                                                                                                           
-                        </div>
-                    </div>    
-                    <div>                                                                
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a class="pull-left" ng-click="createWorkOrder()"><img src="images/olustur.png">İŞ EMRİ OLUŞTUR</a></li>
-                            <li><a class="pull-left" ng-click="queryWorkOrder()"><img src="images/sorgula.png">İŞ EMRİ SORGULA</a></li>                  
-                        </ul>
-                    </div>       
-                </div>  
-        </div>
-    </div>-->
     <div class="container" ng-app="myApp" ng-controller="myController">
         <header>                    
         <!--    <img src="images/altus-logo.png" alt="Altus Logo" width="120" height="30">      
             <img src="images/grundig.png" alt="Grundig Logo" width="150" height="42" hspace="20"> -->                     
         </header>
         <center>                
-        <div class="box">                                                                
-                <ul class="nav nav-tabs">
+        <div class="box">   
+            <nav class="navbar navbar-default">                        
+                <ul class="nav nav-nav">
                     <li class="active"><a class="pull-left" ng-click="createWorkOrder()"><img src="images/olustur.png">İŞ EMRİ OLUŞTUR</a></li>
                     <li><a class="pull-left" ng-click="queryWorkOrder()"><img src="images/sorgula.png">İŞ EMRİ SORGULA</a></li>                  
                 </ul>
+            </nav>
         </div> 
         <div class="box2" ng-show="activation">                     
             <div class="row">
