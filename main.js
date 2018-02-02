@@ -16,7 +16,8 @@ app.get('/workorder' , function(req,res) {
 
 
 app.get('/postman' , function(req,res) {
-
+    console.log("heyo");
+    
     
     // Set the headers
     var headers = {
@@ -102,7 +103,6 @@ app.get('/postman' , function(req,res) {
     
     // Start the request
     request(options, function (error, response, body) {
-        console.log("heyo");
         if(error){
             console.log(reject(error));
         }
