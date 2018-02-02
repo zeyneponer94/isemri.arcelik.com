@@ -56,7 +56,12 @@ body{
 .last-part a{
     text-decoration: none;
 }
-
+header {
+    background: -webkit-linear-gradient(to right, rgb(255, 63, 194), rgb(16, 26, 99));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right,  rgb(255, 63, 194), rgb(16, 26, 99));
+    padding: 2em;
+    text-align: left;
+}
 .box{
     position: relative;
     left: -300px;
@@ -78,12 +83,7 @@ body{
     margin: 30px auto;
     top: -205px;
 } 
-header {
-    background: -webkit-linear-gradient(to right, rgb(255, 63, 194), rgb(16, 26, 99));  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right,  rgb(255, 63, 194), rgb(16, 26, 99));
-    padding: 2em;
-    text-align: left;
-}
+
 center {
     padding: 15em;
     background-color: rgb(255, 255, 255);
