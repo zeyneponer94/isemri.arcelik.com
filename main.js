@@ -105,6 +105,8 @@ app.get('/postman' , function(req,res) {
         }
     })
 
+    res.send("deneme");
+
 
 });
 
