@@ -10,24 +10,20 @@
     <script src="lib/workorder.js"></script>
     <body style="background-color:#D3D3D3;">
         <div class="container main-section" ng-app="App" ng-controller="Controller">
-            <div class="row">
-                <header>
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 col-xs-12 ">
-                            <img src="images/altus-logo.png" hspace="20">    
-                        </div>     
-                        <div class="col-md-12 col-sm-12 col-xs-12 ">                                
-                            <img src="images/grundig-logo-2.png">  
-                        </div>                             
-                    </div>
-                </header>                            
-            </div> 
-            <div class="row">                                                                
-                <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" class="pull-left" ng-click="createWorkOrder()"><img src="images/olustur.png">İŞ EMRİ OLUŞTUR</a></li>
-                    <li><a data-toggle="tab" class="pull-left" ng-click="queryWorkOrder()"><img src="images/sorgula.png">İŞ EMRİ SORGULA</a></li>                  
-                </ul>
-            </div>                        
+            <header>
+                <div class="row">
+                   <div class="col-md-12 col-sm-12 col-xs-12 ">
+                        <img src="images/altus-logo.png" hspace="20">    
+                    </div>     
+                    <div class="col-md-12 col-sm-12 col-xs-12 ">                                
+                        <img src="images/grundig-logo-2.png">  
+                    </div>                             
+                </div>
+            </header>                            
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" class="pull-left" ng-click="createWorkOrder()"><img src="images/olustur.png">İŞ EMRİ OLUŞTUR</a></li>
+                <li><a data-toggle="tab" class="pull-left" ng-click="queryWorkOrder()"><img src="images/sorgula.png">İŞ EMRİ SORGULA</a></li>                  
+            </ul>    
         </div>                           
     </body> 
 </html>
