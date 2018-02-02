@@ -102,6 +102,9 @@ app.get('/postman' , function(req,res) {
     
     // Start the request
     request(options, function (error, response, body) {
+        if(error){
+            res.send(reject(error));
+        }
         res.send(resolve(body));
     });
 
