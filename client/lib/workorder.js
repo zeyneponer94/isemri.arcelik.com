@@ -93,7 +93,8 @@
               "Cache-Control": "no-cache",
               'Access-Control-Allow-Origin':'*',
               'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE',
-              'Access-Control-Allow-Headers':'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With,Access-Control-Allow-Origin,servicetype, Cache-Control, SessionToken ',
+              'Access-Control-Allow-Headers':'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Access-Control-Request-Method, Access-Control-Request-Headers,Content-Type,Access-Control-Allow-Origin,servicetype, Cache-Control, SessionToken, **Authorization** ',
+              'Access-Control-Allow-Credentials':false,
               "servicetype": "INTHEBOX1",
               "Content-Type": "application/json"
             },
