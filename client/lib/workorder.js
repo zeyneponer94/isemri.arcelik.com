@@ -85,8 +85,6 @@
 
           $http({method: 'GET', url: '/postman'}).
           success(function(data, status) { 
-            var url = "https://thworkorder.azurewebsites.net/postman";
-            $window.location = url; 
             alert("success");
           }).
           error(function(data, status) {
