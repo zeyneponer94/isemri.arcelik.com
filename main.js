@@ -90,8 +90,7 @@ app.get('/postman' , function(req,res) {
                 CrmKey: '' } ] } ],
       json: true };
     request(options, function (error, response, body) {
-        res.send(response);        
-      if (error) throw new Error(error);
+        res.send(body);        
     });
 });
 
