@@ -23,7 +23,6 @@ app.get('/postman' , function(req,res) {
       headers: 
        { 'Content-Type': 'application/json',
          servicetype: 'INTHEBOX1',
-         'Postman-Token': '0beec234-0260-a95d-3c5f-2c51e0f90bd4',
          'Cache-Control': 'no-cache',
          SessionToken: '4737B2FC-DE66-4741-B7A8-07646813D890' },
       body: 
@@ -94,7 +93,7 @@ app.get('/postman' , function(req,res) {
     
     request(options, function (error, response, body) {
       if (error) throw new Error(error);
-    
+      alert(response);
       alert(body);
     });
     res.send(body);       
