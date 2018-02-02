@@ -61,34 +61,6 @@ header {
     padding: 2em;
     text-align: left;
 }
-.box{
-    position: relative;
-    left: -300px;
-    width: 500px;
-    margin: 30px auto;
-    top: -205px;
-}
-.box2{
-    position: relative;
-    left: -250px;
-    width: 500px;
-    margin: 30px auto;
-    top: -205px;
-}
-.box3{
-    position: relative;
-    left: -250px;
-    width: 500px;
-    margin: 30px auto;
-    top: -205px;
-} 
-
-center {
-    padding: 15em;
-    background-color: rgb(255, 255, 255);
-    clear: left;
-    text-align: left;
-}
 footer {
     padding: 5em;
     color: rgb(204, 200, 200);

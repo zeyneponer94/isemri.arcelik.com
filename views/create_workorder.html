@@ -121,15 +121,8 @@
                             <input type="text" id="isemri_notu" name="isemri_notu" 
                             class="form-control" placeholder="İş Emri Notu">                       
                         </div> 
-                        <div class="form-group" ng-controller="DatepickerDemoCtrl">                                                                                                                                        
-                            pre>Today's date is: <em>{{dt | date:'fullDate' }}</em></pre>
-                                     <!--   <div style="display:inline-block; min-height:250px;">
-                                            <datepicker ng-model="dt" min-date="minDate" show-weeks="true" class="well well-sm"></datepicker>
-                                        </div>   -->
-                        </div> 
-                        <div class="form-group" ng-controller="updatingDB">                                                                                                                                        
-                            <button type="button" style= " background: -webkit-linear-gradient(to right, rgb(255, 63, 194), rgb(16, 26, 99));  /* Chrome 10-25, Safari 5.1-6 */
-                            background: linear-gradient(to right,  rgb(255, 63, 194), rgb(16, 26, 99));" class="btn btn-lg btn-block" ng-click="customer()">İŞ EMRİ OLUŞTUR</button>                                                                                                                                                              
+                        <div class="form-group">                                                                                                                                        
+                            <button type="button" class="btn btn-default" ng-click="createWorkOrder()">İŞ EMRİ OLUŞTUR</button>                                                                                                                                                              
                             <footer>&copy; 2018 Arçelik All rights reserved.</footer>   
                         </div>             
                     </div>    
