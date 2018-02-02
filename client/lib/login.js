@@ -6,12 +6,12 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
             method: "GET",        
             url: 'https://thworkorderfapp.azurewebsites.net/api/systemlogin',             
             params: {username:$scope.username, password:$scope.password}
-        }) 
+        }). 
         success(function(data, status) { 
             if(status == 200)
                 $scope.login();
             else
-                alert(response.data); 
+                alert(data); 
         }).
         error(function(data, status) {
             alert("Request failed");
