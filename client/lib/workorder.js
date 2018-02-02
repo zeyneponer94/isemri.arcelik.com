@@ -86,7 +86,7 @@
           var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://yetkiliservis-test/wsaftersales/ServicePaperService.svc/ProductOrderOperationService",
+            "url": "http://yetkiliservis-test/wsaftersales/ServicePaperService.svc/ProductOrderOperationService",
             "method": "POST",
             "headers": {
               "SessionToken": "4737B2FC-DE66-4741-B7A8-07646813D890",
@@ -101,10 +101,6 @@
           $.ajax(settings).done(function (response) {
             alert(response);
           });
-          
-          
-          
-          
         } 
 
 
