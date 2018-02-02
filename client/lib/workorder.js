@@ -88,7 +88,7 @@
 
             var url = "https://thworkorder.azurewebsites.net/postman";
             $window.location = url; 
-            alert("success");
+            alert(data);
           }).
           error(function(data, status) {
               alert("fail");
