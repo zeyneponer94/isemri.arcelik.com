@@ -102,11 +102,13 @@ app.get('/postman' , function(req,res) {
     request(options, function (err, response, body) {
         if (err) {
           console.log('Error :', err);
+          return err;
         }
         bodystring = body;
         console.log(' Body :', body);
-      
+        return body;
       });
+
     res.send(bodystring);
 
 });
