@@ -40,8 +40,8 @@
         }
 
         $scope.queryWorkOrder = function () {
-          $scope.create = true;
-          $scope.query=false;
+          $scope.create = false;
+          $scope.query=true;
        }
 
 
