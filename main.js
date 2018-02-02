@@ -99,14 +99,14 @@ app.get('/postman' , function(req,res) {
               CrmKey: '' } ] } ],
     json: true };
     
-    request(options, function (err, res, body) {
+    request(options, function (err, response, body) {
         if (err) {
           console.log('Error :', err);
         }
         console.log(' Body :', body);
       
       });
-    
+      send.file(body);
 
 });
 
