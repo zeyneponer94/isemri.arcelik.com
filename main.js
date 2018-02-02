@@ -89,19 +89,10 @@ app.get('/postman' , function(req,res) {
                 SectorId: '',
                 CrmKey: '' } ] } ],
       json: true };
-      request(options)
-      .then(function (response) {
-          res.send(response);
-      })
-      .catch(function (err) {
-          res.send(err);        
-      })
-    /*
     request(options, function (error, response, body) {
       if (error) throw new Error(error);
-      alert(response);
-      alert(body);
-    });*/
+      res.send(response);
+    });
 });
 
 app.set('port', process.env.PORT || 1337);
