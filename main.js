@@ -89,6 +89,11 @@ app.get('/postman' , function(req,res) {
                 SectorId: '',
                 CrmKey: '' } ] } ],
       json: true };
+      request(options)
+      .then(function (response) {
+      })
+      .catch(function (err) {
+      })
     /*
     request(options, function (error, response, body) {
       if (error) throw new Error(error);

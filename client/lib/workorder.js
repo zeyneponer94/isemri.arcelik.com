@@ -85,8 +85,10 @@
 
           $http({method: 'GET', url: '/postman'}).
           success(function(data, status) {  
+            alert("success");
           }).
           error(function(data, status) {
+              alert("fail");
               $scope.dataset = data || "Request failed "; 
           });
         } 
