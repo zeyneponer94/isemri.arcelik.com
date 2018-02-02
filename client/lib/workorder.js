@@ -83,93 +83,24 @@
         $scope.createWorkOrder = function () 
         {        
 
-          var data = JSON.stringify([
-            {
-              "PK": "3",
-              "MainSourceApplicationProcces": "Serdar",
-              "SourceApplication": "2",
-              "MainSourceOrderProccesId": "3",
-              "SourceOrderId": "4",
-              "MainSourceProccesStatus": "5",
-              "SourceStatus": "6",
-              "DealerCode": "7",
-              "AsistDealerCode": "8",
-              "AsistBranchDealerCode": "9",
-              "Note": "10",
-              "Name": "11",
-              "Surname": "12",
-              "Phone1": "13",
-              "Phone2": "14",
-              "Phone3": "15",
-              "Email": "16",
-              "TaxOffice": "17",
-              "TaxId": "18",
-              "Tckn": "19",
-              "Address": "20",
-              "Neighborhood": "21",
-              "District": "22",
-              "City": "23",
-              "Urgent": "24",
-              "ContactPerson": "25",
-              "ContactPhone": "26",
-              "PreferredServiceShop": "27",
-              "DeliveryDate": "28",
-              "ExternalOrderId": "29",
-              "InvoiceAcceptPhone": "30",
-              "InvoiceAcceptName": "31",
-              "InvoiceAcceptSurname": "32",
-              "ProductOrderOperationDetailRequest": [
-                {
-                  "ConsignmentId": "1",
-                  "MainSourceOrderProcessId": "1",
-                  "SourceOrderId": "2",
-                  "PK": "3",
-                  "R_Counter": "4",
-                  "SS_R_Counter": "5",
-                  "MainSourceOrderProcessStatus": "6",
-                  "WareHouseCode": "7",
-                  "WareHouseType": "8",
-                  "WareHouseAddress": "9",
-                  "WareHouseNeighborhood": "10",
-                  "WareHouseDistrict": "11",
-                  "WareHouseCity": "12",
-                  "ProductCode": "13",
-                  "Product": "14",
-                  "OperationType": "15",
-                  "ProductReturnCheck": "16",
-                  "ExtraWarrantyType": "17",
-                  "ProductExposeCheck": "18",
-                  "SourceOrderStatus": "19",
-                  "ProductBarcode": "20",
-                  "DetailNote": "21",
-                  "ParoId": "22",
-                  "InvoiceNr": "23",
-                  "InvoiceDate": "24",
-                  "MaliId": "25",
-                  "NaceId": "26",
-                  "SectorId": "27",
-                  "CrmKey": "28"
-                }
-              ]
-            }
-          ]);
+          var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "http://yetkiliservis-test/wsaftersales/ServicePaperService.svc/ProductOrderOperationService",
+            "method": "POST",
+            "headers": {
+              "SessionToken": "4737B2FC-DE66-4741-B7A8-07646813D890",
+              "Cache-Control": "no-cache",
+              "servicetype": "INTHEBOX1",
+              "Content-Type": "application/json"
+            },
+            "processData": false,
+            "data": "[{\r\n    \"PK\": \"3\",\r\n    \"MainSourceApplicationProcces\": \"Serdar\",\r\n    \"SourceApplication\": \"2\",\r\n    \"MainSourceOrderProccesId\":\"3\",\r\n    \"SourceOrderId\": \"4\",\r\n    \"MainSourceProccesStatus\": \"5\",\r\n    \"SourceStatus\": \"6\",\r\n    \"DealerCode\": \"7\",\r\n    \"AsistDealerCode\": \"8\",\r\n    \"AsistBranchDealerCode\": \"9\",\r\n    \"Note\": \"10\",\r\n    \"Name\": \"11\",\r\n    \"Surname\": \"12\",\r\n    \"Phone1\": \"13\",\r\n    \"Phone2\": \"14\",\r\n    \"Phone3\": \"15\",\r\n    \"Email\": \"16\",\r\n    \"TaxOffice\": \"17\",\r\n    \"TaxId\": \"18\",\r\n    \"Tckn\": \"19\",\r\n    \"Address\": \"20\",\r\n    \"Neighborhood\": \"21\",\r\n    \"District\": \"22\",\r\n    \"City\": \"23\",\r\n    \"Urgent\": \"24\",\r\n    \"ContactPerson\": \"25\",\r\n    \"ContactPhone\": \"26\",\r\n    \"PreferredServiceShop\": \"27\",\r\n    \"DeliveryDate\": \"28\",\r\n    \"ExternalOrderId\": \"29\",\r\n    \"InvoiceAcceptPhone\": \"30\",\r\n    \"InvoiceAcceptName\": \"31\",\r\n    \"InvoiceAcceptSurname\": \"32\",\r\n        \"ProductOrderOperationDetailRequest\": [\r\n    \t{\r\n        \t\"ConsignmentId\": \"1\",\r\n            \"MainSourceOrderProcessId\": \"1\",\r\n            \"SourceOrderId\":\"2\",\r\n            \"PK\":\"3\",\r\n            \"R_Counter\":\"4\",\r\n            \"SS_R_Counter\":\"5\",\r\n            \"MainSourceOrderProcessStatus\": \"6\",\r\n        \t\"WareHouseCode\": \"7\",\r\n        \t\"WareHouseType\": \"8\",\r\n        \t\"WareHouseAddress\": \"9\",\r\n    \t    \"WareHouseNeighborhood\": \"10\",\r\n        \t\"WareHouseDistrict\": \"11\",\r\n        \t\"WareHouseCity\": \"12\",\r\n\t        \"ProductCode\": \"13\",\r\n        \t\"Product\": \"14\",\r\n        \t\"OperationType\": \"15\",\r\n        \t\"ProductReturnCheck\": \"16\",\r\n        \t\"ExtraWarrantyType\": \"17\",\r\n        \t\"ProductExposeCheck\": \"18\",\r\n        \t\"SourceOrderStatus\": \"19\",\r\n        \t\"ProductBarcode\": \"20\",\r\n        \t\"DetailNote\": \"21\",\r\n        \t\"ParoId\": \"22\",\r\n            \"InvoiceNr\": \"23\",\r\n\t        \"InvoiceDate\": \"24\",\r\n            \"MaliId\": \"25\",\t\r\n        \t\"NaceId\": \"26\",\r\n        \t\"SectorId\": \"27\",\r\n        \t\"CrmKey\": \"28\"} ]\r\n}\r\n]"
+          }
           
-          var xhr = new XMLHttpRequest();
-          xhr.withCredentials = true;
-          
-          xhr.addEventListener("readystatechange", function () {
-            if (this.readyState === 4) {
-              alert(this.responseText);
-            }
+          $.ajax(settings).done(function (response) {
+            alert(response);
           });
-          
-          xhr.open("POST", "http://yetkiliservis-test/wsaftersales/ServicePaperService.svc/ProductOrderOperationService");
-          xhr.setRequestHeader("SessionToken", "4737B2FC-DE66-4741-B7A8-07646813D890");
-          xhr.setRequestHeader("Cache-Control", "no-cache");
-          xhr.setRequestHeader("servicetype", "INTHEBOX1");
-          xhr.setRequestHeader("Content-Type", "application/json");
-          xhr.send(data);
-          alert(xhr.statusText);
           
           
           
