@@ -25,7 +25,43 @@
                     <li class="active"><a  href="#" ng-click="createWorkOrder()"><i class="glyphicon glyphicon-plus"></i> İŞ EMRİ OLUŞTUR</a></li>
                     <li><a  href="#" ng-click="queryWorkOrder()"><i class="glyphicon glyphicon-search"></i> İŞ EMRİ SORGULA</a></li>                  
                 </ul>
-            </nav>                                   
+            </nav> 
+            <div class="panel-group" ng-show="create">
+                <div class="panel panel-default">
+                <div class="panel-heading">MÜŞTERİ</div>
+                <div class="panel-body">
+                    <div class="col-sm-4">
+                        <div class="form-group">                                
+                            <input type="text" id="name" name="name" 
+                            class="form-control" placeholder="Ad*" ng-model="name_id">
+                        </div> 
+                        <div class="form-group">                                                            
+                            <input type="text" id="phoneNumber_1" name="phoneNumber_1" 
+                            class="form-control" placeholder="(___) ___ __ __">
+                        </div>  
+                    </div>   
+                    <div class="col-sm-4">
+                        <div class="form-group">                                                                
+                            <input type="text" id="surname" name="surname" 
+                            class="form-control" placeholder="Soyad*" ng-model="surname_id">
+                        </div>                                        
+                        <div class="form-group">                                                                
+                            <input type="text" id="phoneNumber_2" name="phoneNumber_2" 
+                            class="form-control" placeholder="(___) ___ __ __">
+                        </div>                                        
+                    </div>     
+                    <div class="col-sm-4"> 
+                        <div class="form-group">                                                                                                
+                            <input type="text" id="phoneNumber_3" name="phoneNumber_3" 
+                            class="form-control" placeholder="(___) ___ __ __"  ng-model="phone_id">
+                        </div>                                                            
+                        <div class="form-group">                                                                                                
+                            <input type="text" id="email" name="email" 
+                            class="form-control" placeholder="E-Posta Adresi" ng-model="email_id"> 
+                        </div>   
+                    </div>
+                </div>
+            </div>                             
         </div>                           
     </body> 
 </html>
