@@ -19,7 +19,7 @@
         "logfmt": "~1.1.2",
         "pg": "*",
         "q": "*",
-        "request": "^2.36.0",
+        "request": "^2.83.0",
         "serve-favicon": "*",
         "xmldom": "*"
     },

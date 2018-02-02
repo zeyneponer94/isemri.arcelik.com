@@ -101,9 +101,9 @@ app.get('/postman' , function(req,res) {
     
     request(options, function (err, res, body) {
         if (err) {
-          res.send('Error :', err);
+          console.log('Error :', err);
         }
-        res.send(' Body :', body);
+        console.log(' Body :', body);
       
       });
     
