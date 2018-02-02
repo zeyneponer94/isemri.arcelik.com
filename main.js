@@ -12,8 +12,8 @@ app.get('/', function(req, res) {
 });
 
 app.get('/workorder' , function(req,res) {
-    //res.sendfile('views/create_workorder.html', {root: __dirname });   
-
+    res.sendfile('views/create_workorder.html', {root: __dirname });   
+/*
     var options = { method: 'POST',
     url: 'http://yetkiliservis-test/wsaftersales/ServicePaperService.svc/ProductOrderOperationService',
     headers: 
@@ -88,10 +88,7 @@ app.get('/workorder' , function(req,res) {
     json: true };
 
     request(options, function (error, response, body) {
-    //if (error) throw new Error(error);
-    res.send(response.statusCode);
-
-  });
+  });*/
 
 });
 
