@@ -57,8 +57,7 @@ body{
     text-decoration: none;
 }
 header {
-    background: -webkit-linear-gradient(to right, rgb(255, 63, 194), rgb(16, 26, 99));  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right,  rgb(255, 63, 194), rgb(16, 26, 99));
+    background: white;
     padding: 2em;
     text-align: left;
 }
