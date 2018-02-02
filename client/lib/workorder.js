@@ -83,24 +83,93 @@
         $scope.createWorkOrder = function () 
         {        
 
-          var settings = {
-            "async": true,
-            "crossDomain": true,
-            "url": "http://yetkiliservis-test/wsaftersales/ServicePaperService.svc/ProductOrderOperationService",
-            "method": "POST",
-            "headers": {
-              "SessionToken": "4737B2FC-DE66-4741-B7A8-07646813D890",
-              "Cache-Control": "no-cache",
-              "servicetype": "INTHEBOX1",
-              "Content-Type": "application/json"
-            },
-            "processData": false,
-            "data": "[{\r\n\"PK\": \"\",\r\n\"MainSourceApplicationProcces\": \"DMS\",\r\n\"SourceApplication\": \"DMS\",\r\n\"MainSourceOrderProccesId\": \"DMS1\",\r\n\"SourceOrderId\": \"DMS1\",\r\n\"MainSourceProccesStatus\": \"Approve\",\r\n\"SourceStatus\": \"Approve\",\r\n\"DealerCode\": \"342122\",\r\n\"AsistDealerCode\": \"342122\",\r\n\"AsistBranchDealerCode\": \"342122\",\r\n\"Note\": \"10\",\r\n\"Name\": \"Serdar\",\r\n\"Surname\": \"Uysal\",\r\n\"Phone1\": \"5373579059\",\r\n\"Phone2\": \"2163964187\",\r\n\"Phone3\": \"\",\r\n\"Email\": \"serdar.uysal@arcelik.com\",\r\n\"TaxOffice\": \"\",\r\n\"TaxId\": \"\",\r\n\"Tckn\": \"\",\r\n\"Address\": \"Kavakpınar Mah Apdi İpekçi Cad No:5\",\r\n\"Neighborhood\": \"KAVAKPINAR\",\r\n\"District\": \"PENDİK\",\r\n\"City\": \"İSTANBUL\",\r\n\"Urgent\": \"0\",\r\n\"ContactPerson\": \"Deneme\",\r\n\"ContactPhone\": \"2167865438\",\r\n\"PreferredServiceShop\": \"NULL\",\r\n\"DeliveryDate\": \"13.02.2018 08:54:00\",\r\n\"ExternalOrderId\": \"\",\r\n\"InvoiceAcceptPhone\": \"5373579059\",\r\n\"InvoiceAcceptName\": \"Serdar\",\r\n\"InvoiceAcceptSurname\": \"Uysal\",\r\n\"ProductOrderDetail\": [\r\n{\r\n\"ConsignmentId\":\"1\",\r\n\"MainSourceOrderProcessId\": \"DMS1\",\r\n\"SourceOrderId\": \"DMS1\",\r\n\"PK\": \"\",\r\n\"R_Counter\": \"\",\r\n\"SS_R_Counter\": \"\",\r\n\"MainSourceOrderProcessStatus\": \"Approve\",\r\n\"WareHouseCode\": \"12457\",\r\n\"WareHouseType\": \"1\",\r\n\"WareHouseAddress\": \"Depo Adresi\",\r\n\"WareHouseNeighborhood\": \"BATI\",\r\n\"WareHouseDistrict\": \"PENDİK\",\r\n\"WareHouseCity\": \"İSTANBUL\",\r\n\"ProductCode\": \"6211101000\",\r\n\"Product\": \"ARY-5500 E ÇAMAŞIR MAK.(Y-326) ÇİFT\",\r\n\"OperationType\": \"Montaj\",\r\n\"ProductReturnCheck\": \"0\",\r\n\"ExtraWarrantyType\": \"1\",\r\n\"ProductExposeCheck\": \"0\",\r\n\"SourceOrderStatus\": \"Approve\",\r\n\"ProductBarcode\": \"\",\r\n\"DetailNote\": \"Test satır 1\",\r\n\"ParoId\": \"\",\r\n\"InvoiceNr\": \"AAFF111SFFEWQ\",\r\n\"InvoiceDate\": \"13.02.2018 08:54:00\",\r\n\"MaliId\": \"\",\r\n\"NaceId\": \"\",\r\n\"SectorId\": \"\",\r\n\"CrmKey\": \"\"\r\n}\r\n]\r\n}\r\n]"
-          }
+          var data = JSON.stringify([
+            {
+              "PK": "",
+              "MainSourceApplicationProcces": "DMS",
+              "SourceApplication": "DMS",
+              "MainSourceOrderProccesId": "DMS1",
+              "SourceOrderId": "DMS1",
+              "MainSourceProccesStatus": "Approve",
+              "SourceStatus": "Approve",
+              "DealerCode": "342122",
+              "AsistDealerCode": "342122",
+              "AsistBranchDealerCode": "342122",
+              "Note": "10",
+              "Name": "Serdar",
+              "Surname": "Uysal",
+              "Phone1": "5373579059",
+              "Phone2": "2163964187",
+              "Phone3": "",
+              "Email": "serdar.uysal@arcelik.com",
+              "TaxOffice": "",
+              "TaxId": "",
+              "Tckn": "",
+              "Address": "Kavakpınar Mah Apdi İpekçi Cad No:5",
+              "Neighborhood": "KAVAKPINAR",
+              "District": "PENDİK",
+              "City": "İSTANBUL",
+              "Urgent": "0",
+              "ContactPerson": "Deneme",
+              "ContactPhone": "2167865438",
+              "PreferredServiceShop": "NULL",
+              "DeliveryDate": "13.02.2018 08:54:00",
+              "ExternalOrderId": "",
+              "InvoiceAcceptPhone": "5373579059",
+              "InvoiceAcceptName": "Serdar",
+              "InvoiceAcceptSurname": "Uysal",
+              "ProductOrderDetail": [
+                {
+                  "ConsignmentId": "1",
+                  "MainSourceOrderProcessId": "DMS1",
+                  "SourceOrderId": "DMS1",
+                  "PK": "",
+                  "R_Counter": "",
+                  "SS_R_Counter": "",
+                  "MainSourceOrderProcessStatus": "Approve",
+                  "WareHouseCode": "12457",
+                  "WareHouseType": "1",
+                  "WareHouseAddress": "Depo Adresi",
+                  "WareHouseNeighborhood": "BATI",
+                  "WareHouseDistrict": "PENDİK",
+                  "WareHouseCity": "İSTANBUL",
+                  "ProductCode": "6211101000",
+                  "Product": "ARY-5500 E ÇAMAŞIR MAK.(Y-326) ÇİFT",
+                  "OperationType": "Montaj",
+                  "ProductReturnCheck": "0",
+                  "ExtraWarrantyType": "1",
+                  "ProductExposeCheck": "0",
+                  "SourceOrderStatus": "Approve",
+                  "ProductBarcode": "",
+                  "DetailNote": "Test satır 1",
+                  "ParoId": "",
+                  "InvoiceNr": "AAFF111SFFEWQ",
+                  "InvoiceDate": "13.02.2018 08:54:00",
+                  "MaliId": "",
+                  "NaceId": "",
+                  "SectorId": "",
+                  "CrmKey": ""
+                }
+              ]
+            }
+          ]);
           
-          $.ajax(settings).done(function (response) {
-            alert(response);
+          var xhr = new XMLHttpRequest();
+          xhr.withCredentials = true;
+          
+          xhr.addEventListener("readystatechange", function () {
+            if (this.readyState === 4) {
+              console.log(this.responseText);
+            }
           });
+          
+          xhr.open("POST", "http://yetkiliservis-test/wsaftersales/ServicePaperService.svc/ProductOrderOperationService");
+          xhr.setRequestHeader("SessionToken", "4737B2FC-DE66-4741-B7A8-07646813D890");
+          xhr.setRequestHeader("Cache-Control", "no-cache");
+          xhr.setRequestHeader("Postman-Token", "342a2ba6-e097-e303-2404-5fa0d997d6e1");
+          xhr.setRequestHeader("servicetype", "INTHEBOX1");
+          xhr.setRequestHeader("Content-Type", "application/json");
+          xhr.send(data);
         } 
 
 
