@@ -74,7 +74,7 @@
                             AppointmentDate: response.data[i][12]
                 };
                 $scope.workorders[i].push(obj);                
-                alert(Object.keys($scope.workorders)[i])
+                alert(Object.keys($scope.workorders[i]).phone)
                 i++;
             }
         });
