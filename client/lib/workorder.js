@@ -46,7 +46,6 @@
        }
 
        $scope.query_workorder = function () {
-         alert("success3")
         $http({
           method: "GET", 
           url: 'https://thworkorderfapp.azurewebsites.net/api/workorderlist',
@@ -54,8 +53,7 @@
                    surname:$scope.surname_id}          
         }) 
         .then(function(response){ 
-          alert("success4")
-          
+            $scope.result = false;       
             $scope.workorders = [];
             var i = 0;
             while(response.data[i]!=null){
@@ -116,7 +114,6 @@
 
         $scope.create_workorder = function () 
         {        
-          alert("create")
           $http({
             method: "GET", 
             url: 'https://thworkorderfapp.azurewebsites.net/api/createworkorder',
@@ -136,9 +133,7 @@
               AppointmentDate:"2018-02-15"
             }          
           }) 
-          .then(function(response){ 
-            alert("create2")
-            
+          .then(function(response){             
           });
         } 
 
