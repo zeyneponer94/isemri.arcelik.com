@@ -54,26 +54,31 @@
         }) 
         .then(function(response){ 
             $scope.workorders = [];
-            alert(response.data[0]);                    
+            alert(response.data[0][0]);                    
             var i = 0;
-            while(response.data[i].musteri_adi!=null){
-              var obj = { name: response.data[i].musteri_adi,
-                          surname:response.data[i].musteri_soyadı,
-                          phone: response.data[i].musteri_tel,
-                          no: response.data[i].is_emri_no,
-                          product:response.data[i].urun,
-                          type: response.data[i].is_emri_turu,
-                          customer: response.data[i].musteri,
-                          point: response.data[i].sevk_noktası,
-                          address: response.data[i].teslimat_adresi,
-                          status: response.data[i].is_emri_durumu,
-                          service: response.data[i].servis,
-                          DeliveryDate: response.data[i].teslimat_tarihi,
-                          AppointmentDate: response.data[i].randevu_tarihi
-                        };
-              $scope.workorders.push(obj);  
-              i++;
-            }
+            var j = 0;
+  //          while(response.data[i]!=null){
+    //          while(response.data[i][j]!=null){
+      //          var obj = { name: response.data[i][j]
+                  /*          surname:response.data[i].musteri_soyadı,
+                            phone: response.data[i].musteri_tel,
+                            no: response.data[i].is_emri_no,
+                            product:response.data[i].urun,
+                            type: response.data[i].is_emri_turu,
+                            customer: response.data[i].musteri,
+                            point: response.data[i].sevk_noktası,
+                            address: response.data[i].teslimat_adresi,
+                            status: response.data[i].is_emri_durumu,
+                            service: response.data[i].servis,
+                            DeliveryDate: response.data[i].teslimat_tarihi,
+                            AppointmentDate: response.data[i].randevu_tarihi*/
+          //      };
+            //    j++;
+             // }
+
+            //  $scope.workorders.push(obj);  
+              //i++;
+          //  }
         });
         
       }
