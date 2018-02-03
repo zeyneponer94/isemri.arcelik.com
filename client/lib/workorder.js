@@ -60,7 +60,6 @@
               while(response.data[i][j]!=null){
                 var obj = { name: response.data[i][j]};
                 $scope.workorders[i].push(obj);
-                alert(workorders[i][j]);
                 j++
       //          var obj = { name: response.data[i][j]
                   /*          surname:response.data[i].musteri_soyadı,
