@@ -155,7 +155,7 @@
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">   
-                                <button type="button" style= " background: -webkit-linear-gradient(to right, rgb(255, 63, 194), rgb(16, 26, 99));  
+                                <button type="button" ng-click="query()" style= " background: -webkit-linear-gradient(to right, rgb(255, 63, 194), rgb(16, 26, 99));  
                                 background: linear-gradient(to right,  rgb(255, 63, 194), rgb(16, 26, 99));" class="btn btn-default"><i class="glyphicon glyphicon-search"></i>ARA</button>                                
                             </div> 
                         </div>  
@@ -179,11 +179,24 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                    </tr>
+                        <tr ng-repeat="x in workorders">
+                            <td>{{ x.name }}</td>
+                            <td>{{ x.surname }}</td>
+                            <td>{{ x.phone }}</td>
+                            <td>{{ x.no }}</td>
+                            <td>{{ x.product }}</td>
+                            <td>{{ x.type }}</td>
+                            <td>{{ x.customer }}</td>
+                            <td>{{ x.point }}</td>
+                            <td>{{ x.address }}</td>
+                            <td>{{ x.status }}</td>
+                            <td>{{ x.service }}</td>
+                            <td>{{ x.DeliveryDate }}</td>
+                            <td>{{ x.AppointmentDate }}</td>                                                      
+                        </tr>
                   </tbody>
                 </table>
-                <footer align="center"> Sonuç bulunamadı</footer>                               
+                <footer ng-show="result"> Sonuç bulunamadı</footer>                               
             </div> 
         </div>                           
     </body> 
