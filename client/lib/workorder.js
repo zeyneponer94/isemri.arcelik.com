@@ -46,8 +46,6 @@
        }
 
        $scope.query_workorder = function () {
-          alert($scope.name_id);
-          alert($scope.surname_id);
         $http({
           method: "GET", 
           url: 'https://thworkorderfapp.azurewebsites.net/api/workorderlist',
