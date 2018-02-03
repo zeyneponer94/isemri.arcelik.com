@@ -45,7 +45,7 @@
           $scope.result=true;
        }
 
-       $scope.query = function () {
+       $scope.query_workorder = function () {
           alert($scope.name_id);
           alert($scope.surnamename_id);
         $http({
