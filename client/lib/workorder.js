@@ -54,7 +54,7 @@
         }) 
         .then(function(response){ 
             $scope.workorders = [];
-            alert(response.data[0].musteri_adi);                    
+            alert(response.data[0]);                    
             var i = 0;
             while(response.data[i].musteri_adi!=null){
               var obj = { name: response.data[i].musteri_adi,
