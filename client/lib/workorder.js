@@ -57,28 +57,22 @@
             var i = 0;
             var j = 0;
             while(response.data[i]!=null){
-              while(response.data[i][j]!=null){
-                var obj = { name: response.data[i][j]};
-                $scope.workorders[i].push(obj);
-                j++
-      //          var obj = { name: response.data[i][j]
-                  /*          surname:response.data[i].musteri_soyadı,
-                            phone: response.data[i].musteri_tel,
-                            no: response.data[i].is_emri_no,
-                            product:response.data[i].urun,
-                            type: response.data[i].is_emri_turu,
-                            customer: response.data[i].musteri,
-                            point: response.data[i].sevk_noktası,
-                            address: response.data[i].teslimat_adresi,
-                            status: response.data[i].is_emri_durumu,
-                            service: response.data[i].servis,
-                            DeliveryDate: response.data[i].teslimat_tarihi,
-                            AppointmentDate: response.data[i].randevu_tarihi*/
-          //      };
-            //    j++;
-             // }
-
-              }
+                var obj = { 
+                            name: response.data[i][0],
+                            surname:response.data[i][1],
+                            phone: response.data[i][2],
+                            no: response.data[i][3],
+                            product:response.data[i][4],
+                            type: response.data[i][5],
+                            customer: response.data[i][6],
+                            point: response.data[i][7],
+                            address: response.data[i][8],
+                            status: response.data[i][9],
+                            service: response.data[i][10],
+                            DeliveryDate: response.data[i][11],
+                            AppointmentDate: response.data[i][12]
+                };
+              $scope.workorders[i].push(obj);
               i++;
             }
         });
