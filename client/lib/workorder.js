@@ -73,7 +73,7 @@
                             AppointmentDate: response.data[i][12]
                 };
                 $scope.workorders[i].push(obj);
-                alert( $scope.workorders[i].phone)
+                alert( $scope.workorders[i].name)
                 i++;
             }
         });
