@@ -73,8 +73,8 @@
                             DeliveryDate: response.data[i][11],
                             AppointmentDate: response.data[i][12]
                 };
-                $scope.workorders[i].push(obj);
-                alert( $scope.workorders[i])
+                $scope.workorders[i].push(obj);                
+                alert(Object.keys($scope.workorders)[i])
                 i++;
             }
         });
