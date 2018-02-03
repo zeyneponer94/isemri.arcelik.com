@@ -57,7 +57,7 @@
             var i = 0;
             var j = 0;
             while(response.data[i]!=null){
-                $scopeçworkorders[i] = [];
+                $scope.workorders[i] = [];
                 var obj = { 
                             name: response.data[i][0],
                             surname:response.data[i][1],
