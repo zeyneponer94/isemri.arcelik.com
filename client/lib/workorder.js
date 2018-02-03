@@ -55,7 +55,7 @@
         .then(function(response){ 
             $scope.workorders = [];                    
             var i = 0;
-            while(response.data[i]!=null){
+            while(response.data[i].musteri_adi!=null){
               var obj = { name: response.data[i].musteri_adi,
                           surname:response.data[i].musteri_soyadı,
                           phone: response.data[i].musteri_tel,
