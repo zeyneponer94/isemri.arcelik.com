@@ -57,7 +57,6 @@
             var i = 0;
             var j = 0;
             while(response.data[i]!=null){
-                alert(response.data[i][4])
                 var obj = { 
                             name: response.data[i][0],
                             surname:response.data[i][1],
@@ -73,8 +72,9 @@
                             DeliveryDate: response.data[i][11],
                             AppointmentDate: response.data[i][12]
                 };
-              $scope.workorders[i].push(obj);
-              i++;
+                $scope.workorders[i].push(obj);
+                alert( $scope.workorders[i])
+                i++;
             }
         });
         
