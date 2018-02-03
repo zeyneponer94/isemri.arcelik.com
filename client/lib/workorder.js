@@ -53,7 +53,8 @@
                    surname:$scope.surname_id}          
         }) 
         .then(function(response){ 
-            $scope.workorders = [];                    
+            $scope.workorders = [];
+            alert(response.data[0].musteri_adi);                    
             var i = 0;
             while(response.data[i].musteri_adi!=null){
               var obj = { name: response.data[i].musteri_adi,
