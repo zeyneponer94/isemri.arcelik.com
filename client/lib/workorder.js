@@ -53,11 +53,11 @@
                    surname:$scope.surname_id}          
         }) 
         .then(function(response){ 
-            $scope.workorders = {};
+            $scope.workorders = [];
             var i = 0;
             var j = 0;
             while(response.data[i]!=null){
-                $scope.workorders[i] = [];
+                //$scope.workorders[i] = [];
                 var obj = { 
                             name: response.data[i][0],
                             surname:response.data[i][1],
@@ -73,8 +73,8 @@
                             DeliveryDate: response.data[i][11],
                             AppointmentDate: response.data[i][12]
                 };
-                $scope.workorders[i].push(obj);                
-                alert(Object.keys($scope.workorders[i]).phone)
+                //$scope.workorders[i].push(obj);   
+                $scope.workorders.push(obj);         
                 i++;
             }
         });
