@@ -55,13 +55,8 @@
         .then(function(response){ 
             $scope.workorders = [];
             var i = 0;
-            var j = 0;
             while(response.data[i]!=null){
-                //$scope.workorders[i] = [];
-                var obj = { 
-                            name: response.data[i][0],
-                            surname:response.data[i][1],
-                            phone: response.data[i][2],
+                      var obj = { 
                             no: response.data[i][3],
                             product:response.data[i][4],
                             type: response.data[i][5],
@@ -72,8 +67,7 @@
                             service: response.data[i][10],
                             DeliveryDate: response.data[i][11],
                             AppointmentDate: response.data[i][12]
-                };
-                //$scope.workorders[i].push(obj);   
+                      };
                 $scope.workorders.push(obj);         
                 i++;
             }
