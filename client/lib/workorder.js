@@ -53,7 +53,7 @@
                    surname:$scope.surname_id}          
         }) 
         .then(function(response){ 
-            $scope.workorders = [];
+            $scope.workorders = [][]
             var i = 0;
             var j = 0;
             while(response.data[i]!=null){
