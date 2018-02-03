@@ -53,13 +53,13 @@
                    surname:$scope.surname_id}          
         }) 
         .then(function(response){ 
-            $scope.workorders = [][];
+            $scope.workorders = [[]];
             var i = 0;
             var j = 0;
             while(response.data[i]!=null){
               while(response.data[i][j]!=null){
                 var obj = { name: response.data[i][j]};
-                $scope.workorders[i][j].push(obj);
+                $scope.workorders[i].push(obj);
                 alert(workorders[i][j]);
                 j++
       //          var obj = { name: response.data[i][j]
