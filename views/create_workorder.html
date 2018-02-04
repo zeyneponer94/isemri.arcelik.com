@@ -21,10 +21,12 @@
                     </div>                             
                 </div>
             </header>                            
-                <ul class="nav nav-tabs nav-justified">
-                    <li class="{ active: createWorkOrder()}"><a class="nav-link" href="#" ng-click="createWorkOrder()"><i class="glyphicon glyphicon-plus"></i> İŞ EMRİ OLUŞTUR</a></li>
-                    <li class="{ active: queryWorkOrder()}"><a class="nav-link" href="#" ng-click="queryWorkOrder()"><i class="glyphicon glyphicon-search"></i> İŞ EMRİ SORGULA</a></li>                  
+            <nav class="navbar navbar-default" style="background-color:rgb(255, 255, 255);">                        
+                <ul class="nav navbar-nav">
+                    <li><a  href="#" ng-click="createWorkOrder()"><i class="glyphicon glyphicon-plus"></i> İŞ EMRİ OLUŞTUR</a></li>
+                    <li><a  href="#" ng-click="queryWorkOrder()"><i class="glyphicon glyphicon-search"></i> İŞ EMRİ SORGULA</a></li>                  
                 </ul>
+            </nav> 
             <div class="panel-group" ng-show="create">
                 <div class="panel panel-default">
                     <div class="panel-heading">MÜŞTERİ</div>
