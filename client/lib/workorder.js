@@ -128,9 +128,20 @@
 
         $scope.create_workorder = function () 
         {        
+          $scope.confirmationDialogConfig = {};
+            $scope.confirmationDialogConfig = {
+              title: "Caution!!!",
+              message: "Are you sure you want to delete?",
+              buttons: [{
+                label: "Delete",
+                action: "delete"
+              }]
+            };
+            $scope.showDialog(true);
+         
 
           if ($window.confirm
-             ("Aşağıda belirtilen bilgiler ile iş emri oluşturmayı onaylıyor musunuz?\n Müşteri adı = "+$scope.name_id+"\nMüşteri soyadı = "
+             ("Aşağıda belirtilen bilgiler ile iş emri oluşturma talebinizi gerçekleştirmeyi onaylıyor musunuz?\nMüşteri adı = "+$scope.name_id+"\nMüşteri soyadı = "
              +$scope.surname_id+"\nMüşteri telefon numarası = "+$scope.phone_id+"\nSeçilen ürün = "+$scope.singleSelect+"\nSeçilen iş emri türü = "
              +$scope.workorderSelect+"\nMüşteri adresi = " + $scope.provinceSelect + " " +$scope.citySelect
             )) {
