@@ -5,7 +5,6 @@ var express = require('express'),
     errorHandler = require('express-error-handler'),
     app = express();
     Console = require('console');
-    route = require('angular-route');
 
 var logFmt = require("logfmt");
 
