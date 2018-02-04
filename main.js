@@ -1,5 +1,6 @@
 var express = require('express'),
     http = require('http'),
+    modal = require('modal'),    
     request = require('request'),
     bodyParser = require('body-parser'),
     errorHandler = require('express-error-handler'),
