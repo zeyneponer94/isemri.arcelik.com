@@ -1,5 +1,5 @@
-    app = angular.module('App', ['dialogs.main'])
-    app.controller('Controller', ['$scope','$http','$window','$dialog', function ($scope, $http, $window,$dialog) {
+    app = angular.module('App', [])
+    app.controller('Controller', ['$scope','$http','$window', function ($scope, $http, $window) {
         $scope.create = true;  
         $scope.query = false;      
         //connecting to azure db, getting required records from specified table and displaying them in selection list
@@ -128,9 +128,6 @@
 
         $scope.create_workorder = function () 
         {        
-          var dlg = null;          
-          dlg = $dialogs.confirm('Lütfen Onaylayınız!','Aşağıda belirtilen bilgiler ile iş emri oluşturmayı onaylıyor musunuz?');
-          dlg.result.then(function(btn){
             $http({
               method: "GET", 
               url: 'https://thworkorderfapp.azurewebsites.net/api/createworkorder',
@@ -152,9 +149,6 @@
             }) 
             .then(function(response){             
             });
-          },function(btn){
-            alert("İşlem Tamamlanamadı");
-          });
 
           
         } 
