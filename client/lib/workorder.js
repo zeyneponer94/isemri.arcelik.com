@@ -129,7 +129,11 @@
         $scope.create_workorder = function () 
         {        
 
-          if ($window.confirm("Please confirm?")) {
+          if ($window.confirm("Aşağıda belirtilen bilgiler ile iş emri oluşturmayı onaylıyor musunuz?/n Müşteri adı="+$scope.name_id
+        
+        
+        
+          )) {
 
             $http({
               method: "GET", 
