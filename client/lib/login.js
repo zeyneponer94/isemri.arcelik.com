@@ -13,7 +13,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
                 $scope.login();
         }).
         error(function(data, status) {
-            $errors.Name = "" + data;
+            $scope.errors.Name = "" + data;
         });
     };       
                                                                             
