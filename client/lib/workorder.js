@@ -1,21 +1,4 @@
-angular.module('TestApp.controllers', []).controller('testController',  ['$scope', 'modalConfirmService', function($scope, modalConfirmService) {
-  $scope.msg = '';
-  $scope.showModal = function(){
-
-       var options = {
-             closeButtonText: 'Cancel',
-             actionButtonText: 'Yes',
-             headerText: 'Modal Header ?',
-             bodyText: 'Are you sure you want to delete?'
-          };
-
-       modalConfirmService.showModal({}, options).then(function (result) {
-    $scope.msg = 'You have clicked Yes';
-       });
-  }
-}]);
-
-app = angular.module('App', [])      
+    app = angular.module('App', [])      
     app.controller('Controller', ['$scope','$http','$window', function ($scope, $http, $window) {
         $scope.create = true;  
         $scope.query = false;      
