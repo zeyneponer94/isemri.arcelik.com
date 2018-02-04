@@ -128,8 +128,7 @@
 
         $scope.create_workorder = function () 
         {        
-          $scope.submitted = true;          
-/*          $http({
+          $http({
             method: "GET", 
             url: 'https://thworkorderfapp.azurewebsites.net/api/createworkorder',
             params: {
@@ -149,7 +148,7 @@
             }          
           }) 
           .then(function(response){             
-          });*/
+          });
         } 
 
 
