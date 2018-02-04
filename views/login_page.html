@@ -4,11 +4,6 @@
         <link rel="stylesheet" type="text/css" href="css/custom.css">
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
-    <style>
-        .submitted .ng-invalid{
-            border: 1px solid red;
-        }
-    </style>
     <body style="background-color:#D3D3D3;">
             <div class="container main-section" ng-app="App">
                     <div class="row">
@@ -28,11 +23,11 @@
                                     <div class="col-md-12 col-sm-12 col-xs-12 user-login-box" ng-controller="Controller">
                                         <div class="form-group input-group">
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                            <input type="text" name="username" id="focusedInput" class="form-control" placeholder="Kullanıcı Adı" ng-model="username" required pattern=".{2,}"/>
+                                            <input type="text" name="username" id="focusedInput_username" class="form-control" placeholder="Kullanıcı Adı" ng-model="username" required pattern=".{2,}"/>
                                         </div>
                                         <div class="form-group input-group">
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                            <input type="password" name="password" id="focusedInput" class="form-control" placeholder="Şifre" ng-model="password" required pattern=".{2,}"/>
+                                            <input type="password" name="password" id="focusedInput_password" class="form-control" placeholder="Şifre" ng-model="password" required pattern=".{2,}"/>
                                         </div>
                                         <button type="button" class="btn btn-default" ng-click="submit() submitted= true;" ng-disabled="form.$invalid">Giriş</button> 
                                         <buttonlink class="btn btn-link">Not Registered Yet?</buttonlink>
