@@ -65,8 +65,8 @@
         $http({
           method: "GET", 
           url: 'https://thworkorderfapp.azurewebsites.net/api/workorderlist',
-          params: {name:$scope.name_id,
-                   surname:$scope.surname_id}          
+          params: {name:$scope.name_id_query,
+                   surname:$scope.surname_id_query}          
         }) 
         .then(function(response){ 
             $scope.result = false;       
