@@ -1,4 +1,4 @@
-    app = angular.module('App', [])     
+    angular.module('App', [])     
     .service('modalService', ['$modal', function ($modal) {
             var self = this;
             var modalInstance = null;
@@ -15,8 +15,9 @@
             return self;
             }
     ]); 
-
-    app.controller('Controller', ['$scope','$http','$window', 'modalService', function ($scope, $http, $window,modalService) {
+    
+    angular.module('App')
+    .controller('Controller', ['$scope','$http','$window', 'modalService', function ($scope, $http, $window,modalService) {
         $scope.create = true;  
         $scope.query = false;      
 
