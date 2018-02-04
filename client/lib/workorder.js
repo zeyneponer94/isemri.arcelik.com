@@ -1,5 +1,11 @@
     app = angular.module('App', [])
     app.controller('Controller', ['$scope','$http','$window', function ($scope, $http, $window) {
+      $scope.notification = {
+        status: 'hide',
+        type: 'success',
+        message: 'Welcome! It\'s yet another angular alert ;)'
+      };
+      alert($scope.notification);
         $scope.create = true;  
         $scope.query = false;      
         //connecting to azure db, getting required records from specified table and displaying them in selection list
@@ -159,43 +165,6 @@
           } else {
             alert("İşlem Tamamlanamadı!");
           }
-
-/*
-          if ($window.confirm
-             ("Aşağıda belirtilen bilgiler ile iş emri oluşturma talebinizi gerçekleştirmeyi onaylıyor musunuz?\nMüşteri adı = "+$scope.name_id+"\nMüşteri soyadı = "
-             +$scope.surname_id+"\nMüşteri telefon numarası = "+$scope.phone_id+"\nSeçilen ürün = "+$scope.singleSelect+"\nSeçilen iş emri türü = "
-             +$scope.workorderSelect+"\nMüşteri adresi = " + $scope.provinceSelect + " " +$scope.citySelect
-            )) {
-
-            $http({
-              method: "GET", 
-              url: 'https://thworkorderfapp.azurewebsites.net/api/createworkorder',
-              params: {
-                name:$scope.name_id,
-                surname:$scope.surname_id,
-                phone:$scope.phone_id,
-                no:"Test",
-                product:$scope.singleSelect,
-                workorder:$scope.workorderSelect,
-                customer:"Test",
-                point:$scope.provinceSelect,
-                address:$scope.citySelect,
-                status:"Active",
-                service:"Test",
-                DeliveryDate:"2018-02-10",
-                AppointmentDate:"2018-02-15"
-              }          
-            }) 
-            .then(function(response){             
-            });
-
-
-
-          } else {
-            alert("İşlem Tamamlanamadı!");
-          }*/
-
-          
         } 
 
 
