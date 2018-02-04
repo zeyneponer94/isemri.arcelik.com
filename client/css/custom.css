@@ -18,7 +18,18 @@ body{
     background-color: rgb(196, 195, 195);
     color: rgb(185, 184, 184);
 }
-    
+
+.open-dialog
+{
+    border-radius: 3px
+    margin: 10px
+}
+
+.confirmation-dialog
+{
+display: none
+}
+
 .user-login-header,.login-image-main{
     margin-top: 15px;
 }
