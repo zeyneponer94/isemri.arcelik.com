@@ -1,4 +1,21 @@
-    app = angular.module('App', ['ui.bootstrap'])      
+angular.module('TestApp.controllers', []).controller('testController',  ['$scope', 'modalConfirmService', function($scope, modalConfirmService) {
+  $scope.msg = '';
+  $scope.showModal = function(){
+
+       var options = {
+             closeButtonText: 'Cancel',
+             actionButtonText: 'Yes',
+             headerText: 'Modal Header ?',
+             bodyText: 'Are you sure you want to delete?'
+          };
+
+       modalConfirmService.showModal({}, options).then(function (result) {
+    $scope.msg = 'You have clicked Yes';
+       });
+  }
+}]);
+
+app = angular.module('App', [])      
     app.controller('Controller', ['$scope','$http','$window', function ($scope, $http, $window) {
         $scope.create = true;  
         $scope.query = false;      
@@ -129,13 +146,6 @@
 
         $scope.create_workorder = function () 
         {       
-          /*
-          dlg = $dialogs.confirm('Please Confirm','Is this awesome or what?');
-          dlg.result.then(function(btn){
-            $scope.confirmed = 'You thought this quite awesome!';
-          },function(btn){
-            $scope.confirmed = 'Shame on you for not thinking this is awesome!';
-          });*/
 
           var txt;
           var r = confirm("Aşağıda belirtilen bilgiler ile iş emri oluşturma talebinizi gerçekleştirmeyi onaylıyor musunuz?\n\Müşteri adı = "+$scope.name_id+"\n\Müşteri soyadı = "
