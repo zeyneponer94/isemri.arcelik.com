@@ -2,7 +2,6 @@
     app.controller('Controller', ['$scope','$http','$window', function ($scope, $http, $window) {
         $scope.create = true;  
         $scope.query = false;      
-
         //connecting to azure db, getting required records from specified table and displaying them in selection list
         $http({
           method: "GET", 
@@ -129,7 +128,8 @@
 
         $scope.create_workorder = function () 
         {        
-          $http({
+          $scope.submitted = true;          
+/*          $http({
             method: "GET", 
             url: 'https://thworkorderfapp.azurewebsites.net/api/createworkorder',
             params: {
@@ -149,7 +149,7 @@
             }          
           }) 
           .then(function(response){             
-          });
+          });*/
         } 
 
 

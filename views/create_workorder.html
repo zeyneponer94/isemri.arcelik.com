@@ -35,7 +35,7 @@
                                     <div class="form-group">                                
                                         <input type="text" id="name_customer" name="name_customer" 
                                         class="form-control" placeholder="Ad*" ng-model="name_id" required>
-                                        <span class="error" ng-show="form.name_customer.$error.required">Required!</span><br>                                        
+                                        <span class="error" ng-show="form.name_customer.$error.required && submitted">Required!</span><br>                                        
                                     </div> 
                                     <div class="form-group">                                                            
                                         <input type="text" id="phoneNumber_1" name="phoneNumber_1" 

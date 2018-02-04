@@ -18,13 +18,6 @@ body{
     background-color: rgb(196, 195, 195);
     color: rgb(185, 184, 184);
 }
-.my-form {
-    transition:all linear 0.5s;
-    background: transparent;
-  }
-  .my-form.ng-invalid {
-    background: red;
-  }
 .user-login-header,.login-image-main{
     margin-top: 15px;
 }
