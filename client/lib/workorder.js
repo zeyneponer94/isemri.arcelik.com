@@ -128,6 +128,9 @@
 
         $scope.create_workorder = function () 
         {        
+
+          if ($window.confirm("Please confirm?")) {
+
             $http({
               method: "GET", 
               url: 'https://thworkorderfapp.azurewebsites.net/api/createworkorder',
@@ -149,6 +152,12 @@
             }) 
             .then(function(response){             
             });
+
+
+
+          } else {
+            alert("İşlem Tamamlanamadı!");
+          }
 
           
         } 
