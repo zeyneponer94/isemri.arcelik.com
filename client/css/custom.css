@@ -14,12 +14,6 @@ body{
     position:absolute;
     width: 100%;
 }
-ul.nav li.active {
-    background: rgb(149, 149, 150);
-    color: #f6f6f6;
-    display: block;
-    padding: 10px;
-}
 .user-login-header,.login-image-main{
     margin-top: 15px;
 }

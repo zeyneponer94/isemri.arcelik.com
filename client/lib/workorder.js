@@ -34,6 +34,11 @@
           }
         });
 
+        $scope.isActive = function (viewLocation) {
+          var active = (viewLocation === $location.path());
+          return active;
+        };
+
         $scope.createWorkOrder = function () {
           $scope.create = true;
           $scope.query=false;
