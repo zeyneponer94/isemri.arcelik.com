@@ -1,11 +1,5 @@
     app = angular.module('App', [])
     app.controller('Controller', ['$scope','$http','$window', function ($scope, $http, $window) {
-      $scope.notification = {
-        status: 'hide',
-        type: 'success',
-        message: 'Welcome! It\'s yet another angular alert ;)'
-      };
-      alert($scope.notification);
         $scope.create = true;  
         $scope.query = false;      
         //connecting to azure db, getting required records from specified table and displaying them in selection list
@@ -136,9 +130,9 @@
         $scope.create_workorder = function () 
         {        
           var txt;
-          var r = confirm("Aşağıda belirtilen bilgiler ile iş emri oluşturma talebinizi gerçekleştirmeyi onaylıyor musunuz?\nMüşteri adı = "+$scope.name_id+"\nMüşteri soyadı = "
-          +$scope.surname_id+"\nMüşteri telefon numarası = "+$scope.phone_id+"\nSeçilen ürün = "+$scope.singleSelect+"\nSeçilen iş emri türü = "
-          +$scope.workorderSelect+"\nMüşteri adresi = " + $scope.provinceSelect + " " +$scope.citySelect);
+          var r = confirm("Aşağıda belirtilen bilgiler ile iş emri oluşturma talebinizi gerçekleştirmeyi onaylıyor musunuz?\n\Müşteri adı = "+$scope.name_id+"\n\Müşteri soyadı = "
+          +$scope.surname_id+"\n\Müşteri telefon numarası = "+$scope.phone_id+"\n\Seçilen ürün = "+$scope.singleSelect+"\n\Seçilen iş emri türü = "
+          +$scope.workorderSelect+"\n\Müşteri adresi = " + $scope.provinceSelect + " " +$scope.citySelect);
           if (r == true) {
             $http({
               method: "GET", 
