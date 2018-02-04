@@ -126,6 +126,10 @@
           });          
         }
 
+        $scope.showDialog = function(flag) {
+          jQuery("#confirmation-dialog .modal").modal(flag ? 'show' : 'hide');
+        };
+
         $scope.create_workorder = function () 
         {        
           $scope.confirmationDialogConfig = {};
