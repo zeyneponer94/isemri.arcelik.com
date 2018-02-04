@@ -16,7 +16,7 @@ body{
 }
 .active, .navbar:hover {
     background-color: rgb(196, 195, 195);
-    color: white;
+    color: rgb(185, 184, 184);
 }
 .user-login-header,.login-image-main{
     margin-top: 15px;

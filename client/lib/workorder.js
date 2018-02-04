@@ -42,12 +42,18 @@
         $scope.createWorkOrder = function () {
           $scope.create = true;
           $scope.query=false;
+          var current = document.getElementsByClassName("active");
+          current[0].className = current[0].className.replace(" active", "");
+          this.className += " active";
         }
 
         $scope.queryWorkOrder = function () {
           $scope.create = false;
           $scope.query=true;
           $scope.result=true;
+          var current = document.getElementsByClassName("active");
+          current[0].className = current[0].className.replace(" active", "");
+          this.className += " active";
        }
 
        $scope.query_workorder = function () {
