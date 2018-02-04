@@ -1,5 +1,5 @@
     app = angular.module('App', [])     
-    app.factory('modalService', '$modal', function ($modal) {
+    app.factory('modalService', ['$modal', function ($modal) {
             var self = this;
             var modalInstance = null;
             self.open = function (scope, path) {
