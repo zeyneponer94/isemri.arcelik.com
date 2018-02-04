@@ -1,5 +1,5 @@
-    angular.module('App', ['ui.bootstrap'])     
-    .service('modalService', ['$uibModal', function ($uibModal) {
+    angular.module('App', ['ui.router', 'ngRoute', 'ui.bootstrap'])     
+    .factory('modalService', ['$uibModal', function ($uibModal) {
             var self = this;
             var modalInstance = null;
             self.open = function (scope, path) {
