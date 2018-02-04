@@ -2,7 +2,6 @@
     app.controller('Controller', ['$scope','$http','$window', function ($scope, $http, $window) {
         $scope.create = true;  
         $scope.query = false;      
-        $scope.name_id = 'John Doe';        
 
         //connecting to azure db, getting required records from specified table and displaying them in selection list
         $http({
