@@ -35,7 +35,7 @@
                         <div class="panel-body">
                             <div class="col-sm-4">
                                 <div class="form-group">                                
-                                    <input type="text" id="name" name="name" 
+                                    <input type="text" id="name_customer" name="name_customer" 
                                     class="form-control" placeholder="Ad*" ng-model="name_id">
                                     <span style="color:red" ng-show="myForm.name_id.$dirty">
                                     <span ng-show="myForm.name_id.$error.required">name is required.</span>
@@ -48,7 +48,7 @@
                             </div>   
                             <div class="col-sm-4">
                                 <div class="form-group">                                                                
-                                    <input type="text" id="surname" name="surname" 
+                                    <input type="text" id="surname_customer" name="surname_customer" 
                                     class="form-control" placeholder="Soyad*" ng-model="surname_id">
                                 </div>                                        
                                 <div class="form-group">                                                                
@@ -110,7 +110,7 @@
                                     <option value="">Teslimat Mahallesi Seçiniz *</option> 
                                 </select>
                             </div> 
-                            <input type="text" id="adres" name="adres" 
+                            <input type="text" id="adres_customer" name="adres_customer" 
                             class="form-control" placeholder="Adres*" ng-model="adres_id">                      
                         </div>   
                     </div>
@@ -131,7 +131,7 @@
                             </div> 
                             <div class="form-group" align="center">                                                                                                                                        
                                 <button type="button" style= "background: -webkit-linear-gradient(to right, rgb(255, 63, 194), rgb(16, 26, 99));  
-                                background: linear-gradient(to right,  rgb(255, 63, 194), rgb(16, 26, 99));" class="btn btn-block" ng-click="create_workorder()">İŞ EMRİ OLUŞTUR</button>                                                                                                                                                              
+                                background: linear-gradient(to right,  rgb(255, 63, 194), rgb(16, 26, 99));" class="btn btn-block" ng-click="create_workorder()" ng-disabled="myForm.name_id.$dirty">İŞ EMRİ OLUŞTUR</button>                                                                                                                                                              
                                 <footer>&copy; 2018 Arçelik All rights reserved.</footer>   
                             </div>             
                         </div>    
@@ -142,26 +142,26 @@
                         <div class="panel-body">    
                             <div class="col-sm-3">
                                 <div class="form-group">                                
-                                    <input type="text" id="name" name="name" 
+                                    <input type="text" id="name_query" name="name_query" 
                                     class="form-control" placeholder="Ad" ng-model="name_id_query">
                                 </div> 
                             </div> 
                             <div class="col-sm-3">
                                 <div class="form-group">                                
-                                    <input type="text" id="surname" name="surname" 
+                                    <input type="text" id="surname_query" name="surname_query" 
                                     class="form-control" placeholder="Soyad" ng-model="surname_id_query">
                                 </div> 
                             </div> 
                             <div class="col-sm-3">
                                 <div class="form-group">                                
-                                    <input type="text" id="phoneNumber_3" name="phoneNumber_3" 
+                                    <input type="text" id="phoneNumber_3_query" name="phoneNumber_3_query" 
                                     class="form-control" placeholder="(___) ___ __ __"  ng-model="phone_id_query">
                                 </div> 
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group">   
                                     <button type="button" style= " background: -webkit-linear-gradient(to right, rgb(255, 63, 194), rgb(16, 26, 99));  
-                                    background: linear-gradient(to right,  rgb(255, 63, 194), rgb(16, 26, 99));" class="btn btn-default" ng-click="query_workorder()" ng-disabled="myForm.name_id.$dirty"><i class="glyphicon glyphicon-search"></i>ARA</button>                                
+                                    background: linear-gradient(to right,  rgb(255, 63, 194), rgb(16, 26, 99));" class="btn btn-default" ng-click="query_workorder()"><i class="glyphicon glyphicon-search"></i>ARA</button>                                
                                 </div> 
                             </div>  
                         </div>  
