@@ -44,7 +44,7 @@
                                 <div class="col-sm-4">
                                     <div class="form-group">                                                                
                                         <input type="text" id="surname_customer" name="surname_customer" 
-                                        class="form-control" placeholder="Soyad*" ng-model="surname_id">
+                                        class="form-control" placeholder="Soyad*" ng-model="surname_id" required>
                                     </div>                                        
                                     <div class="form-group">                                                                
                                         <input type="text" id="phoneNumber_2" name="phoneNumber_2" 
@@ -54,7 +54,7 @@
                                 <div class="col-sm-4"> 
                                     <div class="form-group">                                                                                                
                                         <input type="text" id="phoneNumber_3" name="phoneNumber_3" 
-                                        class="form-control" placeholder="(___) ___ __ __"  ng-model="phone_id">
+                                        class="form-control" placeholder="(___) ___ __ __*"  ng-model="phone_id" required>
                                     </div>                                                            
                                     <div class="form-group">                                                                                                
                                         <input type="text" id="email_customer" name="email_customer" 
@@ -67,12 +67,12 @@
                             <div class="panel-heading">ÜRÜN SEÇİMİ</div>
                             <div class="panel-body">
                                 <div class="form-group">                                                                                                                    
-                                    <select class="form-control" ng-model="singleSelect" ng-change="choose_workordertype()">
+                                    <select class="form-control" ng-model="singleSelect" ng-change="choose_workordertype()" required>
                                         <option value="">Ürün Seçiniz *</option> 
                                         <option ng-repeat="option in product" value="{{option.name}}">{{option.name}}</option>
                                     </select>
                                 </div>                                                                                                                                                                                                                       
-                                <div class="form-group">                                                                                                                                            
+                                <div class="form-group" required>                                                                                                                                            
                                     <select class="form-control" ng-model="workorderSelect">
                                         <option value="">İş Emri Türü Seçiniz *</option> 
                                         <option ng-repeat="option in workordertype" value="{{option.name}}">{{option.name}}</option>                    
@@ -80,7 +80,7 @@
                                 </div>
                                 <div class="form-group">                                                                                                                                            
                                     <select class="form-control">
-                                        <option value="">Satış Noktası Seçiniz *</option> 
+                                        <option value="">Satış Noktası Seçiniz</option> 
                                     </select>
                                 </div>                     
                             </div>   
@@ -89,24 +89,24 @@
                             <div class="panel-heading">MÜŞTERİ ADRESİ</div>
                             <div class="panel-body">
                                 <div class="form-group">     
-                                    <select class="form-control" ng-model="provinceSelect" ng-change="choose_city()">
+                                    <select class="form-control" ng-model="provinceSelect" ng-change="choose_city()" required>
                                         <option value="">Teslimat İli Seçiniz *</option> 
                                         <option ng-repeat="option in province" value="{{option.name}}">{{option.name}}</option>
                                     </select>                                                                                                               
                                 </div>                                                                                                                                                                                                                       
                                 <div class="form-group">                                                                                                                                            
-                                    <select class="form-control" ng-model="citySelect">
+                                    <select class="form-control" ng-model="citySelect" required>
                                         <option value="">Teslimat İlçesi Seçiniz *</option>                                     
                                         <option ng-repeat="option in city" value="{{option.name}}">{{option.name}}</option>                                                        
                                     </select>
                                 </div>
                                 <div class="form-group">                                                                                                                                            
                                     <select class="form-control">
-                                        <option value="">Teslimat Mahallesi Seçiniz *</option> 
+                                        <option value="">Teslimat Mahallesi Seçiniz</option> 
                                     </select>
                                 </div> 
                                 <input type="text" id="adres_customer" name="adres_customer" 
-                                class="form-control" placeholder="Adres*" ng-model="adres_id">                      
+                                class="form-control" placeholder="Adres*" ng-model="adres_id" required>                      
                             </div>   
                         </div>
                         <div class="panel panel-default">
