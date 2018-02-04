@@ -1,7 +1,5 @@
     app = angular.module('App', [])     
-    app
-    .factory('modalService', [
-        '$modal', function ($modal) {
+    app.factory('modalService', [ function () {
             var self = this;
             var modalInstance = null;
             self.open = function (scope, path) {
@@ -29,7 +27,7 @@
          $scope.closeModal=function(){
             modalService.close();
           //do something on modal close
-          ;
+        } ;
 
         //connecting to azure db, getting required records from specified table and displaying them in selection list
         $http({
