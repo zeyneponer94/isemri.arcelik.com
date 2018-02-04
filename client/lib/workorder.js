@@ -1,5 +1,5 @@
     app = angular.module('App', ['ui.bootstrap','dialogs','ngRoute'])      
-    app.controller('Controller', ['$scope','$http','$window', function ($scope, $http, $window,$routeProvider,$dialogs) {
+    app.controller('Controller', ['$scope','$http','$window', function ($scope, $http, $window,$dialogs) {
         $scope.create = true;  
         $scope.query = false;      
         //connecting to azure db, getting required records from specified table and displaying them in selection list
@@ -129,13 +129,13 @@
 
         $scope.create_workorder = function () 
         {       
-          
+          /*
           dlg = $dialogs.confirm('Please Confirm','Is this awesome or what?');
           dlg.result.then(function(btn){
             $scope.confirmed = 'You thought this quite awesome!';
           },function(btn){
             $scope.confirmed = 'Shame on you for not thinking this is awesome!';
-          });
+          });*/
 
           var txt;
           var r = confirm("Aşağıda belirtilen bilgiler ile iş emri oluşturma talebinizi gerçekleştirmeyi onaylıyor musunuz?\n\Müşteri adı = "+$scope.name_id+"\n\Müşteri soyadı = "
