@@ -8,10 +8,9 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
             params: {username:$scope.username, password:$scope.password}
         }). 
         success(function(data, status) { 
+            alert(data)
             if(status == 200)
                 $scope.login();
-            else
-                alert("There is no such user with given username and password!"); 
         }).
         error(function(data, status) {
             alert("Request failed");
