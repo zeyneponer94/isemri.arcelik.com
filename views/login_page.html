@@ -4,6 +4,11 @@
         <link rel="stylesheet" type="text/css" href="css/custom.css">
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
+    <style>
+        .submitted .ng-invalid{
+            border: 1px solid red;
+        }
+    </style>
     <body style="background-color:#D3D3D3;">
             <div class="container main-section" ng-app="App">
                     <div class="row">
@@ -19,7 +24,7 @@
                                     <p>Altus ve Grundig İş Emri Girişine Hoşgeldiniz.</p>                                        
                                     <p> Şifreniz ile güvenli giriş yapabilirsiniz.</p>
                                 </div>  
-                                <form name="form" novalidate>                                        
+                                <form name="form" novalidate ng-class="{'submitted': submitted}" class="well">                                        
                                     <div class="col-md-12 col-sm-12 col-xs-12 user-login-box" ng-controller="Controller">
                                         <div class="form-group input-group">
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -29,7 +34,7 @@
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                                             <input type="password" name="password" id="focusedInput" class="form-control" placeholder="Şifre" ng-model="password" required pattern=".{2,}"/>
                                         </div>
-                                        <button type="button" class="btn btn-default" ng-click="submit()" ng-disabled="form.$invalid">Giriş</button> 
+                                        <button type="button" class="btn btn-default" ng-click="submit() submitted= true;" ng-disabled="form.$invalid">Giriş</button> 
                                         <buttonlink class="btn btn-link">Not Registered Yet?</buttonlink>
                                     </div>
                                 </form>

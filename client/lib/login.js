@@ -9,11 +9,12 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
         }). 
         success(function(data, status) { 
             alert(data)
-            if(status == 200)
-                $scope.login();
+            $scope.login();
         }).
         error(function(data, status) {
-            alert("Request failed");
+            $scope.username = false;
+            $scope.password = false;
+            alert(data);
         });
     };       
                                                                             
