@@ -23,8 +23,8 @@
             </header>                            
             <nav class="navbar navbar-default" style="background-color:rgb(255, 255, 255);">                        
                 <ul class="nav navbar-nav">
-                    <li ng-class="{ active: isActive('/workorder') }" ng-if="active" id="activenavbar"><a  href="#" ng-click="createWorkOrder()"><i class="glyphicon glyphicon-plus"></i> İŞ EMRİ OLUŞTUR</a></li>
-                    <li ng-class="{ active: isActive('/workorder#') }" ng-if="active" id="activenavbar_query"><a  href="#" ng-click="queryWorkOrder()"><i class="glyphicon glyphicon-search"></i> İŞ EMRİ SORGULA</a></li>                  
+                    <li ng-class="{ active: isActive('/workorder') }" id="activenavbar"><a  href="#" ng-click="createWorkOrder()"><i class="glyphicon glyphicon-plus"></i> İŞ EMRİ OLUŞTUR</a></li>
+                    <li ng-class="{ active: isActive('/workorder#') }" id="activenavbar_query"><a  href="#" ng-click="queryWorkOrder()"><i class="glyphicon glyphicon-search"></i> İŞ EMRİ SORGULA</a></li>                  
                 </ul>
             </nav> 
             <div class="panel-group" ng-show="create">
