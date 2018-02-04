@@ -1,5 +1,14 @@
     app = angular.module('App', [])
     dialog = angular.module('Dialog', ['ui.bootstrap','dialogs'])
+    dialog.controller('dialogService',function($scope,$rootScope,$timeout,$dialogs){
+      dlg = $dialogs.confirm('Please Confirm','Is this awesome or what?');
+      dlg.result.then(function(btn){
+        $scope.confirmed = 'You thought this quite awesome!';
+      },function(btn){
+        $scope.confirmed = 'Shame on you for not thinking this is awesome!';
+      });
+    },
+      
     app.controller('Controller', ['$scope','$http','$window', function ($scope, $http, $window) {
         $scope.create = true;  
         $scope.query = false;      
