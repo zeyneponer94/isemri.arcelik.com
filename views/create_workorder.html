@@ -67,7 +67,7 @@
                             <div class="panel-heading">ÜRÜN SEÇİMİ</div>
                             <div class="panel-body">
                                 <div class="form-group">                                                                                                                    
-                                    <select class="form-control" ng-model="singleSelect" ng-change="choose_workordertype()" required>
+                                    <select class="form-control" ng-model="singleSelect" ng-change="openModal()" required>
                                         <option value="">Ürün Seçiniz *</option> 
                                         <option ng-repeat="option in product" value="{{option.name}}">{{option.name}}</option>
                                     </select>
