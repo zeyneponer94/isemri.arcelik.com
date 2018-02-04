@@ -14,6 +14,12 @@ body{
     position:absolute;
     width: 100%;
 }
+#activenavbar_query {
+    background-color: rgb(170, 168, 168);
+}
+#activenavbar {
+    background-color: rgb(170, 168, 168);
+}
 .user-login-header,.login-image-main{
     margin-top: 15px;
 }
