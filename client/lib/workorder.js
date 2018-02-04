@@ -34,6 +34,17 @@
           }
         });
 
+          // Add active class to the current button (highlight it)
+        var header = document.getElementById("navbarid");
+        var bars = header.getElementsByClassName("navbar");
+        for (var i = 0; i < btns.length; i++) {
+          bars[i].addEventListener("click", function() {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+          });
+        }   
+
         $scope.isActive = function (viewLocation) {
           var active = (viewLocation === $location.path());
           return active;
@@ -42,18 +53,12 @@
         $scope.createWorkOrder = function () {
           $scope.create = true;
           $scope.query=false;
-          var current = document.getElementsByClassName("active");
-          current[0].className = current[0].className.replace(" active", "");
-          this.className += " active";
         }
 
         $scope.queryWorkOrder = function () {
           $scope.create = false;
           $scope.query=true;
           $scope.result=true;
-          var current = document.getElementsByClassName("active");
-          current[0].className = current[0].className.replace(" active", "");
-          this.className += " active";
        }
 
        $scope.query_workorder = function () {
