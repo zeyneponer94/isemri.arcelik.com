@@ -20,15 +20,6 @@
         $scope.create = true;  
         $scope.query = false;      
 
-        $scope.openModal=function(){
-          modalService.open($scope,'index2.html');
-        };
-         
-         $scope.closeModal=function(){
-            modalService.close();
-          //do something on modal close
-        } ;
-
         //connecting to azure db, getting required records from specified table and displaying them in selection list
         $http({
           method: "GET", 
@@ -69,6 +60,15 @@
             this.className += " active";
           });
         }   
+
+        $scope.openModal=function(){
+          modalService.open($scope,'index2.html');
+        };
+         
+         $scope.closeModal=function(){
+            modalService.close();
+          //do something on modal close
+        };
 
         $scope.isActive = function (viewLocation) {
           var active = (viewLocation === $location.path());
