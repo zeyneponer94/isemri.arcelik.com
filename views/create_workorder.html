@@ -11,192 +11,195 @@
     <script src="lib/workorder.js"></script>
     <body style="background-color:rgb(255, 255, 255);">
         <div class="container main-section" ng-app="App" ng-controller="Controller">
-            <header>
-                <div class="row" align="center">
-                   <div class="col-md-12 col-sm-12 col-xs-12 ">
-                        <img src="images/altus-logo-workorder.png" vspace="10">    
-                    </div>     
-                    <div class="col-md-12 col-sm-12 col-xs-12 ">                                
-                        <img src="images/grundig-logo-workorder.png">  
-                    </div>                             
-                </div>
-            </header>
-            <div class="panel-group">                    
-            <nav class="navbar navbar-default" style="background-color:rgb(255, 255, 255);">                        
-                <ul class="nav navbar-nav" id="navbarid">
-                    <li class="navbar"><a  href="#" ng-click="createWorkOrder()"><i class="glyphicon glyphicon-plus"></i> İŞ EMRİ OLUŞTUR</a></li>
-                    <li class="navbar"><a  href="#" ng-click="queryWorkOrder()"><i class="glyphicon glyphicon-search"></i> İŞ EMRİ SORGULA</a></li>                  
-                </ul>
-            </nav>
-            </div> 
-            <div class="panel-group" ng-show="create">
-                <div class="panel panel-default">
-                    <div class="panel-heading">MÜŞTERİ</div>
-                    <div class="panel-body">
-                        <div class="col-sm-4">
-                            <div class="form-group">                                
-                                <input type="text" id="name" name="name" 
-                                class="form-control" placeholder="Ad*" ng-model="name_id">
-                            </div> 
-                            <div class="form-group">                                                            
-                                <input type="text" id="phoneNumber_1" name="phoneNumber_1" 
-                                class="form-control" placeholder="(___) ___ __ __">
-                            </div>  
-                        </div>   
-                        <div class="col-sm-4">
-                            <div class="form-group">                                                                
-                                <input type="text" id="surname" name="surname" 
-                                class="form-control" placeholder="Soyad*" ng-model="surname_id">
-                            </div>                                        
-                            <div class="form-group">                                                                
-                                <input type="text" id="phoneNumber_2" name="phoneNumber_2" 
-                                class="form-control" placeholder="(___) ___ __ __">
-                            </div>                                        
+            <form name="myform">
+                <header>
+                    <div class="row" align="center">
+                    <div class="col-md-12 col-sm-12 col-xs-12 ">
+                            <img src="images/altus-logo-workorder.png" vspace="10">    
                         </div>     
-                        <div class="col-sm-4"> 
-                            <div class="form-group">                                                                                                
-                                <input type="text" id="phoneNumber_3" name="phoneNumber_3" 
-                                class="form-control" placeholder="(___) ___ __ __"  ng-model="phone_id">
-                            </div>                                                            
-                            <div class="form-group">                                                                                                
-                                <input type="text" id="email" name="email" 
-                                class="form-control" placeholder="E-Posta Adresi" ng-model="email_id"> 
+                        <div class="col-md-12 col-sm-12 col-xs-12 ">                                
+                            <img src="images/grundig-logo-workorder.png">  
+                        </div>                             
+                    </div>
+                </header>                            
+                <nav class="navbar navbar-default" style="background-color:rgb(255, 255, 255);">                        
+                    <ul class="nav navbar-nav" id="navbarid">
+                        <li class="navbar"><a  href="#" ng-click="createWorkOrder()"><i class="glyphicon glyphicon-plus"></i> İŞ EMRİ OLUŞTUR</a></li>
+                        <li class="navbar"><a  href="#" ng-click="queryWorkOrder()"><i class="glyphicon glyphicon-search"></i> İŞ EMRİ SORGULA</a></li>                  
+                    </ul>
+                </nav> 
+                <div class="panel-group" ng-show="create">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">MÜŞTERİ</div>
+                        <div class="panel-body">
+                            <div class="col-sm-4">
+                                <div class="form-group">                                
+                                    <input type="text" id="name" name="name" 
+                                    class="form-control" placeholder="Ad*" ng-model="name_id">
+                                    <span style="color:red" ng-show="myForm.name_id.$dirty && myForm.name_id.$invalid">
+                                    <span ng-show="myForm.name_id.$error.required">name is required.</span>
+                                    </span>
+                                </div> 
+                                <div class="form-group">                                                            
+                                    <input type="text" id="phoneNumber_1" name="phoneNumber_1" 
+                                    class="form-control" placeholder="(___) ___ __ __">
+                                </div>  
                             </div>   
+                            <div class="col-sm-4">
+                                <div class="form-group">                                                                
+                                    <input type="text" id="surname" name="surname" 
+                                    class="form-control" placeholder="Soyad*" ng-model="surname_id">
+                                </div>                                        
+                                <div class="form-group">                                                                
+                                    <input type="text" id="phoneNumber_2" name="phoneNumber_2" 
+                                    class="form-control" placeholder="(___) ___ __ __">
+                                </div>                                        
+                            </div>     
+                            <div class="col-sm-4"> 
+                                <div class="form-group">                                                                                                
+                                    <input type="text" id="phoneNumber_3" name="phoneNumber_3" 
+                                    class="form-control" placeholder="(___) ___ __ __"  ng-model="phone_id">
+                                </div>                                                            
+                                <div class="form-group">                                                                                                
+                                    <input type="text" id="email" name="email" 
+                                    class="form-control" placeholder="E-Posta Adresi" ng-model="email_id"> 
+                                </div>   
+                            </div>
                         </div>
                     </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">ÜRÜN SEÇİMİ</div>
+                        <div class="panel-body">
+                            <div class="form-group">                                                                                                                    
+                                <select class="form-control" ng-model="singleSelect" ng-change="choose_workordertype()">
+                                    <option value="">Ürün Seçiniz *</option> 
+                                    <option ng-repeat="option in product" value="{{option.name}}">{{option.name}}</option>
+                                </select>
+                            </div>                                                                                                                                                                                                                       
+                            <div class="form-group">                                                                                                                                            
+                                <select class="form-control" ng-model="workorderSelect">
+                                    <option value="">İş Emri Türü Seçiniz *</option> 
+                                    <option ng-repeat="option in workordertype" value="{{option.name}}">{{option.name}}</option>                    
+                                </select>
+                            </div>
+                            <div class="form-group">                                                                                                                                            
+                                <select class="form-control">
+                                    <option value="">Satış Noktası Seçiniz *</option> 
+                                </select>
+                            </div>                     
+                        </div>   
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">MÜŞTERİ ADRESİ</div>
+                        <div class="panel-body">
+                            <div class="form-group">     
+                                <select class="form-control" ng-model="provinceSelect" ng-change="choose_city()">
+                                    <option value="">Teslimat İli Seçiniz *</option> 
+                                    <option ng-repeat="option in province" value="{{option.name}}">{{option.name}}</option>
+                                </select>                                                                                                               
+                            </div>                                                                                                                                                                                                                       
+                            <div class="form-group">                                                                                                                                            
+                                <select class="form-control" ng-model="citySelect">
+                                    <option value="">Teslimat İlçesi Seçiniz *</option>                                     
+                                    <option ng-repeat="option in city" value="{{option.name}}">{{option.name}}</option>                                                        
+                                </select>
+                            </div>
+                            <div class="form-group">                                                                                                                                            
+                                <select class="form-control">
+                                    <option value="">Teslimat Mahallesi Seçiniz *</option> 
+                                </select>
+                            </div> 
+                            <input type="text" id="adres" name="adres" 
+                            class="form-control" placeholder="Adres*" ng-model="adres_id">                      
+                        </div>   
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">EK BİLGİLER</div>
+                        <div class="panel-body">
+                            <div class="form-group">                                
+                                <input type="text" id="satis" name="satis" 
+                                class="form-control" placeholder="Satış Yetkilisi" ng-model="satis_id">
+                            </div> 
+                            <div class="form-group">                                                            
+                                <input type="text" id="phoneNumber" name="phoneNumber" 
+                                class="form-control" placeholder="(___) ___ __ __">
+                            </div>  
+                            <div class="form-group">
+                                <input type="text" id="isemri_notu" name="isemri_notu" 
+                                class="form-control" placeholder="İş Emri Notu">                       
+                            </div> 
+                            <div class="form-group" align="center">                                                                                                                                        
+                                <button type="button" style= "background: -webkit-linear-gradient(to right, rgb(255, 63, 194), rgb(16, 26, 99));  
+                                background: linear-gradient(to right,  rgb(255, 63, 194), rgb(16, 26, 99));" class="btn btn-block" ng-click="create_workorder()">İŞ EMRİ OLUŞTUR</button>                                                                                                                                                              
+                                <footer>&copy; 2018 Arçelik All rights reserved.</footer>   
+                            </div>             
+                        </div>    
+                    </div>                                         
                 </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">ÜRÜN SEÇİMİ</div>
-                    <div class="panel-body">
-                        <div class="form-group">                                                                                                                    
-                            <select class="form-control" ng-model="singleSelect" ng-change="choose_workordertype()">
-                                <option value="">Ürün Seçiniz *</option> 
-                                <option ng-repeat="option in product" value="{{option.name}}">{{option.name}}</option>
-                            </select>
-                        </div>                                                                                                                                                                                                                       
-                        <div class="form-group">                                                                                                                                            
-                            <select class="form-control" ng-model="workorderSelect">
-                                <option value="">İş Emri Türü Seçiniz *</option> 
-                                <option ng-repeat="option in workordertype" value="{{option.name}}">{{option.name}}</option>                    
-                            </select>
-                        </div>
-                        <div class="form-group">                                                                                                                                            
-                            <select class="form-control">
-                                <option value="">Satış Noktası Seçiniz *</option> 
-                            </select>
-                        </div>                     
-                    </div>   
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">MÜŞTERİ ADRESİ</div>
-                    <div class="panel-body">
-                        <div class="form-group">     
-                            <select class="form-control" ng-model="provinceSelect" ng-change="choose_city()">
-                                <option value="">Teslimat İli Seçiniz *</option> 
-                                <option ng-repeat="option in province" value="{{option.name}}">{{option.name}}</option>
-                            </select>                                                                                                               
-                        </div>                                                                                                                                                                                                                       
-                        <div class="form-group">                                                                                                                                            
-                            <select class="form-control" ng-model="citySelect">
-                                <option value="">Teslimat İlçesi Seçiniz *</option>                                     
-                                <option ng-repeat="option in city" value="{{option.name}}">{{option.name}}</option>                                                        
-                            </select>
-                        </div>
-                        <div class="form-group">                                                                                                                                            
-                            <select class="form-control">
-                                <option value="">Teslimat Mahallesi Seçiniz *</option> 
-                            </select>
-                        </div> 
-                        <input type="text" id="adres" name="adres" 
-                        class="form-control" placeholder="Adres*" ng-model="adres_id">                      
-                    </div>   
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">EK BİLGİLER</div>
-                    <div class="panel-body">
-                        <div class="form-group">                                
-                            <input type="text" id="satis" name="satis" 
-                            class="form-control" placeholder="Satış Yetkilisi" ng-model="satis_id">
-                        </div> 
-                        <div class="form-group">                                                            
-                            <input type="text" id="phoneNumber" name="phoneNumber" 
-                            class="form-control" placeholder="(___) ___ __ __">
+                <div class="panel-group" ng-show="query">
+                    <div class="panel panel-default">
+                        <div class="panel-body">    
+                            <div class="col-sm-3">
+                                <div class="form-group">                                
+                                    <input type="text" id="name" name="name" 
+                                    class="form-control" placeholder="Ad" ng-model="name_id">
+                                </div> 
+                            </div> 
+                            <div class="col-sm-3">
+                                <div class="form-group">                                
+                                    <input type="text" id="surname" name="surname" 
+                                    class="form-control" placeholder="Soyad" ng-model="surname_id">
+                                </div> 
+                            </div> 
+                            <div class="col-sm-3">
+                                <div class="form-group">                                
+                                    <input type="text" id="phoneNumber_3" name="phoneNumber_3" 
+                                    class="form-control" placeholder="(___) ___ __ __"  ng-model="phone_id">
+                                </div> 
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">   
+                                    <button type="button" style= " background: -webkit-linear-gradient(to right, rgb(255, 63, 194), rgb(16, 26, 99));  
+                                    background: linear-gradient(to right,  rgb(255, 63, 194), rgb(16, 26, 99));" class="btn btn-default" ng-click="query_workorder()" ng-disabled="myForm.name_id.$dirty && myForm.name_id.$invalid"><i class="glyphicon glyphicon-search"></i>ARA</button>                                
+                                </div> 
+                            </div>  
                         </div>  
-                        <div class="form-group">
-                            <input type="text" id="isemri_notu" name="isemri_notu" 
-                            class="form-control" placeholder="İş Emri Notu">                       
-                        </div> 
-                        <div class="form-group" align="center">                                                                                                                                        
-                            <button type="button" style= "background: -webkit-linear-gradient(to right, rgb(255, 63, 194), rgb(16, 26, 99));  
-                            background: linear-gradient(to right,  rgb(255, 63, 194), rgb(16, 26, 99));" class="btn btn-block" ng-click="create_workorder()">İŞ EMRİ OLUŞTUR</button>                                                                                                                                                              
-                            <footer>&copy; 2018 Arçelik All rights reserved.</footer>   
-                        </div>             
-                    </div>    
-                </div>                                         
-            </div>
-            <div class="panel-group" ng-show="query">
-                <div class="panel panel-default">
-                    <div class="panel-body">    
-                        <div class="col-sm-3">
-                            <div class="form-group">                                
-                                <input type="text" id="name" name="name" 
-                                class="form-control" placeholder="Ad" ng-model="name_id">
-                            </div> 
-                        </div> 
-                        <div class="col-sm-3">
-                            <div class="form-group">                                
-                                <input type="text" id="surname" name="surname" 
-                                class="form-control" placeholder="Soyad" ng-model="surname_id">
-                            </div> 
-                        </div> 
-                        <div class="col-sm-3">
-                            <div class="form-group">                                
-                                <input type="text" id="phoneNumber_3" name="phoneNumber_3" 
-                                class="form-control" placeholder="(___) ___ __ __"  ng-model="phone_id">
-                            </div> 
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="form-group">   
-                                <button type="button" style= " background: -webkit-linear-gradient(to right, rgb(255, 63, 194), rgb(16, 26, 99));  
-                                background: linear-gradient(to right,  rgb(255, 63, 194), rgb(16, 26, 99));" class="btn btn-default" ng-click="query_workorder()"><i class="glyphicon glyphicon-search"></i>ARA</button>                                
-                            </div> 
-                        </div>  
-                    </div>  
-                </div>                                             
-            </div>
-            <div class="container" ng-show="query">
-                <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th>İş Emri No</th>
-                      <th>Ürün</th>
-                      <th>İş Emri Türü</th>
-                      <th>Müşteri</th>
-                      <th>Sevk Noktası</th>
-                      <th>Teslimat Adresi</th>
-                      <th>İş Emri Durumu</th>
-                      <th>At. Yet. Servis</th>
-                      <th>İş Teslimat Tarihi</th>
-                      <th>Plan. Randevu Tarihi</th>                   
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr ng-repeat="x in workorders">
-                        <td>{{ x.no }}</td>
-                        <td>{{ x.product }}</td>
-                        <td>{{ x.type }}</td>
-                        <td>{{ x.customer }}</td>
-                        <td>{{ x.point }}</td>
-                        <td>{{ x.address }}</td>
-                        <td>{{ x.status }}</td>
-                        <td>{{ x.service }}</td>
-                        <td>{{ x.DeliveryDate }}</td>
-                        <td>{{ x.AppointmentDate }}</td> 
-                    </tr>                                                     
-                  </tbody>
-                </table>
-                <footer ng-show="result"> Sonuç bulunamadı</footer>                               
-            </div> 
+                    </div>                                             
+                </div>
+                <div class="container" ng-show="query">
+                    <table class="table table-hover">
+                    <thead>
+                        <tr>
+                        <th>İş Emri No</th>
+                        <th>Ürün</th>
+                        <th>İş Emri Türü</th>
+                        <th>Müşteri</th>
+                        <th>Sevk Noktası</th>
+                        <th>Teslimat Adresi</th>
+                        <th>İş Emri Durumu</th>
+                        <th>At. Yet. Servis</th>
+                        <th>İş Teslimat Tarihi</th>
+                        <th>Plan. Randevu Tarihi</th>                   
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="x in workorders">
+                            <td>{{ x.no }}</td>
+                            <td>{{ x.product }}</td>
+                            <td>{{ x.type }}</td>
+                            <td>{{ x.customer }}</td>
+                            <td>{{ x.point }}</td>
+                            <td>{{ x.address }}</td>
+                            <td>{{ x.status }}</td>
+                            <td>{{ x.service }}</td>
+                            <td>{{ x.DeliveryDate }}</td>
+                            <td>{{ x.AppointmentDate }}</td> 
+                        </tr>                                                     
+                    </tbody>
+                    </table>
+                    <footer ng-show="result"> Sonuç bulunamadı</footer>                               
+                </div> 
+            </form>
         </div>                           
     </body> 
 </html>
