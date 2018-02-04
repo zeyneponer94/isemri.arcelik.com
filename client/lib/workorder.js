@@ -14,9 +14,7 @@
             };
             return self;
             }
-    ]); 
-    
-    angular.module('App')
+    ]) 
     .controller('Controller', ['$scope','$http','$window', 'modalService', function ($scope, $http, $window,modalService) {
         $scope.create = true;  
         $scope.query = false;      
