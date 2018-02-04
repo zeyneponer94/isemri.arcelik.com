@@ -61,15 +61,6 @@
           });
         }   
 
-        $scope.openModal=function(){
-          modalService.open($scope,'index2.html');
-        };
-         
-         $scope.closeModal=function(){
-            modalService.close();
-          //do something on modal close
-        };
-
         $scope.isActive = function (viewLocation) {
           var active = (viewLocation === $location.path());
           return active;
@@ -188,6 +179,15 @@
             alert("İşlem Tamamlanamadı!");
           }
         } 
+
+        $scope.openModal=function(){
+          modalService.open($scope,'index2.html');
+        };
+         
+         $scope.closeModal=function(){
+            modalService.close();
+          //do something on modal close
+        };
 
 
 
