@@ -1,9 +1,9 @@
-    angular.module('App', [])     
-    .service('modalService', ['$modal', function ($modal) {
+    angular.module('App', ['ui.bootstrap'])     
+    .service('modalService', ['$uibModal', function ($uibModal) {
             var self = this;
             var modalInstance = null;
             self.open = function (scope, path) {
-                modalInstance = $modal.open({
+                modalInstance = $uibModal.open({
                     templateUrl: path,
                     scope: scope
                 });
