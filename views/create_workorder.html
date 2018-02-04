@@ -36,7 +36,7 @@
                                 <div class="form-group">                                
                                     <input type="text" id="name" name="name" 
                                     class="form-control" placeholder="Ad*" ng-model="name_id">
-                                    <span style="color:red" ng-show="myForm.name_id.$dirty && myForm.name_id.$invalid">
+                                    <span style="color:red" ng-show="myForm.name_id.$dirty">
                                     <span ng-show="myForm.name_id.$error.required">name is required.</span>
                                     </span>
                                 </div> 
@@ -160,7 +160,7 @@
                             <div class="col-sm-3">
                                 <div class="form-group">   
                                     <button type="button" style= " background: -webkit-linear-gradient(to right, rgb(255, 63, 194), rgb(16, 26, 99));  
-                                    background: linear-gradient(to right,  rgb(255, 63, 194), rgb(16, 26, 99));" class="btn btn-default" ng-click="query_workorder()" ng-disabled="myForm.name_id.$dirty && myForm.name_id.$invalid"><i class="glyphicon glyphicon-search"></i>ARA</button>                                
+                                    background: linear-gradient(to right,  rgb(255, 63, 194), rgb(16, 26, 99));" class="btn btn-default" ng-click="query_workorder()" ng-disabled="myForm.name_id.$dirty"><i class="glyphicon glyphicon-search"></i>ARA</button>                                
                                 </div> 
                             </div>  
                         </div>  
