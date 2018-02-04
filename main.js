@@ -5,6 +5,10 @@ var express = require('express'),
     errorHandler = require('express-error-handler'),
     app = express();
     Console = require('console');
+    require('./dist/dialogs.js');
+    require('./dist/dialogs-default-translations.js');
+    
+module.exports = 'dialogs.main';
 
 var logFmt = require("logfmt");
 

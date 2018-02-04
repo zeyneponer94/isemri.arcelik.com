@@ -18,6 +18,11 @@ body{
     background-color: rgb(196, 195, 195);
     color: rgb(185, 184, 184);
 }
+
+
+.dialog-header-confirm { background-color: #333333; }
+    .dialog-header-confirm span, .dialog-header-confirm h4 { color: #ffffff; }
+    
 .user-login-header,.login-image-main{
     margin-top: 15px;
 }
