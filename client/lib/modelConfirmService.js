@@ -1,18 +1,4 @@
 angular.module('testApp').service('modalConfirmService', ['$uibModal',
-    function ($modal) {
-      var modalDefaults = {
-       backdrop: true,
-       keyboard: true,
-       modalFade: true,
-       templateUrl: '../views/confirmBox.html'
-      };
-      var modalOptions = {
-      closeButtonText: 'Close',
-      actionButtonText: 'OK',
-      headerText: 'Proceed?',
-      bodyText: 'Perform this action?'
-      };
-
 
       this.showModal = function (customModalDefaults, customModalOptions) {
         if (!customModalDefaults) customModalDefaults = {};
@@ -42,7 +28,6 @@ angular.module('testApp').service('modalConfirmService', ['$uibModal',
         return $modal.open(tempModalDefaults).result;
       } 
 
-    }
     
   
 ]);
