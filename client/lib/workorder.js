@@ -1,4 +1,4 @@
-    app = angular.module('App', ['ui.bootstrap','dialogs','ngRoute'])      
+    app = angular.module('App', ['ui.bootstrap','dialogs','ng'])      
     app.controller('Controller', ['$scope','$http','$window', function ($scope, $http, $window,$dialogs) {
         $scope.create = true;  
         $scope.query = false;      
