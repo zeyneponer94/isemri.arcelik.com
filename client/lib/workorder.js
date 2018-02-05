@@ -1,4 +1,4 @@
-angular.module('App', ['ngAnimate','ngRoute', 'ui.bootstrap']);
+angular.module('App', ['ngRoute', 'ui.bootstrap']);
   /*  .factory('modalService', ['$uibModal', function ($uibModal) {
             var self = this;
             var modalInstance = null;
