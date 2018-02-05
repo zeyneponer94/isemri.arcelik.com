@@ -191,7 +191,7 @@ angular.module('App', ['ngAnimate','ngRoute', 'ui.bootstrap']);
 
 
 
-    }]);
+    });
   
 
 
