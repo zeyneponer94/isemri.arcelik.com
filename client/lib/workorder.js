@@ -130,49 +130,10 @@ angular.module('App', ['ui.bootstrap','dialogs.main']);
 
         $scope.create_workorder = function () 
         {       
-
-
-          dialogs.confirm({
-              title: "Lütfen Onaylayınız!",
-              message: "Aşağıda belirtilen bilgiler ile iş emri oluşturma talebinizi gerçekleştirmeyi onaylıyor musunuz?\nMüşteri adı = "+$scope.name_id+"\nMüşteri soyadı = "
-              +$scope.surname_id+"\nMüşteri telefon numarası = "+$scope.phone_id+"\nSeçilen ürün = "+$scope.singleSelect+"\nSeçilen iş emri türü = "
-              +$scope.workorderSelect+"\nMüşteri adresi = " + $scope.provinceSelect + " " +$scope.citySelect,
-              okButtonText: "Onay",
-              cancelButtonText: "İptal",
-              neutralButtonText: "Neutral text"
-          }).then(function (result) {
-              // result argument is boolean
-              if(result)
-              {
-                $http({
-                  method: "GET", 
-                  url: 'https://thworkorderfapp.azurewebsites.net/api/createworkorder',
-                  params: {
-                    name:$scope.name_id,
-                    surname:$scope.surname_id,
-                    phone:$scope.phone_id,
-                    no:"Test",
-                    product:$scope.singleSelect,
-                    workorder:$scope.workorderSelect,
-                    customer:"Test",
-                    point:$scope.provinceSelect,
-                    address:$scope.citySelect,
-                    status:"Active",
-                    service:"Test",
-                    DeliveryDate:"2018-02-10",
-                    AppointmentDate:"2018-02-15"
-                  }          
-                }) 
-                .then(function(response){             
-                });
-              }
-              else
-                alert('İşlem Tamamlanamadı.');              
-          });
           
-     /*     var dlg = dialogs.confirm("Lütfen Onaylayınız!","Aşağıda belirtilen bilgiler ile iş emri oluşturma talebinizi gerçekleştirmeyi onaylıyor musunuz?\nMüşteri adı = "+$scope.name_id+"\nMüşteri soyadı = "
+          var dlg = dialogs.confirm("Lütfen Onaylayınız!","Aşağıda belirtilen bilgiler ile iş emri oluşturma talebinizi gerçekleştirmeyi onaylıyor musunuz?".bold()+("\nMüşteri adı = "+$scope.name_id+"\nMüşteri soyadı = "
           +$scope.surname_id+"\nMüşteri telefon numarası = "+$scope.phone_id+"\nSeçilen ürün = "+$scope.singleSelect+"\nSeçilen iş emri türü = "
-          +$scope.workorderSelect+"\nMüşteri adresi = " + $scope.provinceSelect + " " +$scope.citySelect);
+          +$scope.workorderSelect+"\nMüşteri adresi = " + $scope.provinceSelect + " " +$scope.citySelect).italics());
 
 					dlg.result.then(function(btn){
               $http({
@@ -198,7 +159,7 @@ angular.module('App', ['ui.bootstrap','dialogs.main']);
               });
 					},function(btn){
 					    alert('İşlem Tamamlanamadı.');
-					});*/
+					});
         } 
 
 
