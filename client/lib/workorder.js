@@ -94,7 +94,6 @@ angular.module('App', ['ui.bootstrap','dialogs.main']);
 
         //when user selects a product from selection list, ng-change calls that function to get the work order types available for chosen product
         $scope.choose_workordertype = function() {
-          alert($scope.singleSelect)
           $http({
             method: "GET", 
             url: 'https://thworkorderfapp.azurewebsites.net/api/workordertype',
@@ -132,7 +131,7 @@ angular.module('App', ['ui.bootstrap','dialogs.main']);
         $scope.create_workorder = function () 
         {       
 
-          var dlg = dialogs.confirm("Aşağıda belirtilen bilgiler ile iş emri oluşturma talebinizi gerçekleştirmeyi onaylıyor musunuz?\n\Müşteri adı = "+$scope.name_id+"\n\Müşteri soyadı = "
+          var dlg = dialogs.confirm("Lütfen Onaylayınız!","Aşağıda belirtilen bilgiler ile iş emri oluşturma talebinizi gerçekleştirmeyi onaylıyor musunuz?\n\Müşteri adı = "+$scope.name_id+"\n\Müşteri soyadı = "
           +$scope.surname_id+"\n\Müşteri telefon numarası = "+$scope.phone_id+"\n\Seçilen ürün = "+$scope.singleSelect+"\n\Seçilen iş emri türü = "
           +$scope.workorderSelect+"\n\Müşteri adresi = " + $scope.provinceSelect + " " +$scope.citySelect);
 
