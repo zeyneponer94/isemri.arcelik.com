@@ -1,21 +1,5 @@
-angular.module('App', []);
-  /*  .factory('modalService', ['$uibModal', function ($uibModal) {
-            var self = this;
-            var modalInstance = null;
-            self.open = function (scope, path) {
-                modalInstance = $uibModal.open({
-                    templateUrl: path,
-                    scope: scope
-                });
-            };
-    
-            self.close = function () {
-                modalInstance.dismiss('close');
-            };
-            return self;
-            }
-    ]) */
-    angular.module('App').controller('Controller', function ($scope, $http, $window) {
+angular.module('App', ['ui.bootstrap','dialogs.main']);
+    angular.module('App').controller('Controller', function ($scope, $http, $window,$rootScope,$timeout,dialogs) {
         $scope.create = true;  
         $scope.query = false;      
 
@@ -147,6 +131,13 @@ angular.module('App', []);
         $scope.create_workorder = function () 
         {       
 
+          var dlg = dialogs.confirm();
+					dlg.result.then(function(btn){
+						alert('You confirmed "Yes."');
+					},function(btn){
+					  alert('You confirmed "No."');
+					});
+/*
           var txt;
           var r = confirm("Aşağıda belirtilen bilgiler ile iş emri oluşturma talebinizi gerçekleştirmeyi onaylıyor musunuz?\n\Müşteri adı = "+$scope.name_id+"\n\Müşteri soyadı = "
           +$scope.surname_id+"\n\Müşteri telefon numarası = "+$scope.phone_id+"\n\Seçilen ürün = "+$scope.singleSelect+"\n\Seçilen iş emri türü = "
@@ -176,7 +167,7 @@ angular.module('App', []);
 
           } else {
             alert("İşlem Tamamlanamadı!");
-          }
+          }*/
         } 
 
 
