@@ -1,4 +1,4 @@
-    angular.module('App', ['ui.bootstrap'])     
+angular.module('App', ['ngAnimate', 'ui.bootstrap']);
   /*  .factory('modalService', ['$uibModal', function ($uibModal) {
             var self = this;
             var modalInstance = null;
@@ -15,7 +15,7 @@
             return self;
             }
     ]) */
-    .controller('Controller', ['$scope','$http','$window', '$modal', function ($scope, $http, $window,$modal) {
+    angular.module('App').controller('Controller', ['$scope','$http','$window', '$modal','$uibModal', '$log', function ($scope, $http, $window,$uibModal, $log) {
         $scope.create = true;  
         $scope.query = false;      
 
