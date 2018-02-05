@@ -131,9 +131,9 @@ angular.module('App', ['ui.bootstrap','dialogs.main']);
         $scope.create_workorder = function () 
         {       
 
-          var dlg = dialogs.confirm("Lütfen Onaylayınız!","Aşağıda belirtilen bilgiler ile iş emri oluşturma talebinizi gerçekleştirmeyi onaylıyor musunuz?\n\Müşteri adı = "+$scope.name_id+"\n\Müşteri soyadı = "
-          +$scope.surname_id+"\n\Müşteri telefon numarası = "+$scope.phone_id+"\n\Seçilen ürün = "+$scope.singleSelect+"\n\Seçilen iş emri türü = "
-          +$scope.workorderSelect+"\n\Müşteri adresi = " + $scope.provinceSelect + " " +$scope.citySelect);
+          var dlg = dialogs.confirm("Lütfen Onaylayınız!","Aşağıda belirtilen bilgiler ile iş emri oluşturma talebinizi gerçekleştirmeyi onaylıyor musunuz?/nMüşteri adı = "+$scope.name_id+"/nMüşteri soyadı = "
+          +$scope.surname_id+"/nMüşteri telefon numarası = "+$scope.phone_id+"/nSeçilen ürün = "+$scope.singleSelect+"/nSeçilen iş emri türü = "
+          +$scope.workorderSelect+"/nMüşteri adresi = " + $scope.provinceSelect + " " +$scope.citySelect);
 
 					dlg.result.then(function(btn){
               $http({
