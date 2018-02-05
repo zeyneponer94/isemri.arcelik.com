@@ -132,43 +132,35 @@ angular.module('App', ['ui.bootstrap','dialogs.main']);
         $scope.create_workorder = function () 
         {       
 
-          var dlg = dialogs.confirm();
-					dlg.result.then(function(btn){
-						alert('You confirmed "Yes."');
-					},function(btn){
-					  alert('You confirmed "No."');
-					});
-/*
-          var txt;
-          var r = confirm("Aşağıda belirtilen bilgiler ile iş emri oluşturma talebinizi gerçekleştirmeyi onaylıyor musunuz?\n\Müşteri adı = "+$scope.name_id+"\n\Müşteri soyadı = "
+          var dlg = dialogs.confirm("Aşağıda belirtilen bilgiler ile iş emri oluşturma talebinizi gerçekleştirmeyi onaylıyor musunuz?\n\Müşteri adı = "+$scope.name_id+"\n\Müşteri soyadı = "
           +$scope.surname_id+"\n\Müşteri telefon numarası = "+$scope.phone_id+"\n\Seçilen ürün = "+$scope.singleSelect+"\n\Seçilen iş emri türü = "
           +$scope.workorderSelect+"\n\Müşteri adresi = " + $scope.provinceSelect + " " +$scope.citySelect);
-          if (r == true) {
-            $http({
-              method: "GET", 
-              url: 'https://thworkorderfapp.azurewebsites.net/api/createworkorder',
-              params: {
-                name:$scope.name_id,
-                surname:$scope.surname_id,
-                phone:$scope.phone_id,
-                no:"Test",
-                product:$scope.singleSelect,
-                workorder:$scope.workorderSelect,
-                customer:"Test",
-                point:$scope.provinceSelect,
-                address:$scope.citySelect,
-                status:"Active",
-                service:"Test",
-                DeliveryDate:"2018-02-10",
-                AppointmentDate:"2018-02-15"
-              }          
-            }) 
-            .then(function(response){             
-            });
 
-          } else {
-            alert("İşlem Tamamlanamadı!");
-          }*/
+					dlg.result.then(function(btn){
+              $http({
+                method: "GET", 
+                url: 'https://thworkorderfapp.azurewebsites.net/api/createworkorder',
+                params: {
+                  name:$scope.name_id,
+                  surname:$scope.surname_id,
+                  phone:$scope.phone_id,
+                  no:"Test",
+                  product:$scope.singleSelect,
+                  workorder:$scope.workorderSelect,
+                  customer:"Test",
+                  point:$scope.provinceSelect,
+                  address:$scope.citySelect,
+                  status:"Active",
+                  service:"Test",
+                  DeliveryDate:"2018-02-10",
+                  AppointmentDate:"2018-02-15"
+                }          
+              }) 
+              .then(function(response){             
+              });
+					},function(btn){
+					    alert('İşlem Tamamlanamadı.');
+					});
         } 
 
 
