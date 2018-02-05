@@ -1,5 +1,4 @@
-import 'angular-dialog-service';
-angular.module('App', ['dialogs.main']);
+angular.module('App', []);
   /*  .factory('modalService', ['$uibModal', function ($uibModal) {
             var self = this;
             var modalInstance = null;
@@ -16,7 +15,7 @@ angular.module('App', ['dialogs.main']);
             return self;
             }
     ]) */
-    angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs) {
+    angular.module('App').controller('Controller', function ($scope, $http, $window) {
         $scope.create = true;  
         $scope.query = false;      
 
@@ -179,16 +178,6 @@ angular.module('App', ['dialogs.main']);
             alert("İşlem Tamamlanamadı!");
           }
         } 
-
-        $scope.openModal=function(){
-          modalService.open($scope,'index2.html');
-        };
-         
-         $scope.closeModal=function(){
-            modalService.close();
-          //do something on modal close
-        };
-
 
 
 
