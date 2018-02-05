@@ -1,3 +1,4 @@
+import 'angular-dialog-service';
 angular.module('App', ['dialogs.main']);
   /*  .factory('modalService', ['$uibModal', function ($uibModal) {
             var self = this;
