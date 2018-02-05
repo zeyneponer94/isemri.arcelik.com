@@ -1,5 +1,5 @@
-    angular.module('App', ['ui.router', 'ngRoute', 'ui.bootstrap'])     
-    .factory('modalService', ['$uibModal', function ($uibModal) {
+    angular.module('App', ['ui.bootstrap'])     
+  /*  .factory('modalService', ['$uibModal', function ($uibModal) {
             var self = this;
             var modalInstance = null;
             self.open = function (scope, path) {
@@ -14,8 +14,8 @@
             };
             return self;
             }
-    ]) 
-    .controller('Controller', ['$scope','$http','$window', 'modalService', function ($scope, $http, $window,modalService) {
+    ]) */
+    .controller('Controller', ['$scope','$http','$window', '$modal', function ($scope, $http, $window,$modal) {
         $scope.create = true;  
         $scope.query = false;      
 
