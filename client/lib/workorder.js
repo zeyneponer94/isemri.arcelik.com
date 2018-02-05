@@ -1,5 +1,5 @@
 angular.module('App', ['ui.bootstrap','dialogs.main']);
-    angular.module('App').controller('Controller', function ($scope, $http, $window,$rootScope,$timeout,dialogs) {
+    angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs) {
         $scope.create = true;  
         $scope.query = false;      
 
