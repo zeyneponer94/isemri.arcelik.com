@@ -1,4 +1,4 @@
-angular.module('App', ['ngRoute', 'ui.bootstrap']);
+angular.module('App', ['dialogs.main']);
   /*  .factory('modalService', ['$uibModal', function ($uibModal) {
             var self = this;
             var modalInstance = null;
@@ -15,7 +15,7 @@ angular.module('App', ['ngRoute', 'ui.bootstrap']);
             return self;
             }
     ]) */
-    angular.module('App').controller('Controller', function ($scope, $http, $window,$uibModal, $log) {
+    angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs) {
         $scope.create = true;  
         $scope.query = false;      
 
