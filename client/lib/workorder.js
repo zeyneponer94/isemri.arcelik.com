@@ -243,17 +243,14 @@
                     method: "POST",
                     data: { model: $scope.postData },
                     headers: {'Content-Type': 'application/json',
-                              'SessionToken': '50319A39-2F48-47FC-B192-1C92FFDF006E',
+                              'SessionToken': '4737B2FC-DE66-4741-B7A8-07646813D890',
                               'cache-control': 'no-cache',
                               'servicetype': 'INTHEBOX1'
                              }
                   }).then(function (response) {
-
                     $scope.json = angular.toJson(response.data);
                     alert($scope.json);
-                    alert($scope.json.ConsignmentWorkOrderStatus); // renders green
-                 
-                    
+                    alert($scope.json.ErrorCode); // renders green
                   });
 					},function(btn){
 					    alert('İşlem Tamamlanamadı.');
