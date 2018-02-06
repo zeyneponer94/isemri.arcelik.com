@@ -1,6 +1,6 @@
     app = angular.module('App', ['ui.bootstrap','dialogs.main','ngRoute']);
 
-    app.config(['$httpProvider', function ($httpProvider) {
+    app.config(['$httpProvider', '$sanitize', function ($httpProvider) {
       $httpProvider.defaults.useXDomain = true;
       delete $httpProvider.defaults.headers.common['X-Requested-With'];
     }]);
