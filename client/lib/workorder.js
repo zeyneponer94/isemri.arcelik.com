@@ -179,17 +179,20 @@ angular.module('App', ['ui.bootstrap','dialogs.main']);
                         return formData;  
                     },  
                     data: { model: $scope.postData, files: $scope.files },
-                    headers: {'Content-Type': 'application/x-www-form-urlencoded',
+                    headers: {'Content-Type': 'application/json',
                               'SessionToken': '4737B2FC-DE66-4741-B7A8-07646813D890',
                               'cache-control': 'no-cache',
-                              'servicetype': 'INTHEBOX1',
-                              'Access-Control-Allow-Origin': '*',
-                              'Access-Control-Allow-Methods':'GET, POST, PUT, DELETE, OPTIONS',
-                              'Access-Control-Allow-Credentials':'true',
-                              'Access-Control-Allow-Headers':'Accept, Access-Control-Allow-Headers, Access-Control-Allow-Credentials, Access-Control-Allow-Methods, Access-Control-Allow-Origin, servicetype, cache-control, SessionToken, Content-Type'
+                              'servicetype': 'INTHEBOX1'
+                              //'Access-Control-Allow-Origin': '*',
+                              //'Access-Control-Allow-Methods':'GET, POST, PUT, DELETE, OPTIONS',
+                              //'Access-Control-Allow-Credentials':'true',
+                              //'Access-Control-Allow-Headers':'Accept, Access-Control-Allow-Headers, Access-Control-Allow-Credentials, Access-Control-Allow-Methods, Access-Control-Allow-Origin, servicetype, cache-control, SessionToken, Content-Type'
                              }
                   }).then(function (data, status, headers, config) {
-                        alert(data);
+                        alert(data.ConsignmentId);
+                        alert(headers.ConsignmentId);                        
+                        alert(status);
+                        alert(headers);
                   });
 					},function(btn){
 					    alert('İşlem Tamamlanamadı.');
