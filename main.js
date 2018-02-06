@@ -6,6 +6,25 @@ var express = require('express'),
     app = express();
     Console = require('console');
 
+
+var cors = require('cors');
+app.options('*', cors());
+app.use(cors());
+app.use(enableCors);
+
+function enableCors(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With, SessionToken, cache-control, servicetype ');
+
+    if('OPTIONS' == req.method) {
+        res.send(200);
+    } else {
+        next();
+    }
+}
+
+
 var logFmt = require("logfmt");
 
 app.get('/', function(req, res) {
@@ -15,12 +34,6 @@ app.get('/workorder' , function(req,res) {
     res.sendfile('views/create_workorder.html', {root: __dirname });   
 });
 
-app.all('/api/*', function (request, response, next) {
-    response.header("Access-Control-Allow-Origin", "*, https://thworkorder.azurewebsites.net");
-    response.header("Access-Control-Allow-Headers", "Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With");
-    response.header("Access-Control-Allow-Methods", "GET, POST", "PUT", "DELETE");
-    next();
-  });
 
 app.set('port', process.env.PORT || 1337);
 app.use(express.static(__dirname + '/client')); 
