@@ -234,27 +234,14 @@ angular.module('App', ['ui.bootstrap','dialogs.main']);
                   $http({
                     url: 'https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService',
                     method: "POST",
-                /*    transformRequest: function (data) {  
-                        var formData = new FormData();  
-                        formData.append("model", angular.toJson(data.model));  
-                        for (var i = 0; i < data.files.length; i++) {  
-                            formData.append("file" + i, data.files[i]);  
-                        }  
-                        return formData;  
-                    },  */
                     data: { model: $scope.postData },
                     headers: {'Content-Type': 'application/json',
                               'SessionToken': '4737B2FC-DE66-4741-B7A8-07646813D890',
                               'cache-control': 'no-cache',
                               'servicetype': 'INTHEBOX1'
-                              //'Access-Control-Allow-Origin': '*',
-                              //'Access-Control-Allow-Methods':'GET, POST, PUT, DELETE, OPTIONS',
-                              //'Access-Control-Allow-Credentials':'true',
-                              //'Access-Control-Allow-Headers':'Accept, Access-Control-Allow-Headers, Access-Control-Allow-Credentials, Access-Control-Allow-Methods, Access-Control-Allow-Origin, servicetype, cache-control, SessionToken, Content-Type'
                              }
-                  }).then(function (data, status, headers, config) {
-                    alert(headers);
-                    alert(status);
+                  }).then(function (response) {
+                    alert(response.data);
                   });
 					},function(btn){
 					    alert('İşlem Tamamlanamadı.');
