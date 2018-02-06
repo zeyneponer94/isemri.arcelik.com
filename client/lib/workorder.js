@@ -256,9 +256,9 @@
                       //response.data = $sanitize(response.data);
                       //alert(response.data);           
                       obj = JSON.parse(response.data);
-                      alert(obj.ErrorCode);           
+                      alert(obj.ErrorCode);        
+                      alert(JSON.stringify(response.data).ErrorCode);   
                     }
-                    //alert("headers: "+JSON.stringify(headers));
 
                   });
 					},function(btn){
