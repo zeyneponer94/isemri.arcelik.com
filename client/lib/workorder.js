@@ -249,10 +249,10 @@
                              }
                   }).then(function (response) {
 
-                    alert(response);
-                    alert(response.data);                    
-                    alert(response.ConsignmentWorkOrderStatus); // renders green
-                    alert(response.data.ConsignmentWorkOrderStatus);                    
+                    $scope.json = angular.toJson(response);
+                    alert($scope.json);
+                    alert($scope.json.ConsignmentWorkOrderStatus); // renders green
+                 
                     
                   });
 					},function(btn){
