@@ -1,4 +1,17 @@
-angular.module('App', ['ui.bootstrap','dialogs.main']);
+    app = angular.module('App', ['ui.bootstrap','dialogs.main','ngRoute']);
+
+    app.config(['$httpProvider', function ($httpProvider) {
+      $httpProvider.defaults.useXDomain = true;
+      delete $httpProvider.defaults.headers.common['X-Requested-With'];
+    }]);
+
+    app.all('/*', function (request, response, next) {
+      response.header("Access-Control-Allow-Origin", "*");
+      response.header("Access-Control-Allow-Headers", "X-Requested-With");
+      response.header("Access-Control-Allow-Methods", "GET, POST", "PUT", "DELETE");
+      next();
+    });
+
     angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs) {
         $scope.create = true;  
         $scope.query = false;      
@@ -236,12 +249,12 @@ angular.module('App', ['ui.bootstrap','dialogs.main']);
                     method: "POST",
                     data: { model: $scope.postData },
                     headers: {'Content-Type': 'application/json',
-                              'SessionToken': '4737B2FC-DE66-4741-B7A8-07646813D890',
+                              'SessionToken': 'a603204a-3eef-42d2-840d-a621aa35da59',
                               'cache-control': 'no-cache',
                               'servicetype': 'INTHEBOX1'
                              }
                   }).then(function (response) {
-                    //get parameters
+  
                     alert(response.data);
                   });
 					},function(btn){
