@@ -243,17 +243,16 @@
                     method: "POST",
                     data: { model: $scope.postData },
                     headers: {'Content-Type': 'application/json',
-                              'SessionToken': '4737B2FC-DE66-4741-B7A8-07646813D890',
+                              'SessionToken': '50319A39-2F48-47FC-B192-1C92FFDF006E',
                               'cache-control': 'no-cache',
                               'servicetype': 'INTHEBOX1'
                              }
                   }).then(function (response) {
-            
-                   // $scope.json = angular.toJson(response.data);
 
-                    alert(response.header)
-                    //alert($scope.json)
-  
+                    alert(response.data);
+                    var headers = response.headers();
+                    alert("headers: "+JSON.stringify(headers));
+                    
                   });
 					},function(btn){
 					    alert('İşlem Tamamlanamadı.');
