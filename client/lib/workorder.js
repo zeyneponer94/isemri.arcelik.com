@@ -243,7 +243,7 @@
                     method: "POST",
                     data: { model: $scope.postData },
                     headers: {'Content-Type': 'application/json',
-                              'SessionToken': '50319A39-2F48-47FC-B192-1C92FFDF006E',
+                              'SessionToken': '33D71577-1734-4BBD-AB0F-B2D10EB64345',
                               'cache-control': 'no-cache',
                               'servicetype': 'INTHEBOX1'
                              }
@@ -252,7 +252,7 @@
                     alert(response.data);
                     var headers = response.headers();
                     alert("headers: "+JSON.stringify(headers));
-                    
+
                   });
 					},function(btn){
 					    alert('İşlem Tamamlanamadı.');
