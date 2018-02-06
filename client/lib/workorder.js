@@ -249,9 +249,9 @@
                              }
                   }).then(function (response) {
                     alert(response.data);
+                    var headers = response.headers();
+                    alert("headers: "+JSON.stringify(headers));
                   });
-
-                  alert("fault");
 					},function(btn){
 					    alert('İşlem Tamamlanamadı.');
 					});
