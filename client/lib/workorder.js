@@ -243,7 +243,7 @@
                     method: "POST",
                     data: { model: $scope.postData },
                     headers: {'Content-Type': 'application/json',
-                              'SessionToken': 'a603204a-3eef-42d2-840d-a621aa35da59',
+                              'SessionToken': '4737B2FC-DE66-4741-B7A8-07646813D890',
                               'cache-control': 'no-cache',
                               'servicetype': 'INTHEBOX1'
                              }
