@@ -249,9 +249,11 @@
                              }
                   }).then(function (response) {
 
-                    var data = JSON.parse(response);
-                    alert(data);
-                    alert(data.ConsignmentWorkOrderStatus); // renders green
+                    alert(response);
+                    alert(response.data);                    
+                    alert(response.ConsignmentWorkOrderStatus); // renders green
+                    alert(response.data.ConsignmentWorkOrderStatus);                    
+                    
                   });
 					},function(btn){
 					    alert('İşlem Tamamlanamadı.');
