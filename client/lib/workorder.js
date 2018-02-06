@@ -249,8 +249,8 @@
                              }
                   }).then(function (response) {
                     $scope.json = angular.toJson(response.data);
+                    alert(JSON.stringify(response.data));
                     alert($scope.json);
-                    alert($scope.json.ErrorCode); // renders green
                   });
 					},function(btn){
 					    alert('İşlem Tamamlanamadı.');
