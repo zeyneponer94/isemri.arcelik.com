@@ -248,9 +248,10 @@
                               'servicetype': 'INTHEBOX1'
                              }
                   }).then(function (response) {
-  
                     alert(response.data);
                   });
+
+                  alert("fault");
 					},function(btn){
 					    alert('İşlem Tamamlanamadı.');
 					});
