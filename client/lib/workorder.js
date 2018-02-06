@@ -189,8 +189,7 @@ angular.module('App', ['ui.bootstrap','dialogs.main']);
                               //'Access-Control-Allow-Headers':'Accept, Access-Control-Allow-Headers, Access-Control-Allow-Credentials, Access-Control-Allow-Methods, Access-Control-Allow-Origin, servicetype, cache-control, SessionToken, Content-Type'
                              }
                   }).then(function (data, status, headers, config) {
-                        alert(data.ConsignmentId);
-                        alert(headers.ConsignmentId);                        
+
                         alert(status);
                         alert(headers);
                   });
