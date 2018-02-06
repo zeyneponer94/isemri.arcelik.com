@@ -253,8 +253,10 @@
                     var headers = response.headers();
                     if(headers['content-type']=="text/plain")
                     {
-                      response.data = $sanitize(response.data);
-                      alert(response.data);                      
+                      //response.data = $sanitize(response.data);
+                      //alert(response.data);           
+                      obj = JSON.parse(response.data);
+                      alert(obj.ErrorCode);           
                     }
                     //alert("headers: "+JSON.stringify(headers));
 
