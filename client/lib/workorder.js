@@ -168,7 +168,7 @@ angular.module('App', ['ui.bootstrap','dialogs.main']);
                 $scope.postData = angular.toJson($scope.jsonData, true);                
 
                   $http({
-                    url: 'http://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService',
+                    url: 'https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService',
                     method: "POST",
                     transformRequest: function (data) {  
                         var formData = new FormData();  
