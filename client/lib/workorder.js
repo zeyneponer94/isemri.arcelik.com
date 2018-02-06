@@ -165,6 +165,7 @@ angular.module('App', ['ui.bootstrap','dialogs.main']);
                   name: "Jignesh Trivedi",  
                   comments: "Multiple upload files"  
                 };                
+                $scope.postData = angular.toJson($scope.jsonData, true);                
 
                   $http({
                     url: 'http://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService',
@@ -177,7 +178,7 @@ angular.module('App', ['ui.bootstrap','dialogs.main']);
                         }  
                         return formData;  
                     },  
-                    data: { model: $scope.jsonData, files: $scope.files },
+                    data: { model: $scope.postData, files: $scope.files },
                     headers: {'Content-Type': 'application/x-www-form-urlencoded',
                               'SessionToken': '4737B2FC-DE66-4741-B7A8-07646813D890',
                               'cache-control': 'no-cache',
@@ -186,8 +187,6 @@ angular.module('App', ['ui.bootstrap','dialogs.main']);
                              }
                   }).then(function (data, status, headers, config) {
                         alert(data);
-                  }).error(function (data, status, headers, config) {
-                        alert(status);
                   });
 
 					},function(btn){
