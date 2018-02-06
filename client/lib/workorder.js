@@ -182,13 +182,15 @@ angular.module('App', ['ui.bootstrap','dialogs.main']);
                     headers: {'Content-Type': 'application/x-www-form-urlencoded',
                               'SessionToken': '4737B2FC-DE66-4741-B7A8-07646813D890',
                               'cache-control': 'no-cache',
-                              'postman-token': '2b8add1e-b889-015c-f9e5-59a447df9711',
-                              'servicetype': 'INTHEBOX1'
+                              'servicetype': 'INTHEBOX1',
+                              'Access-Control-Allow-Origin': '*',
+                              'Access-Control-Allow-Methods':'GET, POST, PUT, DELETE, OPTIONS',
+                              'Access-Control-Allow-Credentials':'true',
+                              'Access-Control-Allow-Headers':'Accept, Access-Control-Allow-Headers, Access-Control-Allow-Credentials, Access-Control-Allow-Methods, Access-Control-Allow-Origin, servicetype, cache-control, SessionToken, Content-Type'
                              }
                   }).then(function (data, status, headers, config) {
                         alert(data);
                   });
-
 					},function(btn){
 					    alert('İşlem Tamamlanamadı.');
 					});
