@@ -249,7 +249,7 @@
                              }
                   }).then(function (response) {
 
-                    $scope.json = angular.toJson(response);
+                    $scope.json = angular.toJson(response.data);
                     alert($scope.json);
                     alert($scope.json.ConsignmentWorkOrderStatus); // renders green
                  
