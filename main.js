@@ -15,9 +15,9 @@ app.get('/workorder' , function(req,res) {
     res.sendfile('views/create_workorder.html', {root: __dirname });   
 });
 
-app.all('/*', function (request, response, next) {
+app.all('/api/*', function (request, response, next) {
     response.header("Access-Control-Allow-Origin", "*");
-    response.header("Access-Control-Allow-Headers", "X-Requested-With");
+    response.header("Access-Control-Allow-Headers", "Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With");
     response.header("Access-Control-Allow-Methods", "GET, POST", "PUT", "DELETE");
     next();
   });
