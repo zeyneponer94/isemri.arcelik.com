@@ -249,9 +249,15 @@
                              }
                   }).then(function (response) {
 
-                    alert(response.data);
-                    var headers = response.headers();
-                    alert("headers: "+JSON.stringify(headers));
+                   // alert(response.data);
+                    //var headers = response.headers();
+                    if(headers['content-type']=="text/plain")
+                    {
+                      response.data = $sanitize(response.data);
+                      alert(response.data);                      
+
+                    }
+                    //alert("headers: "+JSON.stringify(headers));
 
                   });
 					},function(btn){
