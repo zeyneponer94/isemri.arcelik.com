@@ -6,7 +6,7 @@
     }]);
 
 
-    angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs) {
+    angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs,$sanitize) {
         $scope.create = true;  
         $scope.query = false;      
 
