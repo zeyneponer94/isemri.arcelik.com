@@ -248,9 +248,17 @@
                               'servicetype': 'INTHEBOX1'
                              }
                   }).then(function (response) {
+
+                    
                     $scope.json = angular.toJson(response.data);
-                    alert(JSON.stringify(response.data));
-                    alert($scope.json);
+                    $scope.json_stringify = JSON.stringify(response.data); 
+                    alert($scope.json)
+                    alert($scope.json.ErrorCode);
+                    
+
+                    
+
+  
                   });
 					},function(btn){
 					    alert('İşlem Tamamlanamadı.');
