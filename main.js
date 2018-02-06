@@ -16,7 +16,7 @@ app.get('/workorder' , function(req,res) {
 });
 
 app.all('/api/*', function (request, response, next) {
-    response.header("Access-Control-Allow-Origin", "*");
+    response.header("Access-Control-Allow-Origin", "*, https://thworkorder.azurewebsites.net");
     response.header("Access-Control-Allow-Headers", "Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With");
     response.header("Access-Control-Allow-Methods", "GET, POST", "PUT", "DELETE");
     next();
