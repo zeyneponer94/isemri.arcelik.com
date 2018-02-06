@@ -5,12 +5,6 @@
       delete $httpProvider.defaults.headers.common['X-Requested-With'];
     }]);
 
-    app.all('/*', function (request, response, next) {
-      response.header("Access-Control-Allow-Origin", "*");
-      response.header("Access-Control-Allow-Headers", "X-Requested-With");
-      response.header("Access-Control-Allow-Methods", "GET, POST", "PUT", "DELETE");
-      next();
-    });
 
     angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs) {
         $scope.create = true;  
