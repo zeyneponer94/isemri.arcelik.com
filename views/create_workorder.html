@@ -139,37 +139,39 @@
                             </div>    
                         </div>                                         
                     </div>
-                </form>            
-                <div class="panel-group" ng-show="query">
-                    <div class="panel panel-default">
-                        <div class="panel-body">    
-                            <div class="col-sm-3">
-                                <div class="form-group">                                
-                                    <input type="text" id="name_query" name="name_query" 
-                                    class="form-control" placeholder="Ad" ng-model="name_id_query">
+                </form>  
+                <form name="form" novalidate>                                                                                        
+                    <div class="panel-group" ng-show="query">
+                        <div class="panel panel-default">
+                            <div class="panel-body">    
+                                <div class="col-sm-3">
+                                    <div class="form-group">                                
+                                        <input type="text" id="name_query" name="name_query" 
+                                        class="form-control" placeholder="Ad*" ng-model="name_id_query" required>
+                                    </div> 
                                 </div> 
-                            </div> 
-                            <div class="col-sm-3">
-                                <div class="form-group">                                
-                                    <input type="text" id="surname_query" name="surname_query" 
-                                    class="form-control" placeholder="Soyad" ng-model="surname_id_query">
+                                <div class="col-sm-3">
+                                    <div class="form-group">                                
+                                        <input type="text" id="surname_query" name="surname_query" 
+                                        class="form-control" placeholder="Soyad*" ng-model="surname_id_query" required>
+                                    </div> 
                                 </div> 
-                            </div> 
-                            <div class="col-sm-3">
-                                <div class="form-group">                                
-                                    <input type="text" id="phoneNumber_3_query" name="phoneNumber_3_query" 
-                                    class="form-control" placeholder="(___) ___ __ __"  ng-model="phone_id_query">
-                                </div> 
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="form-group">   
-                                    <button type="button" style= " background: -webkit-linear-gradient(to right, rgb(255, 63, 194), rgb(22, 35, 122));  
-                                    background: linear-gradient(to right,  rgb(255, 63, 194), rgb(16, 26, 99));" class="btn btn-default" ng-click="query_workorder()"><i class="glyphicon glyphicon-search"></i><bold>ARA</bold></button>                                
-                                </div> 
+                                <div class="col-sm-3">
+                                    <div class="form-group">                                
+                                        <input type="text" id="phoneNumber_3_query" name="phoneNumber_3_query" 
+                                        class="form-control" placeholder="(___) ___ __ __"  ng-model="phone_id_query">
+                                    </div> 
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">   
+                                        <button type="button" style= " background: -webkit-linear-gradient(to right, rgb(255, 63, 194), rgb(32, 50, 167));  
+                                        background: linear-gradient(to right,  rgb(255, 63, 194), rgb(32, 50, 167));" class="btn btn-default" ng-click="query_workorder()"ng-disabled="form.$invalid"><i class="glyphicon glyphicon-search"></i><b>ARA</b></button>                                
+                                    </div> 
+                                </div>  
                             </div>  
-                        </div>  
-                    </div>                                             
-                </div>
+                        </div>                                             
+                    </div>
+                </form> 
                 <div class="panel-group" ng-show="query">
                     <div class="panel panel-default">
                         <div class="panel-body">   
@@ -205,7 +207,7 @@
                             </table>
                             <div class="form-group" align="center">                                                                                                                                        
                                 <button type="button" class="btn btn-default" style= "background: -webkit-linear-gradient(to right, rgb(255, 63, 194), rgb(32, 50, 167));  
-                                background: linear-gradient(to right,  rgb(255, 63, 194), rgb(32, 50, 167));" ng-click="query_all()"><i class="glyphicon glyphicon-search"><bold>TÜMÜNÜ YAZDIR</bold></i></button>                                                                                                                                                              
+                                background: linear-gradient(to right,  rgb(255, 63, 194), rgb(32, 50, 167));" ng-click="query_all()"><i class="glyphicon glyphicon-search"><b>TÜMÜNÜ YAZDIR</b></i></button>                                                                                                                                                              
                             </div>  
                             <footer ng-show="result" align="center"> Sonuç bulunamadı</footer>
                         </div> 
