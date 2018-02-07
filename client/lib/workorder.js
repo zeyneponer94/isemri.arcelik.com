@@ -64,7 +64,7 @@
         $scope.queryWorkOrder = function () {
           $scope.create = false;
           $scope.query=true;
-          $scope.result=true;
+          $scope.result=false;
        }
 
        $scope.query_workorder = function () {
@@ -75,8 +75,6 @@
                    surname:$scope.surname_id_query}          
         }) 
         .then(function(response){  
-            if(response.data[0]!=null)
-              $scope.result=false;          
             $scope.workorders = [];
             var i = 0;
             while(response.data[i]!=null){
