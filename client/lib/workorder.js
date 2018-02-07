@@ -64,7 +64,6 @@
         $scope.queryWorkOrder = function () {
           $scope.create = false;
           $scope.query=true;
-          $scope.result=false;
        }
 
        $scope.query_workorder = function () {
@@ -75,6 +74,45 @@
                    surname:$scope.surname_id_query}          
         }) 
         .then(function(response){  
+          
+          if(response.data[0]==null)
+            $scope.result = true;
+          else
+            $scope.result = false;     
+
+            $scope.workorders = [];
+            var i = 0;
+            while(response.data[i]!=null){
+                      var obj = { 
+                            no: response.data[i][3],
+                            product:response.data[i][4],
+                            type: response.data[i][5],
+                            customer: response.data[i][6],
+                            point: response.data[i][7],
+                            address: response.data[i][8],
+                            status: response.data[i][9],
+                            service: response.data[i][10],
+                            DeliveryDate: response.data[i][11],
+                            AppointmentDate: response.data[i][12]
+                      };
+                $scope.workorders.push(obj);         
+                i++;
+            }
+        });
+        
+      }
+
+      $scope.query_all = function () {
+        $http({
+          method: "GET", 
+          url: 'https://thworkorderfapp.azurewebsites.net/api/query_workorderlist'     
+        }) 
+        .then(function(response){  
+            if(response.data[0]==null)
+              $scope.result = true;
+            else
+              $scope.result = false;       
+
             $scope.workorders = [];
             var i = 0;
             while(response.data[i]!=null){
