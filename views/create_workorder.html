@@ -135,13 +135,41 @@
                                     <button type="button" style= "background: -webkit-linear-gradient(to right, rgb(255, 63, 194), rgb(16, 26, 99));  
                                     background: linear-gradient(to right,  rgb(255, 63, 194), rgb(16, 26, 99));" class="btn btn-block" ng-click="create_workorder()" ng-disabled="form.$invalid">İŞ EMRİ OLUŞTUR</button>                                                                                                                                                              
                                     <footer>&copy; 2018 Arçelik All rights reserved.</footer>   
-                                </div>     
-                            </div>        
+                                </div>       
                             </div>    
                         </div>                                         
                     </div>
                 </form>            
-
+                <div class="panel-group" ng-show="query">
+                    <div class="panel panel-default">
+                        <div class="panel-body">    
+                            <div class="col-sm-3">
+                                <div class="form-group">                                
+                                    <input type="text" id="name_query" name="name_query" 
+                                    class="form-control" placeholder="Ad" ng-model="name_id_query">
+                                </div> 
+                            </div> 
+                            <div class="col-sm-3">
+                                <div class="form-group">                                
+                                    <input type="text" id="surname_query" name="surname_query" 
+                                    class="form-control" placeholder="Soyad" ng-model="surname_id_query">
+                                </div> 
+                            </div> 
+                            <div class="col-sm-3">
+                                <div class="form-group">                                
+                                    <input type="text" id="phoneNumber_3_query" name="phoneNumber_3_query" 
+                                    class="form-control" placeholder="(___) ___ __ __"  ng-model="phone_id_query">
+                                </div> 
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">   
+                                    <button type="button" style= " background: -webkit-linear-gradient(to right, rgb(255, 63, 194), rgb(16, 26, 99));  
+                                    background: linear-gradient(to right,  rgb(255, 63, 194), rgb(16, 26, 99));" class="btn btn-default" ng-click="query_workorder()"><i class="glyphicon glyphicon-search"></i>ARA</button>                                
+                                </div> 
+                            </div>  
+                        </div>  
+                    </div>                                             
+                </div>
                 <div class="panel-group" ng-show="query">
                     <div class="panel panel-default">
                         <div class="panel-body">   
