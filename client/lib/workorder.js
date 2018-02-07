@@ -236,7 +236,7 @@
                                           }
                                       ]
                     }
-                 ]
+                 ];
             
                 $scope.postData = angular.toJson($scope.jsonData, true);                
 
@@ -254,9 +254,11 @@
 
                    // obj = JSON.parse(response);
                     //alert(obj.ConsignmentWorkOrderStatus)
-                    var headers = response.headers();
-                    alert(headers['content-type']);
-                    if(headers['content-type']=="text/plain")
+                   
+                    //var headers = response.headers();
+                    //alert(headers['content-type']);
+
+                    if(headers['content-type']==" application/json; charset=utf-8")
                     {
                       //alert(response.data);           
                       obj = JSON.parse(response.data);
