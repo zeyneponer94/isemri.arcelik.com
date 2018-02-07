@@ -5,6 +5,14 @@
       delete $httpProvider.defaults.headers.common['X-Requested-With'];
     }]);
 
+    app.filter('start', function () {
+      return function (input, start) {
+          if (!input || !input.length) { return; }
+          start = +start;
+          return input.slice(start);
+      };
+    });
+
 
     angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs,$sanitize) {
         $scope.create = true;  
@@ -50,24 +58,6 @@
           });
         }   
 
-        $scope.viewby = 10;
-        $scope.currentPage = 4;
-        $scope.itemsPerPage = $scope.viewby;
-        $scope.maxSize = 5; 
-      
-        $scope.setPage = function (pageNo) {
-          $scope.currentPage = pageNo;
-        };
-      
-        $scope.pageChanged = function() {
-          console.log('Page changed to: ' + $scope.currentPage);
-        };
-      
-       $scope.setItemsPerPage = function(num) {
-        $scope.itemsPerPage = num;
-        $scope.currentPage = 1; //reset to first page
-      }
-
         $scope.isActive = function (viewLocation) {
           var active = (viewLocation === $location.path());
           return active;
@@ -82,6 +72,9 @@
           $scope.create = false;
           $scope.query=true;
        }
+
+       $scope.currentPage = 1; // keeps track of the current page
+       $scope.pageSize = 5; // holds the number of items per page
 
        $scope.query_workorder = function () {
 
@@ -119,7 +112,6 @@
                 i++;
             }
 
-            $scope.totalItems = $scope.workorders.length;
             
         });
 
@@ -158,7 +150,6 @@
                 i++;
             }
 
-            $scope.totalItems = $scope.workorders.length;
             
 
         });
