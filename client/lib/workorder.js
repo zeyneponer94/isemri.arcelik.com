@@ -225,8 +225,6 @@
                           'servicetype': 'INTHEBOX1'
                          }
               }).then(function (response) {
-                alert(response.data[0].ConsignmentWorkOrderStatus);
-
                   $http({
                     method: "GET", 
                     url: 'https://thworkorderfapp.azurewebsites.net/api/createworkorder',
@@ -247,7 +245,6 @@
                     }          
                   }) 
                   .then(function(response){     
-                    alert(response.data);    
                   });
 
             });
