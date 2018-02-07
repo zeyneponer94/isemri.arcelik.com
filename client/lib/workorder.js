@@ -65,9 +65,6 @@
        }
 
        $scope.query_workorder = function () {
-
-
-
         $http({
           method: "GET", 
           url: 'https://thworkorderfapp.azurewebsites.net/api/workorderlist',
@@ -167,6 +164,8 @@
           }) 
           .then(function(response){ 
               alert(response.data);
+              var url = "https://thworkorder.azurewebsites.net/workorder";
+              $window.location = url;
           });          
         }
 
@@ -299,8 +298,6 @@
                     }          
                   }) 
                   .then(function(response){ 
-                    alert(response.data[0].ExternalOrderId)
-                    alert(response.data[0].ConsignmentWorkOrderStatus)
                     alert(response.data);    
                   });
 
