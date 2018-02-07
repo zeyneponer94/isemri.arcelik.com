@@ -251,20 +251,22 @@
                              }
                   }).then(function (response) {
 
-
+                    alert(response);
+                    alert(response.data);
+                    
                    // obj = JSON.parse(response);
                     //alert(obj.ConsignmentWorkOrderStatus)
                    
                     //var headers = response.headers();
                     //alert(headers['content-type']);
 
-                    if(headers['content-type']==" application/json; charset=utf-8")
+            /*        if(headers['content-type']==" application/json; charset=utf-8")
                     {
                       //alert(response.data);           
                       obj = JSON.parse(response.data);
                       alert(obj.ErrorCode);        
                       alert(JSON.stringify(response.data).ErrorCode);   
-                    }
+                    }*/
 
                   });
 					},function(btn){
