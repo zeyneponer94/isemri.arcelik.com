@@ -1,13 +1,9 @@
     app = angular.module('App', ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize']);
 
-
-
-
     app.config(['$httpProvider', function ($httpProvider) {
       $httpProvider.defaults.useXDomain = true;
       delete $httpProvider.defaults.headers.common['X-Requested-With'];
     }]);
-
 
 
     angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs,$sanitize) {
@@ -158,19 +154,6 @@
                 i++;
               }
           });          
-        }
-
-        $scope.register() = function()
-        {
-          alert("clicked");
-          $http({method: 'GET', url: '/register'}).
-          success(function(data, status) { 
-              var url = "https://thworkorder.azurewebsites.net/register";
-              $window.location = url;
-          }).
-          error(function(data, status) {
-              alert("Request failed");
-          });
         }
 
         $scope.delete_query = function(workorder_no) {

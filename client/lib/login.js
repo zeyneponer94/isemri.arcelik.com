@@ -27,6 +27,19 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
                 alert("Request failed");
         });
     }
+
+    $scope.register() = function()
+    {
+        $http({method: 'GET', url: '/register'}).
+        success(function(data, status) { 
+            var url = "https://thworkorder.azurewebsites.net/register";
+            $window.location = url;
+        }).
+        error(function(data, status) {
+            alert("Request failed");
+        });
+    }
+
 }]);
 
 
