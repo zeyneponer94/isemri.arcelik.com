@@ -10,6 +10,7 @@
         $scope.create = true;  
         $scope.query = false;      
 
+
         //connecting to azure db, getting required records from specified table and displaying them in selection list
         $http({
           method: "GET", 
@@ -67,6 +68,8 @@
        }
 
        $scope.query_workorder = function () {
+
+
         $http({
           method: "GET", 
           url: 'https://thworkorderfapp.azurewebsites.net/api/workorderlist',
@@ -74,7 +77,7 @@
                    surname:$scope.surname_id_query}          
         }) 
         .then(function(response){  
-          
+
           if(response.data[0]==null)
             $scope.result = true;
           else
@@ -99,6 +102,13 @@
                 i++;
             }
         });
+
+
+        $scope.numPerPage = 5;
+        $scope.noOfPages = Math.ceil($scope.workorders.length / $scope.numPerPage);
+        $scope.currentPage = 1;
+        $scope.$watch( 'currentPage', $scope.setPage );
+
         
       }
 
