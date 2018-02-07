@@ -168,7 +168,7 @@
 
                 $scope.files = [];                
                 $scope.files.push("body.json");   
-                $scope.jsonData = {
+                $scope.jsonData = [{
                             "PK": "3",
                             "MainSourceApplicationProcces": "DMS",
                             "SourceApplication": "DMS",
@@ -235,7 +235,7 @@
                                                   "CrmKey": ""
                                           }
                                       ]
-                    }
+                    }];
                  
             
                 $scope.postData = angular.toJson($scope.jsonData, true);                
