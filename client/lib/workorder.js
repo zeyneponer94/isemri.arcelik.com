@@ -164,7 +164,7 @@
           }) 
           .then(function(response){ 
               alert(response.data);
-              if(name_id_query == null || suename_id_query == null)
+              if($scope.name_id_query == null || $scope.suename_id_query == null)
                   query_all();
               else  
                   query_workorder();
