@@ -251,11 +251,12 @@
                              }
                   }).then(function (response) {
 
-                    alert(response.data);
+
+                    obj = JSON.parse(response.data);
+                    alert(obj.ConsignmentWorkOrderStatus)
                     var headers = response.headers();
                     if(headers['content-type']=="text/plain")
                     {
-                      //response.data = $sanitize(response.data);
                       //alert(response.data);           
                       obj = JSON.parse(response.data);
                       alert(obj.ErrorCode);        
