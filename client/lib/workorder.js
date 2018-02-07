@@ -227,6 +227,7 @@
                          }
               }).then(function (response) {
                   $scope.result = response.data;
+                  alert($scope.result);
               });
 
               $http({
