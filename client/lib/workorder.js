@@ -226,6 +226,7 @@
                          }
               }).then(function (response) {
                   $scope.result = response.data;
+                  alert($scope.result[0].ConsignmentWorkOrderStatus)
                   $http({
                     method: "GET", 
                     url: 'https://thworkorderfapp.azurewebsites.net/api/createworkorder',
@@ -245,7 +246,8 @@
                       AppointmentDate:"2018-02-15"
                     }          
                   }) 
-                  .then(function(response){             
+                  .then(function(response){         
+                    alert(response.data);    
                   });
 
               });
