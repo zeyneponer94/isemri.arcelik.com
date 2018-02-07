@@ -158,6 +158,17 @@
           });          
         }
 
+        $scope.delete_query = function(workorder_no) {
+          $http({
+            method: "GET", 
+            url: 'https://thworkorderfapp.azurewebsites.net/api/delete_query',
+            params: {no: workorder_no}          
+          }) 
+          .then(function(response){ 
+              alert(response);
+          });          
+        }
+
         $scope.choose_city = function() {
           $http({
             method: "GET", 
@@ -274,7 +285,7 @@
                       name:$scope.name_id,
                       surname:$scope.surname_id,
                       phone:$scope.phone_id,
-                      no:"Test",
+                      no:response.data[0].ExternalOrderId,
                       product:$scope.singleSelect,
                       workorder:$scope.workorderSelect,
                       customer:"Test",
