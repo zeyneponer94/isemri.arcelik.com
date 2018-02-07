@@ -156,28 +156,28 @@
                         "AsistDealerCode": "342122",
                         "AsistBranchDealerCode": "342122",
                         "Note": "10",
-                        "Name": $scope.name_id,
-                        "Surname": $scope.surname_id,
-                        "Phone1": $scope.phone_id,
+                        "Name": ""+$scope.name_id,
+                        "Surname": ""+$scope.surname_id,
+                        "Phone1": ""+$scope.phone_id,
                         "Phone2": "2163964187",
                         "Phone3": "",
-                        "Email": $scope.email_id,
+                        "Email": ""+$scope.email_id,
                         "TaxOffice": "",
                         "TaxId": "",
                         "Tckn": "",
-                        "Address": $scope.adres_id,
+                        "Address": ""+$scope.adres_id,
                         "Neighborhood": "KAVAKPINAR",
-                        "District": $scope.citySelect,
-                        "City": $scope.provinceSelect,
+                        "District": ""+$scope.citySelect,
+                        "City": ""+$scope.provinceSelect,
                         "Urgent": "0",
                         "ContactPerson": "Deneme",
                         "ContactPhone": "2167865438",
                         "PreferredServiceShop": "NULL",
                         "DeliveryDate": "13.02.2018 08:54:00",
                         "ExternalOrderId": "",
-                        "InvoiceAcceptPhone": $scope.phone_id,
-                        "InvoiceAcceptName": $scope.name_id,
-                        "InvoiceAcceptSurname": $scope.surname_id,
+                        "InvoiceAcceptPhone": ""+$scope.phone_id,
+                        "InvoiceAcceptName": ""+$scope.name_id,
+                        "InvoiceAcceptSurname": ""+$scope.surname_id,
                       "ProductOrderDetail": [
                                       {
                                               "ConsignmentId":"1",
@@ -191,11 +191,11 @@
                                               "WareHouseType": "1",
                                               "WareHouseAddress": "Depo Adresi",
                                               "WareHouseNeighborhood": "BATI",
-                                              "WareHouseDistrict": $scope.citySelect,
-                                              "WareHouseCity": $scope.provinceSelect,
+                                              "WareHouseDistrict": ""+$scope.citySelect,
+                                              "WareHouseCity": ""+$scope.provinceSelect,
                                               "ProductCode": "6211101000",
-                                              "Product": $scope.singleSelect,
-                                              "OperationType": $scope.workorderSelect,
+                                              "Product": ""+$scope.singleSelect,
+                                              "OperationType": ""+$scope.workorderSelect,
                                               "ProductReturnCheck": "0",
                                               "ExtraWarrantyType": "1",
                                               "ProductExposeCheck": "0",
@@ -227,7 +227,7 @@
                          }
               }).then(function (response) {
                   $scope.result = response.data;
-                  alert($scope.result[0]);
+                  alert($scope.result[0])
               });
 
               $http({
