@@ -156,7 +156,6 @@
         }
 
         $scope.delete_query = function(workorder_no) {
-          alert(workorder_no)
           $scope.no = [];
           $http({
             method: "GET", 
@@ -165,8 +164,10 @@
           }) 
           .then(function(response){ 
               alert(response.data);
-              var url = "https://thworkorder.azurewebsites.net/workorder";
-              $window.location = url;
+              if(name_id_query == null || suename_id_query == null)
+                  query_all();
+              else  
+                  query_workorder();
           });          
         }
 
