@@ -169,10 +169,7 @@
           }) 
           .then(function(response){ 
               alert(response.data);
-              if($scope.name_id_query == "undefined" || $scope.surname_id_query == "undefined" )
-                  $scope.query_all();
-              else  
-                  $scope.query_workorder();
+              $scope.query_all();
           });          
         }
 
