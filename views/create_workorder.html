@@ -189,7 +189,8 @@
                                 <th>İş Emri Durumu</th>
                                 <th>At. Yet. Servis</th>
                                 <th>İş Teslimat Tarihi</th>
-                                <th>Plan. Randevu Tarihi</th>                   
+                                <th>Plan. Randevu Tarihi</th>    
+                                <th></th>                
                                 </tr>
                             </thead>
                             <tbody>
@@ -204,6 +205,11 @@
                                     <td>{{ x.service }}</td>
                                     <td>{{ x.DeliveryDate }}</td>
                                     <td>{{ x.AppointmentDate }}</td> 
+                                    <td>
+                                        <button type="button" class="btn btn-default" style= "background:red"><i class="glyphicon glyphicon-remove"><b>SİL</b></i></button>
+                                        <button type="button" class="btn btn-default" style= "background:rgb(0, 132, 255)"><b>SORGULA</b></button>                                        
+                                    
+                                    </td> 
                                 </tr>   
                             </tbody>
                             </table>
