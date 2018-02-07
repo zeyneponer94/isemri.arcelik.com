@@ -140,7 +140,6 @@
         
       }
 
-
         //when user selects a product from selection list, ng-change calls that function to get the work order types available for chosen product
         $scope.choose_workordertype = function() {
           $http({
