@@ -74,9 +74,9 @@
           params: {name:$scope.name_id_query,
                    surname:$scope.surname_id_query}          
         }) 
-        .then(function(response){ 
-            alert(response.data[0])          
-            $scope.result = false;       
+        .then(function(response){     
+            if(response.data[0]!=null)
+               $scope.result = false;            
             $scope.workorders = [];
             var i = 0;
             while(response.data[i]!=null){
