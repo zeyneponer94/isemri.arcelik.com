@@ -1,4 +1,4 @@
-    app = angular.module('App', ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize']);
+    app = angular.module('App', ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.bootstrap.pagination']);
 
     app.config(['$httpProvider', function ($httpProvider) {
       $httpProvider.defaults.useXDomain = true;
