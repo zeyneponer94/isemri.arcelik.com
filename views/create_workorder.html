@@ -79,8 +79,8 @@
                                         <option ng-repeat="option in product" value="{{option.name}}">{{option.name}}</option>
                                     </select>
                                 </div>                                                                                                                                                                                                                       
-                                <div class="form-group" required>                                                                                                                                            
-                                    <select class="form-control" ng-model="workorderSelect">
+                                <div class="form-group">                                                                                                                                            
+                                    <select class="form-control" ng-model="workorderSelect" required>
                                         <option value="">İş Emri Türü Seçiniz *</option> 
                                         <option ng-repeat="option in workordertype" value="{{option.name}}">{{option.name}}</option>                    
                                     </select>
