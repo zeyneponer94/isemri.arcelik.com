@@ -165,7 +165,7 @@
             params: {no: workorder_no}          
           }) 
           .then(function(response){ 
-              alert(response);
+              alert(response.data);
           });          
         }
 
