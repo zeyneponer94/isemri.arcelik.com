@@ -75,6 +75,7 @@
                    surname:$scope.surname_id_query}          
         }) 
         .then(function(response){ 
+            alert(response.data[0])          
             $scope.result = false;       
             $scope.workorders = [];
             var i = 0;
