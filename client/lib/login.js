@@ -28,7 +28,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
         });
     }
 
-    $scope.register() = function()
+    $scope.register = function()
     {
         $http({method: 'GET', url: '/register'}).
         success(function(data, status) { 
