@@ -49,7 +49,7 @@
             this.className += " active";
           });
         }   
-/*
+
         $scope.viewby = 10;
         $scope.currentPage = 4;
         $scope.itemsPerPage = $scope.viewby;
@@ -66,7 +66,7 @@
        $scope.setItemsPerPage = function(num) {
         $scope.itemsPerPage = num;
         $scope.currentPage = 1; //reset to first page
-      }*/
+      }
 
         $scope.isActive = function (viewLocation) {
           var active = (viewLocation === $location.path());
@@ -119,7 +119,7 @@
                 i++;
             }
 
-           // $scope.totalItems = $scope.workorders.length;
+            $scope.totalItems = $scope.workorders.length;
             
         });
 
@@ -158,7 +158,7 @@
                 i++;
             }
 
-           // $scope.totalItems = $scope.workorders.length;
+            $scope.totalItems = $scope.workorders.length;
             
 
         });
@@ -292,6 +292,7 @@
                           'servicetype': 'INTHEBOX1'
                          }
               }).then(function (response) {
+                  alert("service is successfully assigned!");
                   $http({
                     method: "GET", 
                     url: 'https://thworkorderfapp.azurewebsites.net/api/createworkorder',
