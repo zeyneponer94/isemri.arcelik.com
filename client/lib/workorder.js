@@ -1,9 +1,14 @@
     app = angular.module('App', ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize']);
 
+
+
+
     app.config(['$httpProvider', function ($httpProvider) {
       $httpProvider.defaults.useXDomain = true;
       delete $httpProvider.defaults.headers.common['X-Requested-With'];
     }]);
+
+
 
     angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs,$sanitize) {
         $scope.create = true;  
