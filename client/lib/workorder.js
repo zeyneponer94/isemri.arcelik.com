@@ -141,7 +141,7 @@
           var dlg = dialogs.confirm("Lütfen Onaylayınız!","Aşağıda belirtilen bilgiler ile iş emri oluşturma talebinizi gerçekleştirmeyi onaylıyor musunuz?".bold()+"<br>"+ ("  Müşteri adı = "+$scope.name_id+"<br>  Müşteri soyadı = "
           +$scope.surname_id+"<br>  Müşteri telefon numarası = "+$scope.phone_id+"<br>  Seçilen ürün = "+$scope.singleSelect+"<br>  Seçilen iş emri türü = "
           +$scope.workorderSelect+"<br> Müşteri adresi = " + $scope.provinceSelect + " " +$scope.citySelect).italics());
-
+          $scope.result = '';
 					dlg.result.then(function(btn){
 
             $scope.jsonData = [{
@@ -227,7 +227,7 @@
                          }
               }).then(function (response) {
                   $scope.result = response.data;
-                  alert($scope.result[0])
+                  alert($scope.result[0].ConsignmentWorkOrderStatus)
               });
 
               $http({
