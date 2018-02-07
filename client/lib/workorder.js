@@ -168,74 +168,76 @@
 
                 $scope.files = [];                
                 $scope.files.push("body.json");   
-                $scope.jsonData = {  
-                    "PK": "",
-                    "MainSourceApplicationProcces": "DMS",
-                    "SourceApplication": "DMS",
-                    "MainSourceOrderProccesId": "DMS1",
-                    "SourceOrderId": "DMS1",
-                    "MainSourceProccesStatus": "Approve",
-                    "SourceStatus": "Approve",
-                    "DealerCode": "342122",
-                    "AsistDealerCode": "342122",
-                    "AsistBranchDealerCode": "342122",
-                    "Note": "10",
-                    "Name": "Serdar",
-                    "Surname": "Uysal",
-                    "Phone1": "5373579059",
-                    "Phone2": "2163964187",
-                    "Phone3": "",
-                    "Email": "serdar.uysal@arcelik.com",
-                    "TaxOffice": "",
-                    "TaxId": "",
-                    "Tckn": "",
-                    "Address": "Kavakpınar Mah Apdi İpekçi Cad No:5",
-                    "Neighborhood": "KAVAKPINAR",
-                    "District": "PENDİK",
-                    "City": "İSTANBUL",
-                    "Urgent": "0",
-                    "ContactPerson": "Deneme",
-                    "ContactPhone": "2167865438",
-                    "PreferredServiceShop": "NULL",
-                    "DeliveryDate": "13.02.2018 08:54:00",
-                    "ExternalOrderId": "",
-                    "InvoiceAcceptPhone": "5373579059",
-                    "InvoiceAcceptName": "Serdar",
-                    "InvoiceAcceptSurname": "Uysal",
-                    "ProductOrderDetail": [
-                                                {
-                                                "ConsignmentId":"1",
-                                                "MainSourceOrderProcessId": "DMS1",
-                                                "SourceOrderId": "DMS1",
-                                                "PK": "",
-                                                "R_Counter": "",
-                                                "SS_R_Counter": "",
-                                                "MainSourceOrderProcessStatus": "Approve",
-                                                "WareHouseCode": "12457",
-                                                "WareHouseType": "1",
-                                                "WareHouseAddress": "Depo Adresi",
-                                                "WareHouseNeighborhood": "BATI",
-                                                "WareHouseDistrict": "PENDİK",
-                                                "WareHouseCity": "İSTANBUL",
-                                                "ProductCode": "6211101000",
-                                                "Product": "ARY-5500 E ÇAMAŞIR MAK.(Y-326) ÇİFT",
-                                                "OperationType": "Montaj",
-                                                "ProductReturnCheck": "0",
-                                                "ExtraWarrantyType": "1",
-                                                "ProductExposeCheck": "0",
-                                                "SourceOrderStatus": "Approve",
-                                                "ProductBarcode": "",
-                                                "DetailNote": "Test satır 1",
-                                                "ParoId": "",
-                                                "InvoiceNr": "AAFF111SFFEWQ",
-                                                "InvoiceDate": "13.02.2018 08:54:00",
-                                                "MaliId": "",
-                                                "NaceId": "",
-                                                "SectorId": "",
-                                                "CrmKey": ""
-                                                }
-                                          ]
-                };                
+                $scope.jsonData = [{
+                            "PK": "3",
+                            "MainSourceApplicationProcces": "DMS",
+                            "SourceApplication": "DMS",
+                            "MainSourceOrderProccesId": "DMS1",
+                            "SourceOrderId": "DMS1",
+                            "MainSourceProccesStatus": "Approve",
+                            "SourceStatus": "Approve",
+                            "DealerCode": "342122",
+                            "AsistDealerCode": "342122",
+                            "AsistBranchDealerCode": "342122",
+                            "Note": "10",
+                            "Name": "Serdar",
+                            "Surname": "Uysal",
+                            "Phone1": "5373579059",
+                            "Phone2": "2163964187",
+                            "Phone3": "",
+                            "Email": "serdar.uysal@arcelik.com",
+                            "TaxOffice": "",
+                            "TaxId": "",
+                            "Tckn": "",
+                            "Address": "Kavakpınar Mah Apdi İpekçi Cad No:5",
+                            "Neighborhood": "KAVAKPINAR",
+                            "District": "PENDİK",
+                            "City": "İSTANBUL",
+                            "Urgent": "0",
+                            "ContactPerson": "Deneme",
+                            "ContactPhone": "2167865438",
+                            "PreferredServiceShop": "NULL",
+                            "DeliveryDate": "13.02.2018 08:54:00",
+                            "ExternalOrderId": "",
+                            "InvoiceAcceptPhone": "5373579059",
+                            "InvoiceAcceptName": "Serdar",
+                            "InvoiceAcceptSurname": "Uysal",
+                          "ProductOrderDetail": [
+                                          {
+                                                  "ConsignmentId":"1",
+                                                  "MainSourceOrderProcessId": "DMS1",
+                                                  "SourceOrderId": "DMS1",
+                                                  "PK": "",
+                                                  "R_Counter": "",
+                                                  "SS_R_Counter": "",
+                                                  "MainSourceOrderProcessStatus": "Approve",
+                                                  "WareHouseCode": "12457",
+                                                  "WareHouseType": "1",
+                                                  "WareHouseAddress": "Depo Adresi",
+                                                  "WareHouseNeighborhood": "BATI",
+                                                  "WareHouseDistrict": "PENDİK",
+                                                  "WareHouseCity": "İSTANBUL",
+                                                  "ProductCode": "6211101000",
+                                                  "Product": "ARY-5500 E ÇAMAŞIR MAK.(Y-326) ÇİFT",
+                                                  "OperationType": "Montaj",
+                                                  "ProductReturnCheck": "0",
+                                                  "ExtraWarrantyType": "1",
+                                                  "ProductExposeCheck": "0",
+                                                  "SourceOrderStatus": "Approve",
+                                                  "ProductBarcode": "",
+                                                  "DetailNote": "Test satır 1",
+                                                  "ParoId": "",
+                                                  "InvoiceNr": "AAFF111SFFEWQ",
+                                                  "InvoiceDate": "13.02.2018 08:54:00",
+                                                  "MaliId": "",
+                                                  "NaceId": "",
+                                                  "SectorId": "",
+                                                  "CrmKey": ""
+                                          }
+                                      ]
+                    }
+                 ]
+            
                 $scope.postData = angular.toJson($scope.jsonData, true);                
 
                   $http({
@@ -243,13 +245,13 @@
                     method: "POST",
                     data: { model: $scope.postData },
                     headers: {'Content-Type': 'application/json',
-                              'SessionToken': '33D71577-1734-4BBD-AB0F-B2D10EB64345',
+                              'SessionToken': '548ABC6A-50FD-43C1-89D0-48B2FF59CFD6',
                               'cache-control': 'no-cache',
                               'servicetype': 'INTHEBOX1'
                              }
                   }).then(function (response) {
 
-                   // alert(response.data);
+                    alert(response.data);
                     var headers = response.headers();
                     if(headers['content-type']=="text/plain")
                     {
