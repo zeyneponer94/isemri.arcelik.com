@@ -227,7 +227,7 @@
                          }
               }).then(function (response) {
                   $scope.result = response.data;
-                  alert($scope.result);
+                  alert($scope.result[0]);
               });
 
               $http({
@@ -243,7 +243,7 @@
                   customer:"Test",
                   point:$scope.provinceSelect,
                   address:$scope.citySelect,
-                  status: $scope.result.ConsignmentWorkOrderStatus,
+                  status: $scope.result[0].ConsignmentWorkOrderStatus,
                   service:"Test",
                   DeliveryDate:"2018-02-10",
                   AppointmentDate:"2018-02-15"
