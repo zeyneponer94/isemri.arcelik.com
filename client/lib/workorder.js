@@ -159,6 +159,7 @@
         }
 
         $scope.delete_query = function(workorder_no) {
+          $scope.no = [];
           $http({
             method: "GET", 
             url: 'https://thworkorderfapp.azurewebsites.net/api/delete_query',
