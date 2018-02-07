@@ -169,12 +169,10 @@
           }) 
           .then(function(response){ 
               alert(response.data);
-              alert($scope.name_id_query)              
-              alert($scope.name_id_query.length)
-         /*     if($scope.name_id_query.length || $scope.surname_id_query.length )
+              if($scope.name_id_query == "undefined" || $scope.surname_id_query == "undefined" )
                   $scope.query_all();
               else  
-                  $scope.query_workorder();*/
+                  $scope.query_workorder();
           });          
         }
 
