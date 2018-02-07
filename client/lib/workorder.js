@@ -252,9 +252,10 @@
                   }).then(function (response) {
 
 
-                    obj = JSON.parse(response.data);
+                    obj = JSON.parse(response);
                     alert(obj.ConsignmentWorkOrderStatus)
                     var headers = response.headers();
+                    alert(headers);
                     if(headers['content-type']=="text/plain")
                     {
                       //alert(response.data);           
