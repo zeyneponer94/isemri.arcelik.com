@@ -156,6 +156,10 @@
           });          
         }
 
+        $scope.logout = function() {
+            var url = "https://thworkorder.azurewebsites.net";
+            $window.location = url;
+        }          
         $scope.delete_query = function(workorder_no) {
           $scope.no = [];
           $http({
