@@ -250,9 +250,10 @@
                               'servicetype': 'INTHEBOX1'
                              }
                   }).then(function (response) {
-
-                    alert(response);
-                    alert(response.data);
+                    $scope.zeynep = response;
+                    alert($scope.zeynep[0].ConsignmentWorkOrderStatus);
+                    alert($scope.zeynep.ConsignmentWorkOrderStatus);
+                    
                     
                    // obj = JSON.parse(response);
                     //alert(obj.ConsignmentWorkOrderStatus)
