@@ -8,7 +8,7 @@ angular.module('ui.bootstrap.pagination', [])
       currentPage: '=',
       onSelectPage: '&'
     },
-    templateUrl: 'pagination.html',
+    templateUrl: 'js/pagination.html',
     replace: true,
     link: function(scope) {
       scope.$watch('numPages', function(value) {
