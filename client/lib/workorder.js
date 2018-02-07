@@ -50,6 +50,24 @@
           });
         }   
 
+        $scope.viewby = 10;
+        $scope.currentPage = 4;
+        $scope.itemsPerPage = $scope.viewby;
+        $scope.maxSize = 5; 
+      
+        $scope.setPage = function (pageNo) {
+          $scope.currentPage = pageNo;
+        };
+      
+        $scope.pageChanged = function() {
+          console.log('Page changed to: ' + $scope.currentPage);
+        };
+      
+       $scope.setItemsPerPage = function(num) {
+        $scope.itemsPerPage = num;
+        $scope.currentPage = 1; //reset to first page
+      }
+
         $scope.isActive = function (viewLocation) {
           var active = (viewLocation === $location.path());
           return active;
@@ -101,10 +119,8 @@
                 i++;
             }
 
-            $scope.numPerPage = 5;
-            $scope.noOfPages = Math.ceil($scope.workorders.length / $scope.numPerPage);
-            $scope.currentPage = 1;
-            $scope.$watch( 'currentPage', $scope.setPage );
+            $scope.totalItems = $scope.workorders.length;
+            
         });
 
 
@@ -142,11 +158,9 @@
                 i++;
             }
 
-            $scope.numPerPage = 5;
-            $scope.noOfPages = Math.ceil($scope.workorders.length / $scope.numPerPage);
-            $scope.currentPage = 1;
-            $scope.$watch( 'currentPage', $scope.setPage );
+            $scope.totalItems = $scope.workorders.length;
             
+
         });
         
       }
