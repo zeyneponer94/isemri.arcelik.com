@@ -5,15 +5,6 @@
       delete $httpProvider.defaults.headers.common['X-Requested-With'];
     }]);
 
-    app.filter('start', function () {
-      return function (input, start) {
-          if (!input || !input.length) { return; }
-          start = +start;
-          return input.slice(start);
-      };
-    });
-
-
     angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs,$sanitize) {
         $scope.create = true;  
         $scope.query = false;      
@@ -73,9 +64,6 @@
           $scope.query=true;
        }
 
-       $scope.currentPage = 1; // keeps track of the current page
-       $scope.pageSize = 5; // holds the number of items per page
-
        $scope.query_workorder = function () {
 
 
@@ -112,12 +100,8 @@
                 i++;
             }
 
-            
         });
 
-
-
-        
       }
 
       $scope.query_all = function () {

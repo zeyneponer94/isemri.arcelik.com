@@ -207,16 +207,6 @@
                                 </tr>   
                             </tbody>
                             </table>
-
-                            <div>
-                                <div ng-repeat="item in workorders | start: (currentPage - 1) * pageSize | limitTo: pageSize" 
-                                    class="alert alert-success col-md-12">
-                                <span ng-bind="item.name"></span>
-                                </div>
-                                <pagination total-items="workorders.length" items-per-page="pageSize" ng-model="currentPage" max-size="5" 
-                                            class="pagination-sm"></pagination>
-                            </div>
-
                             <div class="form-group" align="center">                                                                                                                                        
                                 <button type="button" class="btn btn-default" style= "background: -webkit-linear-gradient(to right, rgb(255, 63, 194), rgb(32, 50, 167));  
                                 background: linear-gradient(to right,  rgb(255, 63, 194), rgb(32, 50, 167));" ng-click="query_all()"><i class="glyphicon glyphicon-search"><b>TÜMÜNÜ YAZDIR</b></i></button>                                                                                                                                                              
