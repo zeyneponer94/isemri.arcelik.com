@@ -165,7 +165,7 @@
                         "TaxOffice": "",
                         "TaxId": "",
                         "Tckn": "",
-                        "Address": "Kavakpınar Mah Apdi İpekçi Cad No:5",
+                        "Address": $scope.adres_id,
                         "Neighborhood": "KAVAKPINAR",
                         "District": $scope.citySelect,
                         "City": $scope.provinceSelect,
