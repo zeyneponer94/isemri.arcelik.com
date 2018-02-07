@@ -298,7 +298,10 @@
                       AppointmentDate:"2018-02-15"
                     }          
                   }) 
-                  .then(function(response){     
+                  .then(function(response){ 
+                    alert(response.data[0].ExternalOrderId)
+                    alert(response.data[0].ConsignmentWorkOrderStatus)
+                    alert(response.data);    
                   });
 
             });
