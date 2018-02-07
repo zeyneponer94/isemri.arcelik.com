@@ -155,6 +155,18 @@
           });          
         }
 
+        $scope.register() = function()
+        {
+          $http({method: 'GET', url: '/register'}).
+          success(function(data, status) { 
+              var url = "https://thworkorder.azurewebsites.net/register";
+              $window.location = url;
+          }).
+          error(function(data, status) {
+              alert("Request failed");
+          });
+        }
+
         $scope.delete_query = function(workorder_no) {
           $scope.no = [];
           $http({

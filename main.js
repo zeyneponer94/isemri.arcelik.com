@@ -33,6 +33,10 @@ app.get('/workorder' , function(req,res) {
     res.sendfile('views/create_workorder.html', {root: __dirname });   
 });
 
+app.get('/register' , function(req,res) {
+    res.sendfile('views/register.html', {root: __dirname });   
+});
+
 
 app.set('port', process.env.PORT || 1337);
 app.use(express.static(__dirname + '/client')); 
