@@ -10,6 +10,11 @@
         $scope.create = true;  
         $scope.query = false;      
 
+        $scope.workorders = []
+        $scope.numPerPage = 5;
+        $scope.noOfPages = Math.ceil($scope.workorders.length / $scope.numPerPage);
+        $scope.currentPage = 1;
+        $scope.$watch( 'currentPage', $scope.setPage );
 
         //connecting to azure db, getting required records from specified table and displaying them in selection list
         $http({
@@ -104,10 +109,6 @@
         });
 
 
-        $scope.numPerPage = 5;
-        $scope.noOfPages = Math.ceil($scope.workorders.length / $scope.numPerPage);
-        $scope.currentPage = 1;
-        $scope.$watch( 'currentPage', $scope.setPage );
 
         
       }
