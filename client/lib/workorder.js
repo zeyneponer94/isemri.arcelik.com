@@ -157,6 +157,7 @@
 
         $scope.register() = function()
         {
+          alert("clicked");
           $http({method: 'GET', url: '/register'}).
           success(function(data, status) { 
               var url = "https://thworkorder.azurewebsites.net/register";
