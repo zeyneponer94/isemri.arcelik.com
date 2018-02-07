@@ -156,6 +156,7 @@
         }
 
         $scope.delete_query = function(workorder_no) {
+          alert(workorder_no)
           $scope.no = [];
           $http({
             method: "GET", 
