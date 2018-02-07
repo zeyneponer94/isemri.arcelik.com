@@ -169,7 +169,7 @@
           }) 
           .then(function(response){ 
               alert(response.data);
-              if($scope.name_id_query == null || $scope.suename_id_query == null)
+              if($scope.name_id_query == null || $scope.surname_id_query == null)
                   $scope.query_all();
               else  
                   $scope.query_workorder();
