@@ -135,7 +135,15 @@
                                     <button type="button" style= "background: -webkit-linear-gradient(to right, rgb(255, 63, 194), rgb(16, 26, 99));  
                                     background: linear-gradient(to right,  rgb(255, 63, 194), rgb(16, 26, 99));" class="btn btn-block" ng-click="create_workorder()" ng-disabled="form.$invalid">İŞ EMRİ OLUŞTUR</button>                                                                                                                                                              
                                     <footer>&copy; 2018 Arçelik All rights reserved.</footer>   
-                                </div>             
+                                </div>     
+                                <div ng-repeat="item in result">
+                                        
+                                     <b>{{item.ConsignmentId}}</b>
+                                     <b>{{item.ConsignmentWorkOrder}}</b>
+                                     <b>{{item.ConsignmentWorkOrderStatus}}</b>
+                                     <b>{{item.ErrorCode}}</b>
+                                     
+                                </div>        
                             </div>    
                         </div>                                         
                     </div>
