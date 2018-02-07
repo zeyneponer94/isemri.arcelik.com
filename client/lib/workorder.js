@@ -225,6 +225,7 @@
                           'servicetype': 'INTHEBOX1'
                          }
               }).then(function (response) {
+                alert(response.data[0].ConsignmentWorkOrderStatus);
 
                   $http({
                     method: "GET", 
@@ -239,16 +240,17 @@
                       customer:"Test",
                       point:$scope.provinceSelect,
                       address:$scope.citySelect,
-                      status: $scope.result[0].ConsignmentWorkOrderStatus,
+                      status: response.data[0].ConsignmentWorkOrderStatus,
                       service:"Test",
                       DeliveryDate:"2018-02-10",
                       AppointmentDate:"2018-02-15"
                     }          
                   }) 
-                  .then(function(response){         
+                  .then(function(response){     
+                    alert(response.data);    
                   });
 
-              });
+            });
 
 
 					},function(btn){
