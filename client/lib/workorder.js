@@ -198,7 +198,7 @@
           +$scope.surname_id+"<br>  Müşteri telefon numarası = "+$scope.phone_id+"<br>  Seçilen ürün = "+$scope.singleSelect+"<br>  Seçilen iş emri türü = "
           +$scope.workorderSelect+"<br> Müşteri adresi = " + $scope.provinceSelect + " " +$scope.citySelect).italics());
 					dlg.result.then(function(btn){
-
+/*
             $scope.jsonData = [{
                         "PK": "3",
                         "MainSourceApplicationProcces": "InnTheBox",
@@ -280,7 +280,7 @@
                           'cache-control': 'no-cache',
                           'servicetype': 'INTHEBOX1'
                          }
-              }).then(function (response) {
+              }).then(function (response) { */
                   alert("service is successfully assigned!");
                   $http({
                     method: "GET", 
@@ -289,13 +289,13 @@
                       name:$scope.name_id,
                       surname:$scope.surname_id,
                       phone:$scope.phone_id,
-                      no:response.data[0].ExternalOrderId,
+                      no:"response.data[0].ExternalOrderId",
                       product:$scope.singleSelect,
                       workorder:$scope.workorderSelect,
                       customer:"Test",
                       point:$scope.provinceSelect,
                       address:$scope.citySelect,
-                      status: response.data[0].ConsignmentWorkOrderStatus,
+                      status: "response.data[0].ConsignmentWorkOrderStatus",
                       service:"Test",
                       DeliveryDate:"2018-02-10",
                       AppointmentDate:"2018-02-15"
@@ -305,7 +305,7 @@
                     alert(response.data);    
                   });
 
-            });
+         //   });
 
 
 					},function(btn){
