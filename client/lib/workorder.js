@@ -243,7 +243,7 @@
                   $http({
                     url: 'https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService',
                     method: "POST",
-                    data: { model: $scope.postData },
+                    data: $scope.postData ,
                     headers: {'Content-Type': 'application/json',
                               'SessionToken': '548ABC6A-50FD-43C1-89D0-48B2FF59CFD6',
                               'cache-control': 'no-cache',
