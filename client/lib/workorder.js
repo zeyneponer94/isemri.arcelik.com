@@ -46,8 +46,8 @@
         for (var i = 0; i < bars.length; i++) {
           bars[i].addEventListener("click", function() {
             var current = document.getElementsByClassName("active");
-            current[0].className = current[0].className.replace(" active", "");
-            this.className += " active";
+            current[0].className = current[0].className.replace("active", "");
+            this.className += "active";
           });
         }   
 
@@ -225,8 +225,7 @@
                           'servicetype': 'INTHEBOX1'
                          }
               }).then(function (response) {
-                  $scope.result = response.data;
-                  alert($scope.result[0].ConsignmentWorkOrderStatus)
+
                   $http({
                     method: "GET", 
                     url: 'https://thworkorderfapp.azurewebsites.net/api/createworkorder',
@@ -247,7 +246,6 @@
                     }          
                   }) 
                   .then(function(response){         
-                    alert(response.data);    
                   });
 
               });
