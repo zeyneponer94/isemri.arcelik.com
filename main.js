@@ -10,7 +10,7 @@ var express = require('express'),
 var cors = require('cors');
 app.use(cors());
 app.use(enableCors);
-app.options('*', cors()) 
+app.options('https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService', cors()) 
 
 function enableCors(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -23,9 +23,6 @@ function enableCors(req, res, next) {
         next();
     }
 }
-
-app.post('https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService', cors(), function (req, res, next) {
-})
 
 var logFmt = require("logfmt");
 
