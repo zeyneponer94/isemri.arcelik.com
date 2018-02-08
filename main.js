@@ -10,6 +10,7 @@ var express = require('express'),
 var cors = require('cors');
 app.use(cors());
 app.use(enableCors);
+app.options('*', cors()) 
 
 function enableCors(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
