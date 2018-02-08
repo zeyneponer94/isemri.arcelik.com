@@ -17,7 +17,7 @@ function enableCors(req, res, next) {
         res.header("Access-Control-Allow-Credentials: true");
         res.header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
         res.header('Access-Control-Allow-Headers: Accept,Access-Control-Allow-Headers,Access-Control-Allow-Origin,Access-Control-Allow-Methods, Access-Control-Max-Age,Origin, Content-Type, X-Auth-Token , Authorization,SessionToken,Cache-Control,servicetype');
-        next();
+        res.send(200);
 
 }
 
