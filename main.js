@@ -12,10 +12,10 @@ app.use(cors());
 app.use(enableCors);
 
 function enableCors(req, res, next) {
-    res.header('Access-Control-Allow-Origin', 'https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService,*');
+    res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods',  'GET,PUT,POST,DELETE,PATCH,OPTIONS');
     res.header('Access-Control-Allow-Headers', '*');
-    res.header('Access-Control-Allow-Credentials', null);    
+    res.header('Access-Control-Allow-Credentials', 'true');    
     
     // Content-Length, X-Requested-With, Access-Control-Allow-Headers,X-Auth-Token,X-CSRF-TOKEN 
     if('OPTIONS' == req.method) {
