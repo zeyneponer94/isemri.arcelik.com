@@ -280,7 +280,10 @@
                 url: 'https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService',
                 method: "POST",
                 data: $scope.postData ,
-                headers: {'Content-Type': 'application/json',
+                headers: {
+                          'async': true,
+                          'crossDomain': true,                
+                          'Content-Type': 'application/json',
                           'SessionToken': 'C951FC0E-7F04-4D2A-AF81-2D8A3D578460',
                           'Cache-Control': 'no-cache',
                           'servicetype': 'INTHEBOX1'
