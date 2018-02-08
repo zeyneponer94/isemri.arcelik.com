@@ -380,7 +380,6 @@
             xhr.open("POST", "https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService");
             xhr.setRequestHeader("SessionToken", "C951FC0E-7F04-4D2A-AF81-2D8A3D578460");
             xhr.setRequestHeader("Cache-Control", "no-cache");
-            xhr.setRequestHeader("Postman-Token", "db6db1bf-1fd6-abf9-d8fd-6932e6d3a7e0");
             xhr.setRequestHeader("servicetype", "INTHEBOX1");
             xhr.setRequestHeader("Content-Type", "application/json");
             
