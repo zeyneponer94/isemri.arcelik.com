@@ -321,8 +321,6 @@
             });
 
 
-
-
 					},function(btn){
 					    alert('İşlem Tamamlanamadı.');
 					});
