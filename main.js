@@ -8,9 +8,6 @@ var express = require('express'),
 
 var cors = require('cors');
 app.use(cors());
-/*
-var cors = require('cors');
-app.use(cors());
 app.use(enableCors);
 
 function enableCors(req, res, next) {
@@ -25,7 +22,7 @@ function enableCors(req, res, next) {
         next();
     }
 }
-*/
+
 var logFmt = require("logfmt");
 
 app.get('/', function(req, res) {
