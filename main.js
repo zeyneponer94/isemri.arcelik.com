@@ -22,8 +22,7 @@ function enableCors(req, res, next) {
         res.send(200);
     } 
     else {
-        res.send(200);
-        //next();
+        next();
     }
 }
 
