@@ -167,11 +167,11 @@
         
         $scope.delete_query = function(index) {
 
-          alert($scope.workorder_no[0].no);
+          alert($scope.workorders[0].no);
           $http({
             method: "GET", 
             url: 'https://thworkorderfapp.azurewebsites.net/api/delete_query',
-            params: {workorderno: $scope.workorder_no[0].no}          
+            params: {workorderno: $scope.workorders[0].no}          
           }) 
           .then(function(response){ 
               alert(response.data);
