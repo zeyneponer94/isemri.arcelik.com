@@ -279,10 +279,10 @@
               $http({
                 url: 'https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService',
                 method: "POST",
+                async: "true",
+                crossDomain: "true",  
                 data: $scope.postData ,
-                headers: {
-                          'async': "true",
-                          'crossDomain': "true",                
+                headers: {            
                           'Content-Type': 'application/json',
                           'SessionToken': 'C951FC0E-7F04-4D2A-AF81-2D8A3D578460',
                           'Cache-Control': 'no-cache',
