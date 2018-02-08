@@ -12,7 +12,7 @@ app.use(enableCors);
 
 function enableCors(req, res, next) {
 
-    res.header('Access-Control-Allow-Origin: https://thworkorder.azurewebsites.net'); 
+    res.header('Access-Control-Allow-Origin: *'); 
     res.header("Access-Control-Allow-Credentials: true");
     res.header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
     res.header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Access-Control-Allow-Origin,Access-Control-Allow-Methods, Access-Control-Max-Age,Origin, Content-Type, X-Auth-Token , Authorization,SessionToken,Cache-Control,servicetype');
@@ -22,7 +22,8 @@ function enableCors(req, res, next) {
         res.send(200);
     } 
     else {
-        next();
+        res.send(200);
+        //next();
     }
 }
 
