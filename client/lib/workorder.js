@@ -168,6 +168,7 @@
         $scope.delete_query = function(x) {
 
           alert(x.no);
+          alert(x)
           $http({
             method: "GET", 
             url: 'https://thworkorderfapp.azurewebsites.net/api/delete_query',
