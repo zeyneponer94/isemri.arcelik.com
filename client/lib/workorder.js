@@ -203,7 +203,7 @@
           +$scope.surname_id+"<br>  Müşteri telefon numarası = "+$scope.phone_id+"<br>  Seçilen ürün = "+$scope.singleSelect+"<br>  Seçilen iş emri türü = "
           +$scope.workorderSelect+"<br> Müşteri adresi = " + $scope.provinceSelect + " " +$scope.citySelect).italics());
 					dlg.result.then(function(btn){
-
+/*
             $scope.jsonData = [{
                         "PK": "3",
                         "MainSourceApplicationProcces": "InnTheBox",
@@ -294,7 +294,7 @@
                   $scope.ConsignmentWorkOrderStatus = response.data[0].ConsignmentWorkOrderStatus;
 
                   
-            });
+            });*/
 
 
             $http({
