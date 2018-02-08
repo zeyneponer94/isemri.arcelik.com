@@ -1,3 +1,5 @@
+import { read } from 'fs';
+
 var express = require('express'),
     http = require('http'),
     request = require('request'),
@@ -8,30 +10,33 @@ var express = require('express'),
 
 var cors = require('cors');
 app.use(cors());
-//app.use(enableCors);
-app.options('*', cors());
-/*
-function enableCors(req, res, next) {
 
 
-        res.header('Access-Control-Allow-Origin: https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService, https://thworkorder.azurewebsites.net'); 
-        res.header("Access-Control-Allow-Credentials: true");
-        res.header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
-        res.header('Access-Control-Allow-Headers: Accept,Access-Control-Allow-Headers,Access-Control-Allow-Origin,Access-Control-Allow-Methods, Access-Control-Max-Age,Origin, Content-Type, X-Auth-Token , Authorization,SessionToken,Cache-Control,servicetype');
-        next();
+app.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
 
-}*/
+    //intercepts OPTIONS method
+    if ('OPTIONS' === req.method) {
+      //respond with 200
+      res.send(200);
+    }
+    else {
+    //move on
+      next();
+    }
+});
 
-app.all('*', function(req, res, next) {
-
-
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
-    res.header('Access-Control-Allow-Headers: Accept,Access-Control-Allow-Headers,Access-Control-Allow-Origin,Access-Control-Allow-Methods, Access-Control-Max-Age,Origin, Content-Type, X-Auth-Token , Authorization,SessionToken,servicetype');
-    next();
-
-
+app.options("/*", function(req, res, next){
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+    res.send(200);
   });
+
+
+
 
 var logFmt = require("logfmt");
 
