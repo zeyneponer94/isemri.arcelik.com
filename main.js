@@ -8,8 +8,9 @@ var express = require('express'),
 
 var cors = require('cors');
 app.use(cors());
-app.use(enableCors);
+//app.use(enableCors);
 app.options('*', cors());
+/*
 function enableCors(req, res, next) {
 
 
@@ -19,12 +20,17 @@ function enableCors(req, res, next) {
         res.header('Access-Control-Allow-Headers: Accept,Access-Control-Allow-Headers,Access-Control-Allow-Origin,Access-Control-Allow-Methods, Access-Control-Max-Age,Origin, Content-Type, X-Auth-Token , Authorization,SessionToken,Cache-Control,servicetype');
         next();
 
-}
+}*/
 
 app.all('*', function(req, res, next) {
+
+
     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    res.header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers: Accept,Access-Control-Allow-Headers,Access-Control-Allow-Origin,Access-Control-Allow-Methods, Access-Control-Max-Age,Origin, Content-Type, X-Auth-Token , Authorization,SessionToken,Cache-Control,servicetype');
     next();
+
+
   });
 
 var logFmt = require("logfmt");
