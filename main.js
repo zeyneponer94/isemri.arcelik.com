@@ -1,5 +1,3 @@
-import { read } from 'fs';
-
 var express = require('express'),
     http = require('http'),
     request = require('request'),
@@ -7,7 +5,7 @@ var express = require('express'),
     errorHandler = require('express-error-handler'),
     app = express();
     Console = require('console');
-
+/*
 var cors = require('cors');
 app.use(cors());
 
@@ -28,7 +26,7 @@ app.use(function(req, res, next) {
     }
 });
 
-
+*/
 
 
 
