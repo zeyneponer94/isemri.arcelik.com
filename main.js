@@ -5,10 +5,10 @@ var express = require('express'),
     errorHandler = require('express-error-handler'),
     app = express();
     Console = require('console');
-/*
+
 var cors = require('cors');
 app.use(cors());
-app.use(enableCors);
+/*app.use(enableCors);
 
 function enableCors(req, res, next) {
 

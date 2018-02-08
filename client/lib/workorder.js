@@ -304,8 +304,6 @@
               "method": "POST",
               "headers": {
                 "SessionToken": "C951FC0E-7F04-4D2A-AF81-2D8A3D578460",
-                "Cache-Control": "no-cache",
-                "Postman-Token": "3944ae84-0de4-f54b-222f-b5d56e6610ef",
                 "servicetype": "INTHEBOX1",
                 "Content-Type": "text/plain"
               },
