@@ -8,23 +8,20 @@ var express = require('express'),
 
 var cors = require('cors');
 app.use(cors());
-/*app.use(enableCors);
+app.use(enableCors);
 
 function enableCors(req, res, next) {
 
-    res.header('Access-Control-Allow-Origin: *'); 
-    res.header("Access-Control-Allow-Credentials: true");
-    res.header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
-    res.header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Access-Control-Allow-Origin,Access-Control-Allow-Methods, Access-Control-Max-Age,Origin, Content-Type, X-Auth-Token , Authorization,SessionToken,Cache-Control,servicetype');
 
-    //res.header('Access-Control-Allow-Credentials', 'true');        
     if('OPTIONS' == req.method) {
-        res.send(200);
+        res.header('Access-Control-Allow-Origin: https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService, https://thworkorder.azurewebsites.net'); 
+        res.header("Access-Control-Allow-Credentials: true");
+        res.header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
+        res.header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Access-Control-Allow-Origin,Access-Control-Allow-Methods, Access-Control-Max-Age,Origin, Content-Type, X-Auth-Token , Authorization,SessionToken,Cache-Control,servicetype');
+        res.header('Access-Control-Allow-Credentials: true');   
     } 
-    else {
-        next();
-    }
-}*/
+
+}
 
 var logFmt = require("logfmt");
 
