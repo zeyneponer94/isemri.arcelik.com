@@ -282,7 +282,7 @@
                 data: $scope.postData ,
                 headers: {'Content-Type': 'application/json',
                           'SessionToken': '089F9D8C-0094-4528-96A0-C583C8B96AC7',
-                          'cache-control': 'no-cache',
+                          'Cache-Control': 'no-cache',
                           'servicetype': 'INTHEBOX1'
                          }
               }).then(function (response) {
