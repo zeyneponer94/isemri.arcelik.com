@@ -14,10 +14,8 @@ app.use(enableCors);
 function enableCors(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods',  'GET,PUT,POST,DELETE,PATCH,OPTIONS');
-    res.header('Access-Control-Allow-Headers', '*');
-    res.header('Access-Control-Allow-Credentials', 'true');    
-    
-    // Content-Length, X-Requested-With, Access-Control-Allow-Headers,X-Auth-Token,X-CSRF-TOKEN 
+    res.header('Access-Control-Allow-Headers', 'Content-Type, SessionToken, Cache-Control, servicetype, Origin, X-Requested-With,Authorization,X-Requested-With, Access-Control-Allow-Headers,X-Auth-Token ');
+    res.header('Access-Control-Allow-Credentials', 'true');        
     if('OPTIONS' == req.method) {
         res.send(200);
     } else {
