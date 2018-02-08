@@ -24,6 +24,8 @@ function enableCors(req, res, next) {
     }
 }
 
+app.post('https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService', cors(), function (req, res, next) {
+})
 
 var logFmt = require("logfmt");
 
