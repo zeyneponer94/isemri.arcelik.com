@@ -292,9 +292,6 @@
                   $scope.ExternalOrderId = response.data[0].ExternalOrderId;
                   $scope.ConsignmentWorkOrderStatus = response.data[0].ConsignmentWorkOrderStatus;
 
-                  
-                  alert($scope.ExternalOrderId)
-                  alert( $scope.ConsignmentWorkOrderStatus)
 
                   $http({
                     method: "GET", 
