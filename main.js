@@ -10,12 +10,12 @@ var express = require('express'),
 var cors = require('cors');
 app.use(cors());
 app.use(enableCors);
-app.options('https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService', cors()) 
+app.options('*', cors()) 
 
 function enableCors(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With, SessionToken, cache-control, servicetype, Origin, Access-Control-Allow-Headers,X-Auth-Token ');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With, Origin, Access-Control-Allow-Headers,X-Auth-Token ');
 
     if('OPTIONS' == req.method) {
         res.send(200);
