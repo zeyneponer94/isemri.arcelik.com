@@ -291,33 +291,38 @@
                   alert("service is successfully assigned!");
                   $scope.ExternalOrderId = response.data[0].ExternalOrderId;
                   $scope.ConsignmentWorkOrderStatus = response.data[0].ConsignmentWorkOrderStatus;
+
+                  
+                  alert($scope.ExternalOrderId)
+                  alert( $scope.ConsignmentWorkOrderStatus)
+
+                  $http({
+                    method: "GET", 
+                    url: 'https://thworkorderfapp.azurewebsites.net/api/createworkorder',
+                    params: {
+                      name:$scope.name_id,
+                      surname:$scope.surname_id,
+                      phone:$scope.phone_id,
+                      no:$scope.ExternalOrderId,
+                      product:$scope.singleSelect,
+                      workorder:$scope.workorderSelect,
+                      customer:"Test",
+                      point:$scope.provinceSelect,
+                      address:$scope.citySelect,
+                      status: $scope.ConsignmentWorkOrderStatus,
+                      service:"Test",
+                      DeliveryDate:"2018-02-10",
+                      AppointmentDate:"2018-02-15"
+                    }          
+                  }) 
+                  .then(function(response){ 
+                    alert(response.data);    
+                  });
+
+                  
             });
 
-              alert($scope.ExternalOrderId)
-              alert( $scope.ConsignmentWorkOrderStatus)
 
-            $http({
-              method: "GET", 
-              url: 'https://thworkorderfapp.azurewebsites.net/api/createworkorder',
-              params: {
-                name:$scope.name_id,
-                surname:$scope.surname_id,
-                phone:$scope.phone_id,
-                no:$scope.ExternalOrderId,
-                product:$scope.singleSelect,
-                workorder:$scope.workorderSelect,
-                customer:"Test",
-                point:$scope.provinceSelect,
-                address:$scope.citySelect,
-                status: $scope.ConsignmentWorkOrderStatus,
-                service:"Test",
-                DeliveryDate:"2018-02-10",
-                AppointmentDate:"2018-02-15"
-              }          
-            }) 
-            .then(function(response){ 
-              alert(response.data);    
-            });
 
 
 					},function(btn){
