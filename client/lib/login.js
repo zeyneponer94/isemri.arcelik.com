@@ -4,7 +4,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
     
     $http({method: 'GET', url: 'https://thworkorderfapp.azurewebsites.net/deneme'}).
     then(function(response) { 
-        alert(response.data[0].name);
+        alert(response.data.name);
     });
 
     $scope.submit = function (model) {    
