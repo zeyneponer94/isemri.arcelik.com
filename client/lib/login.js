@@ -7,7 +7,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
       url: 'https://thworkorderfapp.azurewebsites.net'        
     }) 
     .then(function(response){ 
-      alert(response.body);    
+      alert(response.statusCode);    
     });
 
 
