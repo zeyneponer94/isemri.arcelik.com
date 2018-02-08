@@ -2,14 +2,13 @@ var testApp = angular.module("App", []);
 testApp.controller('Controller' , ['$scope','$http','$window', function ($scope, $http, $window) {
 
     
-    $http({
-      method: "GET", 
-      url: 'https://thworkorderfapp.azurewebsites.net'        
-    }) 
-    .then(function(response){ 
-      alert(response.status);    
+    $http({method: 'GET', url: 'https://thworkorderfapp.azurewebsites.net/deneme'}).
+    success(function(data, status) { 
+        alert(data);
+    }).
+    error(function(data, status) {
+        alert(status);
     });
-
 
     $scope.submit = function (model) {    
         $http({
