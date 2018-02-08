@@ -282,7 +282,11 @@
                 data: $scope.postData ,
                 headers: {'Content-Type': 'application/json',
                           'SessionToken': '089F9D8C-0094-4528-96A0-C583C8B96AC7',
-                          'servicetype': 'INTHEBOX1'
+                          'cache-control': 'no-cache',
+                          'servicetype': 'INTHEBOX1',
+                          'Access-Control-Allow-Origin': '*',
+                          'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS',
+                          'Access-Control-Allow-Headers': 'Content-Type, Authorization, Content-Length, X-Requested-With, SessionToken, cache-control, servicetype, Origin '
                          }
               }).then(function (response) {
                   alert("service is successfully assigned!");
