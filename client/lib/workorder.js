@@ -203,7 +203,7 @@
           +$scope.surname_id+"<br>  Müşteri telefon numarası = "+$scope.phone_id+"<br>  Seçilen ürün = "+$scope.singleSelect+"<br>  Seçilen iş emri türü = "
           +$scope.workorderSelect+"<br> Müşteri adresi = " + $scope.provinceSelect + " " +$scope.citySelect).italics());
 					dlg.result.then(function(btn){
-
+/*
             $scope.jsonData = [{
                         "PK": "3",
                         "MainSourceApplicationProcces": "InnTheBox",
@@ -294,9 +294,101 @@
                   $scope.ConsignmentWorkOrderStatus = response.data[0].ConsignmentWorkOrderStatus;
 
                   
+            });*/
+
+
+            var data = JSON.stringify([
+              {
+                "PK": "3",
+                "MainSourceApplicationProcces": "InnTheBox",
+                "SourceApplication": "InnTheBox",
+                "MainSourceOrderProccesId": "InnTheBox1",
+                "SourceOrderId": "InnTheBox1",
+                "MainSourceProccesStatus": "Approve",
+                "SourceStatus": "Approve",
+                "DealerCode": "342122",
+                "AsistDealerCode": "342122",
+                "AsistBranchDealerCode": "342122",
+                "Note": "10",
+                "Name": "Hıdır",
+                "Surname": "Öner",
+                "Phone1": "02164884905",
+                "Phone2": "2163964187",
+                "Phone3": "",
+                "Email": "hidir_oner@arcelik.com",
+                "TaxOffice": "",
+                "TaxId": "",
+                "Tckn": "",
+                "Address": "Adana Aladağ",
+                "Neighborhood": "KAVAKPINAR",
+                "District": "Aladag",
+                "City": "Adana",
+                "Urgent": "0",
+                "ContactPerson": "Deneme",
+                "ContactPhone": "02164884905",
+                "PreferredServiceShop": "NULL",
+                "DeliveryDate": "13.02.2018 08:54:00",
+                "ExternalOrderId": "",
+                "InvoiceAcceptPhone": "5373579059",
+                "InvoiceAcceptName": "Hıdır",
+                "InvoiceAcceptSurname": "Öner",
+                "ProductOrderDetail": [
+                  {
+                    "ConsignmentId": "1",
+                    "MainSourceOrderProcessId": "DMS1",
+                    "SourceOrderId": "DMS1",
+                    "PK": "",
+                    "R_Counter": "",
+                    "SS_R_Counter": "",
+                    "MainSourceOrderProcessStatus": "Approve",
+                    "WareHouseCode": "12457",
+                    "WareHouseType": "1",
+                    "WareHouseAddress": "Depo Adresi",
+                    "WareHouseNeighborhood": "BATI",
+                    "WareHouseDistrict": "PENDİK",
+                    "WareHouseCity": "İSTANBUL",
+                    "ProductCode": "6211101000",
+                    "Product": "Altus-Buzdolabi",
+                    "OperationType": "Montaj",
+                    "ProductReturnCheck": "0",
+                    "ExtraWarrantyType": "1",
+                    "ProductExposeCheck": "0",
+                    "SourceOrderStatus": "Approve",
+                    "ProductBarcode": "",
+                    "DetailNote": "Test satır 1",
+                    "ParoId": "",
+                    "InvoiceNr": "AAFF111SFFEWQ",
+                    "InvoiceDate": "13.02.2018 08:54:00",
+                    "MaliId": "",
+                    "NaceId": "",
+                    "SectorId": "",
+                    "CrmKey": ""
+                  }
+                ]
+              }
+            ]);
+            
+            var xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+            
+            xhr.addEventListener("readystatechange", function () {
+              if (this.readyState === 4) {
+                console.log(this.responseText);
+              }
             });
+            
+            xhr.open("POST", "https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService");
+            xhr.setRequestHeader("SessionToken", "C951FC0E-7F04-4D2A-AF81-2D8A3D578460");
+            xhr.setRequestHeader("Cache-Control", "no-cache");
+            xhr.setRequestHeader("Postman-Token", "db6db1bf-1fd6-abf9-d8fd-6932e6d3a7e0");
+            xhr.setRequestHeader("servicetype", "INTHEBOX1");
+            xhr.setRequestHeader("Content-Type", "application/json");
+            
+            xhr.send(data);
 
 
+
+/*
             $http({
               method: "GET", 
               url: 'https://thworkorderfapp.azurewebsites.net/api/createworkorder',
@@ -320,7 +412,7 @@
               alert(response.data);    
             });
 
-
+*/
 
 
 					},function(btn){
