@@ -286,7 +286,7 @@
                           'servicetype': 'INTHEBOX1',
                           'Access-Control-Allow-Origin': '*',
                           'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS',
-                          'Access-Control-Allow-Headers': 'Content-Type, Authorization, Content-Length, X-Requested-With, SessionToken, cache-control, servicetype, Origin '
+                          'Access-Control-Allow-Headers': 'Content-Type, Authorization, Content-Length, X-Requested-With, SessionToken, cache-control, servicetype, Origin, Access-Control-Allow-Headers '
                          }
               }).then(function (response) {
                   alert("service is successfully assigned!");
