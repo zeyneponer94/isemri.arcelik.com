@@ -15,7 +15,7 @@ app.options('https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperSer
 function enableCors(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With, SessionToken, cache-control, servicetype, Origin, Access-Control-Allow-Headers ');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With, SessionToken, cache-control, servicetype, Origin, Access-Control-Allow-Headers,X-Auth-Token ');
 
     if('OPTIONS' == req.method) {
         res.send(200);
