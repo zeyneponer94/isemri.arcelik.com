@@ -165,13 +165,13 @@
         }
         
         
-        $scope.delete_query = function(index) {
+        $scope.delete_query = function(x) {
 
-          alert($scope.workorders[0].no);
+          alert(x.no);
           $http({
             method: "GET", 
             url: 'https://thworkorderfapp.azurewebsites.net/api/delete_query',
-            params: {workorderno: $scope.workorders[0].no}          
+            params: {workorderno: x.no}          
           }) 
           .then(function(response){ 
               alert(response.data);
@@ -292,6 +292,8 @@
                   $scope.ConsignmentWorkOrderStatus = response.data[0].ConsignmentWorkOrderStatus;
             });
 
+              alert($scope.ExternalOrderId)
+              alert( $scope.ConsignmentWorkOrderStatus)
 
             $http({
               method: "GET", 
