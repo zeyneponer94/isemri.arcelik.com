@@ -10,18 +10,17 @@ var express = require('express'),
 var cors = require('cors');
 app.use(cors());
 app.use(enableCors);
-//app.options('*', cors()) 
 
 function enableCors(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type,SessionToken,Cache-Control,servicetype, Authorization, Content-Length, X-Requested-With, Origin, Access-Control-Allow-Headers,X-Auth-Token,X-CSRF-TOKEN ');
-
-    if('OPTIONS' == req.method) {
+    res.header('Access-Control-Allow-Headers', 'Content-Type,SessionToken,Cache-Control,servicetype');
+    //Authorization, Content-Length, X-Requested-With, Origin, Access-Control-Allow-Headers,X-Auth-Token,X-CSRF-TOKEN 
+ /*   if('OPTIONS' == req.method) {
         res.send(200);
     } else {
         next();
-    }
+    }*/
 }
 
 var logFmt = require("logfmt");
