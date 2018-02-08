@@ -12,15 +12,15 @@ app.use(enableCors);
 
 function enableCors(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods',  'GET,PUT,POST,DELETE,OPTIONS');
+    res.header('Access-Control-Allow-Methods',  'GET,POST');
     res.header('Access-Control-Allow-Headers', 'X-Requested-With');
     //res.header('Access-Control-Allow-Credentials', 'true');        
-    if('OPTIONS' == req.method) {
+ /*   if('OPTIONS' == req.method) {
         res.send(200);
     } 
     else {
         next();
-    }
+    }*/
 }
 
 var logFmt = require("logfmt");
