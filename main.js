@@ -17,18 +17,18 @@ function enableCors(req, res, next) {
 
 
     res.header('Access-Control-Allow-Origin: *'); 
-    res.header("Access-Control-Allow-Credentials: true");
+    //res.header("Access-Control-Allow-Credentials: true");
     res.header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
     res.header('Access-Control-Max-Age: 1000');
     res.header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token , Authorization');
 
     //res.header('Access-Control-Allow-Credentials', 'true');        
- /*   if('OPTIONS' == req.method) {
+    if('OPTIONS' == req.method) {
         res.send(200);
     } 
     else {
         next();
-    }*/
+    }
 }
 
 var logFmt = require("logfmt");
