@@ -7,6 +7,9 @@
 
 
     angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs,$sanitize) {
+        $scope.ExternalOrderId = "";
+        $scope.ConsignmentWorkOrderStatus = "";
+        $scope.workorderno = "";      
         $scope.create = true;  
         $scope.query = false;      
         //connecting to azure db, getting required records from specified table and displaying them in selection list
@@ -159,9 +162,11 @@
         $scope.logout = function() {
             var url = "https://thworkorder.azurewebsites.net";
             $window.location = url;
-        }          
+        }
+        
+        
         $scope.delete_query = function(workorder_no) {
-          $scope.workorderno = [];
+          alert(workorder_no);
           $http({
             method: "GET", 
             url: 'https://thworkorderfapp.azurewebsites.net/api/delete_query',
@@ -188,10 +193,7 @@
                 i++;
               }
           });          
-        }
-
-        $scope.ExternalOrderId = "";
-        $scope.ConsignmentWorkOrderStatus = "";
+        }  
 
 
         $scope.create_workorder = function () 
