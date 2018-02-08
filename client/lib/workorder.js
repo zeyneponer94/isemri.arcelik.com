@@ -295,8 +295,8 @@
 
                   
             });*/
-
 /*
+
             $http({
               method: "GET", 
               url: 'https://thworkorderfapp.azurewebsites.net/api/createworkorder',
@@ -319,8 +319,8 @@
             .then(function(response){ 
               alert(response.data);    
             });
-
 */
+
 
 
 					},function(btn){
