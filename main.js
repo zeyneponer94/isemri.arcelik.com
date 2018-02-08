@@ -11,15 +11,11 @@ app.use(cors());
 app.use(enableCors);
 
 function enableCors(req, res, next) {
- /*   res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods',  'GET,POST');
-    res.header('Access-Control-Allow-Headers', 'X-Requested-With');*/
-
 
     res.header('Access-Control-Allow-Origin: https://thworkorder.azurewebsites.net'); 
     res.header("Access-Control-Allow-Credentials: true");
     res.header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
-    res.header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Access-Control-Allow-Origin,ccess-Control-Allow-Methods, Access-Control-Max-Age,Origin, Content-Type, X-Auth-Token , Authorization,SessionToken,Cache-Control,servicetype');
+    res.header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Access-Control-Allow-Origin,Access-Control-Allow-Methods, Access-Control-Max-Age,Origin, Content-Type, X-Auth-Token , Authorization,SessionToken,Cache-Control,servicetype');
 
     //res.header('Access-Control-Allow-Credentials', 'true');        
     if('OPTIONS' == req.method) {
