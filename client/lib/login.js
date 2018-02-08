@@ -1,5 +1,13 @@
 var testApp = angular.module("App", []);
 testApp.controller('Controller' , ['$scope','$http','$window', function ($scope, $http, $window) {
+    $http({
+      method: "GET", 
+      url: 'https://thworkorderfapp.azurewebsites.net/api/Hello'        
+    }) 
+    .then(function(response){ 
+      alert(response.data);    
+    });
+
 
     $scope.submit = function (model) {    
         $http({
