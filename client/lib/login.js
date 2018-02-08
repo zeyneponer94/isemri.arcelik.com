@@ -4,10 +4,10 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
     
     $http({
       method: "GET", 
-      url: 'https://thworkorderfapp.azurewebsites.net/api/Hello'        
+      url: 'https://thworkorderfapp.azurewebsites.net'        
     }) 
     .then(function(response){ 
-      alert(response.data);    
+      alert(response.body);    
     });
 
 
