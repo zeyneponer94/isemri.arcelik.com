@@ -6,6 +6,8 @@ var express = require('express'),
     app = express();
     Console = require('console');
 
+var cors = require('cors');
+app.use(cors());
 /*
 var cors = require('cors');
 app.use(cors());
