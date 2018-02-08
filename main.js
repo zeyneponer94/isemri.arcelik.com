@@ -6,7 +6,7 @@ var express = require('express'),
     app = express();
     Console = require('console');
 
-
+/*
 var cors = require('cors');
 app.use(cors());
 app.use(enableCors);
@@ -23,7 +23,7 @@ function enableCors(req, res, next) {
         next();
     }
 }
-
+*/
 var logFmt = require("logfmt");
 
 app.get('/', function(req, res) {
