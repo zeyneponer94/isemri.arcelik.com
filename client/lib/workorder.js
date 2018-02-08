@@ -277,11 +277,11 @@
              $scope.postData = angular.toJson($scope.jsonData, true);                
 
               $http({
-                async: "true",
-                crossDomain: "true",  
+                async: true,
+                crossDomain: true,  
                 url: 'https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService',
                 method: "POST",
-                processData: "false",
+                processData: false,
                 data: $scope.postData ,
                 headers: {            
                           'Content-Type': 'application/json',
