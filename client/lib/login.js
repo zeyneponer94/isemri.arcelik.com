@@ -4,10 +4,10 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
     
     $http({
       method: "GET", 
-      url: 'https://thworkorderfapp.azurewebsites.net'        
+      url: 'https://thworkorderfapp.azurewebsites.net/deneme'        
     }) 
     .then(function(response){ 
-      alert(response.statusCode);    
+      alert(response.status);    
     });
 
 
