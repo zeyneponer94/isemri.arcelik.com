@@ -279,7 +279,7 @@
               $http({
                 async: true,
                 crossDomain: true,  
-                url: 'http://yetkiliservis-test/wsaftersales/ServicePaperService.svc/ProductOrderOperationService',
+                url: 'https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService',
                 method: "POST",
                 data: $scope.postData ,
                 headers: {            
