@@ -203,7 +203,7 @@
           +$scope.surname_id+"<br>  Müşteri telefon numarası = "+$scope.phone_id+"<br>  Seçilen ürün = "+$scope.singleSelect+"<br>  Seçilen iş emri türü = "
           +$scope.workorderSelect+"<br> Müşteri adresi = " + $scope.provinceSelect + " " +$scope.citySelect).italics());
 					dlg.result.then(function(btn){
-/*
+
             $scope.jsonData = [{
                         "PK": "3",
                         "MainSourceApplicationProcces": "InnTheBox",
@@ -279,7 +279,7 @@
               $http({
                 async: true,
                 crossDomain: true,  
-                url: 'https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService',
+                url: 'http://yetkiliservis-test/wsaftersales/ServicePaperService.svc/ProductOrderOperationService',
                 method: "POST",
                 data: $scope.postData ,
                 headers: {            
@@ -294,7 +294,7 @@
                   $scope.ConsignmentWorkOrderStatus = response.data[0].ConsignmentWorkOrderStatus;
 
                   
-            });*/
+            });
 
 
             $http({
