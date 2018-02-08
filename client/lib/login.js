@@ -3,11 +3,8 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
 
     
     $http({method: 'GET', url: 'https://thworkorderfapp.azurewebsites.net/deneme'}).
-    success(function(data, status) { 
-        alert(data.body);
-    }).
-    error(function(data, status) {
-        alert(data);
+    then(function(response) { 
+        alert(response.data[0].name);
     });
 
     $scope.submit = function (model) {    
