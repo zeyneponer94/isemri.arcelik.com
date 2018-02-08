@@ -296,25 +296,6 @@
                   
             });*/
 
-
-            var settings = {
-              "async": true,
-              "crossDomain": true,
-              "url": "https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService",
-              "method": "POST",
-              "headers": {
-                "SessionToken": "C951FC0E-7F04-4D2A-AF81-2D8A3D578460",
-                "servicetype": "INTHEBOX1",
-                "Content-Type": "text/plain"
-              },
-              "data": "[{\r\n      \"PK\": \"3\",\r\n      \"MainSourceApplicationProcces\": \"InnTheBox\",\r\n      \"SourceApplication\": \"InnTheBox\",\r\n      \"MainSourceOrderProccesId\": \"InnTheBox1\",\r\n      \"SourceOrderId\": \"InnTheBox1\",\r\n      \"MainSourceProccesStatus\": \"Approve\",\r\n      \"SourceStatus\": \"Approve\",\r\n      \"DealerCode\": \"342122\",\r\n      \"AsistDealerCode\": \"342122\",\r\n      \"AsistBranchDealerCode\": \"342122\",\r\n      \"Note\": \"10\",\r\n      \"Name\": \"Hıdır\",\r\n      \"Surname\": \"Öner\",\r\n      \"Phone1\": \"02164884905\",\r\n      \"Phone2\": \"2163964187\",\r\n      \"Phone3\": \"\",\r\n      \"Email\": \"hidir_oner@arcelik.com\",\r\n      \"TaxOffice\": \"\",\r\n      \"TaxId\": \"\",\r\n      \"Tckn\": \"\",\r\n      \"Address\": \"Adana Aladağ\",\r\n      \"Neighborhood\": \"KAVAKPINAR\",\r\n      \"District\": \"Aladag\",\r\n      \"City\": \"Adana\",\r\n      \"Urgent\": \"0\",\r\n      \"ContactPerson\": \"Deneme\",\r\n      \"ContactPhone\": \"02164884905\",\r\n      \"PreferredServiceShop\": \"NULL\",\r\n      \"DeliveryDate\": \"13.02.2018 08:54:00\",\r\n      \"ExternalOrderId\": \"\",\r\n      \"InvoiceAcceptPhone\": \"5373579059\",\r\n      \"InvoiceAcceptName\": \"Hıdır\",\r\n      \"InvoiceAcceptSurname\": \"Öner\",\r\n      \"ProductOrderDetail\": [\r\n                {\r\n                  \"ConsignmentId\":\"1\",\r\n                  \"MainSourceOrderProcessId\": \"DMS1\",\r\n          \"SourceOrderId\": \"DMS1\",\r\n          \"PK\": \"\",\r\n          \"R_Counter\": \"\",\r\n          \"SS_R_Counter\": \"\",\r\n          \"MainSourceOrderProcessStatus\": \"Approve\",\r\n          \"WareHouseCode\": \"12457\",\r\n          \"WareHouseType\": \"1\",\r\n          \"WareHouseAddress\": \"Depo Adresi\",\r\n          \"WareHouseNeighborhood\": \"BATI\",\r\n          \"WareHouseDistrict\": \"PENDİK\",\r\n          \"WareHouseCity\": \"İSTANBUL\",\r\n          \"ProductCode\": \"6211101000\",\r\n          \"Product\": \"Altus-Buzdolabi\",\r\n          \"OperationType\": \"Montaj\",\r\n          \"ProductReturnCheck\": \"0\",\r\n          \"ExtraWarrantyType\": \"1\",\r\n          \"ProductExposeCheck\": \"0\",\r\n          \"SourceOrderStatus\": \"Approve\",\r\n          \"ProductBarcode\": \"\",\r\n          \"DetailNote\": \"Test satır 1\",\r\n          \"ParoId\": \"\",\r\n          \"InvoiceNr\": \"AAFF111SFFEWQ\",\r\n          \"InvoiceDate\": \"13.02.2018 08:54:00\",\r\n          \"MaliId\": \"\",\r\n          \"NaceId\": \"\",\r\n          \"SectorId\": \"\",\r\n          \"CrmKey\": \"\"\r\n                }\r\n                ]\r\n}\r\n]\r\n"
-            }
-            
-            $.ajax(settings).done(function (response) {
-              alert(response.data);
-            });
-
-
 /*
             $http({
               method: "GET", 
