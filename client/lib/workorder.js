@@ -281,8 +281,8 @@
                 method: "POST",
                 data: $scope.postData ,
                 headers: {
-                          'async': true,
-                          'crossDomain': true,                
+                          'async': "true",
+                          'crossDomain': "true",                
                           'Content-Type': 'application/json',
                           'SessionToken': 'C951FC0E-7F04-4D2A-AF81-2D8A3D578460',
                           'Cache-Control': 'no-cache',
