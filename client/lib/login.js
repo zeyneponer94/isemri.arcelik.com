@@ -2,7 +2,7 @@ var testApp = angular.module("App", []);
 testApp.controller('Controller' , ['$scope','$http','$window', function ($scope, $http, $window) {
 
     
-    $http({method: 'GET', url: 'https://thworkorderfapp.azurewebsites.net/deneme'}).
+    $http({method: 'GET', url: 'https://thworkorderfapp.azurewebsites.net/myproxy'}).
     then(function(response) { 
         alert(response.data.name);
     });
