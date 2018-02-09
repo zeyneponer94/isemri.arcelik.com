@@ -70,13 +70,13 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
                   ]
             }
             ]
-            
+
             $scope.postData = angular.toJson($scope.jsonData, true);                            
             
       $http({
         url: 'https://thworkorderfapp.azurewebsites.net/myproxy',
         method: "POST",
-        data: $scope.postData,
+        data: $scope.jsonData,
         headers: {            
             'Content-Type': 'application/json',
             'SessionToken': 'DA4145D1-73B5-422C-BAB2-76FCCC490141',
