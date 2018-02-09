@@ -75,7 +75,13 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
       $http({
         url: 'https://thworkorderfapp.azurewebsites.net/myproxy',
         method: "POST",
-        data: $scope.postData
+        data: $scope.postData,
+        headers: {            
+            'Content-Type': 'application/json',
+            'SessionToken': 'DA4145D1-73B5-422C-BAB2-76FCCC490141',
+            'Cache-Control': 'no-cache',
+            'servicetype': 'INTHEBOX1'
+           }
       }).then(function (response) {
           alert("service is successfully assigned!");          
      });
