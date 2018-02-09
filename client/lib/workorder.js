@@ -204,74 +204,7 @@
           +$scope.workorderSelect+"<br> Müşteri adresi = " + $scope.provinceSelect + " " +$scope.citySelect).italics());
 					dlg.result.then(function(btn){
 /*
-            $scope.jsonData = [{
-                        "PK": "3",
-                        "MainSourceApplicationProcces": "InnTheBox",
-                        "SourceApplication": "InnTheBox",
-                        "MainSourceOrderProccesId": "InnTheBox_1",
-                        "SourceOrderId": "InnTheBox_1",
-                        "MainSourceProccesStatus": "Approve",
-                        "SourceStatus": "Approve",
-                        "DealerCode": "342122",
-                        "AsistDealerCode": "342122",
-                        "AsistBranchDealerCode": "342122",
-                        "Note": "10",
-                        "Name": ""+$scope.name_id,
-                        "Surname": ""+$scope.surname_id,
-                        "Phone1": ""+$scope.phone_id,
-                        "Phone2": "2163964187",
-                        "Phone3": "",
-                        "Email": ""+$scope.email_id,
-                        "TaxOffice": "",
-                        "TaxId": "",
-                        "Tckn": "",
-                        "Address": ""+$scope.adres_id,
-                        "Neighborhood": "KAVAKPINAR",
-                        "District": ""+$scope.citySelect,
-                        "City": ""+$scope.provinceSelect,
-                        "Urgent": "0",
-                        "ContactPerson": "Deneme",
-                        "ContactPhone": "2167865438",
-                        "PreferredServiceShop": "NULL",
-                        "DeliveryDate": "13.02.2018 08:54:00",
-                        "ExternalOrderId": "",
-                        "InvoiceAcceptPhone": ""+$scope.phone_id,
-                        "InvoiceAcceptName": ""+$scope.name_id,
-                        "InvoiceAcceptSurname": ""+$scope.surname_id,
-                      "ProductOrderDetail": [
-                                      {
-                                              "ConsignmentId":"1",
-                                              "MainSourceOrderProcessId": "InnTheBox_1",
-                                              "SourceOrderId": "InnTheBox_1",
-                                              "PK": "",
-                                              "R_Counter": "",
-                                              "SS_R_Counter": "",
-                                              "MainSourceOrderProcessStatus": "Approve",
-                                              "WareHouseCode": "12457",
-                                              "WareHouseType": "1",
-                                              "WareHouseAddress": "Depo Adresi",
-                                              "WareHouseNeighborhood": "BATI",
-                                              "WareHouseDistrict": ""+$scope.citySelect,
-                                              "WareHouseCity": ""+$scope.provinceSelect,
-                                              "ProductCode": "6211101000",
-                                              "Product": ""+$scope.singleSelect,
-                                              "OperationType": ""+$scope.workorderSelect,
-                                              "ProductReturnCheck": "0",
-                                              "ExtraWarrantyType": "1",
-                                              "ProductExposeCheck": "0",
-                                              "SourceOrderStatus": "Approve",
-                                              "ProductBarcode": "",
-                                              "DetailNote": "Test satır 1",
-                                              "ParoId": "",
-                                              "InvoiceNr": "AAFF111SFFEWQ",
-                                              "InvoiceDate": "13.02.2018 08:54:00",
-                                              "MaliId": "",
-                                              "NaceId": "",
-                                              "SectorId": "",
-                                              "CrmKey": ""
-                                      }
-                                  ]
-                }];
+            $scope.jsonData = ;
              
         
              $scope.postData = angular.toJson($scope.jsonData, true);                
