@@ -78,6 +78,13 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
         xhr.send(data);  
         xhr.onreadystatechange = function () {
             if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                successHandler && successHandler(
+                    responseTypeAware
+                      ? xhr.response
+                      : JSON.parse(xhr.responseText)
+                );
+                resolve(xhr.response);                
+                successHandler && successHandler(xhr.responseText);                
                 alert(JSON.parse(xhr.responseText));
             }
             else    
