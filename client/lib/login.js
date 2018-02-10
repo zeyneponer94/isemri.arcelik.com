@@ -35,7 +35,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
             "InvoiceAcceptPhone": "5373579059",
             "InvoiceAcceptName": "Serdar",
             "InvoiceAcceptSurname": "Uysal",
-            "ProductOrderDetail": [
+            "ProductOrderDetail": 
                       {
                         "ConsignmentId":"1",
                         "MainSourceOrderProcessId": "DMS1",
@@ -66,7 +66,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
                 "NaceId": "",
                 "SectorId": "",
                 "CrmKey": ""
-                      }]   
+                      }  
                 }
 
         var xhr = new XMLHttpRequest();
