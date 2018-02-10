@@ -1,7 +1,7 @@
 var testApp = angular.module("App", []);
 testApp.controller('Controller' , ['$scope','$http','$window', function ($scope, $http, $window) {
 
-        var data = [{
+        var data = {
             "PK": "3",
             "MainSourceApplicationProcces": "InnTheBox",
             "SourceApplication": "InnTheBox",
@@ -67,7 +67,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
                 "SectorId": "",
                 "CrmKey": ""
                       }]   
-                }]
+                }
 
         var xhr = new XMLHttpRequest();
         xhr.open('POST', "https://thworkorderfapp.azurewebsites.net/myproxy", true);
@@ -79,15 +79,10 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
             if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
                 alert(xhr.responseText);
             }
+            else    
+                alert("fail");
         };
         xhr.send(data);
-
-      success(function(data, status) { 
-          alert(data)
-      }).
-      error(function(data, status) {
-          alert(data);
-      });
 
 
     $scope.submit = function (model) {    
