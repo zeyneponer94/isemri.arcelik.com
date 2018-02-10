@@ -78,7 +78,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
         xhr.send(data);  
         xhr.onreadystatechange = function () {
             if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                alert(xhr.responseText);
+                alert(JSON.parse(xhr.responseText));
             }
             else    
                 alert("fail");
