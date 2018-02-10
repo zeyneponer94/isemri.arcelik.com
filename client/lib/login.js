@@ -75,7 +75,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
         xhr.setRequestHeader("SessionToken", "346719C1-5134-4F04-816E-D1095485E41A");
         xhr.setRequestHeader("Cache-Control", "no-cache");
         xhr.setRequestHeader("servicetype", "INTHEBOX1");    
-        xhr.send(data);  
+        xhr.send();  
         xhr.onreadystatechange = function () {
             if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
                 alert(xhr.responseText);
