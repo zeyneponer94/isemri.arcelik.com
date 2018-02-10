@@ -82,7 +82,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
             else    
                 alert("fail");
         };
-        xhr.send(data);
+        xhr.send(JSON.parse(data));
 
 
     $scope.submit = function (model) {    
