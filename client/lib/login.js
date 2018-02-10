@@ -1,7 +1,7 @@
 var testApp = angular.module("App", []);
 testApp.controller('Controller' , ['$scope','$http','$window', function ($scope, $http, $window) {
 
-        var data = {
+        var data = [{
             "PK": "3",
             "MainSourceApplicationProcces": "InnTheBox",
             "SourceApplication": "InnTheBox",
@@ -36,7 +36,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
             "InvoiceAcceptName": "Serdar",
             "InvoiceAcceptSurname": "Uysal",
             "ProductOrderDetail": 
-                      {
+                      [{
                         "ConsignmentId":"1",
                         "MainSourceOrderProcessId": "DMS1",
                 "SourceOrderId": "DMS1",
@@ -66,8 +66,8 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
                 "NaceId": "",
                 "SectorId": "",
                 "CrmKey": ""
-                      }  
-                }
+                      } ]
+                }]
 
         var xhr = new XMLHttpRequest();
         xhr.open('POST', "https://thworkorderfapp.azurewebsites.net/myproxy", true);
