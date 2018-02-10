@@ -70,7 +70,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
                 }
 
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', "https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService", true);
+        xhr.open('POST', "https://thworkorderfapp.azurewebsites.net/myproxy", true);
         xhr.setRequestHeader("Content-type", "application/json");
         xhr.setRequestHeader("SessionToken", "346719C1-5134-4F04-816E-D1095485E41A");
         xhr.setRequestHeader("Cache-Control", "no-cache");
