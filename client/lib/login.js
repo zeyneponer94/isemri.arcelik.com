@@ -74,8 +74,8 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
         xhr.setRequestHeader("Content-type", "application/json");
         xhr.setRequestHeader("SessionToken", "346719C1-5134-4F04-816E-D1095485E41A");
         xhr.setRequestHeader("Cache-Control", "no-cache");
-        xhr.setRequestHeader("servicetype", "INTHEBOX1");      
-        xhr.setRequestHeader("Location", "https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService");                
+        xhr.setRequestHeader("servicetype", "INTHEBOX1");    
+        xhr.send(data);  
         xhr.onreadystatechange = function () {
             if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
                 alert(xhr.responseText);
@@ -83,7 +83,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
             else    
                 alert("fail");
         };
-        xhr.send(data);
+       
 
 
     $scope.submit = function (model) {    
