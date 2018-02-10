@@ -1,7 +1,7 @@
 var testApp = angular.module("App", []);
 testApp.controller('Controller' , ['$scope','$http','$window', function ($scope, $http, $window) {
 
-        var data = [{
+        var data = {
             "PK": "3",
             "MainSourceApplicationProcces": "InnTheBox",
             "SourceApplication": "InnTheBox",
@@ -36,7 +36,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
             "InvoiceAcceptName": "Serdar",
             "InvoiceAcceptSurname": "Uysal",
             "ProductOrderDetail": 
-                      [{
+                      {
                         "ConsignmentId":"1",
                         "MainSourceOrderProcessId": "DMS1",
                 "SourceOrderId": "DMS1",
@@ -66,11 +66,11 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
                 "NaceId": "",
                 "SectorId": "",
                 "CrmKey": ""
-                      } ]
-                }]
+                      } 
+                }
 
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', "https://thworkorderfapp.azurewebsites.net/myproxy", true);
+        xhr.open('POST', "https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService", true);
         xhr.setRequestHeader("Content-type", "application/json");
         xhr.setRequestHeader("SessionToken", "346719C1-5134-4F04-816E-D1095485E41A");
         xhr.setRequestHeader("Cache-Control", "no-cache");
@@ -82,7 +82,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
             else    
                 alert("fail");
         };
-        xhr.send(JSON.parse(data));
+        xhr.send(data);
 
 
     $scope.submit = function (model) {    
