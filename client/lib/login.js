@@ -1,6 +1,18 @@
 var testApp = angular.module("App", []);
 testApp.controller('Controller' , ['$scope','$http','$window', function ($scope, $http, $window) {
 
+
+            $http({
+                method: "GET",        
+                url: 'https://thworkorderfapp.azurewebsites.net/api/productorderservice',             
+            }). 
+            success(function(data, status) { 
+                alert(data)
+            }).
+            error(function(data, status) {
+                alert(data);
+            });
+/*
         var data = {
             "PK": "3",
             "MainSourceApplicationProcces": "InnTheBox",
@@ -85,7 +97,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
                 alert("fail");
         };
        
-
+*/
 
     $scope.submit = function (model) {    
         $http({
