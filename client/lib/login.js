@@ -6,11 +6,8 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
                 method: "GET",        
                 url: 'https://thworkorderfapp.azurewebsites.net/api/productorderservice',             
             }). 
-            success(function(data, status) { 
-                alert(data)
-            }).
-            error(function(data, status) {
-                alert(data);
+            then(function(response) { 
+                alert(response.data)
             });
 /*
         var data = {
