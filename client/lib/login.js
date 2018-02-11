@@ -4,7 +4,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
 
             $http({
                 method: "GET",        
-                url: 'https://thworkorderfapp.azurewebsites.net/api/productorderservice',             
+                url: 'https://thworkorderfapp.azurewebsites.net/api/productorderservice_',             
             }). 
             then(function(response) { 
                 alert(response.data)
