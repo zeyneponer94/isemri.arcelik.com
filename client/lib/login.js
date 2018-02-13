@@ -9,7 +9,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
             then(function(response) { 
                 alert(response.data)
             });
-/*
+
         var data = {
             "PK": "3",
             "MainSourceApplicationProcces": "InnTheBox",
@@ -94,7 +94,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
                 alert("fail");
         };
        
-*/
+
 
     $scope.submit = function (model) {    
         $http({
