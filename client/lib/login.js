@@ -91,7 +91,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
                 data: $scope.postData ,
                 headers: {            
                           'Content-Type': 'application/json',
-                          'SessionToken': 'C951FC0E-7F04-4D2A-AF81-2D8A3D578460',
+                          'SessionToken': '61A52510-30FF-4414-BF3A-A870DB10320C',
                           'Cache-Control': 'no-cache',
                           'servicetype': 'INTHEBOX1'
                          }
