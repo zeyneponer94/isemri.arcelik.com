@@ -316,6 +316,8 @@
                         'servicetype': 'INTHEBOX1'
                        }
             }).then(function (response) {
+                $scope.ExternalOrderId = response.data[0].ExternalOrderId;
+                $scope.ConsignmentWorkOrderStatus = response.data[0].ConsignmentWorkOrderStatus;
                 alert("service is successfully assigned!");
           });
 
