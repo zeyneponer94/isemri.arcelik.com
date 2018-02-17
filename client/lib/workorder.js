@@ -254,7 +254,7 @@
                       {
                         "ConsignmentId":"1",
                         "MainSourceOrderProcessId": "1",
-                        "SourceOrderId": "InnTheBox_",
+                        "SourceOrderId": "InnThe_Box_",
                         "PK": "",
                         "R_Counter": "1",
                         "SS_R_Counter": "1",
@@ -266,7 +266,7 @@
                         "WareHouseDistrict": "PENDİK",
                         "WareHouseCity": "İSTANBUL",
                         "ProductCode": "6211101000",
-                        "Product": "" + $acope.singleSelect,
+                        "Product": "" + $scope.singleSelect,
                         "OperationType": "" + $scope.workorderSelect,
                         "ProductReturnCheck": "0",
                         "ExtraWarrantyType": "1",
