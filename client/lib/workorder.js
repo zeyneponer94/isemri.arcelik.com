@@ -204,7 +204,7 @@
           +$scope.workorderSelect+"<br> Müşteri adresi = " + $scope.provinceSelect + " " +$scope.citySelect).italics());
 					dlg.result.then(function(btn){
 
-              
+          /*    
 
           $http({
               method: "GET",        
@@ -227,11 +227,11 @@
               alert(response.data)
               //$scope.ExternalOrderId = "";
               //$scope.ConsignmentWorkOrderStatus = "";
-          });
+          });*/
 
-/*
+
           
-          $scope.jsonData = {
+          $scope.jsonData = [{
             "PK": "",
             "MainSourceApplicationProcces": "InnTheBox",
             "SourceApplication": "InnTheBox",
@@ -266,7 +266,7 @@
             "InvoiceAcceptName": "" + $scope.surname_id,
             "InvoiceAcceptSurname": "" + $scope.phone_id,
             "ProductOrderDetail": 
-                      {
+                      [{
                         "ConsignmentId":"1",
                         "MainSourceOrderProcessId": "1",
                         "SourceOrderId": "InnThe_Box_",
@@ -296,9 +296,9 @@
                         "NaceId": "1",
                         "SectorId": "1",
                         "CrmKey": "1"
-            }
+            }]
                       
-            }
+            }]
 
       
            $scope.postData = angular.toJson($scope.jsonData, true);                
@@ -319,7 +319,7 @@
                 alert("service is successfully assigned!");
           });
 
-*/
+
 
             $http({
               method: "GET", 
