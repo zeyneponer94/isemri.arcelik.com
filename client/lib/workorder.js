@@ -203,32 +203,107 @@
           +$scope.surname_id+"<br>  Müşteri telefon numarası = "+$scope.phone_id+"<br>  Seçilen ürün = "+$scope.singleSelect+"<br>  Seçilen iş emri türü = "
           +$scope.workorderSelect+"<br> Müşteri adresi = " + $scope.provinceSelect + " " +$scope.citySelect).italics());
 					dlg.result.then(function(btn){
+
+              
 /*
-            $scope.jsonData = ;
-             
-        
-             $scope.postData = angular.toJson($scope.jsonData, true);                
+          $http({
+              method: "GET",        
+              url: 'https://thworkorderfapp.azurewebsites.net/api/productorderservice_',             
+          }). 
+          then(function(response) { 
+              alert(response.data)
+          });*/
 
-              $http({
-                async: true,
-                crossDomain: true,  
-                url: 'https://yetkiliservis-test.arcelik.com/wsaftersales/ServicePaperService.svc/ProductOrderOperationService',
-                method: "POST",
-                data: $scope.postData ,
-                headers: {            
-                          'Content-Type': 'application/json',
-                          'SessionToken': 'C951FC0E-7F04-4D2A-AF81-2D8A3D578460',
-                          'Cache-Control': 'no-cache',
-                          'servicetype': 'INTHEBOX1'
-                         }
-              }).then(function (response) {
-                  alert("service is successfully assigned!");
-                  $scope.ExternalOrderId = response.data[0].ExternalOrderId;
-                  $scope.ConsignmentWorkOrderStatus = response.data[0].ConsignmentWorkOrderStatus;
 
-                  
-            });*/
+          
+          $scope.jsonData = {
+            "PK": "",
+            "MainSourceApplicationProcces": "InnTheBox",
+            "SourceApplication": "InnTheBox",
+            "MainSourceOrderProccesId": "InnTheBox1",
+            "SourceOrderId": "InnTheBox1",
+            "MainSourceProccesStatus": "Approve",
+            "SourceStatus": "Approve",
+            "DealerCode": "342122",
+            "AsistDealerCode": "342122",
+            "AsistBranchDealerCode": "342122",
+            "Note": "10",
+            "Name": "" + $scope.name_id,
+            "Surname": "" + $scope.surname_id,
+            "Phone1": "" + $scope.phone_id,
+            "Phone2": "",
+            "Phone3": "",
+            "Email": "" + $scope.email_id,
+            "TaxOffice": "",
+            "TaxId": "",
+            "Tckn": "",
+            "Address": "" + $scope.adres_id,
+            "Neighborhood": "KAVAKPINAR",
+            "District": "" + $scope.citySelect,
+            "City": "" + $scope.provinceSelect,
+            "Urgent": "0",
+            "ContactPerson": "" + $scope.satis_id,
+            "ContactPhone": "" + $scope.satis_phone_id,
+            "PreferredServiceShop": "",
+            "DeliveryDate": "13.02.2018 08:54:00",
+            "ExternalOrderId": "0",
+            "InvoiceAcceptPhone": "" + $scope.name_id,
+            "InvoiceAcceptName": "" + $scope.surname_id,
+            "InvoiceAcceptSurname": "" + $scope.phone_id,
+            "ProductOrderDetail": 
+                      {
+                        "ConsignmentId":"1",
+                        "MainSourceOrderProcessId": "1",
+                        "SourceOrderId": "InnTheBox_",
+                        "PK": "",
+                        "R_Counter": "1",
+                        "SS_R_Counter": "1",
+                        "MainSourceOrderProcessStatus": "Approve",
+                        "WareHouseCode": "12457",
+                        "WareHouseType": "1",
+                        "WareHouseAddress": "Depo Adresi",
+                        "WareHouseNeighborhood": "BATI",
+                        "WareHouseDistrict": "PENDİK",
+                        "WareHouseCity": "İSTANBUL",
+                        "ProductCode": "6211101000",
+                        "Product": "" + $acope.singleSelect,
+                        "OperationType": "" + $scope.workorderSelect,
+                        "ProductReturnCheck": "0",
+                        "ExtraWarrantyType": "1",
+                        "ProductExposeCheck": "0",
+                        "SourceOrderStatus": "Approve",
+                        "ProductBarcode": "1",
+                        "DetailNote": "Test satır 1",
+                        "ParoId": "1",
+                        "InvoiceNr": "AAFF111SFFEWQ",
+                        "InvoiceDate": "13.02.2018 08:54:00",
+                        "MaliId": "1",
+                        "NaceId": "1",
+                        "SectorId": "1",
+                        "CrmKey": "1"
+            }
+                      
+            }
 
+      
+           $scope.postData = angular.toJson($scope.jsonData, true);                
+
+            $http({
+              async: true,
+              crossDomain: true,  
+              url: 'https://thworkorderfapp.azurewebsites.net/myproxy',
+              method: "POST",
+              data: $scope.postData ,
+              headers: {            
+                        'Content-Type': 'application/json',
+                        'SessionToken': 'EAE33482-6723-4EB4-86E3-CC3761C86EB0',
+                        'Cache-Control': 'no-cache',
+                        'servicetype': 'INTHEBOX1'
+                       }
+            }).then(function (response) {
+                alert("service is successfully assigned!");
+                alert(response.data[0]);
+          });
 
 
 
