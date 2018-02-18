@@ -107,14 +107,14 @@
                                     </select>                                                                                                               
                                 </div>                                                                                                                                                                                                                       
                                 <div class="form-group">                                                                                                                                            
-                                    <select class="form-control" ng-model="citySelect" required>
+                                    <select class="form-control" ng-model="citySelect" ng-change="choose_area()" required>
                                         <option value="">Teslimat İlçesi Seçiniz *</option>                                     
                                         <option ng-repeat="option in city" value="{{option.name}}">{{option.name}}</option>                                                        
                                     </select>
                                 </div>
                                 <div class="form-group">                                                                                                                                            
                                     <select class="form-control" ng-model="areaSelect" required>
-                                        <option value="">Teslimat Mahallesi Seçiniz *</option> 
+                                        <option value="">Teslimat Alanı Seçiniz *</option> 
                                         <option ng-repeat="option in area" value="{{option.name}}">{{option.name}}</option>                                                                                                
                                     </select>
                                 </div> 
