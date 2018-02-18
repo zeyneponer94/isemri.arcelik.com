@@ -196,6 +196,24 @@
         }  
 
 
+        $scope.choose_area = function() {
+          $http({
+            method: "GET", 
+            url: 'https://thworkorderfapp.azurewebsites.net/api/area',
+            params: {city:$scope.citySelect}          
+          }) 
+          .then(function(response){ 
+              $scope.area = [];                    
+              var i = 0;
+              while(response.data[i]!=null){
+                var obj = { name: response.data[i] };
+                $scope.area.push(obj);  
+                i++;
+              }
+          });          
+        }  
+
+
         $scope.create_workorder = function () 
         {       
           
@@ -253,7 +271,7 @@
             "TaxId": "",
             "Tckn": "",
             "Address": "" + $scope.adres_id,
-            "Neighborhood": "KAVAKPINAR",
+            "Neighborhood": "" + $scope.areaSelect,
             "District": "" + $scope.citySelect,
             "City": "" + $scope.provinceSelect,
             "Urgent": "0",
@@ -269,7 +287,7 @@
                       [{
                         "ConsignmentId":"1",
                         "MainSourceOrderProcessId": "1",
-                        "SourceOrderId": "_Inn_The_Box_",
+                        "SourceOrderId": "Deneme_Son",
                         "PK": "",
                         "R_Counter": "1",
                         "SS_R_Counter": "1",
