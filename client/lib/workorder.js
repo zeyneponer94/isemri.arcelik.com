@@ -303,7 +303,7 @@
               data: $scope.postData ,
               headers: {            
                         'Content-Type': 'application/json',
-                        'SessionToken': '02A78E1E-ADBA-4C89-A226-3845958E7394',
+                        'SessionToken': 'D9D7D497-5566-4B6A-B89D-646AE6713F96',
                         'Cache-Control': 'no-cache',
                         'servicetype': 'INTHEBOX1'
                        }
