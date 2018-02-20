@@ -261,7 +261,7 @@
                       [{
                         "ConsignmentId":"1",
                         "MainSourceOrderProcessId": "1",
-                        "SourceOrderId": "hebelehübelehüb",
+                        "SourceOrderId": "hebelehübelehüb_",
                         "PK": "",
                         "R_Counter": "1",
                         "SS_R_Counter": "1",
@@ -303,7 +303,7 @@
               data: $scope.postData ,
               headers: {            
                         'Content-Type': 'application/json',
-                        'SessionToken': 'EAE33482-6723-4EB4-86E3-CC3761C86EB0',
+                        'SessionToken': '02A78E1E-ADBA-4C89-A226-3845958E7394',
                         'Cache-Control': 'no-cache',
                         'servicetype': 'INTHEBOX1'
                        }
