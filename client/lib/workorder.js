@@ -222,32 +222,6 @@
           +$scope.workorderSelect+"<br> Müşteri adresi = " + $scope.provinceSelect + " " +$scope.citySelect).italics());
 					dlg.result.then(function(btn){
 
-          /*    
-
-          $http({
-              method: "GET",        
-              url: 'https://thworkorderfapp.azurewebsites.net/api/productorderservice_',    
-              params: {
-                name:""+$scope.name_id,
-                surname:""+$scope.surname_id,
-                phone:""+$scope.phone_id,
-                email:""+$scope.email_id,
-                ContactPerson: "" + $scope.satis_id,
-                ContactPhone: "" + $scope.satis_phone_id,
-                product:""+$scope.singleSelect,
-                workorder:""+$scope.workorderSelect,
-                province:""+$scope.provinceSelect,
-                city:""+$scope.citySelect,
-                address:""+$scope.adres_id
-              }          
-          }). 
-          then(function(response) { 
-              alert(response.data)
-              //$scope.ExternalOrderId = "";
-              //$scope.ConsignmentWorkOrderStatus = "";
-          });*/
-
-
           
           $scope.jsonData = [{
             "PK": "",
@@ -287,7 +261,7 @@
                       [{
                         "ConsignmentId":"1",
                         "MainSourceOrderProcessId": "1",
-                        "SourceOrderId": "Deneme_Son",
+                        "SourceOrderId": "hebelehübelehüb",
                         "PK": "",
                         "R_Counter": "1",
                         "SS_R_Counter": "1",
