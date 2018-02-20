@@ -261,7 +261,7 @@
                       [{
                         "ConsignmentId":"1",
                         "MainSourceOrderProcessId": "1",
-                        "SourceOrderId": "hebelehü_bele_hüb_",
+                        "SourceOrderId": "hebe_lehü_bele_hüb_",
                         "PK": "",
                         "R_Counter": "1",
                         "SS_R_Counter": "1",
@@ -311,32 +311,29 @@
                 $scope.ExternalOrderId = response.data[0].ExternalOrderId;
                 $scope.ConsignmentWorkOrderStatus = response.data[0].ConsignmentWorkOrderStatus;
                 alert("service is successfully assigned!");
+                
+                $http({
+                  method: "GET", 
+                  url: 'https://thworkorderfapp.azurewebsites.net/api/createworkorder',
+                  params: {
+                    name:""+$scope.name_id,
+                    surname:""+$scope.surname_id,
+                    phone:""+$scope.phone_id,
+                    no:""+$scope.ExternalOrderId,
+                    product:""+$scope.singleSelect,
+                    workorder:""+$scope.workorderSelect,
+                    customer:"Test",
+                    point:""+$scope.provinceSelect,
+                    address:""+$scope.citySelect,
+                    status: ""+$scope.ConsignmentWorkOrderStatus,
+                    service:"Test",
+                    DeliveryDate:"2018-02-10",
+                    AppointmentDate:"2018-02-15"
+                  }          
+                }) 
+                .then(function(response){ 
+                });
           });
-
-
-
-            $http({
-              method: "GET", 
-              url: 'https://thworkorderfapp.azurewebsites.net/api/createworkorder',
-              params: {
-                name:""+$scope.name_id,
-                surname:""+$scope.surname_id,
-                phone:""+$scope.phone_id,
-                no:""+$scope.ExternalOrderId,
-                product:""+$scope.singleSelect,
-                workorder:""+$scope.workorderSelect,
-                customer:"Test",
-                point:""+$scope.provinceSelect,
-                address:""+$scope.citySelect,
-                status: ""+$scope.ConsignmentWorkOrderStatus,
-                service:"Test",
-                DeliveryDate:"2018-02-10",
-                AppointmentDate:"2018-02-15"
-              }          
-            }) 
-            .then(function(response){ 
-            });
-
 
 					},function(btn){
 					    alert('İşlem Tamamlanamadı.');
