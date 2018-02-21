@@ -5,7 +5,6 @@
       delete $httpProvider.defaults.headers.common['X-Requested-With'];
     }]);
 
-
     angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs,$sanitize) {
         $scope.ExternalOrderId = "";
         $scope.ConsignmentWorkOrderStatus = "";
@@ -343,6 +342,34 @@
 
 
     });
+
+    
+    angular.directive('loadingBtn', ['$timeout', function($timeout){
+      return {
+          link: function(scope, element, attrs){
+              element.bind('click', function(){
+                
+                if(scope.loading == true || scope.done == 'done') {
+                  return;
+                }
+
+                scope.loading = true;
+                element.addClass('loading');
+                element.attr('disabled', true);
+                $timeout(loadTheButtonAfterSomeTime, 2000); 
+
+                function loadTheButtonAfterSomeTime(){
+                  scope.loading = false;
+                  element.removeClass('loading');
+                  element.attr('disabled', null);
+                  scope.done = 'done';
+                }
+              });
+          }
+      };
+  }]);
+
+
   
 
 
