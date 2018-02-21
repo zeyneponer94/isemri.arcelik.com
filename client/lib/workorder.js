@@ -6,6 +6,20 @@
     }]);
 
     angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs,$sanitize) {
+
+
+
+      //Initialized using the Bootstrap options:
+      $('button').button({loadingText: 'Processing...'});
+
+      $('#loading-btn').click(function () {
+          var btn = $(this);
+          btn.button('loading');
+          setTimeout(function () {
+              btn.button('reset');
+          }, 2000);
+      });
+
         $scope.ExternalOrderId = "";
         $scope.ConsignmentWorkOrderStatus = "";
         $scope.workorderno = "";      
@@ -343,31 +357,7 @@
 
     });
 
-    
-    angular.directive('loadingBtn', ['$timeout', function($timeout){
-      return {
-          link: function(scope, element, attrs){
-              element.bind('click', function(){
-                
-                if(scope.loading == true || scope.done == 'done') {
-                  return;
-                }
-
-                scope.loading = true;
-                element.addClass('loading');
-                element.attr('disabled', true);
-                $timeout(loadTheButtonAfterSomeTime, 2000); 
-
-                function loadTheButtonAfterSomeTime(){
-                  scope.loading = false;
-                  element.removeClass('loading');
-                  element.attr('disabled', null);
-                  scope.done = 'done';
-                }
-              });
-          }
-      };
-  }]);
+  
 
 
   
