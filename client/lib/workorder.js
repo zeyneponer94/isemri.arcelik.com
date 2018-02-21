@@ -312,6 +312,7 @@
             }).then(function (response) {
                 $scope.ExternalOrderId = response.data[0].ExternalOrderId;
                 $scope.ConsignmentWorkOrderStatus = response.data[0].ConsignmentWorkOrderStatus;
+                alert("Service is successfully assigned")
 
                 $http({
                   method: "GET", 
