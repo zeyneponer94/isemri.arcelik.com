@@ -8,18 +8,6 @@
     angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs,$sanitize) {
 
 
-
-      //Initialized using the Bootstrap options:
-      $('button').button({loadingText: 'Processing...'});
-
-      $('#loading-btn').click(function () {
-          var btn = $(this);
-          btn.button('loading');
-          setTimeout(function () {
-              btn.button('reset');
-          }, 2000);
-      });
-
         $scope.ExternalOrderId = "";
         $scope.ConsignmentWorkOrderStatus = "";
         $scope.workorderno = "";      
