@@ -317,8 +317,8 @@
                     
                 $timeout(function() { 
                   $scope.loading = false;
+                  alert("service is successfully assigned!");                  
                 }, 2000);
-                alert("service is successfully assigned!");
                 
                 $http({
                   method: "GET", 
