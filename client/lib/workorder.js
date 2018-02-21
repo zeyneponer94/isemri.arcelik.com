@@ -1,4 +1,4 @@
-    app = angular.module('App', ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','angular-button-spinner']);
+    app = angular.module('App', ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize']);
 
     app.config(['$httpProvider', function ($httpProvider) {
       $httpProvider.defaults.useXDomain = true;
@@ -218,8 +218,6 @@
         $scope.create_workorder = function () 
         {       
           
-          $scope.loading = true;
-
 
           var dlg = dialogs.confirm("Lütfen Onaylayınız!","Aşağıda belirtilen bilgiler ile iş emri oluşturma talebinizi gerçekleştirmeyi onaylıyor musunuz?".bold()+"<br>"+ ("  Müşteri adı = "+$scope.name_id+"<br>  Müşteri soyadı = "
           +$scope.surname_id+"<br>  Müşteri telefon numarası = "+$scope.phone_id+"<br>  Seçilen ürün = "+$scope.singleSelect+"<br>  Seçilen iş emri türü = "
@@ -314,12 +312,7 @@
             }).then(function (response) {
                 $scope.ExternalOrderId = response.data[0].ExternalOrderId;
                 $scope.ConsignmentWorkOrderStatus = response.data[0].ConsignmentWorkOrderStatus;
-                    
-                $timeout(function() { 
-                  $scope.loading = false;
-                  alert("service is successfully assigned!");                  
-                }, 2000);
-                
+
                 $http({
                   method: "GET", 
                   url: 'https://thworkorderfapp.azurewebsites.net/api/createworkorder',
