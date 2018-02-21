@@ -1,11 +1,11 @@
-    app = angular.module('App', ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize']);
+    app = angular.module('App', ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','angular-button-spinner']);
 
     app.config(['$httpProvider', function ($httpProvider) {
       $httpProvider.defaults.useXDomain = true;
       delete $httpProvider.defaults.headers.common['X-Requested-With'];
     }]);
 
-    angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs,$sanitize) {
+    angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs,$sanitize,$timeout) {
 
 
         $scope.ExternalOrderId = "";
@@ -218,6 +218,13 @@
         $scope.create_workorder = function () 
         {       
           
+          $scope.loading = true;
+          
+          $timeout(function() { 
+            $scope.loading = false;
+          }, 2000);
+
+          
           var dlg = dialogs.confirm("Lütfen Onaylayınız!","Aşağıda belirtilen bilgiler ile iş emri oluşturma talebinizi gerçekleştirmeyi onaylıyor musunuz?".bold()+"<br>"+ ("  Müşteri adı = "+$scope.name_id+"<br>  Müşteri soyadı = "
           +$scope.surname_id+"<br>  Müşteri telefon numarası = "+$scope.phone_id+"<br>  Seçilen ürün = "+$scope.singleSelect+"<br>  Seçilen iş emri türü = "
           +$scope.workorderSelect+"<br> Müşteri adresi = " + $scope.provinceSelect + " " +$scope.citySelect).italics());
@@ -262,7 +269,7 @@
                       [{
                         "ConsignmentId":"1",
                         "MainSourceOrderProcessId": "1",
-                        "SourceOrderId": "" + $scope.name_id,
+                        "SourceOrderId": "" + $scope.phone_id,
                         "PK": "",
                         "R_Counter": "1",
                         "SS_R_Counter": "1",
