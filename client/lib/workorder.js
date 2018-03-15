@@ -28,10 +28,11 @@
             i++;
           }
         });
-
+        
         $http({
           method: "GET", 
-          url: 'https://thworkorderfapp.azurewebsites.net/api/provincelist',           
+          url: 'https://yetkiliservis-test.arcelik.com/wsaftersales/GeneralService.svc/GetSpecificUavt/0/0/0',                     
+          //url: 'https://thworkorderfapp.azurewebsites.net/api/provincelist',           
         }) 
         .then(function(response){ 
           $scope.province = [];                    
@@ -43,6 +44,8 @@
             i++;
           }
         });
+
+
 
         var header = document.getElementById("navbarid");
         var bars = header.getElementsByClassName("navbar");
