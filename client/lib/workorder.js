@@ -29,11 +29,24 @@
           }
         });
         
+
+
         $http({
+          async: true,
+          crossDomain: true,  
+          url: 'https://thworkorderfapp.azurewebsites.net/Uavt',
+          method: "GET",
+          headers: {            
+                    'Content-Type': 'application/json',
+                    'SessionToken': 'AEE0BE34-DD0F-4680-ACEF-A82F5C4093E4',
+                    'Cache-Control': 'no-cache',
+                    'servicetype': 'INTHEBOX1'
+                   }
+        })
+  /*      $http({
           method: "GET", 
-          url: 'https://yetkiliservis-test.arcelik.com/wsaftersales/GeneralService.svc/GetSpecificUavt/0/0/0',                     
           //url: 'https://thworkorderfapp.azurewebsites.net/api/provincelist',           
-        }) 
+        }) */
         .then(function(response){ 
           $scope.province = [];                    
           var i = 0;
