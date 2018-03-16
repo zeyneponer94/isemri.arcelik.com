@@ -29,9 +29,6 @@
           }
         });
 
-
-        //url: 'https://thworkorderfapp.azurewebsites.net/api/provincelist',           
-
         $http({
           async: true,
           crossDomain: true,  
@@ -58,18 +55,20 @@
           }
         });
 
-        //değişecek
         $scope.choose_city = function() {
+          alert($scope.provinceSelect)
           $http({
             method: "GET", 
-            url: 'https://thworkorderfapp.azurewebsites.net/api/citytype',
-            params: {province:$scope.provinceSelect}          
+            url: 'https://thworkorderfapp.azurewebsites.net/Uavt_city/{$scope.provinceSelect}/0/0',
           }) 
           .then(function(response){ 
               $scope.city = [];                    
               var i = 0;
               while(response.data[i]!=null){
-                var obj = { name: response.data[i] };
+                var obj = { 
+                  id: response.data[i].DistrictId,
+                  name: response.data[i].District
+                };
                 $scope.city.push(obj);  
                 i++;
               }
