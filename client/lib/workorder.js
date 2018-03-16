@@ -105,8 +105,6 @@
           });          
         }  
 
-
-
         var header = document.getElementById("navbarid");
         var bars = header.getElementsByClassName("navbar");
         for (var i = 0; i < bars.length; i++) {
@@ -241,27 +239,6 @@
               $scope.query_all();
           });          
         }
-
-
-
-
-        $scope.choose_area = function() {
-          $http({
-            method: "GET", 
-            url: 'https://thworkorderfapp.azurewebsites.net/api/area',
-            params: {city:$scope.citySelect}          
-          }) 
-          .then(function(response){ 
-              $scope.area = [];                    
-              var i = 0;
-              while(response.data[i]!=null){
-                var obj = { name: response.data[i] };
-                $scope.area.push(obj);  
-                i++;
-              }
-          });          
-        }  
-
 
         $scope.create_workorder = function () 
         {       
