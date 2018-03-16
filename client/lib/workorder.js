@@ -79,6 +79,31 @@
               }
           });          
         }  
+        
+        $scope.choose_area = function() {
+          $http({
+            method: "GET", 
+            url: 'https://thworkorderfapp.azurewebsites.net/Uavt_area/' + $scope.provinceSelect + '/' + $scope.citySelect + '/0',
+            headers: {            
+              'Content-Type': 'application/json',
+              'SessionToken': 'AEE0BE34-DD0F-4680-ACEF-A82F5C4093E4',
+              'Cache-Control': 'no-cache',
+              'servicetype': 'INTHEBOX1'
+             }
+          }) 
+          .then(function(response){ 
+              $scope.area = [];                    
+              var i = 0;
+              while(response.data[i]!=null){
+                var obj = { 
+                  id: response.data[i].NeighborhoodId,
+                  name: response.data[i].Neighborhood
+                 };
+                $scope.area.push(obj);  
+                i++;
+              }
+          });          
+        }  
 
 
 
