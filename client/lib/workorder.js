@@ -58,7 +58,7 @@
         $scope.choose_city = function() {
           $http({
             method: "GET", 
-            url: 'https://thworkorderfapp.azurewebsites.net/Uavt_city/{$scope.provinceSelect}/0/0',
+            url: 'https://thworkorderfapp.azurewebsites.net/Uavt_city/$scope.provinceSelect/0/0',
             headers: {            
               'Content-Type': 'application/json',
               'SessionToken': 'AEE0BE34-DD0F-4680-ACEF-A82F5C4093E4',
