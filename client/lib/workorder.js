@@ -28,13 +28,14 @@
             i++;
           }
         });
-        
 
+
+        //url: 'https://thworkorderfapp.azurewebsites.net/api/provincelist',           
 
         $http({
           async: true,
           crossDomain: true,  
-          url: 'https://thworkorderfapp.azurewebsites.net/Uavt',
+          url: 'https://thworkorderfapp.azurewebsites.net/Uavt_province',
           method: "GET",
           headers: {            
                     'Content-Type': 'application/json',
@@ -43,20 +44,37 @@
                     'servicetype': 'INTHEBOX1'
                    }
         })
-  /*      $http({
-          method: "GET", 
-          //url: 'https://thworkorderfapp.azurewebsites.net/api/provincelist',           
-        }) */
         .then(function(response){ 
           $scope.province = [];                    
           var i = 0;
           while(response.data[i]!=null)
           {
-            var obj = { name: response.data[i] };
+            var obj = { 
+              id: response.data[i].CityId,
+              name: response.data[i].City
+            };
             $scope.province.push(obj);  
             i++;
           }
         });
+
+        //değişecek
+        $scope.choose_city = function() {
+          $http({
+            method: "GET", 
+            url: 'https://thworkorderfapp.azurewebsites.net/api/citytype',
+            params: {province:$scope.provinceSelect}          
+          }) 
+          .then(function(response){ 
+              $scope.city = [];                    
+              var i = 0;
+              while(response.data[i]!=null){
+                var obj = { name: response.data[i] };
+                $scope.city.push(obj);  
+                i++;
+              }
+          });          
+        }  
 
 
 
@@ -195,22 +213,7 @@
           });          
         }
 
-        $scope.choose_city = function() {
-          $http({
-            method: "GET", 
-            url: 'https://thworkorderfapp.azurewebsites.net/api/citytype',
-            params: {province:$scope.provinceSelect}          
-          }) 
-          .then(function(response){ 
-              $scope.city = [];                    
-              var i = 0;
-              while(response.data[i]!=null){
-                var obj = { name: response.data[i] };
-                $scope.city.push(obj);  
-                i++;
-              }
-          });          
-        }  
+
 
 
         $scope.choose_area = function() {
