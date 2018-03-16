@@ -56,10 +56,15 @@
         });
 
         $scope.choose_city = function() {
-          alert($scope.provinceSelect)
           $http({
             method: "GET", 
             url: 'https://thworkorderfapp.azurewebsites.net/Uavt_city/{$scope.provinceSelect}/0/0',
+            headers: {            
+              'Content-Type': 'application/json',
+              'SessionToken': 'AEE0BE34-DD0F-4680-ACEF-A82F5C4093E4',
+              'Cache-Control': 'no-cache',
+              'servicetype': 'INTHEBOX1'
+             }
           }) 
           .then(function(response){ 
               $scope.city = [];                    
