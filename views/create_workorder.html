@@ -82,17 +82,10 @@
                                     <input type="text" ng-focus="focus=true" id="ürün" name="ürün" 
                                     class="form-control" placeholder="Ürün Kodu Giriniz" ng-model="query">
                                     <div id="search-results" ng-show="focus">
-                                        <div class="search-result" ng-repeat="item in product | search(query)" ng-bind="item" ng-click="setQuery(item)"></div>
+                                        <div class="search-result" ng-repeat="item in search(item) | filter:query" ng-bind="item" ng-click="setQuery(item)"></div>
                                     </div>
                                 </div> 
-                    <!--            <div class="form-group">                                                                                                                    
-                                    <select class="form-control" ng-model="singleSelect" ng-change="choose_workordertype()" required>
-                                        <option value="">Ürün Seçiniz *</option> 
-                                        <option ng-repeat="option in product" value="{{option.name}}">{{option.name}}</option>
-                                    </select>
-                                </div>      
-
-                            -->
+   
                                 <div class="form-group">                                                                                                                                            
                                     <select class="form-control" ng-model="workorderSelect" required>
                                         <option value="">İş Emri Türü Seçiniz *</option> 
