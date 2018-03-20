@@ -14,29 +14,37 @@
         $scope.create = true;  
         $scope.query = false;      
 
-        //connecting to azure db, getting required records from specified table and displaying them in selection list
-        $http({
-          async: true,
-          crossDomain: true,
-          method: "GET", 
-          url: 'https://yetkiliservis-test.arcelik.com/wsaftersales/ProductService.svc/GetProductByCode/' +  $scope.ürün_id,
-          headers: {            
-            'Content-Type': 'application/json',
-            'SessionToken': 'AEE0BE34-DD0F-4680-ACEF-A82F5C4093E4',
-            'Cache-Control': 'no-cache',
-            'servicetype': 'INTHEBOX1'
-           }           
-        }) 
-        .then(function(response){ 
-      /*    $scope.product = [];                    
-          var i = 0;
-          while(response.data[i]!=null)
-          {
-            var obj = { name: response.data[i] };
-            $scope.product.push(obj);  
-            i++;
-          } */
-        });
+
+
+        $scope.getProduct = function(viewValue) {
+          $http({
+            async: true,
+            crossDomain: true,
+            method: "GET", 
+            url: 'https://yetkiliservis-test.arcelik.com/wsaftersales/ProductService.svc/GetProductByCode/' +  viewValue,
+            headers: {            
+              'Content-Type': 'application/json',
+              'SessionToken': 'AEE0BE34-DD0F-4680-ACEF-A82F5C4093E4',
+              'Cache-Control': 'no-cache',
+              'servicetype': 'INTHEBOX1'
+             } 
+          }) 
+          .then(function(response){ 
+
+            $scope.product = [];                    
+            var i = 0;
+            while(response.data[i]!=null)
+            {
+              var obj = { 
+                name: response.data[i].ProductCode
+              };
+              $scope.product.push(obj);  
+              i++;
+            } 
+
+          });          
+        }  
+
 
         $http({
           async: true,
