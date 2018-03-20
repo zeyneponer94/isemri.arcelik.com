@@ -9,52 +9,51 @@
       return search;
     });
 
-
-
-    function search(arr, query) {
-      if (!query) {
-        return arr;
-      }
-    
-      var product = []; 
-     
-      $http({
-        async: true,
-        crossDomain: true,
-        method: "GET", 
-        url: 'https://thworkorderfapp.azurewebsites.net/product/' +  query,
-        headers: {            
-          'Content-Type': 'application/json',
-          'SessionToken': 'FB5D7BF5-2DD7-4105-A4A4-B569EF075492',
-          'Cache-Control': 'no-cache',
-          'servicetype': 'INTHEBOX1'
-         } 
-      }) 
-      .then(function(response){ 
-
-        var i = 0;
-        while(response.data[""+i]!=null)
-        {
-          var obj = { 
-            name: response.data[""+i].ProductCode
-          };
-          
-          product.push(obj);  
-          i++;
-        } 
-
-      });   
-
-      return product;
-    };
     
 
     angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs,$sanitize) {
 
 
-      $scope.setQuery = function(query) {
+      setQuery = function(query) {
         $scope.query = query;
         $scope.focus = false;
+      };
+
+      $scope.search = function(arr, query) {
+        if (!query) {
+          return arr;
+        }
+      
+        var product = []; 
+       
+        $http({
+          async: true,
+          crossDomain: true,
+          method: "GET", 
+          url: 'https://thworkorderfapp.azurewebsites.net/product/' +  query,
+          headers: {            
+            'Content-Type': 'application/json',
+            'SessionToken': 'FB5D7BF5-2DD7-4105-A4A4-B569EF075492',
+            'Cache-Control': 'no-cache',
+            'servicetype': 'INTHEBOX1'
+           } 
+        }) 
+        .then(function(response){ 
+  
+          var i = 0;
+          while(response.data[""+i]!=null)
+          {
+            var obj = { 
+              name: response.data[""+i].ProductCode
+            };
+            
+            product.push(obj);  
+            i++;
+          } 
+  
+        });   
+  
+        return product;
       };
 
 
