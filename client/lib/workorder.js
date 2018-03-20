@@ -4,11 +4,6 @@
       $httpProvider.defaults.useXDomain = true;
       delete $httpProvider.defaults.headers.common['X-Requested-With'];
     }]);
-
-    app.filter('search', function() {
-      return search;
-    });
-
     
 
     angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs,$sanitize) {
@@ -19,11 +14,8 @@
         $scope.focus = false;
       };
 
-      $scope.search = function(arr, query) {
-        if (!query) {
-          return arr;
-        }
-      
+      $scope.search = function(query) {
+        
         var product = []; 
        
         $http({
