@@ -80,9 +80,9 @@
                             <div class="panel-body">
                                 <div class="form-group">                                
                                     <input type="text" ng-focus="focus=true" id="ürün" name="ürün" 
-                                    class="form-control" placeholder="Ürün Kodu Giriniz" ng-model="urun_id">
+                                    class="form-control" placeholder="Ürün Kodu Giriniz" ng-model="query">
                                     <div id="search-results" ng-show="focus">
-                                        <div class="search-result" ng-repeat="item in product | search:urun_id" ng-bind="item" ng-click="getProduct(item)"></div>
+                                        <div class="search-result" ng-repeat="item in product | search:query" ng-bind="item" ng-click="setQuery(item)"></div>
                                     </div>
                                 </div> 
                     <!--            <div class="form-group">                                                                                                                    
