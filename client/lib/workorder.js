@@ -17,7 +17,6 @@
 
       $scope.search = function(query) {
 
-        alert("search");
         var obj = { 
           name: "1234"
         };
