@@ -17,6 +17,8 @@
 
       $scope.search = function(query) {
 
+        $scope.product = [];       
+        
         var obj = { 
           name: "1234"
         };
