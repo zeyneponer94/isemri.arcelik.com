@@ -33,10 +33,10 @@
 
             $scope.product = [];                    
             var i = 0;
-            while(response.data[i]!=null)
+            while(response.data[""+i]!=null)
             {
               var obj = { 
-                name: response.data[i].ProductCode
+                name: response.data[""+i].ProductCode
               };
               $scope.product.push(obj);  
               i++;
