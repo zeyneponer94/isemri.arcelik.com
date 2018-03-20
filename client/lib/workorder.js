@@ -17,7 +17,19 @@
 
       $scope.search = function(query) {
 
-       
+        var obj = { 
+          name: "1234"
+        };
+        
+        $scope.product.push(obj);  
+
+        var obj = { 
+          name: "12345"
+        };
+        
+        $scope.product.push(obj);  
+
+       /*
         $http({
           async: true,
           crossDomain: true,
@@ -43,7 +55,7 @@
             i++;
           } 
   
-        });   
+        });   */
   
       };
 
