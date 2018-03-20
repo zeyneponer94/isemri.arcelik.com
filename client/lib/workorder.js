@@ -17,19 +17,14 @@
 
       $scope.search = function(query) {
 
-        $scope.product = [];       
-        
-        var obj = { 
-          name: "1234"
-        };
-        
-        $scope.product.push(obj);  
 
-        var obj = { 
-          name: "12345"
-        };
-        
-        $scope.product.push(obj);  
+        $scope.product = [
+          '12',
+          '123',
+          '1234',
+          '12345'
+        ];
+
 
        /*
         $http({
