@@ -10,7 +10,7 @@
 
       $scope.product = [];       
 
-      setQuery = function(query) {
+      $scope.setQuery = function(query) {
         $scope.query = query;
         $scope.focus = false;
       };
