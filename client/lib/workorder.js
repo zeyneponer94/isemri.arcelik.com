@@ -21,7 +21,7 @@
             async: true,
             crossDomain: true,
             method: "GET", 
-            url: 'https://yetkiliservis-test.arcelik.com/wsaftersales/ProductService.svc/GetProductByCode/' +  viewValue,
+            url: 'https://thworkorderfapp.azurewebsites.net/product/' +  viewValue,
             headers: {            
               'Content-Type': 'application/json',
               'SessionToken': 'AEE0BE34-DD0F-4680-ACEF-A82F5C4093E4',
