@@ -78,12 +78,37 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">ÜRÜN SEÇİMİ</div>
                             <div class="panel-body">
-                                <div class="form-group">                               
+                                <div class="form-group">     
+                                    <md-autocomplete 
+                                        md-autoselect=true
+                                        placeholder="Ürün Kodu Giriniz*"
+                                        md-item-text="item.display"
+                                        md-items="item in product.name"
+                                        md-menu-class="autocomplete-custom-template"
+                                        md-min-length="8"
+                                        md-search-text="searchText"
+                                        md-search-text-change="search(searchText)"
+                                        md-select-on-match=true
+                                        md-match-case-insensitive=true
+                                        md-selected-item-change="setQuery(item)"
+                                        md-selected-item="item">
+                                      <md-item-template>
+                                        <span class="item-title">
+                                          <span md-highlight-flags="^i" md-highlight-text="searchText">
+                                            {{item}}
+                                          </span>
+                                        </span>
+                                      </md-item-template>
+                                      <md-not-found>
+                                        No match found.
+                                      </md-not-found>
+                                    </md-autocomplete>
+                                    <!--
                                     <input type="text" ng-change="query.length>12 && search(query)" ng-focus="focus=true" id="ürün" name="ürün" 
                                     class="form-control" placeholder="Ürün Kodu Giriniz*" ng-model="query">
                                     <select class="form-control" ng-show="focus">
                                         <option ng-repeat="item in product.name | filter:query | limitTo:6" value="{item}}" ng-bind="item" ng-click="setQuery(item)">{{item}}</option>
-                                    </select>
+                                    </select>-->
                                 </div> 
    
                                 <div class="form-group">                                                                                                                                            

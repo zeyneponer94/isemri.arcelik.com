@@ -8,11 +8,11 @@
 
     angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs,$sanitize) {
 
-      $scope.product = [];       
+      $scope.product = [];   
+      $scope.selectedItem = "";    
 
       $scope.setQuery = function(query) {
-        $scope.query = query;
-        $scope.focus = false;
+        $scope.selectedItem = query;
       };
 
       $scope.search = function(query) {
@@ -43,6 +43,8 @@
             $scope.product.push(obj);  
             i++;
           } 
+
+          return $scope.product;
   
         });   
   
