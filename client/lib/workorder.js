@@ -12,9 +12,7 @@
       self.simulateQuery = false;
       self.product = [];   
       self.querySearch   = querySearch;
-      self.selectedItemChange = selectedItemChange;
-      self.searchTextChange   = searchTextChange;
-      self.newState = newState;
+
 
       $scope.selectedItem = "";    
 
