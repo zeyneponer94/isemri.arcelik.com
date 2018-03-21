@@ -83,16 +83,27 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">ÜRÜN SEÇİMİ</div>
                             <div class="panel-body">
-                                <div class="form-group">  
-
-                                    <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText" md-items="item in search(searchText)" md-item-text="item.name" md-min-length="8" placeholder="Ürün Kodu Giriniz*">
-                                        <md-item-template> <span md-highlight-text="searchText">{{item.name}}</span>
-                                        </md-item-template>
-                                        <md-not-found>No matches found.</md-not-found>
+                                <div class="form-group" layout="column" ng-cloak>  
+                                <md-content class="md-padding">
+                                   <md-autocomplete
+                                        md-selected-item="selectedItem"
+                                        md-search-text-change="search(searchText)"
+                                        md-search-text="searchText"
+                                        md-selected-item-change="selectedItemChange(item)"
+                                        md-items="item in search(searchText)"
+                                        md-item-text="item.name"
+                                        md-min-length="7"
+                                        placeholder="Ürün Kodu Giriniz*">
+                                      <md-item-template>
+                                        <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.name}}</span>
+                                      </md-item-template>
+                                      <md-not-found>
+                                        No states matching "{{searchText}}" were found.
+                                      </md-not-found>
                                     </md-autocomplete>
-           
+                                    <br/>
+                                </md-content>                                
                                 </div> 
-   
                                 <div class="form-group">                                                                                                                                            
                                     <select class="form-control" ng-model="workorderSelect" required>
                                         <option value="">İş Emri Türü Seçiniz *</option> 

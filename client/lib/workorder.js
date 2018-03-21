@@ -1,4 +1,4 @@
-    app = angular.module('App', ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize']);
+    app = angular.module('App', ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ngMaterial']);
 
     app.config(['$httpProvider', function ($httpProvider) {
       $httpProvider.defaults.useXDomain = true;
@@ -8,7 +8,14 @@
 
     angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs,$sanitize) {
 
-      var product = [];   
+      var self = this;
+      self.simulateQuery = false;
+      self.product = [];   
+      self.querySearch   = querySearch;
+      self.selectedItemChange = selectedItemChange;
+      self.searchTextChange   = searchTextChange;
+      self.newState = newState;
+
       $scope.selectedItem = "";    
 
       $scope.setQuery = function(query) {
@@ -38,11 +45,11 @@
               name: response.data[""+i].ProductCode
             };
             
-            product.push(obj);  
+            self.product.push(obj);  
             i++;
           } 
 
-          return product;
+          return self.product;
   
         });   
   
