@@ -16,8 +16,6 @@
       };
 
       $scope.search = function(query) {
-
-
        
         $http({
           async: true,

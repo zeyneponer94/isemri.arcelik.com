@@ -83,40 +83,14 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">ÜRÜN SEÇİMİ</div>
                             <div class="panel-body">
-                                <div class="form-group" flex layout="row" ng-cloak style="height:100%">  
-                                  <md-content class="md-padding" flex>                                                
-                                    <md-autocomplete 
-                                        md-autoselect=true
-                                        placeholder="Ürün Kodu Giriniz*"
-                                        md-item-text="item.name"
-                                        md-items="item in product"
-                                        md-menu-class="autocomplete-custom-template"
-                                        md-min-length="8"
-                                        md-search-text="searchText"
-                                        md-search-text-change="search(searchText)"
-                                        md-select-on-match=true
-                                        md-match-case-insensitive=true
-                                        md-selected-item-change="setQuery(item)"
-                                        md-selected-item="selectedItem">
-                                      <md-item-template>
-                                        <span class="item-title">
-                                          <span md-highlight-flags="^i" md-highlight-text="searchText">
-                                            {{item.name}}
-                                          </span>
-                                        </span>
-                                      </md-item-template>
-                                      <md-not-found>
-                                        No match found.
-                                      </md-not-found>
+                                <div class="form-group">  
+
+                                    <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText" md-items="item in search(searchText)" md-item-text="item.name" md-min-length="8" placeholder="Ürün Kodu Giriniz*">
+                                        <md-item-template> <span md-highlight-text="searchText">{{item.name}}</span>
+                                        </md-item-template>
+                                        <md-not-found>No matches found.</md-not-found>
                                     </md-autocomplete>
-                                  </md-content>
-                                
-                                    <!--
-                                    <input type="text" ng-change="query.length>12 && search(query)" ng-focus="focus=true" id="ürün" name="ürün" 
-                                    class="form-control" placeholder="Ürün Kodu Giriniz*" ng-model="query">
-                                    <select class="form-control" ng-show="focus">
-                                        <option ng-repeat="item in product.name | filter:query | limitTo:6" value="{item}}" ng-bind="item" ng-click="setQuery(item)">{{item}}</option>
-                                    </select>-->
+           
                                 </div> 
    
                                 <div class="form-group">                                                                                                                                            

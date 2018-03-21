@@ -7,21 +7,6 @@ body{
     position:absolute;
     width: 100%;
 }
-.autocomplete-custom-template li {
-    border-bottom: 1px solid rgba(0,0,0,0.15);
-    height: auto;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    white-space: normal; }
-  .autocomplete-custom-template li:last-child {
-    border-bottom-width: 0; }
-  .autocomplete-custom-template .item-title,
-  .autocomplete-custom-template .item-metadata {
-    display: block;
-    line-height: 2; }
-  [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-    display: none !important;
-  }
 .main-section{
     bottom:0px;
     top:0px;
