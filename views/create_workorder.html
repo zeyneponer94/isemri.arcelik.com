@@ -79,7 +79,7 @@
                             <div class="panel-heading">ÜRÜN SEÇİMİ</div>
                             <div class="panel-body">
                                 <div class="form-group">                               
-                                    <input type="text" ng-change="(query.length>12)?search(query):" ng-focus="focus=true" id="ürün" name="ürün" 
+                                    <input type="text" ng-change="query.length>12 && search(query):" ng-focus="focus=true" id="ürün" name="ürün" 
                                     class="form-control" placeholder="Ürün Kodu Giriniz*" ng-model="query">
                                     <div id="search-results" ng-show="focus">
                                         <div class="search-result" ng-repeat="item in product.name | filter:query | limitTo:6" ng-bind="item" ng-click="setQuery(item)"></div>
