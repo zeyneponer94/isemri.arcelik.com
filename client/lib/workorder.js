@@ -8,7 +8,7 @@
 
     angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs,$sanitize) {
 
-      $scope.product = [];   
+      var product = [];   
       $scope.selectedItem = "";    
 
       $scope.setQuery = function(query) {
@@ -38,11 +38,11 @@
               name: response.data[""+i].ProductCode
             };
             
-            $scope.product.push(obj);  
+            product.push(obj);  
             i++;
           } 
 
-          return $scope.product;
+          return product;
   
         });   
   
