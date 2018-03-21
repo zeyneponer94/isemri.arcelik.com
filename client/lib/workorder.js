@@ -18,15 +18,7 @@
       $scope.search = function(query) {
 
 
-        $scope.product = [
-          '12',
-          '123',
-          '1234',
-          '12345'
-        ];
-
-
-       /*
+       
         $http({
           async: true,
           crossDomain: true,
@@ -34,7 +26,7 @@
           url: 'https://thworkorderfapp.azurewebsites.net/product/' +  query,
           headers: {            
             'Content-Type': 'application/json',
-            'SessionToken': 'FB5D7BF5-2DD7-4105-A4A4-B569EF075492',
+            'SessionToken': 'FC1C9D9B-5747-41AF-9D85-F105C3473DA6',
             'Cache-Control': 'no-cache',
             'servicetype': 'INTHEBOX1'
            } 
@@ -45,14 +37,14 @@
           while(response.data[""+i]!=null)
           {
             var obj = { 
-              name: response.data[""+i].ProductCode
+              name: response.data[""+i].BrandCode
             };
             
             $scope.product.push(obj);  
             i++;
           } 
   
-        });   */
+        });   
   
       };
 
@@ -71,7 +63,7 @@
           method: "GET",
           headers: {            
                     'Content-Type': 'application/json',
-                    'SessionToken': 'FB5D7BF5-2DD7-4105-A4A4-B569EF075492',
+                    'SessionToken': 'FC1C9D9B-5747-41AF-9D85-F105C3473DA6',
                     'Cache-Control': 'no-cache',
                     'servicetype': 'INTHEBOX1'
                    }
@@ -96,7 +88,7 @@
             url: 'https://thworkorderfapp.azurewebsites.net/Uavt_city/' + $scope.provinceSelect + '/0/0',
             headers: {            
               'Content-Type': 'application/json',
-              'SessionToken': 'FB5D7BF5-2DD7-4105-A4A4-B569EF075492',
+              'SessionToken': 'FC1C9D9B-5747-41AF-9D85-F105C3473DA6',
               'Cache-Control': 'no-cache',
               'servicetype': 'INTHEBOX1'
              }
@@ -121,7 +113,7 @@
             url: 'https://thworkorderfapp.azurewebsites.net/Uavt_area/' + $scope.provinceSelect + '/' + $scope.citySelect + '/0',
             headers: {            
               'Content-Type': 'application/json',
-              'SessionToken': 'FB5D7BF5-2DD7-4105-A4A4-B569EF075492',
+              'SessionToken': 'FC1C9D9B-5747-41AF-9D85-F105C3473DA6',
               'Cache-Control': 'no-cache',
               'servicetype': 'INTHEBOX1'
              }
