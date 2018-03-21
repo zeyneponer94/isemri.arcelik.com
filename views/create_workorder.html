@@ -83,13 +83,13 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">ÜRÜN SEÇİMİ</div>
                             <div class="panel-body">
-                                <div class="form-group" flex layout="row" ng-cloak>  
+                                <div class="form-group" flex layout="row" ng-cloak style="height:100%">  
                                   <md-content class="md-padding" flex>                                                
                                     <md-autocomplete 
                                         md-autoselect=true
                                         placeholder="Ürün Kodu Giriniz*"
-                                        md-item-text="item"
-                                        md-items="item in product.name"
+                                        md-item-text="item.name"
+                                        md-items="item in product"
                                         md-menu-class="autocomplete-custom-template"
                                         md-min-length="8"
                                         md-search-text="searchText"
@@ -101,7 +101,7 @@
                                       <md-item-template>
                                         <span class="item-title">
                                           <span md-highlight-flags="^i" md-highlight-text="searchText">
-                                            {{item}}
+                                            {{item.name}}
                                           </span>
                                         </span>
                                       </md-item-template>

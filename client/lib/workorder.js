@@ -12,12 +12,12 @@
       $scope.selectedItem = "";    
 
       $scope.setQuery = function(query) {
-        $scope.selectedItem = query;
+        //$scope.selectedItem = query;
       };
 
       $scope.search = function(query) {
 
-
+/*
        
         $http({
           async: true,
@@ -46,7 +46,7 @@
 
           return $scope.product;
   
-        });   
+        });   */
   
       };
 
