@@ -32,7 +32,7 @@
            } 
         }) 
         .then(function(response){ 
-  
+  /*
           var i = 0;
           while(response.data[""+i]!=null)
           {
@@ -44,7 +44,7 @@
             i++;
           } 
   
-        });   
+        });   */
   
       };
 
