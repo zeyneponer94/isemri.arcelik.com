@@ -32,19 +32,19 @@
            } 
         }) 
         .then(function(response){ 
-  /*
+  
           var i = 0;
           while(response.data[""+i]!=null)
           {
             var obj = { 
-              name: response.data[""+i].BrandCode
+              name: response.data[""+i].ProductCode
             };
             
             $scope.product.push(obj);  
             i++;
           } 
   
-        });   */
+        });   
   
       };
 
