@@ -82,7 +82,7 @@
                                     <md-autocomplete 
                                         md-autoselect=true
                                         placeholder="Ürün Kodu Giriniz*"
-                                        md-item-text="item.display"
+                                        md-item-text="item"
                                         md-items="item in product.name"
                                         md-menu-class="autocomplete-custom-template"
                                         md-min-length="8"
@@ -91,7 +91,7 @@
                                         md-select-on-match=true
                                         md-match-case-insensitive=true
                                         md-selected-item-change="setQuery(item)"
-                                        md-selected-item="item">
+                                        md-selected-item="selectedItem">
                                       <md-item-template>
                                         <span class="item-title">
                                           <span md-highlight-flags="^i" md-highlight-text="searchText">
