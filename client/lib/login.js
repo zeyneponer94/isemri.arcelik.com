@@ -2,7 +2,7 @@ var testApp = angular.module("App", ['BotDetectCaptcha']);
 
 testApp.config(function(captchaSettingsProvider) {
     captchaSettingsProvider.setSettings({
-      captchaEndpoint: '/bdc4-simple-api-angularjs-captcha-example/botdetectcaptcha'
+      captchaEndpoint: 'BotDetect-Java-CAPTCHA-Component-Free/examples/simple-api/bdc4-simple-api-angularjs-captcha-example/botdetectcaptcha'
     });
   });
 
