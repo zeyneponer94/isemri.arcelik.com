@@ -88,8 +88,8 @@
                                             data-toggle="tooltip" data-placement="top" title="Ürün Kodu Giriniz*"
                                             ng-change="search(txtProductCode)" ng-minlength="5";
                                             name="txtProductCode" ng-model="txtProductCode" placeholder="Ürün Kodu Giriniz*" required />
-                                    <div class="entry" ng-repeat="item in ResponseProductList | filter:txtProductCode | limitTo:10">
-                                        <span>{{item.name}}</span>
+                                    <div class="entry" ng-repeat="item in ResponseProductList | filter:txtProductCode | limitTo:10" ng-show="show">
+                                        <span ng-click="fncProductChoose(item.name)">{{item.name}}</span>
                                     </div>
                                 </div>                        
                                 <div class="form-group">                                                                                                                                            

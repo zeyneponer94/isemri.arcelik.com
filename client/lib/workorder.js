@@ -10,8 +10,15 @@
 
       $scope.ResponseProductList = [];   
 
+      $scope.fncProductChoose = function(query) {
+        $scope.txtProductCode = query;
+        $scope.show = false;
+      }
+
       $scope.search = function(query) {
        
+        $scope.show = true;
+
         $http({
           async: true,
           crossDomain: true,
