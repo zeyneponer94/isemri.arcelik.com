@@ -1,0 +1,7 @@
+com.captcha.botdetect
+com.captcha.botdetect.internal.core
+com.captcha.botdetect.internal.core.captchacode
+com.captcha.botdetect.internal.core.captchacode.validation
+com.captcha.botdetect.internal.infrastructure.text
+com.captcha.botdetect.internal.support
+com.captcha.botdetect.web

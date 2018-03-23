@@ -15,7 +15,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
   $scope.errorMessages = '';
   
   // basic captcha url
-  var basicUrl = '/bdc4-simple-api-angularjs-captcha-example/basic-captcha';
+  var basicUrl = 'BotDetect-Java-CAPTCHA-Component-Free/examples/simple-api/bdc4-simple-api-angularjs-captcha-example/basic-captcha';
   
   $scope.validate = function(valid) {
 
