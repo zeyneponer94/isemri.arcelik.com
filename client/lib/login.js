@@ -1,6 +1,6 @@
 var testApp = angular.module("App", ['BotDetectCaptcha']);
 
-app.config(function(captchaSettingsProvider) {
+testApp.config(function(captchaSettingsProvider) {
     captchaSettingsProvider.setSettings({
       captchaEndpoint: '/bdc4-simple-api-angularjs-captcha-example/botdetectcaptcha'
     });
