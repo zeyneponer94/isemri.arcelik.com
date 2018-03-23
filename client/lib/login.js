@@ -1,19 +1,19 @@
 var testApp = angular.module("App", ['BotDetectCaptcha']);
-/*
+
 testApp.config(function(captchaSettingsProvider) {
     captchaSettingsProvider.setSettings({
-      captchaEndpoint: '/botdetect-java-captcha-api-path-at-server-side/botdetectcaptcha'
+      captchaEndpoint: '/botdetectcaptcha'
     });
-  });*/
+  });
 
 testApp.controller('Controller' , ['$scope','$http','$window', function ($scope, $http, $window, Captcha) {
 
      // captcha validation messages
   $scope.successMessages = '';
   $scope.errorMessages = '';
-  /*
+  
   // basic captcha url
-  var basicUrl = '/botdetect-java-captcha-api-path-at-server-side/basic-captcha';
+  var basicUrl = '/basic-captcha';
   
   $scope.validate = function(valid) {
 
@@ -60,7 +60,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
       }, function(error) {
         console.log(error.data);
       });
-  };*/
+  };
    
 
     $scope.submit = function (model) {    
