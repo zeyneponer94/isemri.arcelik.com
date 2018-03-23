@@ -19,7 +19,7 @@
                                     <p>Altus ve Grundig İş Emri Girişine Hoşgeldiniz.</p>                                        
                                     <p> Şifreniz ile güvenli giriş yapabilirsiniz.</p>
                                 </div>  
-                                <form name="form" novalidate>                                        
+                                <form name="form" novalidate ng-submit="validate(form.$valid)">                                        
                                     <div class="col-md-12 col-sm-12 col-xs-12 user-login-box" ng-controller="Controller">
                                         <div class="form-group input-group">
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-user" ></i></span>
@@ -29,7 +29,22 @@
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                                             <input type="password" name="password" id="focusedInput_password" class="form-control" placeholder="Şifre" ng-model="password" required/>
                                         </div>
-                                        <button type="submit" class="btn btn-default" ng-click="submit()" ng-disabled="form.$invalid">Giriş</button> 
+
+                                            <!-- show Captcha image html-->
+                                            <botdetect-captcha styleName="angularBasicCaptcha"></botdetect-captcha>
+                                            
+                                            <label>
+                                            <span>Retype the characters from the picture:</span>
+                                            <!-- captcha code user input textbox -->
+                                            <input type="text" name="captchaCode" ng-model="captchaCode" correct-captcha id="captchaCode" autocomplete="off">
+                                            </label>
+                                        
+                                        
+                                            <div class="error" ng-show="form.captchaCode.$invalid && !form.captchaCode.$pristine">
+                                            Incorrect code.
+                                            </div>
+
+                                        <button type="submit" class="btn btn-default" ng-disabled="form.$invalid">Giriş</button> 
                                         <button type="button" class="btn btn-default" ng-click="register()">Not Registered Yet?</button>                                         
                                     </div>
                                 </form>
@@ -42,6 +57,7 @@
                 </div>
         <script src="lib/angular.min.js"></script>                 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
-        <script src="lib/login.js"></script>          
+        <script src="angularjs-captcha/dist/angularjs-captcha.min.js"></script>                    
+        <script src="lib/login.js"></script>     
     </body>
 </html>
