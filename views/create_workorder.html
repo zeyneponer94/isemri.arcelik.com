@@ -83,26 +83,15 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">ÜRÜN SEÇİMİ</div>
                             <div class="panel-body">
-                                <div class="form-group" layout="column" ng-cloak>  
-                                <md-content class="md-padding">
-                                   <md-autocomplete
-                                        md-selected-item="selectedItem"
-                                        md-search-text-change="search(searchText)"
-                                        md-search-text="searchText"
-                                        md-items="item in search(searchText)"
-                                        md-item-text="item.name"
-                                        md-min-length="7"
-                                        placeholder="Ürün Kodu Giriniz*">
-                                      <md-item-template>
-                                        <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.name}}</span>
-                                      </md-item-template>
-                                      <md-not-found>
-                                        No states matching "{{searchText}}" were found.
-                                      </md-not-found>
-                                    </md-autocomplete>
-                                    <br/>
-                                </md-content>                                
-                                </div> 
+                                <div class="form-group col-md-3">
+                                    <input type="text" class="form-control" id="txtProductCode"
+                                            data-toggle="tooltip" data-placement="top" title="Ürün Kodu Giriniz*"
+                                            ng-change="search(txtProductCode)" ng-minlength="5";
+                                            name="txtProductCode" ng-model="txtProductCode" placeholder="Ürün Kodu Giriniz*" required />
+                                    <div class="entry" ng-repeat="item in ResponseProductList | filter:txtProductCode | limitTo:10">
+                                        <span>{{item.name}}</span>
+                                    </div>
+                                </div>                        
                                 <div class="form-group">                                                                                                                                            
                                     <select class="form-control" ng-model="workorderSelect" required>
                                         <option value="">İş Emri Türü Seçiniz *</option> 

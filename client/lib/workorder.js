@@ -1,4 +1,4 @@
-    app = angular.module('App', ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ngMaterial']);
+    app = angular.module('App', ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize']);
 
     app.config(['$httpProvider', function ($httpProvider) {
       $httpProvider.defaults.useXDomain = true;
@@ -8,17 +8,7 @@
 
     angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs,$sanitize) {
 
-      var self = this;
-      self.simulateQuery = false;
-      self.product = [];   
-      self.querySearch   = querySearch;
-
-
-      $scope.selectedItem = "";    
-
-      $scope.setQuery = function(query) {
-        $scope.selectedItem = query;
-      };
+      $scope.ResponseProductList = [];   
 
       $scope.search = function(query) {
        
@@ -29,7 +19,7 @@
           url: 'https://thworkorderfapp.azurewebsites.net/product/' +  query,
           headers: {            
             'Content-Type': 'application/json',
-            'SessionToken': 'FC1C9D9B-5747-41AF-9D85-F105C3473DA6',
+            'SessionToken': '608CC073-24AF-4440-AE12-03761E984F1E',
             'Cache-Control': 'no-cache',
             'servicetype': 'INTHEBOX1'
            } 
@@ -43,11 +33,11 @@
               name: response.data[""+i].ProductCode
             };
             
-            self.product.push(obj);  
+            $scope.ResponseProductList.push(obj);  
             i++;
           } 
 
-          return self.product;
+          return $scope.ResponseProductList;
   
         });   
   
@@ -68,7 +58,7 @@
           method: "GET",
           headers: {            
                     'Content-Type': 'application/json',
-                    'SessionToken': 'FC1C9D9B-5747-41AF-9D85-F105C3473DA6',
+                    'SessionToken': '608CC073-24AF-4440-AE12-03761E984F1E',
                     'Cache-Control': 'no-cache',
                     'servicetype': 'INTHEBOX1'
                    }
@@ -93,7 +83,7 @@
             url: 'https://thworkorderfapp.azurewebsites.net/Uavt_city/' + $scope.provinceSelect + '/0/0',
             headers: {            
               'Content-Type': 'application/json',
-              'SessionToken': 'FC1C9D9B-5747-41AF-9D85-F105C3473DA6',
+              'SessionToken': '608CC073-24AF-4440-AE12-03761E984F1E',
               'Cache-Control': 'no-cache',
               'servicetype': 'INTHEBOX1'
              }
@@ -118,7 +108,7 @@
             url: 'https://thworkorderfapp.azurewebsites.net/Uavt_area/' + $scope.provinceSelect + '/' + $scope.citySelect + '/0',
             headers: {            
               'Content-Type': 'application/json',
-              'SessionToken': 'FC1C9D9B-5747-41AF-9D85-F105C3473DA6',
+              'SessionToken': '608CC073-24AF-4440-AE12-03761E984F1E',
               'Cache-Control': 'no-cache',
               'servicetype': 'INTHEBOX1'
              }
