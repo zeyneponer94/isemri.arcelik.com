@@ -2,20 +2,18 @@ var testApp = angular.module("App", ['BotDetectCaptcha']);
 
 testApp.config(function(captchaSettingsProvider) {
     captchaSettingsProvider.setSettings({
-      captchaEndpoint: 'BotDetect-Java-CAPTCHA-Component-Free/examples/simple-api/bdc4/botdetectcaptcha'
+      captchaEndpoint: '/botdetect-java-captcha-api-path-at-server-side/botdetectcaptcha'
     });
   });
 
 testApp.controller('Controller' , ['$scope','$http','$window', function ($scope, $http, $window, Captcha) {
-
-
 
      // captcha validation messages
   $scope.successMessages = '';
   $scope.errorMessages = '';
   
   // basic captcha url
-  var basicUrl = 'BotDetect-Java-CAPTCHA-Component-Free/examples/simple-api/bdc4/basic-captcha';
+  var basicUrl = '/botdetect-java-captcha-api-path-at-server-side/basic-captcha';
   
   $scope.validate = function(valid) {
 
