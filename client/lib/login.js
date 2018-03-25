@@ -41,7 +41,7 @@ testApp.config(function(captchaSettingsProvider) {
       $http({
         method: 'POST',
         url: basicUrl,
-        data: JSON.stringify(postData)
+        data: postData
       })
         .then(function(response) {
           if (response.data.success) {
