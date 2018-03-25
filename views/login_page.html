@@ -34,7 +34,7 @@
                                         <button type="button" class="btn btn-default" ng-click="register()">Not Registered Yet?</button>                                         
                                     </div>
                                 </form>
-                                <form name="basicForm" novalidate ng-controller="BasicController" ng-submit="validate(basicForm.$valid)">
+                                <form name="basicForm" novalidate ng-controller="BasicController">
                                       <div class="alert alert-success" ng-show="successMessages">
                                         {{ successMessages }}
                                       </div>
@@ -43,7 +43,7 @@
                                         {{ errorMessages }}
                                       </div>
                                     
-                                <!--      <botdetect-captcha styleName="angularBasicCaptcha"></botdetect-captcha>-->
+                                      <botdetect-captcha styleName="angularBasicCaptcha"></botdetect-captcha>
                                     
                                       <label>
                                         <span>Retype the characters from the picture:</span>
@@ -54,7 +54,7 @@
                                         Incorrect code.
                                       </div>
                                     
-                                      <button type="submit" ng-disabled="basicForm.$invalid">Validate</button>
+                                      <button type="submit" ng-click="validate(basicForm.$valid)">Validate</button>
                                 </form> 
                                 <div class="col-md-12 col-sm-12 col-xs-12 last-part">
                                     <p>© 2018 Arçelik All rights reserved.</p>
