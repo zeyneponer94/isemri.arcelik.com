@@ -13,7 +13,7 @@ testApp.config(function(captchaSettingsProvider) {
     $scope.errorMessages = '';
     
     // basic captcha url
-    var basicUrl = 'WEB-INF/web.xml';
+    var basicUrl = 'WEB-INF/botdetect.xml';
     
     $scope.validate = function(valid) {
   
