@@ -33,17 +33,15 @@ testApp.config(function(captchaSettingsProvider) {
       // captcha code input value for validating captcha at server-side
       var captchaCode = $scope.captchaCode;
   
-      var postData =
-      {
-            "captchaId" : "" + captchaId,
-            "captchaCode" : "" + captchaCode
-      }
-
+      var postData = {
+        captchaId: captchaId,
+        captchaCode: captchaCode
+      };
       
       $http({
         method: 'POST',
         url: basicUrl,
-        data: postData
+        data: JSON.stringify(postData)
       })
         .then(function(response) {
           if (response.data.success) {
