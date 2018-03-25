@@ -34,7 +34,6 @@
                                     </div>
                                 </form>
                                 <form name="basicForm" novalidate ng-controller="BasicController" ng-submit="validate(basicForm.$valid)">
-                                    
                                       <div class="alert alert-success" ng-show="successMessages">
                                         {{ successMessages }}
                                       </div>
@@ -52,15 +51,12 @@
                                         <input type="text" name="captchaCode" ng-model="captchaCode" correct-captcha id="captchaCode" autocomplete="off">
                                       </label>
                                     
-                                    
                                       <div class="error" ng-show="basicForm.captchaCode.$invalid && !basicForm.captchaCode.$pristine">
                                         Incorrect code.
                                       </div>
                                     
                                       <button type="submit" ng-disabled="basicForm.$invalid">Validate</button>
                                     </form>
-
-                                    
                                 <div class="col-md-12 col-sm-12 col-xs-12 last-part">
                                     <p>© 2018 Arçelik All rights reserved.</p>
                                 </div>
@@ -68,9 +64,11 @@
                         </div>
                     </div>
                 </div>
-        <script src="lib/angular.min.js"></script>     
+        <!-- <script src="lib/angular.min.js"></script>  -->
+        <script src="https://code.angularjs.org/1.5.9/angular.min.js"></script>        
         <script src="angularjs-captcha/dist/angularjs-captcha.min.js"></script>     
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
-        <script src="lib/login.js"></script>     
+        <script src="lib/login.js"></script>   
+
     </body>
 </html>
