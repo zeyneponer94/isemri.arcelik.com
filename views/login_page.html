@@ -34,7 +34,7 @@
                                         <button type="button" class="btn btn-default" ng-click="register()">Not Registered Yet?</button>                                         
                                     </div>
                                 </form>
-                                <form name="basicForm" novalidate ng-controller="BasicController">
+                                <form name="basicForm" novalidate ng-controller="BasicController" ng-submit="validate(basicForm.$valid)">
                                       <div class="alert alert-success" ng-show="successMessages">
                                         {{ successMessages }}
                                       </div>
@@ -43,7 +43,7 @@
                                         {{ errorMessages }}
                                       </div>
                                     
-                                      <botdetect-captcha styleName="angularBasicCaptcha"></botdetect-captcha>
+                                <!--      <botdetect-captcha styleName="angularBasicCaptcha"></botdetect-captcha>-->
                                     
                                       <label>
                                         <span>Retype the characters from the picture:</span>
