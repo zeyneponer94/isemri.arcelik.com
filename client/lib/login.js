@@ -2,7 +2,7 @@ var testApp = angular.module("App", ['BotDetectCaptcha']);
 
 testApp.config(function(captchaSettingsProvider) {
     captchaSettingsProvider.setSettings({
-      captchaEndpoint: 'WEB-INF/web.xml/botdetectcaptcha'
+      captchaEndpoint: 'WEB-INF/web.xml/CaptchaServlet'
     });
   });
   
@@ -13,7 +13,7 @@ testApp.config(function(captchaSettingsProvider) {
     $scope.errorMessages = '';
     
     // basic captcha url
-    var basicUrl = 'WEB-INF/web.xml/basic-captcha';
+    var basicUrl = 'WEB-INF/web.xml/CaptchaServlet';
     
     $scope.validate = function(valid) {
   
