@@ -2,7 +2,7 @@ var testApp = angular.module("App", ['BotDetectCaptcha']);
 
 testApp.config(function(captchaSettingsProvider) {
     captchaSettingsProvider.setSettings({
-      captchaEndpoint: 'angularjs-captcha/dist/angularjs-captcha.min.js/bdc4-simple-api-angularjs-captcha-example/botdetectcaptcha'
+      captchaEndpoint: 'WEB-INF/botdetectcaptcha'
     });
   });
   
@@ -13,7 +13,7 @@ testApp.config(function(captchaSettingsProvider) {
     $scope.errorMessages = '';
     
     // basic captcha url
-    var basicUrl = 'angularjs-captcha/dist/angularjs-captcha.min.js/bdc4-simple-api-angularjs-captcha-example/basic-captcha';
+    var basicUrl = 'WEB-INF/basic-captcha';
     
     $scope.validate = function(valid) {
   
