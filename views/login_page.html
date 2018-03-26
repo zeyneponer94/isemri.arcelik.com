@@ -20,7 +20,7 @@
                                     <p>Altus ve Grundig İş Emri Girişine Hoşgeldiniz.</p>                                        
                                     <p> Şifreniz ile güvenli giriş yapabilirsiniz.</p>
                                 </div>  
-                                <form action="/submit" method="post" name="form" novalidate>                                        
+                                <form id="comment_form" action="/submit" method="post" name="form" novalidate>                                        
                                     <div class="col-md-12 col-sm-12 col-xs-12 user-login-box" ng-controller="Controller">
                                         <div class="form-group input-group">
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-user" ></i></span>
@@ -67,6 +67,22 @@
                 </div>
         <script src="lib/angular.min.js"></script>   
         <script src='https://www.google.com/recaptcha/api.js'></script>
+        <script>
+            $(document).ready(function() {
+              $('#comment_form').submit(function() {
+                $(this).ajaxSubmit({
+                  error: function(xhr) {
+                    status('Error: ' + xhr.status);
+                  },
+                 success: function(response) {
+                  console.log(response);
+                 }
+                });
+                //Very important line, it disable the page refresh.
+                return false;
+              });
+            });
+        </script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
         <script src="lib/login.js"></script>   
 
