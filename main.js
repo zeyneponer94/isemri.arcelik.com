@@ -23,6 +23,8 @@ app.post('/submit',function(req,res){
     if(req.body['g-recaptcha-response'] === undefined || req.body['g-recaptcha-response'] === '' || req.body['g-recaptcha-response'] === null) {
       return res.json({"responseCode" : 1,"responseDesc" : "Please select captcha"});
     }
+
+    res.send(req.body['g-recaptcha-response']);
     // Put your secret key here.
     var secretKey = "6LfuDE8UAAAAAAH7G69uBc7aONOVQ4d23A24Hiu5";
     // req.connection.remoteAddress will provide IP address of connected user.
