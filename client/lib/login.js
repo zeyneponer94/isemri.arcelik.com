@@ -72,8 +72,10 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
 
         $http({method: 'POST', url: '/submit'}).
         success(function(data, status) { 
+            alert(data);
         }).
         error(function(data, status) {
+            alert(data);
         }); 
  /*       
         $http({

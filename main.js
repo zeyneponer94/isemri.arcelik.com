@@ -32,9 +32,9 @@ app.post('/submit',function(req,res){
       body = JSON.parse(body);
       // Success will be true or false depending upon captcha validation.
       if(body.success !== undefined && !body.success) {
-        res.send({"responseCode" : 1,"responseDesc" : "Failed captcha verification"});
+        return res.json({"responseCode" : 1,"responseDesc" : "Failed captcha verification"});
       }
-      res.send({"responseCode" : 0,"responseDesc" : "Success"});
+      return res.json({"responseCode" : 0,"responseDesc" : "Success"});
     });
   });
 
