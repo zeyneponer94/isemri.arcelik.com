@@ -13,7 +13,7 @@ testApp.config(function(captchaSettingsProvider) {
     $scope.errorMessages = '';
     
     // basic captcha url
-    var basicUrl = 'WEB-INF/botdetect.xml';
+    var basicUrl = 'https://thworkorderfapp.azurewebsites.net/botdetect';
     
     $scope.validate = function(valid) {
   
