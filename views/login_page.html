@@ -20,7 +20,7 @@
                                     <p>Altus ve Grundig İş Emri Girişine Hoşgeldiniz.</p>                                        
                                     <p> Şifreniz ile güvenli giriş yapabilirsiniz.</p>
                                 </div>  
-                                <form name="form" novalidate>                                        
+                                <form action=/submit"" method="post" name="form" novalidate>                                        
                                     <div class="col-md-12 col-sm-12 col-xs-12 user-login-box" ng-controller="Controller">
                                         <div class="form-group input-group">
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-user" ></i></span>
@@ -30,10 +30,11 @@
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                                             <input type="password" name="password" id="focusedInput_password" class="form-control" placeholder="Şifre" ng-model="password" required/>
                                         </div>
-                                        <button type="submit" class="btn btn-default" ng-disabled="form.$invalid" ng-click="submit(captcha)">Giriş</button> 
-                                        <button type="button" class="btn btn-default" ng-click="register()">Not Registered Yet?</button>                                         
+                                        <div class="g-recaptcha" ng-model="captcha" data-sitekey="6LfuDE8UAAAAAJrvFeOas22ubW563AbuxSDADsBA"></div>
+                                        <input type="submit" value="Submit" />                                        
+                             <!--           <button type="submit" class="btn btn-default" ng-disabled="form.$invalid" ng-click="submit(captcha)">Giriş</button> 
+                                        <button type="button" class="btn btn-default" ng-click="register()">Not Registered Yet?</button>     -->                                    
                                     </div>
-                                    <div class="g-recaptcha" ng-model="captcha" data-sitekey="6LfuDE8UAAAAAJrvFeOas22ubW563AbuxSDADsBA"></div>
                                 </form>
                 <!--                <form name="basicForm" novalidate ng-controller="BasicController">
                                       <div class="alert alert-success" ng-show="successMessages">

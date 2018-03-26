@@ -68,23 +68,6 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
    
 
     $scope.submit = function (reCAPTCHA) {    
-
-
-
-        $http({
-            method: "POST", 
-            url: 'https://thworkorderfapp.azurewebsites.net/google_captcha',
-            headers: {            
-              'Content-Type': 'application/json',
-              'secret': '6LfuDE8UAAAAAAH7G69uBc7aONOVQ4d23A24Hiu5',              
-              'response': '' + reCAPTCHA
-             }
-          }) 
-          .then(function(response){ 
-              alert(response);
-          }); 
-
-        /*
         
         $http({
             method: "GET",        
@@ -99,7 +82,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
         }).
         error(function(data, status) {
             alert(data);
-        });*/
+        });
     };       
                                                                             
     $scope.login = function(){ 
