@@ -33,15 +33,18 @@ testApp.config(function(captchaSettingsProvider) {
       // captcha code input value for validating captcha at server-side
       var captchaCode = $scope.captchaCode;
   
-      var postData = {
+      $scope.jsonData = {
         "captchaId": ""+captchaId,
         "captchaCode": ""+captchaCode
       };
+
+      $scope.postData = angular.toJson($scope.jsonData, true);                
+      
       
       $http({
         method: 'POST',
         url: basicUrl,
-        data: postData
+        data:  $scope.postData
       })
         .then(function(response) {
           if (response.data.success) {
