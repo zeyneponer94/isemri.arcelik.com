@@ -2,7 +2,7 @@ var testApp = angular.module("App", ['BotDetectCaptcha']);
 
 testApp.config(function(captchaSettingsProvider) {
     captchaSettingsProvider.setSettings({
-      captchaEndpoint: 'https://thworkorder.azurewebsites.net/botdetectcaptcha'
+      captchaEndpoint: 'WEB-INF/lib/botdetectcaptcha'
     });
   });
   
