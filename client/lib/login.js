@@ -2,6 +2,7 @@ var testApp = angular.module("App", ['BotDetectCaptcha']);
 
 testApp.config(function(captchaSettingsProvider) {
     captchaSettingsProvider.setSettings({
+      captchaEndpoint: 'D:/Users/26029554/Desktop/nodejs-docs-hello-world-master/client/WEB-INF/lib/botdetectcaptcha'
     });
   });
   
