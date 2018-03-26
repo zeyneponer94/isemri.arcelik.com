@@ -18,13 +18,13 @@ app.get('/workorder' , function(req,res) {
 });
 
 app.post('/submit',function(req,res){
+    res.send(req.body['g-recaptcha-response']);    
     // g-recaptcha-response is the key that browser will generate upon form submit.
     // if its blank or null means user has not selected the captcha, so return the error.
     if(req.body['g-recaptcha-response'] === undefined || req.body['g-recaptcha-response'] === '' || req.body['g-recaptcha-response'] === null) {
       return res.json({"responseCode" : 1,"responseDesc" : "Please select captcha"});
     }
 
-    res.send(req.body['g-recaptcha-response']);
     // Put your secret key here.
     var secretKey = "6LfuDE8UAAAAAAH7G69uBc7aONOVQ4d23A24Hiu5";
     // req.connection.remoteAddress will provide IP address of connected user.
