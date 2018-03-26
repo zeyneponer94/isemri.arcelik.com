@@ -14,7 +14,7 @@
         "angular-route": "^1.6.9",
         "angular-sanitize": "^1.6.9",
         "angular-spinner": "^1.0.1",
-        "angularjs-captcha": "file:client/angularjs-captcha",
+        "angularjs-captcha": "^1.0.2",
         "body-parser": "~1.6.2",
         "cookie-parser": "~1.0.1",
         "cors": "^2.8.4",
