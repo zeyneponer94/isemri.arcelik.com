@@ -34,14 +34,14 @@ testApp.config(function(captchaSettingsProvider) {
       var captchaCode = $scope.captchaCode;
   
       var postData = {
-        captchaId: captchaId,
-        captchaCode: captchaCode
+        "captchaId": ""+captchaId,
+        "captchaCode": ""+captchaCode
       };
       
       $http({
         method: 'POST',
         url: basicUrl,
-        data: JSON.stringify(postData)
+        data: postData
       })
         .then(function(response) {
           if (response.data.success) {
