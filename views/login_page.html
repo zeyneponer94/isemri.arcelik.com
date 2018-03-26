@@ -43,18 +43,18 @@
                                         {{ errorMessages }}
                                       </div>
                                     
-                                      <botdetect-captcha styleName="angularBasicCaptcha"></botdetect-captcha>
+                                      <botdetect-captcha styleName="exampleCaptcha"></botdetect-captcha>
                                     
                                       <label>
                                         <span>Retype the characters from the picture:</span>
-                                        <input type="text" name="captchaCode" ng-model="captchaCode" correct-captcha id="captchaCode" autocomplete="off">
+                                        <input type="text" name="captchaCode" ng-model="captchaCode" id="captchaCode" autocomplete="off" correct-captcha>
                                       </label>
                                     
                                       <div class="error" ng-show="basicForm.captchaCode.$invalid && !basicForm.captchaCode.$pristine">
                                         Incorrect code.
                                       </div>
                                     
-                                      <button type="submit" ng-click="validate(basicForm.$valid)">Validate</button>
+                                    <!--  <button type="submit" ng-click="validate(basicForm.$valid)">Validate</button>-->
                                 </form> 
                                 <div class="col-md-12 col-sm-12 col-xs-12 last-part">
                                     <p>© 2018 Arçelik All rights reserved.</p>
