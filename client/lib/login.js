@@ -15,6 +15,8 @@ testApp.config(function(captchaSettingsProvider) {
     // basic captcha url
     var basicUrl = 'https://thworkorderfapp.azurewebsites.net/botdetect';
     
+    var captcha = new Captcha();
+    
     $scope.validate = function(valid) {
   
       if (!valid) {
