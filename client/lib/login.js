@@ -67,8 +67,15 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
 
    
 
-    $scope.submit = function (reCAPTCHA) {    
-        
+    $scope.submit = function () {    
+
+
+        $http({method: 'POST', url: '/submit'}).
+        success(function(data, status) { 
+        }).
+        error(function(data, status) {
+        }); 
+ /*       
         $http({
             method: "GET",        
             url: 'https://thworkorderfapp.azurewebsites.net/api/systemlogin',             
@@ -82,7 +89,8 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
         }).
         error(function(data, status) {
             alert(data);
-        });
+        });*/
+
     };       
                                                                             
     $scope.login = function(){ 
