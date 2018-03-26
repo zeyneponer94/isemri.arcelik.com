@@ -26,7 +26,7 @@ app.post('/submit',function(req,res){
     // Put your secret key here.
     var secretKey = "6LfuDE8UAAAAAAH7G69uBc7aONOVQ4d23A24Hiu5";
     // req.connection.remoteAddress will provide IP address of connected user.
-    var verificationUrl = "https://www.google.com/recaptcha/api/siteverify?secret=" + secretKey + "&response=" + req.body['g-recaptcha-response'] + "&remoteip=" + req.connection.remoteAddress;
+    var verificationUrl = "https://thworkorderfapp.azurewebsites.net/google_captcha?secret=" + secretKey + "&response=" + req.body['g-recaptcha-response'] + "&remoteip=" + req.connection.remoteAddress;
     // Hitting GET request to the URL, Google will respond with success or error scenario.
     request(verificationUrl,function(error,response,body) {
       body = JSON.parse(body);
