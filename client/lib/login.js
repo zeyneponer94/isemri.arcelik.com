@@ -18,9 +18,7 @@ testApp.config(function(captchaSettingsProvider) {
 
     $scope.validate = function(valid) {
   
-      if (!valid) {
-        return;
-      }
+
       
       // after UI form validation passed, 
       // we will need to validate captcha at server-side once before we save form data in database, etc.
