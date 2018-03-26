@@ -30,12 +30,11 @@ app.post('/submit',function(req,res){
     // Hitting GET request to the URL, Google will respond with success or error scenario.
     request(verificationUrl,function(error,response,body) {
       body = JSON.parse(body);
-      res.send(body);
       // Success will be true or false depending upon captcha validation.
       if(body.success !== undefined && !body.success) {
-        return res.json({"responseCode" : 1,"responseDesc" : "Failed captcha verification"});
+        res.send({"responseCode" : 1,"responseDesc" : "Failed captcha verification"});
       }
-      res.json({"responseCode" : 0,"responseDesc" : "Success"});
+      res.send({"responseCode" : 0,"responseDesc" : "Success"});
     });
   });
 
