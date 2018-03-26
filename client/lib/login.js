@@ -2,7 +2,7 @@ var testApp = angular.module("App", ['BotDetectCaptcha']);
 
 testApp.config(function(captchaSettingsProvider) {
     captchaSettingsProvider.setSettings({
-      captchaEndpoint: 'WEB-INF/com.captcha.botdetect.web.servlet.SimpleCaptchaServlet'
+      captchaEndpoint: 'WEB-INF/lib/web.xml'
     });
   });
   
