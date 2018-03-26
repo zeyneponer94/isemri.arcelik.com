@@ -18,7 +18,7 @@ app.get('/workorder' , function(req,res) {
 });
 
 app.post('/submit',function(req,res){
-    res.send(req.body['g-recaptcha-response']);    
+    //res.send(req.body['g-recaptcha-response']);    
     // g-recaptcha-response is the key that browser will generate upon form submit.
     // if its blank or null means user has not selected the captcha, so return the error.
     if(req.body['g-recaptcha-response'] === undefined || req.body['g-recaptcha-response'] === '' || req.body['g-recaptcha-response'] === null) {
