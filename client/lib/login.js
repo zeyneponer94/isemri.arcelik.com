@@ -16,9 +16,8 @@ testApp.config(function(captchaSettingsProvider) {
     var basicUrl = 'https://thworkorderfapp.azurewebsites.net/botdetect';
     
 
-    $scope.validate = function(valid) {
+    $scope.validate = function() {
   
-
       
       // after UI form validation passed, 
       // we will need to validate captcha at server-side once before we save form data in database, etc.
