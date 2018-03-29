@@ -6,8 +6,6 @@ var express = require('express'),
     app = express();
     Console = require('console');
 
-
-
 var logFmt = require("logfmt");
 
 app.get('/', function(req, res) {
