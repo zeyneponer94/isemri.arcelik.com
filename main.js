@@ -9,7 +9,7 @@ var express = require('express'),
 var logFmt = require("logfmt");
 
 app.get('/', function(req, res) {
-    res.sendfile('client/okta/custom-login/src/app/login/login.component.html', {root: __dirname });       
+    res.sendfile('views/login.component.html', {root: __dirname });       
 });
 app.get('/workorder' , function(req,res) {
     res.sendfile('views/create_workorder.html', {root: __dirname });   
