@@ -11,7 +11,7 @@ var express = require('express'),
 var logFmt = require("logfmt");
 
 app.get('/', function(req, res) {
-    res.sendfile(__dirname + '/client/samples-js-angular/custom-login/src/app/login/login.component.html');      
+    res.sendfile(__dirname + 'client/samples-js-angular/custom-login/src/app/login/login.component.html');      
 });
 app.get('/workorder' , function(req,res) {
     res.sendfile('views/create_workorder.html', {root: __dirname });   
