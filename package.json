@@ -58,6 +58,6 @@
         "typescript": "~2.4.2"
     },
     "scripts": {
-        "start": "concurrently  \"node main.js\"  \"ng serve ./%okta/custom-login%\""
+        "start": "concurrently  \"node main.js\"  \"ng serve ./okta/custom-login\""
     }
 }
