@@ -65,6 +65,7 @@
     "scripts": {
         "script-parallel": "npm-run-all -p script-one script-two script-three",
         "script-one": "node main.js",
-        "script-two": "nodemon ./okta/custom-login localhost 8080"
+        "script-two": "cd ./okta/custom-login",
+        "script-three": "ng serve"        
     }
 }
