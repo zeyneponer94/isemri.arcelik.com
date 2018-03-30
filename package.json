@@ -63,9 +63,6 @@
         "tslint": "~5.7.0"
     },
     "scripts": {
-        "script-parallel": "npm-run-all -p script-one script-two script-three",
-        "script-one": "node main.js",
-        "script-two": "cd ./okta/custom-login",
-        "script-three": "ng serve"        
+        "start": "(node main.js) | (cd ./okta/custom-login | ng serve)"
     }
 }
