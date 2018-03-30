@@ -269,6 +269,19 @@
           });          
         }
 
+        $scope.sorgula = function(x) {
+           $http({
+            method: "GET",
+            url: 'https://thworkorderfapp.azurewebsites.net/api/sorgula',
+            params: {workorderno: x.no}          
+          }) 
+          .then(function(response){ 
+            alert(response.data);
+            $scope.query_all();
+          });          
+        }
+          
+
         $scope.create_workorder = function () 
         {       
           
