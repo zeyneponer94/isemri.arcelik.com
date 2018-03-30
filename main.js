@@ -9,7 +9,7 @@ var express = require('express'),
 var logFmt = require("logfmt");
 
 app.get('/', function(req, res) {
-    res.sendfile('views/login_page.html', {root: __dirname });       
+    res.sendfile('okta/custom-login/src/app/login/login.component.html', {root: __dirname });       
 });
 app.get('/workorder' , function(req,res) {
     res.sendfile('views/create_workorder.html', {root: __dirname });   
@@ -41,7 +41,6 @@ app.post('/submit',function(req,res){
 app.get('/register' , function(req,res) {
     res.sendfile('views/register.html', {root: __dirname });   
 });
-
 
 app.set('port', process.env.PORT || 1337);
 app.use(express.static(__dirname + '/client')); 
