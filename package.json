@@ -29,6 +29,8 @@
         "body-parser": "~1.6.2",
         "colors": "^1.1.2",
         "concurrently": "^3.5.1",
+        "typescript": "~2.4.2",
+        "typings": "^1.0.4",        
         "cookie-parser": "~1.0.1",
         "core-js": "^2.4.1",
         "cors": "^2.8.4",
@@ -56,10 +58,9 @@
         "@types/node": "~6.0.60",
         "codelyzer": "^4.0.1",
         "ts-node": "~3.2.0",
-        "tslint": "~5.7.0",
-        "typescript": "~2.4.2"
+        "tslint": "~5.7.0"
     },
     "scripts": {
-        "start": "concurrently \"node ./node_modules/babel-cli/bin/babel-node.js index.js\" \"node main.js\" \"ng serve ./okta/custom-login\""
+        "start": "concurrently \"node main.js\" \"ng serve ./okta/custom-login\""
     }
 }
