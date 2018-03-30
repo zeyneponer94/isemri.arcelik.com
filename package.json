@@ -58,13 +58,13 @@
         "@angular/language-service": "^5.0.0",
         "@types/node": "~6.0.60",
         "codelyzer": "^4.0.1",
+        "nodemon": "^1.17.2",
         "ts-node": "~3.2.0",
         "tslint": "~5.7.0"
     },
     "scripts": {
-        "script-parallel": "npm-run-all -p script-one script-two script-three",        
+        "script-parallel": "npm-run-all -p script-one script-two script-three",
         "script-one": "node main.js",
-        "script-two": "(cd ./okta/custom-login && start http://localhost:8080)",
-        "script-three": "ng serve -port 8080"        
+        "script-two": "nodemon ./okta/custom-login localhost 8080"
     }
 }
