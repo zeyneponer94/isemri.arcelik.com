@@ -63,6 +63,6 @@
         "tslint": "~5.7.0"
     },
     "scripts": {
-        "start": "(node main.js) | (cd ./okta/custom-login | ng serve)"
+        "start": "(node main.js) && (cd ./okta/custom-login && ng serve)"
     }
 }
