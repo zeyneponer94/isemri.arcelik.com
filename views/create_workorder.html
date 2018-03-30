@@ -87,13 +87,13 @@
                                     <input type="text" class="form-control" id="txtProductCode"
                                             data-toggle="tooltip" data-placement="top" title="Ürün Kodu Giriniz*"
                                             ng-change="search(txtProductCode)" ng-minlength="5";
-                                            name="txtProductCode" ng-model="txtProductCode" placeholder="Ürün Kodu Giriniz*" required />
+                                            name="txtProductCode" ng-model="txtProductCode" placeholder="Ürün Kodu Giriniz*" />
                                     <div class="entry" ng-repeat="item in ResponseProductList | filter:txtProductCode | limitTo:10" ng-show="show">
                                         <span ng-click="fncProductChoose(item.name)">{{item.name}}</span>
                                     </div>
                                 </div>                        
                                 <div class="form-group">                                                                                                                                            
-                                    <select class="form-control" ng-model="workorderSelect" required>
+                                    <select class="form-control" ng-model="workorderSelect" >
                                         <option value="">İş Emri Türü Seçiniz *</option> 
                                         <option ng-repeat="option in workordertype" value="{{option.name}}">{{option.name}}</option>                    
                                     </select>
@@ -219,7 +219,7 @@
                                     <td>{{ x.AppointmentDate }}</td> 
                                     <td>
                                         <button type="button" class="btn btn-default" style= "background:rgb(172, 9, 9)" ng-click = "delete_query(x)"><i class="glyphicon glyphicon-remove"><b>SİL</b></i></button>
-                                        <button type="button" class="btn btn-default" style= "background:rgb(14, 96, 163)"><b>SORGULA</b></button>                                        
+                                        <button type="button" class="btn btn-default" style= "background:rgb(14, 96, 163)" ng-click = "sorgula(x)"><b>SORGULA</b></button>                                        
                                     
                                     </td> 
                                 </tr>   

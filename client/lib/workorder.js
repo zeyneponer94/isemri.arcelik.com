@@ -256,12 +256,40 @@
         }
         
         
-        $scope.delete_query = function(x) {
+        $scope.delete_query = function(x) {       
+
+          $scope.jsonData = [{
+            "orderId": "",
+            "consigntmentEntryId": "0",
+            "Status": "020",
+            "ERPOrderNo": "",
+            "InvoiceNo": "",
+            "InvoiceDate": "",
+            "InvoiceLink": "",
+            "CargoCompanyName": "",
+            "CargoNo": "",
+            "CargoLink": "",
+            "ReturnNo": "",
+            "WorkOrderNo": "" + x.no,
+            "ServicePartnerName": "",
+            "ServiceParterPhoneNumber": "",
+            "isRefundableFlag": "",
+            "ReturnComment": "",
+            "ReturnWorkOrderNo": ""
+            }
+            ]
+  
+           $scope.postData = angular.toJson($scope.jsonData, true);     
 
           $http({
-            method: "GET", 
-            url: 'https://thworkorderfapp.azurewebsites.net/api/delete_query',
-            params: {workorderno: x.no}          
+            url: 'https://thworkorderfapp.azurewebsites.net/deletequery/',
+            method: "POST",
+            data: $scope.postData ,
+            headers: {            
+                      'Content-Type': 'application/json',
+                      'Cache-Control': 'no-cache',
+                      'servicetype': 'INTHEBOX1'
+                     }
           }) 
           .then(function(response){ 
               alert(response.data);
@@ -270,14 +298,28 @@
         }
 
         $scope.sorgula = function(x) {
+           $scope.workorderno = x.no;
            $http({
             method: "GET",
-            url: 'https://thworkorderfapp.azurewebsites.net/api/sorgula',
-            params: {workorderno: x.no}          
+            url: 'https://thworkorderfapp.azurewebsites.net/sorgula/' + $scope.workorderno,
           }) 
           .then(function(response){ 
             alert(response.data);
-            $scope.query_all();
+            $scope.ConsignmentWorkOrderStatus = response.data[0].Status;    
+
+            $http({
+              method: "GET", 
+              url: 'https://thworkorderfapp.azurewebsites.net/api/updateworkorder',
+              params: {
+                no: ""+$scope.workorderno,
+                status: ""+$scope.ConsignmentWorkOrderStatus
+              }          
+            }) 
+            .then(function(response){ 
+              $scope.query_all();              
+            });
+            
+            
           });          
         }
           
@@ -285,7 +327,6 @@
         $scope.create_workorder = function () 
         {       
           
-
           var dlg = dialogs.confirm("Lütfen Onaylayınız!","Aşağıda belirtilen bilgiler ile iş emri oluşturma talebinizi gerçekleştirmeyi onaylıyor musunuz?".bold()+"<br>"+ ("  Müşteri adı = "+$scope.name_id+"<br>  Müşteri soyadı = "
           +$scope.surname_id+"<br>  Müşteri telefon numarası = "+$scope.phone_id+"<br>  Seçilen ürün = "+$scope.singleSelect+"<br>  Seçilen iş emri türü = "
           +$scope.workorderSelect+"<br> Müşteri adresi = " + $scope.provinceSelect + " " +$scope.citySelect).italics());
@@ -342,8 +383,8 @@
                         "WareHouseDistrict": "PENDİK",
                         "WareHouseCity": "İSTANBUL",
                         "ProductCode": "6211101000",
-                        "Product": "" + $scope.singleSelect,
-                        "OperationType": "" + $scope.workorderSelect,
+                        "Product": "ARY-5500 E ÇAMAŞIR MAK.(Y-326) ÇİFT",
+                        "OperationType": "Montaj",
                         "ProductReturnCheck": "0",
                         "ExtraWarrantyType": "1",
                         "ProductExposeCheck": "0",
