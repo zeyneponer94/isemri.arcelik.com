@@ -258,7 +258,8 @@
               
           }); 
 
-          return workorders_no;
+          return "heyo";
+          //return workorders_no;
           
       }
     
@@ -281,7 +282,7 @@
             while(response.data[i]!=null){
 
                     $scope.workorderno = response.data[i][3];
-                    alert($scope.query_workorder_no($scope.workorderno));
+                    alert(scope.query_workorder_no($scope.workorderno));
 /*
                     var j = 0;
                     while(workorders_no.data[j]!=null){
