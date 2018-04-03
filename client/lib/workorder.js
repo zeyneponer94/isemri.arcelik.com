@@ -257,7 +257,7 @@
                     
                     $scope.workorderno = response.data[i][3];
                     alert($scope.workorderno);
-                    $http({
+         /*           $http({
                     method: "GET",
                     url: 'https://thworkorderfapp.azurewebsites.net/sorgula/' + $scope.workorderno,
                     }) 
@@ -280,7 +280,7 @@
                         $scope.workorders.push(obj); 
                         j++;                  
                       }                               
-                    });        
+                    });        */
                       
                     i++; 
             }
