@@ -241,7 +241,8 @@
 
 
       $scope.query_workorder_no = function(work_order) {
-          var workorders_no = [];
+        alert(work_order);
+     /*     var workorders_no = [];
           $http({
               method: "GET",
               url: 'https://thworkorderfapp.azurewebsites.net/sorgula/' + work_order,
@@ -257,7 +258,7 @@
               }    
               
               return workorders_no;
-          }); 
+          }); */
       }
     
 
@@ -279,7 +280,7 @@
             while(response.data[i]!=null){
 
                     $scope.workorderno = response.data[i][3];
-                    workorders_no = $scope.query_workorder_no($scope.workorderno);
+                    $scope.query_workorder_no($scope.workorderno);
 /*
                     var j = 0;
                     while(workorders_no.data[j]!=null){
