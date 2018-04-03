@@ -278,7 +278,7 @@
 
                     $scope.workorderno = response.data[i][3];
                     var workorders_no = $scope.query_workorder_no($scope.workorderno);
-                    alert(workorders_no[0].status);
+                    alert(workorders_no);
 /*
                     var j = 0;
                     while(workorders_no.data[j]!=null){
