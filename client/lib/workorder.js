@@ -242,7 +242,7 @@
 
 
       $scope.query_workorder_no = function(work_order) {
-          $scope.workorders = [];        
+          var workorders = [];        
           $http({
               method: "GET",
               url: 'https://thworkorderfapp.azurewebsites.net/sorgula/' + work_order,
@@ -253,7 +253,7 @@
                 var obj = { 
                     status: response.data[j].Status
                 };
-                $scope.workorders.push(obj);
+                workorders.push(obj);
                 j++;                  
               }                               
           }); 
