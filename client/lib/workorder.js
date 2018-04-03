@@ -278,7 +278,8 @@
 
                     $scope.workorderno = response.data[i][3];
                     $scope.query_workorder_no($scope.workorderno);
-
+                    alert($scope.workorders_no.data[0].Status);
+/*
                     var j = 0;
                     while($scope.workorders_no.data[j]!=null){
                       var obj = { 
@@ -295,7 +296,7 @@
                       };
                       $scope.workorders.push(obj); 
                       j++;
-                    }                      
+                    }                 */     
                     i++; 
             }
         });
