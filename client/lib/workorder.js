@@ -278,7 +278,7 @@
             while(response.data[i]!=null){
 
                     $scope.workorderno = response.data[i][3];
-                    return_value = query_workorder_no($scope.workorderno);
+                    return_value = $scope.query_workorder_no($scope.workorderno);
 
                     var j = 0;
                     while(return_value.data[j]!=null){
