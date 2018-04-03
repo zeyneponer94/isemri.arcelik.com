@@ -240,6 +240,27 @@
         });
       }
 
+
+      $scope.query_workorder_no = function(work_order) {
+          $scope.workorders = [];        
+          $http({
+              method: "GET",
+              url: 'https://thworkorderfapp.azurewebsites.net/sorgula/' + work_order,
+          }) 
+          .then(function(response){ 
+              var j  = 0;
+              while(response.data[j]!=null){
+                var obj = { 
+                    status: response.data[j].Status
+                };
+                $scope.workorders.push(obj);
+                j++;                  
+              }                               
+          }); 
+          return workorders;       
+      }
+    
+
       $scope.query_all = function () {
         $http({
           method: "GET", 
@@ -252,36 +273,34 @@
               $scope.result = false;       
 
             $scope.workorders = [];
+            $scope.return_value = [];                    
             var i = 0;
             while(response.data[i]!=null){
-                    
+
                     $scope.workorderno = response.data[i][3];
-                    alert($scope.workorderno);
-         /*           $http({
-                    method: "GET",
-                    url: 'https://thworkorderfapp.azurewebsites.net/sorgula/' + $scope.workorderno,
-                    }) 
-                  .then(function(response){ 
-                     alert(response.data[0]);
-                      var j  = 0;
-                      while(response.data[j]!=null){
-                        var obj = { 
-                          no: response.data[i][3],
-                          product:response.data[i][4],
-                          type: response.data[i][5],
-                          customer: response.data[i][6],
-                          point: response.data[i][7],
-                          address: response.data[i][8],
-                          status: response.data[j].Status,
-                          service: response.data[i][10],
-                          DeliveryDate: response.data[i][11],
-                          AppointmentDate: response.data[i][12]
-                        };
-                        $scope.workorders.push(obj); 
-                        j++;                  
-                      }                               
-                    });        */
-                      
+                    return_value = query_workorder_no($scope.workorderno);
+
+                    var j = 0;
+                    while(return_value.data[j]!=null){
+
+                      var obj = { 
+                        no: response.data[i][3],
+                        product:response.data[i][4],
+                        type: response.data[i][5],
+                        customer: response.data[i][6],
+                        point: response.data[i][7],
+                        address: response.data[i][8],
+                        status: return_value.data[j].Status,
+                        service: response.data[i][10],
+                        DeliveryDate: response.data[i][11],
+                        AppointmentDate: response.data[i][12]
+                      };
+                      $scope.workorders.push(obj); 
+
+                      j++;
+                    }                      
+
+
                     i++; 
             }
 
