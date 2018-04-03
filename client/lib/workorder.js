@@ -257,6 +257,7 @@
                 j++;                  
               }                               
           }); 
+          alert($scope.workorders);
           return  $scope.workorders;       
       }
     
@@ -279,10 +280,10 @@
 
                     $scope.workorderno = response.data[i][3];
                     return_value = $scope.query_workorder_no($scope.workorderno);
+                    alert(return_value);
 
                     var j = 0;
                     while(return_value.data[j]!=null){
-
                       var obj = { 
                         no: response.data[i][3],
                         product:response.data[i][4],
@@ -296,11 +297,8 @@
                         AppointmentDate: response.data[i][12]
                       };
                       $scope.workorders.push(obj); 
-
                       j++;
                     }                      
-
-
                     i++; 
             }
 
