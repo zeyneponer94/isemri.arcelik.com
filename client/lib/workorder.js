@@ -8,7 +8,7 @@
 
     angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs,$sanitize) {
 
-          $scope.workorders_no = [];              
+          $scope.workorders_no;              
           $scope.workordertype = [];   
           var obj = { name: "Teklif Montaj",
                       id: 7  };            
