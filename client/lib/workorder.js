@@ -8,7 +8,7 @@
 
     angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs,$sanitize) {
 
-      
+          $scope.workorders_no = [];              
           $scope.workordertype = [];   
           var obj = { name: "Teklif Montaj",
                       id: 7  };            
@@ -242,25 +242,21 @@
 
 
       $scope.query_workorder_no = function(work_order) {
-          alert(work_order);
-          $scope.workorders = [];        
+          $scope.workorders_no = [];
           $http({
               method: "GET",
               url: 'https://thworkorderfapp.azurewebsites.net/sorgula/' + work_order,
           }) 
           .then(function(response){ 
-              alert(response.data);            
               var j  = 0;
               while(response.data[j]!=null){
                 var obj = { 
                     status: response.data[j].Status
                 };
-                $scope.workorders.push(obj);
+                $scope.workorders_no.push(obj);
                 j++;                  
               }                               
           }); 
-          alert($scope.workorders);
-          return  $scope.workorders;       
       }
     
 
@@ -281,11 +277,10 @@
             while(response.data[i]!=null){
 
                     $scope.workorderno = response.data[i][3];
-                    return_value = $scope.query_workorder_no($scope.workorderno);
-                    alert(return_value);
+                    $scope.query_workorder_no($scope.workorderno);
 
                     var j = 0;
-                    while(return_value.data[j]!=null){
+                    while(workorders_no.data[j]!=null){
                       var obj = { 
                         no: response.data[i][3],
                         product:response.data[i][4],
