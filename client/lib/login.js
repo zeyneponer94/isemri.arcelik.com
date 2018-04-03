@@ -1,11 +1,8 @@
 var testApp = angular.module("App", []);
 
 testApp.controller('Controller' , ['$scope','$http','$window', function ($scope, $http, $window) {
-
-   
-
+    
     $scope.submit = function () {    
-
         $http({
             method: "GET",        
             url: 'https://thworkorderfapp.azurewebsites.net/api/systemlogin',             

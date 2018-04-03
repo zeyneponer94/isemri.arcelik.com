@@ -167,7 +167,6 @@
                    surname:$scope.surname_id_query}          
         }) 
         .then(function(response){  
-
           if(response.data[0]==null)
             $scope.result = true;
           else
@@ -191,9 +190,7 @@
                 $scope.workorders.push(obj);         
                 i++;
             }
-
         });
-
       }
 
       $scope.query_all = function () {
@@ -210,23 +207,34 @@
             $scope.workorders = [];
             var i = 0;
             while(response.data[i]!=null){
-                      var obj = { 
-                            no: response.data[i][3],
-                            product:response.data[i][4],
-                            type: response.data[i][5],
-                            customer: response.data[i][6],
-                            point: response.data[i][7],
-                            address: response.data[i][8],
-                            status: response.data[i][9],
-                            service: response.data[i][10],
-                            DeliveryDate: response.data[i][11],
-                            AppointmentDate: response.data[i][12]
-                      };
-                $scope.workorders.push(obj);         
-                i++;
+              
+              $scope.workorderno = response.data[i][3];
+              $http({
+               method: "GET",
+               url: 'https://thworkorderfapp.azurewebsites.net/sorgula/' + $scope.workorderno,
+              }) 
+             .then(function(response){ 
+                var j  = 0;
+                while(response.data[j]!=null){
+                  var obj = { 
+                    no: response.data[i][3],
+                    product:response.data[i][4],
+                    type: response.data[i][5],
+                    customer: response.data[i][6],
+                    point: response.data[i][7],
+                    address: response.data[i][8],
+                    status: response.data[j].Status,
+                    service: response.data[i][10],
+                    DeliveryDate: response.data[i][11],
+                    AppointmentDate: response.data[i][12]
+                  };
+                  $scope.workorders.push(obj); 
+                  j++;                  
+                }                               
+              });        
+                
+              i++; 
             }
-
-            
 
         });
         
@@ -234,6 +242,40 @@
 
         //when user selects a product from selection list, ng-change calls that function to get the work order types available for chosen product
         $scope.choose_workordertype = function() {
+
+            $scope.workordertype = [];   
+            var obj = { name: "Teklif Montaj",
+                        id: 7  };            
+            $scope.workordertype.push(obj);  
+            var obj = { name: "Teşhire Ürün Teslimatı",
+                        id: 8  };            
+            $scope.workordertype.push(obj);  
+            var obj = { name: "Depolar arası Transfer",
+                        id: 9  };            
+            $scope.workordertype.push(obj);  
+            var obj = { name: "Demontaj",
+                        id: 10  };            
+            $scope.workordertype.push(obj);  
+            var obj = { name: "Nakliye",
+                        id: 1  };            
+            $scope.workordertype.push(obj);  
+            var obj = { name: "Montaj",
+                        id: 2  };            
+            $scope.workordertype.push(obj);  
+            var obj = { name: "Nakliye Montaj",
+                        id: 3  };            
+            $scope.workordertype.push(obj);  
+            var obj = { name: "Dış Teslim (Kargo ile gelecek)",
+                        id: 4  };            
+            $scope.workordertype.push(obj);  
+            var obj = { name: "Arıza",
+                        id: 5  };            
+            $scope.workordertype.push(obj);  
+            var obj = { name: "Klima Keşif",
+                        id: 6  };            
+            $scope.workordertype.push(obj);  
+          /*
+
           $http({
             method: "GET", 
             url: 'https://thworkorderfapp.azurewebsites.net/api/workordertype',
@@ -248,6 +290,8 @@
                 i++;
               }
           });          
+*/
+
         }
 
         $scope.logout = function() {
