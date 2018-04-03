@@ -8,12 +8,46 @@
 
     angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs,$sanitize) {
 
-      $scope.ResponseProductList = [];   
+      
+          $scope.workordertype = [];   
+          var obj = { name: "Teklif Montaj",
+                      id: 7  };            
+          $scope.workordertype.push(obj);  
+          var obj = { name: "Teşhire Ürün Teslimatı",
+                      id: 8  };            
+          $scope.workordertype.push(obj);  
+          var obj = { name: "Depolar arası Transfer",
+                      id: 9  };            
+          $scope.workordertype.push(obj);  
+          var obj = { name: "Demontaj",
+                      id: 10  };            
+          $scope.workordertype.push(obj);  
+          var obj = { name: "Nakliye",
+                      id: 1  };            
+          $scope.workordertype.push(obj);  
+          var obj = { name: "Montaj",
+                      id: 2  };            
+          $scope.workordertype.push(obj);  
+          var obj = { name: "Nakliye Montaj",
+                      id: 3  };            
+          $scope.workordertype.push(obj);  
+          var obj = { name: "Dış Teslim (Kargo ile gelecek)",
+                      id: 4  };            
+          $scope.workordertype.push(obj);  
+          var obj = { name: "Arıza",
+                      id: 5  };            
+          $scope.workordertype.push(obj);  
+          var obj = { name: "Klima Keşif",
+                      id: 6  };            
+          $scope.workordertype.push(obj);  
+          
 
-      $scope.fncProductChoose = function(query) {
-        $scope.txtProductCode = query;
-        $scope.show = false;
-      }
+          $scope.ResponseProductList = [];   
+
+          $scope.fncProductChoose = function(query) {
+            $scope.txtProductCode = query;
+            $scope.show = false;
+          }
 
       $scope.search = function(query) {
        
@@ -26,7 +60,7 @@
           url: 'https://thworkorderfapp.azurewebsites.net/product/' +  query,
           headers: {            
             'Content-Type': 'application/json',
-            'SessionToken': '608CC073-24AF-4440-AE12-03761E984F1E',
+            'SessionToken': 'DE85160F-D3CA-4685-BA22-4BBA43D10D51',
             'Cache-Control': 'no-cache',
             'servicetype': 'INTHEBOX1'
            } 
@@ -65,7 +99,7 @@
           method: "GET",
           headers: {            
                     'Content-Type': 'application/json',
-                    'SessionToken': '608CC073-24AF-4440-AE12-03761E984F1E',
+                    'SessionToken': 'DE85160F-D3CA-4685-BA22-4BBA43D10D51',
                     'Cache-Control': 'no-cache',
                     'servicetype': 'INTHEBOX1'
                    }
@@ -90,7 +124,7 @@
             url: 'https://thworkorderfapp.azurewebsites.net/Uavt_city/' + $scope.provinceSelect + '/0/0',
             headers: {            
               'Content-Type': 'application/json',
-              'SessionToken': '608CC073-24AF-4440-AE12-03761E984F1E',
+              'SessionToken': 'DE85160F-D3CA-4685-BA22-4BBA43D10D51',
               'Cache-Control': 'no-cache',
               'servicetype': 'INTHEBOX1'
              }
@@ -115,7 +149,7 @@
             url: 'https://thworkorderfapp.azurewebsites.net/Uavt_area/' + $scope.provinceSelect + '/' + $scope.citySelect + '/0',
             headers: {            
               'Content-Type': 'application/json',
-              'SessionToken': '608CC073-24AF-4440-AE12-03761E984F1E',
+              'SessionToken': 'DE85160F-D3CA-4685-BA22-4BBA43D10D51',
               'Cache-Control': 'no-cache',
               'servicetype': 'INTHEBOX1'
              }
@@ -200,7 +234,7 @@
                       j++;                  
                     }                               
                   });    
-                  
+
                 i++;
             }
         });
@@ -253,59 +287,6 @@
         
       }
 
-        //when user selects a product from selection list, ng-change calls that function to get the work order types available for chosen product
-        $scope.choose_workordertype = function() {
-
-            $scope.workordertype = [];   
-            var obj = { name: "Teklif Montaj",
-                        id: 7  };            
-            $scope.workordertype.push(obj);  
-            var obj = { name: "Teşhire Ürün Teslimatı",
-                        id: 8  };            
-            $scope.workordertype.push(obj);  
-            var obj = { name: "Depolar arası Transfer",
-                        id: 9  };            
-            $scope.workordertype.push(obj);  
-            var obj = { name: "Demontaj",
-                        id: 10  };            
-            $scope.workordertype.push(obj);  
-            var obj = { name: "Nakliye",
-                        id: 1  };            
-            $scope.workordertype.push(obj);  
-            var obj = { name: "Montaj",
-                        id: 2  };            
-            $scope.workordertype.push(obj);  
-            var obj = { name: "Nakliye Montaj",
-                        id: 3  };            
-            $scope.workordertype.push(obj);  
-            var obj = { name: "Dış Teslim (Kargo ile gelecek)",
-                        id: 4  };            
-            $scope.workordertype.push(obj);  
-            var obj = { name: "Arıza",
-                        id: 5  };            
-            $scope.workordertype.push(obj);  
-            var obj = { name: "Klima Keşif",
-                        id: 6  };            
-            $scope.workordertype.push(obj);  
-          /*
-
-          $http({
-            method: "GET", 
-            url: 'https://thworkorderfapp.azurewebsites.net/api/workordertype',
-            params: {productname:$scope.singleSelect}          
-          }) 
-          .then(function(response){ 
-              $scope.workordertype = [];                    
-              var i = 0;
-              while(response.data[i]!=null){
-                var obj = { name: response.data[i] };
-                $scope.workordertype.push(obj);  
-                i++;
-              }
-          });          
-*/
-
-        }
 
         $scope.logout = function() {
             var url = "https://thworkorder.azurewebsites.net";
