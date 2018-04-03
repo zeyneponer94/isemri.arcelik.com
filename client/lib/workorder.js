@@ -255,11 +255,8 @@
                 workorders_no.push(obj);
                 j++;                  
               }    
-              
-          }); 
-
-          return workorders_no;
-          
+              return workorders_no;              
+          });           
       }
     
 
