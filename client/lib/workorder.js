@@ -261,7 +261,6 @@
     
 
       $scope.query_all = function () {
-        var workorders_no = [];        
         $http({
           method: "GET", 
           url: 'https://thworkorderfapp.azurewebsites.net/api/query_workorderlist'     
@@ -278,7 +277,7 @@
             while(response.data[i]!=null){
 
                     $scope.workorderno = response.data[i][3];
-                    workorders_no = $scope.query_workorder_no($scope.workorderno);
+                    var workorders_no = $scope.query_workorder_no($scope.workorderno);
                     alert(workorders_no[0].status);
 /*
                     var j = 0;
