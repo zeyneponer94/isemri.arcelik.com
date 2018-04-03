@@ -175,19 +175,32 @@
             $scope.workorders = [];
             var i = 0;
             while(response.data[i]!=null){
+
+                  $scope.workorderno = response.data[i][3];
+                  $http({
+                  method: "GET",
+                  url: 'https://thworkorderfapp.azurewebsites.net/sorgula/' + $scope.workorderno,
+                  }) 
+                .then(function(response){ 
+                    var j  = 0;
+                    while(response.data[j]!=null){
                       var obj = { 
-                            no: response.data[i][3],
-                            product:response.data[i][4],
-                            type: response.data[i][5],
-                            customer: response.data[i][6],
-                            point: response.data[i][7],
-                            address: response.data[i][8],
-                            status: response.data[i][9],
-                            service: response.data[i][10],
-                            DeliveryDate: response.data[i][11],
-                            AppointmentDate: response.data[i][12]
+                        no: response.data[i][3],
+                        product:response.data[i][4],
+                        type: response.data[i][5],
+                        customer: response.data[i][6],
+                        point: response.data[i][7],
+                        address: response.data[i][8],
+                        status: response.data[j].Status,
+                        service: response.data[i][10],
+                        DeliveryDate: response.data[i][11],
+                        AppointmentDate: response.data[i][12]
                       };
-                $scope.workorders.push(obj);         
+                      $scope.workorders.push(obj); 
+                      j++;                  
+                    }                               
+                  });    
+                  
                 i++;
             }
         });
