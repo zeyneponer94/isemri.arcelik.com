@@ -242,6 +242,7 @@
 
 
       $scope.query_workorder_no = function(work_order) {
+          alert(work_order)        
           $scope.workorders_no = [];
           $http({
               method: "GET",
@@ -277,8 +278,8 @@
             while(response.data[i]!=null){
 
                     $scope.workorderno = response.data[i][3];
+                    alert($scope.workorderno)
                     $scope.query_workorder_no($scope.workorderno);
-                    alert($scope.workorders_no[0].status);
 /*
                     var j = 0;
                     while($scope.workorders_no.data[j]!=null){
