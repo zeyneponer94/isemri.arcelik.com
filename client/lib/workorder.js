@@ -262,6 +262,7 @@
                     url: 'https://thworkorderfapp.azurewebsites.net/sorgula/' + $scope.workorderno,
                     }) 
                   .then(function(response){ 
+                     alert(response.data[0]);
                       var j  = 0;
                       while(response.data[j]!=null){
                         var obj = { 
