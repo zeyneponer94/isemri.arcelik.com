@@ -280,7 +280,7 @@
                     $scope.query_workorder_no($scope.workorderno);
 
                     var j = 0;
-                    while(workorders_no.data[j]!=null){
+                    while($scope.workorders_no.data[j]!=null){
                       var obj = { 
                         no: response.data[i][3],
                         product:response.data[i][4],
@@ -288,7 +288,7 @@
                         customer: response.data[i][6],
                         point: response.data[i][7],
                         address: response.data[i][8],
-                        status: return_value.data[j].Status,
+                        status: $scope.workorders_no.data[j].Status,
                         service: response.data[i][10],
                         DeliveryDate: response.data[i][11],
                         AppointmentDate: response.data[i][12]
