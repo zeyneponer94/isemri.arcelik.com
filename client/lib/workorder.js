@@ -8,7 +8,6 @@
 
     angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs,$sanitize) {
 
-          $scope.workorders_no = [];              
           $scope.workordertype = [];   
           var obj = { name: "Teklif Montaj",
                       id: 7  };            
@@ -242,8 +241,7 @@
 
 
       $scope.query_workorder_no = function(work_order) {
-          alert(work_order)        
-          $scope.workorders_no = [];
+          var workorders_no = [];
           $http({
               method: "GET",
               url: 'https://thworkorderfapp.azurewebsites.net/sorgula/' + work_order,
@@ -254,14 +252,17 @@
                 var obj = { 
                     status: response.data[j].Status
                 };
-                $scope.workorders_no.push(obj);
+                workorders_no.push(obj);
                 j++;                  
-              }                               
+              }    
+              
+              return workorders_no;
           }); 
       }
     
 
       $scope.query_all = function () {
+        var workorders_no = [];        
         $http({
           method: "GET", 
           url: 'https://thworkorderfapp.azurewebsites.net/api/query_workorderlist'     
@@ -278,11 +279,10 @@
             while(response.data[i]!=null){
 
                     $scope.workorderno = response.data[i][3];
-                    alert($scope.workorderno)
-                    $scope.query_workorder_no($scope.workorderno);
-/*
+                    workorders_no = $scope.query_workorder_no($scope.workorderno);
+
                     var j = 0;
-                    while($scope.workorders_no.data[j]!=null){
+                    while(workorders_no.data[j]!=null){
                       var obj = { 
                         no: response.data[i][3],
                         product:response.data[i][4],
@@ -290,14 +290,14 @@
                         customer: response.data[i][6],
                         point: response.data[i][7],
                         address: response.data[i][8],
-                        status: $scope.workorders_no.data[j].Status,
+                        status: workorders_no.data[j].Status,
                         service: response.data[i][10],
                         DeliveryDate: response.data[i][11],
                         AppointmentDate: response.data[i][12]
                       };
                       $scope.workorders.push(obj); 
                       j++;
-                    }                 */     
+                    }                      
                     i++; 
             }
         });
