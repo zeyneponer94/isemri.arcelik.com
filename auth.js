@@ -31,7 +31,7 @@ passport.deserializeUser(function(id, done) {
 
 passport.use(new SamlStrategy(
   {
-    issuer: "http://localhost:1337/",
+    issuer: config.auth.issuer,
   	path: '/workorder',
     entryPoint: config.auth.entryPoint,
     cert: config.auth.cert
