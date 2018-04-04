@@ -80,7 +80,7 @@ app.use(auth.session());
 
 //code for importing static files
 app.use(express.static(path.join(__dirname, 'public')));
-var currentPort = app.listen(process.env.PORT || 3000);
+var currentPort = app.listen(process.env.PORT || 1337);
 console.log("Server started at PORT " + currentPort);
 /*
 app.listen(app.get('port'), function () {
