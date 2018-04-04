@@ -1,6 +1,6 @@
-var passport = require('passport'),
-  SamlStrategy = require('passport-saml').Strategy,
-  config = require('./config.json');
+var passport = require('passport');
+var SamlStrategy = require('passport-saml').Strategy;
+var config = require('./config.json')[process.env.NODE_ENV || 'dev'];
 
 var users = [];
 
@@ -32,7 +32,7 @@ passport.deserializeUser(function(id, done) {
 passport.use(new SamlStrategy(
   {
     issuer: config.auth.issuer,
-  	path: '/workorder',
+  	path: '/ogin/callback',
     entryPoint: config.auth.entryPoint,
     cert: config.auth.cert
   },
@@ -59,7 +59,8 @@ passport.protected = function protected(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
   }
-  res.redirect('/');
+  res.redirect('/login');
 };
 
  exports = module.exports = passport;
+

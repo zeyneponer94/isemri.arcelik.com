@@ -8,6 +8,7 @@ var express = require('express'),
     auth = require('./auth');
     Console = require('console');
 var logFmt = require("logfmt");
+var path = require('path');
 
 /*
 app.get('/', function(req, res) {
@@ -18,12 +19,12 @@ app.get('/workorder' , function(req,res) {
 });*/
 
 //Lets call passport authenticate method to authenticate 
-app.get('/', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
+app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
     res.redirect('/');
 });
 
 //POST Methods, redirect to home successful login
-app.post('/workorder', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
+app.post('/login/callback', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
     res.redirect('/workorder');
 });
 
@@ -64,8 +65,8 @@ app.post('/submit',function(req,res){
 app.get('/register' , function(req,res) {
     res.sendfile('views/register.html', {root: __dirname });   
 });
-
-app.set('port', process.env.PORT || 1337);
+//1337
+//app.set('port', process.env.PORT || 3000);
 app.use(express.static(__dirname + '/client')); 
 app.use(errorHandler());
 app.use(express.logger());
@@ -76,7 +77,13 @@ app.use(express.session({ secret: "won't tell because it's secret"  }));
 app.use(auth.initialize());
 app.use(auth.session());
 
+
+//code for importing static files
+app.use(express.static(path.join(__dirname, 'public')));
+var currentPort = app.listen(process.env.PORT || 3000);
+console.log("Server started at PORT " + currentPort);
+/*
 app.listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
 });
-
+*/
