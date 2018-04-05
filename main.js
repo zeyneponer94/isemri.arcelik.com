@@ -5,11 +5,10 @@ var express = require('express'),
     errorHandler = require('express-error-handler'),
     app = express();
     connect = require('connect'),
-    auth = require('./auth');
     Console = require('console');
 var logFmt = require("logfmt");
 var path = require('path');
-
+var auth = require('./auth.js');
 //Lets call passport authenticate method to authenticate 
 app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
     res.redirect('/');
