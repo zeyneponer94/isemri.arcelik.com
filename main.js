@@ -5,21 +5,11 @@ var express = require('express'),
     errorHandler = require('express-error-handler'),
     app = express();
     connect = require('connect'),
-    auth = require('./auth');
+    auth = require('./auth.js');
     Console = require('console');
 var logFmt = require("logfmt");
 var path = require('path');
 
-app.configure(function() {
-    app.use(express.logger());
-    app.use(connect.compress());
-    app.use(express.cookieParser());
-    app.use(express.bodyParser());
-    app.use(express.session({ secret: "won't tell because it's secret"  }));
-    app.use(auth.initialize());
-    app.use(auth.session());
-  });
-  
 //Lets call passport authenticate method to authenticate 
 app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
     res.redirect('/');
@@ -71,15 +61,13 @@ app.get('/register' , function(req,res) {
 
 app.use(express.static(__dirname + '/client')); 
 app.use(errorHandler());
-/*
 app.use(express.logger());
 app.use(connect.compress());
 app.use(express.cookieParser());
 app.use(express.bodyParser());
 app.use(auth.initialize());
 app.use(auth.session());
-app.use(express.session({ secret: "won't tell because it's secret"  }));*/
-
+app.use(express.session({ secret: "won't tell because it's secret"  }));
 var currentPort = app.listen(process.env.PORT || 3000);
 
 /*
