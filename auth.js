@@ -1,6 +1,8 @@
 var passport = require('passport');
 var SamlStrategy = require('passport-saml').Strategy;
 var config = require('./config.json');
+config = JSON.parse(config);
+
 //[process.env.NODE_ENV || 'dev'];
 console.log(config);
 var users = [];
