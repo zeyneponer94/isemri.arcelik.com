@@ -1,7 +1,6 @@
 var express = require('express'),
     http = require('http'),
     request = require('request'),
-    bodyParser = require('body-parser'),
     errorHandler = require('express-error-handler'),
     app = express();
     connect = require('connect'),
@@ -9,6 +8,9 @@ var express = require('express'),
 var logFmt = require("logfmt");
 var path = require('path');
 var auth = require('./auth');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var cookieSession = require('cookie-session');
 
 //Lets call passport authenticate method to authenticate 
 app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
@@ -35,10 +37,11 @@ app.get('/register' , function(req,res) {
     res.sendfile('views/register.html', {root: __dirname });   
 });
 
+app.use(cookieParser());
+app.use(bodyParser());
+app.use(cookieSession({secret: 'app_1'}));
 app.use(connect.compress());
-app.use(express.cookieParser());
 app.use(express.session({ secret: "won't tell because it's secret"  }));
-app.use(express.bodyParser());
 app.use(express.logger());
 app.use(errorHandler());
 app.use(auth.initialize());
