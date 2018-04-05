@@ -13,15 +13,14 @@ var bodyParser = require('body-parser');
 var cookieSession = require('cookie-session');
 
 //Lets call passport authenticate method to authenticate 
-app.get('https://thworkorder.azurewebsites.net/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
+app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
     res.redirect('/');
 });
 
 //POST Methods, redirect to home successful login
-app.post('https://thworkorder.azurewebsites.net/login/callback', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
+app.all('/login/callback', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
     res.redirect('/workorder');
 });
-
 
 //Get Methods
 app.get('/', auth.protected, function(req, res) {
