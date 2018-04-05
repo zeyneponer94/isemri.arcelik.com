@@ -8,7 +8,7 @@ var express = require('express'),
     Console = require('console');
 var logFmt = require("logfmt");
 var path = require('path');
-var auth = require('auth');
+var auth = require('./auth');
 //Lets call passport authenticate method to authenticate 
 app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
     res.redirect('/');
