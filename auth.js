@@ -2,7 +2,7 @@ var passport = require('passport');
 var SamlStrategy = require('passport-saml').Strategy;
 var config = require('./config.json');
 //[process.env.NODE_ENV || 'dev'];
-
+console.log(config);
 var users = [];
 
 function findByEmail(email, fn) {
