@@ -10,13 +10,6 @@ var express = require('express'),
 var logFmt = require("logfmt");
 var path = require('path');
 
-/*
-app.get('/', function(req, res) {
-    res.sendfile('views/login_page.html', {root: __dirname });       
-});
-app.get('/workorder' , function(req,res) {
-    res.sendfile('views/create_workorder.html', {root: __dirname });   
-});*/
 
 //Lets call passport authenticate method to authenticate 
 app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
@@ -38,7 +31,7 @@ app.get('/workorder', auth.protected, function(req, res) {
 });
 
 
-
+/*
 app.post('/submit',function(req,res){
     //res.send(req.body['g-recaptcha-response']);    
     // g-recaptcha-response is the key that browser will generate upon form submit.
@@ -60,13 +53,12 @@ app.post('/submit',function(req,res){
       }
       return res.json({"responseCode" : 0,"responseDesc" : "Success"});
     });
-  });
+  });*/
 
 app.get('/register' , function(req,res) {
     res.sendfile('views/register.html', {root: __dirname });   
 });
-//1337
-//app.set('port', process.env.PORT || 3000);
+
 app.use(express.static(__dirname + '/client')); 
 app.use(errorHandler());
 app.use(express.logger());
@@ -78,12 +70,14 @@ app.use(auth.initialize());
 app.use(auth.session());
 
 
-//code for importing static files
-app.use(express.static(path.join(__dirname, 'public')));
-var currentPort = app.listen(process.env.PORT || 1337);
-console.log("Server started at PORT " + currentPort);
+var currentPort = app.listen(process.env.PORT || 3000);
+
 /*
+//1337
+app.set('port', process.env.PORT || 1337);
+
 app.listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
 });
+
 */
