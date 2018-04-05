@@ -2,8 +2,6 @@ var passport = require('passport');
 var SamlStrategy = require('passport-saml').Strategy;
 var config = require('./config.json');
 
-console.log(config);
-
 
 var users = [];
 
@@ -34,10 +32,10 @@ passport.deserializeUser(function(id, done) {
 
 passport.use(new SamlStrategy(
   {
-    issuer: config.dev.auth.issuer,
+    issuer: config.auth.issuer,
   	path: '/login/callback',
-    entryPoint: config.dev.auth.entryPoint,
-    cert: config.dev.auth.cert
+    entryPoint: config.auth.entryPoint,
+    cert: config.auth.cert
   },
   function(profile, done) {
     if (!profile.email) {
