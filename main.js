@@ -13,12 +13,12 @@ var bodyParser = require('body-parser');
 var cookieSession = require('cookie-session');
 
 //Lets call passport authenticate method to authenticate 
-app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
+app.get('https://thworkorder.azurewebsites.net/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
     res.redirect('/');
 });
 
 //POST Methods, redirect to home successful login
-app.all('/login/callback', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
+app.post('https://thworkorder.azurewebsites.net/login/callback', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
     res.redirect('/workorder');
 });
 
@@ -38,7 +38,7 @@ app.get('/register' , function(req,res) {
 });
 
 app.use(cookieParser());
-app.use(bodyParser());
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieSession({secret: 'app_1'}));
 app.use(connect.compress());
 app.use(express.session({ secret: "won't tell because it's secret"  }));
