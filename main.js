@@ -12,13 +12,16 @@ var auth = require('./auth');
 
 //Lets call passport authenticate method to authenticate 
 app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
+    console.log("HEYIO");
     res.redirect('/');
 });
 
 //POST Methods, redirect to home successful login
 app.post('/login/callback', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
+    console.log("HEYIO");    
     res.redirect('/workorder');
 });
+
 
 //Get Methods
 app.get('/', auth.protected, function(req, res) {
