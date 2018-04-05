@@ -1,6 +1,6 @@
 var passport = require('passport');
 var SamlStrategy = require('passport-saml').Strategy;
-var config = require('./config.json')[process.env.NODE_ENV || 'dev'];
+var config = require('./config.json');
 
 console.log(config);
 
@@ -34,10 +34,10 @@ passport.deserializeUser(function(id, done) {
 
 passport.use(new SamlStrategy(
   {
-    issuer: config.auth.issuer,
+    issuer: config.dev.auth.issuer,
   	path: '/login/callback',
-    entryPoint: config.auth.entryPoint,
-    cert: config.auth.cert
+    entryPoint: config.dev.auth.entryPoint,
+    cert: config.dev.auth.cert
   },
   function(profile, done) {
     if (!profile.email) {
