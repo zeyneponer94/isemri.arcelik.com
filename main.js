@@ -20,10 +20,6 @@ app.post('/login/callback', auth.authenticate('saml', { failureRedirect: '/', fa
     res.redirect('/workorder');
 });
 
-app.post('/Saml2/Acs', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
-    res.redirect('/workorder');
-});
-
 //Get Methods
 app.get('/', auth.protected, function(req, res) {
     res.sendfile('views/login_page.html', {root: __dirname });       
