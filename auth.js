@@ -33,7 +33,7 @@ passport.deserializeUser(function(id, done) {
 passport.use(new SamlStrategy(
   {
     issuer: config.auth.issuer,
-  	path: 'https://thworkorder.azurewebsites.net/Saml2/Acs',
+  	path: '/login/Saml2/Acs',
     entryPoint: config.auth.entryPoint,
     cert: config.auth.cert
   },
