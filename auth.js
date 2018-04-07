@@ -33,7 +33,7 @@ passport.deserializeUser(function(id, done) {
 passport.use(new SamlStrategy(
   {
     issuer: config.auth.issuer,
-  	path: '/login/Saml2/Acs',
+  	path: '/login/callback',
     entryPoint: config.auth.entryPoint,
     cert: config.auth.cert
   },
