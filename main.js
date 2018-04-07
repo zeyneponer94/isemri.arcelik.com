@@ -14,12 +14,12 @@ var cookieSession = require('cookie-session');
 
 //Lets call passport authenticate method to authenticate 
 app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
-    res.redirect('/');
+    res.redirect('https://thworkorder.azurewebsites.net');
 });
 
 //POST Methods, redirect to home successful login
 app.post('login/Saml2/Acs', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
-    res.redirect('/workorder');
+    res.redirect('https://thworkorder.azurewebsites.net');
 });
 
 //Get Methods
