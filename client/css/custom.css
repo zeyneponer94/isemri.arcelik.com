@@ -45,8 +45,6 @@ body{
     padding:20px;
 }
 .user-login-box button,.user-login-box button:hover{
-    background: -webkit-linear-gradient(to right, rgb(218, 6, 150), rgb(3, 18, 114));  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, rgb(218, 6, 150), rgb(3, 18, 114));
     width: 100%;
     color:#fff;
     font-weight:600;
