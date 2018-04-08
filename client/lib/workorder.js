@@ -354,7 +354,7 @@
         $scope.sorgula = function(x) {
            $http({
             method: "GET",
-            url: 'https://thworkorderfapp.azurewebsites.net/sorgula/' + x.no,
+            url: 'https://thworkorderfapp.azurewebsites.net/sorgula/' + x,
           }) 
           .then(function(response){ 
             $scope.ConsignmentWorkOrderStatus = response.data[0].Status;    
