@@ -315,7 +315,7 @@
 
           $scope.jsonData = [{
             "orderId": "",
-            "consigntmentEntryId": "0",
+            "consigntmentEntryId": "1",
             "Status": "020",
             "ERPOrderNo": "",
             "InvoiceNo": "",
