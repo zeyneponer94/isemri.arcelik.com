@@ -367,6 +367,7 @@
               }          
             }) 
             .then(function(response){ 
+              $scope.query_all();
             });  
           });     
 
