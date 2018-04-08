@@ -352,10 +352,9 @@
         }
 
         $scope.sorgula = function(x) {
-           $scope.workorderno = x.no;
            $http({
             method: "GET",
-            url: 'https://thworkorderfapp.azurewebsites.net/sorgula/' + $scope.workorderno,
+            url: 'https://thworkorderfapp.azurewebsites.net/sorgula/' + x.no,
           }) 
           .then(function(response){ 
             $scope.ConsignmentWorkOrderStatus = response.data[0].Status;    
