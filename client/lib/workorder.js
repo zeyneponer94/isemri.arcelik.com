@@ -352,27 +352,29 @@
         }
 
         $scope.sorgula = function(x) {
+
            $http({
             method: "GET",
             url: 'https://thworkorderfapp.azurewebsites.net/sorgula/' + x,
           }) 
           .then(function(response){ 
-            $scope.ConsignmentWorkOrderStatus = response.data[0].Status;    
+            $scope.ConsignmentWorkOrderStatus = response.data[0].Status; 
+            
+            $http({
+              method: "GET", 
+              url: 'https://thworkorderfapp.azurewebsites.net/api/updateworkorder',
+              params: {
+                no: ""+$scope.workorderno,
+                status: ""+$scope.ConsignmentWorkOrderStatus
+              }          
+            }) 
+            .then(function(response){ 
+            });
+            
           });     
 
-          $http({
-            method: "GET", 
-            url: 'https://thworkorderfapp.azurewebsites.net/api/updateworkorder',
-            params: {
-              no: ""+$scope.workorderno,
-              status: ""+$scope.ConsignmentWorkOrderStatus
-            }          
-          }) 
-          .then(function(response){ 
-          });
-              
-          $scope.query_all();              
-          
+
+                        
         }
           
 
