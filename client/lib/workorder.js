@@ -288,7 +288,7 @@
                         customer: response.data[i][6],
                         point: response.data[i][7],
                         address: response.data[i][8],
-                        status:" workorders_no.data[j].Status",
+                        status: response.data[i][9],
                         service: response.data[i][10],
                         DeliveryDate: response.data[i][11],
                         AppointmentDate: response.data[i][12]
@@ -299,6 +299,8 @@
                     i++; 
             }
         });
+
+
         
       }
 
@@ -345,7 +347,6 @@
                      }
           }) 
           .then(function(response){ 
-              alert(response.data);
               $scope.query_all();
           });          
         }
@@ -357,7 +358,6 @@
             url: 'https://thworkorderfapp.azurewebsites.net/sorgula/' + $scope.workorderno,
           }) 
           .then(function(response){ 
-            alert(response.data);
             $scope.ConsignmentWorkOrderStatus = response.data[0].Status;    
 
             $http({
