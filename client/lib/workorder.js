@@ -347,8 +347,8 @@
                      }
           }) 
           .then(function(response){ 
-              $scope.query_all();
-          });          
+          });       
+          $scope.sorgula(x.no);   
         }
 
         $scope.sorgula = function(x) {
