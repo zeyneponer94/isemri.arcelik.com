@@ -48,19 +48,10 @@
             $scope.show = false;
           }
 
-          $scope.showLoading = true;
+          $scope.showLoading = false;
           $scope.loaderStyle = 'block';
-          
     
-          $scope.changeLoading = function(){
-            $scope.showLoading = !$scope.showLoading;
-            if ($scope.showLoading) {
-              $scope.loaderStyle = 'block';
-            }else{
-              $scope.loaderStyle = 'none';
-            }
-    
-          }
+
 
       $scope.search = function(query) {
        
@@ -400,7 +391,8 @@
           +$scope.workorderSelect+"<br> Müşteri adresi = " + $scope.adres_id).italics());
 					dlg.result.then(function(btn){
 
-          
+          $scope.showLoading = true;
+          $scope.loaderStyle = 'block';          
           $scope.jsonData = [{
             "PK": "",
             "MainSourceApplicationProcces": "InnTheBox",
@@ -509,6 +501,8 @@
                   }          
                 }) 
                 .then(function(response){ 
+                  $scope.showLoading = false; 
+                  $scope.loaderStyle = 'none';                  
                 });
           });
 
