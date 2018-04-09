@@ -394,14 +394,6 @@
           +$scope.workorderSelect+"<br> Müşteri adresi = " + $scope.adres_id).italics());
 					dlg.result.then(function(btn){
 
-            $scope.test="true";
-            $scope.searchButtonText = "CREATING";                    
-            $timeout(function(){
-               $scope.test="false";
-               $scope.searchButtonText = "CREATE";                       
-             },1000)
-
-
           $scope.jsonData = [{
             "PK": "",
             "MainSourceApplicationProcces": "InnTheBox",
@@ -488,6 +480,12 @@
             }).then(function (response) {
                 $scope.ExternalOrderId = response.data[0].ExternalOrderId;
                 $scope.ConsignmentWorkOrderStatus = response.data[0].ConsignmentWorkOrderStatus;
+                $scope.test="true";
+                $scope.searchButtonText = "CREATING";                    
+                $timeout(function(){
+                   $scope.test="false";
+                   $scope.searchButtonText = "CREATE";                       
+                 },1000)
                 alert("Service is successfully assigned")
 
                 $http({
