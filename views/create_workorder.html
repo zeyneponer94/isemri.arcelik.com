@@ -41,29 +41,7 @@
           100% { transform: rotate(360deg); }
         }
       </style>
-        <script>
-                
-                    var app = angular.module('filterApp',[]);
-                
-                    app.controller('tableController',function($scope){
-                      $scope.showLoading = true;
-                      $scope.loaderStyle = 'block';
-                      
-                
-                      $scope.changeLoading = function(){
-                        $scope.showLoading = !$scope.showLoading;
-                        if ($scope.showLoading) {
-                          $scope.loaderStyle = 'block';
-                        }else{
-                          $scope.loaderStyle = 'none';
-                        }
-                
-                      }
-                
-                
-                    });
-        </script>
-    
+
     <body style="background-color:rgb(255, 255, 255);" ng-app="App" ng-controller="Controller">
         <div class="container main-section">
                 <button ng-show="showLoading" ng-click="changeLoading()"> hide Loading</button>

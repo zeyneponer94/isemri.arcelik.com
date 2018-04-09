@@ -48,6 +48,20 @@
             $scope.show = false;
           }
 
+          $scope.showLoading = true;
+          $scope.loaderStyle = 'block';
+          
+    
+          $scope.changeLoading = function(){
+            $scope.showLoading = !$scope.showLoading;
+            if ($scope.showLoading) {
+              $scope.loaderStyle = 'block';
+            }else{
+              $scope.loaderStyle = 'none';
+            }
+    
+          }
+
       $scope.search = function(query) {
        
         $scope.show = true;
