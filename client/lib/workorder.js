@@ -8,6 +8,9 @@
 
     angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs,$sanitize,$timeout) {
 
+          $scope.test="false";
+          $scope.searchButtonText = "CREATE";        
+
           $scope.workordertype = [];   
           var obj = { name: "Teklif Montaj",
                       id: 7  };            
@@ -381,9 +384,7 @@
 
                         
         }
-          
-        $scope.test="false";
-        $scope.searchButtonText = "CREATE";        
+        
         
         $scope.create_workorder = function () 
         {       
