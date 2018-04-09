@@ -6,7 +6,7 @@
     }]);
     
 
-    angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs,$sanitize) {
+    angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs,$sanitize,$timeout) {
 
           $scope.workordertype = [];   
           var obj = { name: "Teklif Montaj",
