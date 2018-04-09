@@ -391,8 +391,8 @@
           +$scope.workorderSelect+"<br> Müşteri adresi = " + $scope.adres_id).italics());
 					dlg.result.then(function(btn){
 
-          $scope.showLoading = true;
           $scope.loaderStyle = 'block';          
+
           $scope.jsonData = [{
             "PK": "",
             "MainSourceApplicationProcces": "InnTheBox",
@@ -501,7 +501,6 @@
                   }          
                 }) 
                 .then(function(response){ 
-                  $scope.showLoading = false; 
                   $scope.loaderStyle = 'none';                  
                 });
           });
