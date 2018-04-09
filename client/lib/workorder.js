@@ -383,6 +383,7 @@
         }
           
         $scope.test="false";
+        $scope.searchButtonText = "CREATE";        
         
         $scope.create_workorder = function () 
         {       
@@ -393,8 +394,10 @@
 					dlg.result.then(function(btn){
 
             $scope.test="true";
+            $scope.searchButtonText = "CREATING";                    
             $timeout(function(){
                $scope.test="false";
+               $scope.searchButtonText = "CREATE";                       
              },1000)
 
 
