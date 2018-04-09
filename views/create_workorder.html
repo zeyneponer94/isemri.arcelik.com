@@ -20,31 +20,9 @@
     <script src="lib/loading.js"></script>    
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-route.js"></script>     
 
-    <style type="text/css">
-        .loader {
-          border: 16px solid #f3f3f3;
-          border-radius: 50%;
-          border-top: 16px solid #3498db;
-          width: 120px;
-          height: 120px;
-          -webkit-animation: spin 2s linear infinite;
-          animation: spin 2s linear infinite;
-        }
-      
-        @-webkit-keyframes spin {
-          0% { -webkit-transform: rotate(0deg); }
-          100% { -webkit-transform: rotate(360deg); }
-        }
-      
-        @keyframes spin {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-      </style>
 
     <body style="background-color:rgb(255, 255, 255);" ng-app="App" ng-controller="Controller">
         <div class="container main-section">
-                <div class="loader" ng-style={display:loaderStyle}></div>
                 <header>
                     <div class="row" align="center">
                         <div class="col-md-12 col-sm-12 col-xs-12 ">
@@ -167,7 +145,10 @@
                                     class="form-control" placeholder="İş Emri Notu">                       
                                 </div> 
                                 <div class="form-group" align="center">                                                                                                                                        
-                                    <button type="submit" class="btn btn-block btn-success" ng-click="create_workorder()" ng-disabled="form.$invalid">İŞ EMRİ OLUŞTUR</button>                                                                                                                                                              
+                                    <button type="submit" class="btn btn-block btn-success" ng-click="create_workorder()" ng-disabled="form.$invalid">İŞ EMRİ OLUŞTUR
+                                        <span ng-show="test" ><i class="glyphicon glyphicon-refresh spinning"></i></span>
+                                    </button>
+                                                                                                                                               
                                     <footer>&copy; 2018 Arçelik All rights reserved.</footer>   
                                 </div>       
                             </div>    

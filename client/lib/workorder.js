@@ -382,7 +382,8 @@
                         
         }
           
-
+        $scope.test="false";
+        
         $scope.create_workorder = function () 
         {       
           
@@ -391,7 +392,11 @@
           +$scope.workorderSelect+"<br> Müşteri adresi = " + $scope.adres_id).italics());
 					dlg.result.then(function(btn){
 
-          $scope.loaderStyle = 'block';          
+            $scope.test="true";
+            $timeout(function(){
+               $scope.test="false";
+             },1000)
+
 
           $scope.jsonData = [{
             "PK": "",
@@ -501,7 +506,6 @@
                   }          
                 }) 
                 .then(function(response){ 
-                  $scope.loaderStyle = 'none';                  
                 });
           });
 
