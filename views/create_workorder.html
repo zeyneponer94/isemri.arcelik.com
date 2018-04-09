@@ -20,12 +20,55 @@
     <script src="lib/loading.js"></script>    
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-route.js"></script>     
 
-
+    <style type="text/css">
+        .loader {
+          border: 16px solid #f3f3f3;
+          border-radius: 50%;
+          border-top: 16px solid #3498db;
+          width: 120px;
+          height: 120px;
+          -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+        }
+      
+        @-webkit-keyframes spin {
+          0% { -webkit-transform: rotate(0deg); }
+          100% { -webkit-transform: rotate(360deg); }
+        }
+      
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+      </style>
+        <script>
+                
+                    var app = angular.module('filterApp',[]);
+                
+                    app.controller('tableController',function($scope){
+                      $scope.showLoading = true;
+                      $scope.loaderStyle = 'block';
+                      
+                
+                      $scope.changeLoading = function(){
+                        $scope.showLoading = !$scope.showLoading;
+                        if ($scope.showLoading) {
+                          $scope.loaderStyle = 'block';
+                        }else{
+                          $scope.loaderStyle = 'none';
+                        }
+                
+                      }
+                
+                
+                    });
+        </script>
     
     <body style="background-color:rgb(255, 255, 255);" ng-app="App" ng-controller="Controller">
         <div class="container main-section">
-                <div ng-controller="LoadingCtrl"><span ng-show="loading">Loading</span></div>
-                <div ng-view></div>
+                <button ng-show="showLoading" ng-click="changeLoading()"> hide Loading</button>
+                <button ng-show="!showLoading" ng-click="changeLoading()">show Loading</button>
+                <div class="loader" ng-style={display:loaderStyle}></div>
                 <header>
                     <div class="row" align="center">
                         <div class="col-md-12 col-sm-12 col-xs-12 ">
