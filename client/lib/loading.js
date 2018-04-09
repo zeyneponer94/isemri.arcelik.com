@@ -1,4 +1,4 @@
-var mod = angular.module('loading', []);
+var mod = angular.module('loading', ['ngRoute']);
 
 mod.factory('loadingService', function() {
   var service = {
