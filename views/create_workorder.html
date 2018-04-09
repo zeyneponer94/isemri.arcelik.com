@@ -148,7 +148,7 @@
                                 </div> 
                                 <div class="form-group" align="center">                                                                                                                                        
                                     <button type="submit" class="btn btn-block btn-success" ng-click="create_workorder()" ng-disabled="form.$invalid">
-                                        <span ng-show="test"><i class="glyphicon glyphicon-refresh spinning"></i></span>
+                                        <span><i class="glyphicon glyphicon-refresh spinning" ng-class="{'spinning': test}"></i></span>
                                         {{buttonText}}
                                     </button>                                                                                            
                                     <footer>&copy; 2018 Arçelik All rights reserved.</footer>   
