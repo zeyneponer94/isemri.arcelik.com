@@ -18,12 +18,15 @@
     <script src="js/dialogs.js"></script>   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
     <script src="lib/workorder.js"></script>
+    <script src="lib/loading.js"></script>    
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-route.js"></script>     
 
 
     
     <body style="background-color:rgb(255, 255, 255);" ng-app="App" ng-controller="Controller">
         <div class="container main-section">
+                <div ng-controller="LoadingCtrl"><span ng-show="loading">Loading</span></div>
+                <div ng-view></div>
                 <header>
                     <div class="row" align="center">
                         <div class="col-md-12 col-sm-12 col-xs-12 ">
