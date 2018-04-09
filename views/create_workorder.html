@@ -11,6 +11,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-aria.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.8/angular-material.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-leaflet-directive/0.10.0/angular-leaflet-directive.min.js"></script>
+    <script src="https://rawgithub.com/angular-ui/angular-ui/master/build/angular-ui.js"></script>
+    
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.6.9/angular-sanitize.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js"></script>
@@ -145,11 +147,10 @@
                                     class="form-control" placeholder="İş Emri Notu">                       
                                 </div> 
                                 <div class="form-group" align="center">                                                                                                                                        
-                                    <button type="submit" class="btn btn-block btn-success" ng-click="create_workorder()" ng-disabled="form.$invalid">
+                                    <button type="submit" class="btn btn-block btn-success" ng-click="create_workorder()" >
                                         <span ng-show="test" ><i class="glyphicon glyphicon-refresh spinning"></i></span>
                                         {{buttonText}}
-                                    </button>
-                                                                                                                                               
+                                    </button>                                                                                            
                                     <footer>&copy; 2018 Arçelik All rights reserved.</footer>   
                                 </div>       
                             </div>    
