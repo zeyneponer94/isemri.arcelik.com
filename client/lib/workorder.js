@@ -348,6 +348,7 @@
           }) 
           .then(function(response){ 
           });       
+          alert("İş Emri Başararıyla İptal Edildi.");
           $scope.sorgula(x.no);   
         }
 
