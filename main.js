@@ -13,12 +13,12 @@ var bodyParser = require('body-parser');
 var cookieSession = require('cookie-session');
 
 //Lets call passport authenticate method to authenticate 
-app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
+app.get('/login', auth.authenticate('wsfed-saml2', { failureRedirect: '/', failureFlash: true }), function(req, res) {
     res.redirect('/');
 });
 
 //POST Methods, redirect to home successful login
-app.post('/login/callback', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
+app.post('/login/callback', auth.authenticate('wsfed-saml2', { failureRedirect: '/', failureFlash: true }), function(req, res) {
     res.redirect('/workorder');
 });
 
