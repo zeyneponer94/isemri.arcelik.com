@@ -9,7 +9,7 @@
     angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs,$sanitize,$timeout) {
 
           $scope.test="false";
-          $scope.searchButtonText = "CREATE";        
+          $scope.ButtonText = "CREATE";        
 
           $scope.workordertype = [];   
           var obj = { name: "Teklif Montaj",
@@ -481,10 +481,10 @@
                 $scope.ExternalOrderId = response.data[0].ExternalOrderId;
                 $scope.ConsignmentWorkOrderStatus = response.data[0].ConsignmentWorkOrderStatus;
                 $scope.test="true";
-                $scope.searchButtonText = "CREATING";                    
+                $scope.ButtonText = "CREATING";                    
                 $timeout(function(){
                    $scope.test="false";
-                   $scope.searchButtonText = "CREATE";                       
+                   $scope.ButtonText = "CREATE";                       
                  },1000)
                 alert("Service is successfully assigned")
 
