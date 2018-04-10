@@ -34,7 +34,7 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
-passport.use(new SamlStrategy(
+passport.use(new wsfedsaml2(
   {/*
     issuer: config.auth.issuer,
   	path: '/login/callback',
