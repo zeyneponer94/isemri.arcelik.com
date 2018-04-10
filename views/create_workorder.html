@@ -20,6 +20,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
     <script src="lib/workorder.js"></script>
     <script src="lib/loading.js"></script>    
+    <script src="lib/spinner.js"></script>        
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-route.js"></script>     
 
 
@@ -147,13 +148,11 @@
                                     class="form-control" placeholder="İş Emri Notu">                       
                                 </div> 
                                 <div class="form-group" align="center">                                                                                                                                                                                                                           
-                                    <button type="submit" class="btn btn-block btn-success" ng-click="create_workorder()" ng-disabled="form.$invalid">
-                                        <div ng-show="test"><span><i class="glyphicon glyphicon-refresh spinning"></i></span></div>
-                                        {{ButtonText}}
+                                    <button type="submit" class="btn btn-block btn-success" ng-click="create_workorder()" ng-disabled="form.$invalid">İŞ EMRİ OLUŞTUR
                                     </button>    
-                                    </div>                                                                                                                                    
-                                    <footer>&copy; 2018 Arçelik All rights reserved.</footer>   
-                                </div>       
+                                </div>                                                                                                                                    
+                                <footer>&copy; 2018 Arçelik All rights reserved.</footer>   
+                            </div>       
                             </div>    
                         </div>   
                      </form>                      
@@ -237,6 +236,11 @@
                 </div> 
         </div>                           
     </body> 
+    <div class="example-code" data-example-name="final-example" ng-controller="simpleBooleanController as ctrl">
+        <button type="button" class="btn btn-lg btn-primary" ng-click="ctrl.makeCall(2000)" ng-disabled="ctrl.isBusy">Slow Call 
+            <spinner show="ctrl.isBusy" class="ng-isolate-scope" style="display: none;"><i class="fa fa-cog fa-spin"></i></spinner>
+        </button>
+    </div>
 </html>
 
 
