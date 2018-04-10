@@ -11,7 +11,7 @@ var auth = require('./auth');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cookieSession = require('cookie-session');
-/*
+
 //Lets call passport authenticate method to authenticate 
 app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
     res.redirect('/');
@@ -29,13 +29,15 @@ app.get('/', auth.protected, function(req, res) {
 
 app.get('/workorder', auth.protected, function(req, res) {
     res.sendfile('views/create_workorder.html', {root: __dirname });   
-});*/
+});
+
+/*
 app.get('/' , function(req,res) {
     res.sendfile('views/login_page.html', {root: __dirname });   
 });
 app.get('/workorder' , function(req,res) {
     res.sendfile('views/create_workorder.html', {root: __dirname });   
-});
+});*/
 app.get('/register' , function(req,res) {
     res.sendfile('views/register.html', {root: __dirname });   
 });
