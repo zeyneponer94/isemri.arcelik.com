@@ -2,6 +2,7 @@ var passport = require('passport');
 var SamlStrategy = require('passport-saml').Strategy;
 var util = require('util')
 var wsfedsaml2 = require('./client/lib/passport-wsfed-saml2/index').Strategy
+var fs = require('fs');
 
 var config = require('./config.json');
 
