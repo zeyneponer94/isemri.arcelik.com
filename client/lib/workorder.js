@@ -5,9 +5,6 @@
       delete $httpProvider.defaults.headers.common['X-Requested-With'];
     }]);
 
-    
-    
-
     angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs,$sanitize,$timeout) {
 
           $scope.test="false";
