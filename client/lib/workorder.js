@@ -51,9 +51,6 @@
             $scope.show = false;
           }
 
-          $scope.showLoading = false;
-          $scope.loaderStyle = 'block';
-    
 
 
       $scope.search = function(query) {
@@ -485,7 +482,7 @@
                 $timeout(function(){
                    $scope.test="false";
                    $scope.ButtonText = "CREATE";                       
-                 },1000)
+                 },2000)
                 alert("Service is successfully assigned")
 
                 $http({
