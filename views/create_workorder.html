@@ -19,12 +19,11 @@
     <script src="js/dialogs.js"></script>   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
     <script src="lib/workorder.js"></script>
-    <script src="lib/spinner.js"></script>        
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-route.js"></script>     
 
 
-    <body style="background-color:rgb(255, 255, 255);">
-        <div class="container main-section" ng-app="App" ng-controller="Controller">
+    <body style="background-color:rgb(255, 255, 255);" ng-app="App" ng-controller="Controller">
+        <div class="container main-section">
                 <header>
                     <div class="row" align="center">
                         <div class="col-md-12 col-sm-12 col-xs-12 ">
@@ -149,7 +148,12 @@
                                 <div class="form-group" align="center">                                                                                                                                                                                                                           
                                     <button type="submit" class="btn btn-block btn-success" ng-click="create_workorder()" ng-disabled="form.$invalid">İŞ EMRİ OLUŞTUR
                                     </button>    
-                                </div>                                                                                                                                    
+                                </div>    
+                                <div class="example-code" data-example-name="final-example" ng-controller="simpleBooleanController as ctrl">
+                                    <button type="button " class="btn btn-lg btn-primary" ng-click="ctrl.makeCall(2000)" ng-disabled="ctrl.isBusy">Slow Call 
+                                        <spinner show="ctrl.isBusy" class="ng-isolate-scope" style="display: none;"><i class="fa fa-cog fa-spin"></i></spinner>
+                                    </button>
+                                </div>                                                                                                                                         
                                 <footer>&copy; 2018 Arçelik All rights reserved.</footer>   
                             </div>       
                             </div>    
@@ -234,11 +238,7 @@
                     </div>                              
                 </div> 
         </div>      
-        <div class="example-code" data-example-name="final-example" ng-controller="simpleBooleanController as ctrl">
-            <button type="button " class="btn btn-lg btn-primary" ng-click="ctrl.makeCall(2000)" ng-disabled="ctrl.isBusy">Slow Call 
-                <spinner show="ctrl.isBusy" class="ng-isolate-scope" style="display: none;"><i class="fa fa-cog fa-spin"></i></spinner>
-            </button>
-        </div>                     
+            
     </body> 
 
 </html>
