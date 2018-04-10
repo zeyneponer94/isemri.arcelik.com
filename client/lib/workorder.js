@@ -384,7 +384,7 @@
                         
         }
 
-        $scope.ButtonText = "Create";
+        $scope.ButtonText = "CREATE";
         $scope.test = "false";
         
         $scope.create_workorder = function () 
@@ -486,12 +486,12 @@
                 $scope.ExternalOrderId = response.data[0].ExternalOrderId;
                 $scope.ConsignmentWorkOrderStatus = response.data[0].ConsignmentWorkOrderStatus;
                 $scope.test="true";
-                $scope.ButtonText = "Creating";                    
+                $scope.ButtonText = "CREATING";                    
                 $timeout(function(){
                    $scope.test="false";
-                   $scope.ButtonText = "Create";                       
-                 },2000)
-                alert("Service is successfully assigned")
+                   $scope.ButtonText = "CREATE";    
+                   alert("Service is successfully assigned")                   
+                 },1000)
 
                 $http({
                   method: "GET", 
