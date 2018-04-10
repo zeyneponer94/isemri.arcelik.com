@@ -378,10 +378,7 @@
               $scope.query_all();
             });  
           });     
-
-
-
-                        
+      
         }
 
         $scope.ButtonText = "CREATE";
@@ -395,7 +392,7 @@
           +$scope.workorderSelect+"<br> Müşteri adresi = " + $scope.adres_id).italics());
 					dlg.result.then(function(btn){
 
-            $scope.ButtonText = "Creating";
+            $scope.ButtonText = "CREATING";
             $scope.test = "true";
             
 
@@ -468,7 +465,6 @@
                       
             }]
 
-      
            $scope.postData = angular.toJson($scope.jsonData, true);                
 
             $http({
