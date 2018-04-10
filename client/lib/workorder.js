@@ -375,9 +375,9 @@
             }) 
             .then(function(response){ 
               $scope.query_all();
-              $scope.ButtonText = "QUERYING";                    
+              $scope.SORGULA = "QUERYING";                    
               $timeout(function(){
-                 $scope.ButtonText = "QUERY";    
+                 $scope.SORGULA = "QUERY";    
                },1000)
                
             });  
