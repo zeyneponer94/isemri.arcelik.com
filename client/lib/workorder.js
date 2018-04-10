@@ -477,7 +477,7 @@
             }).then(function (response) {
                 $scope.ExternalOrderId = response.data[0].ExternalOrderId;
                 $scope.ConsignmentWorkOrderStatus = response.data[0].ConsignmentWorkOrderStatus;
-                $scope.test="false";
+                $scope.test="true";
                 $scope.ButtonText = "CREATING";                    
                 $timeout(function(){
                    $scope.test="false";
