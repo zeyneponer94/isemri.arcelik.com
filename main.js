@@ -11,23 +11,24 @@ var auth = require('./auth');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cookieSession = require('cookie-session');
+var passport = require('passport')
 
 //Lets call passport authenticate method to authenticate 
-app.get('/login', auth.authenticate('wsfed-saml2', { failureRedirect: '/', failureFlash: true }), function(req, res) {
+app.get('/login', passport.authenticate('wsfed-saml2', { failureRedirect: '/', failureFlash: true }), function(req, res) {
     res.redirect('/');
 });
 
 //POST Methods, redirect to home successful login
-app.post('/login/callback', auth.authenticate('wsfed-saml2', { failureRedirect: '/', failureFlash: true }), function(req, res) {
+app.post('/login/callback', passport.authenticate('wsfed-saml2', { failureRedirect: '/', failureFlash: true }), function(req, res) {
     res.redirect('/workorder');
 });
 
 //Get Methods
-app.get('/', auth.protected, function(req, res) {
+app.get('/', ensureAuthenticated, function(req, res) {
     res.sendfile('views/login_page.html', {root: __dirname });       
 });
 
-app.get('/workorder', auth.protected, function(req, res) {
+app.get('/workorder', ensureAuthenticated, function(req, res) {
     res.sendfile('views/create_workorder.html', {root: __dirname });   
 });
 
