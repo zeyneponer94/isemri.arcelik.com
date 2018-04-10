@@ -356,12 +356,20 @@
           $scope.sorgula(x.no);   
         }
 
+        $scope.SORGULA = "QUERY";
+
         $scope.sorgula = function(x) {
           $http({
             method: "GET",
             url: 'https://thworkorderfapp.azurewebsites.net/sorgula/' + x,
           }) 
           .then(function(response){ 
+
+            $scope.ButtonText = "QUERYING";                    
+            $timeout(function(){
+               $scope.ButtonText = "QUERY";    
+             },1000)
+             
             $scope.ConsignmentWorkOrderStatus = response.data[0].Status; 
             $http({
               method: "GET", 
@@ -379,7 +387,6 @@
         }
 
         $scope.ButtonText = "CREATE";
-        $scope.test = "false";
         
         $scope.create_workorder = function () 
         {       
@@ -389,8 +396,7 @@
           +$scope.workorderSelect+"<br> Müşteri adresi = " + $scope.adres_id).italics());
 					dlg.result.then(function(btn){
 
-            $scope.ButtonText = "CREATING";
-            $scope.test = "true";
+          $scope.ButtonText = "CREATING";
             
 
           $scope.jsonData = [{
@@ -478,10 +484,8 @@
             }).then(function (response) {
                 $scope.ExternalOrderId = response.data[0].ExternalOrderId;
                 $scope.ConsignmentWorkOrderStatus = response.data[0].ConsignmentWorkOrderStatus;
-                $scope.test="true";
                 $scope.ButtonText = "CREATING";                    
                 $timeout(function(){
-                   $scope.test="false";
                    $scope.ButtonText = "CREATE";    
                    alert("Service is successfully assigned")                   
                  },1000)
