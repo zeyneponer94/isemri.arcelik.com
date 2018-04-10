@@ -220,9 +220,7 @@
                                     <td>{{ x.AppointmentDate }}</td> 
                                     <td>
                                         <button type="button" class="btn btn-danger" ng-click = "delete_query(x)"><i class="glyphicon glyphicon-remove"><b>SİL</b></i></button>
-                                        <button type="button" class="btn btn-primary" ng-click = "sorgula(x.no)">
-                                            <span ng-show="SORGULA == 'QUERYING'"><i class="glyphicon glyphicon-refresh spinning"></i></span>
-                                            <b>{{SORGULA}}</b>
+                                        <button type="button" class="btn btn-primary" ng-click = "sorgula(x)"><b>SORGULA</b>
                                         </button>                                        
                                     
                                     </td> 

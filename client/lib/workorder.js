@@ -353,39 +353,33 @@
           .then(function(response){ 
           });       
           alert("İş Emri Başararıyla İptal Edildi.");
-          $scope.sorgula(x.no);   
+          $scope.sorgula(x);   
         }
-
-        $scope.SORGULA = "QUERY";
 
         $scope.sorgula = function(x) {
           $http({
             method: "GET",
-            url: 'https://thworkorderfapp.azurewebsites.net/sorgula/' + x,
+            url: 'https://thworkorderfapp.azurewebsites.net/sorgula/' + x.no,
           }) 
           .then(function(response){ 
             $scope.ConsignmentWorkOrderStatus = response.data[0].Status; 
+            x.status = $scope.ConsignmentWorkOrderStatus;
             $http({
               method: "GET", 
               url: 'https://thworkorderfapp.azurewebsites.net/api/updateworkorder',
               params: {
-                no: ""+x,
+                no: ""+x.no,
                 status: ""+$scope.ConsignmentWorkOrderStatus
               }          
             }) 
             .then(function(response){ 
-              $scope.query_all();
-              $scope.SORGULA = "QUERYING";                    
-              $timeout(function(){
-                 $scope.SORGULA = "QUERY";    
-               },1000)
-               
             });  
           });     
       
         }
 
         $scope.ButtonText = "CREATE";
+        $scope.test = "false";
         
         $scope.create_workorder = function () 
         {       
@@ -395,7 +389,8 @@
           +$scope.workorderSelect+"<br> Müşteri adresi = " + $scope.adres_id).italics());
 					dlg.result.then(function(btn){
 
-          $scope.ButtonText = "CREATING";
+            $scope.ButtonText = "CREATING";
+            $scope.test = "true";
             
 
           $scope.jsonData = [{
@@ -483,8 +478,10 @@
             }).then(function (response) {
                 $scope.ExternalOrderId = response.data[0].ExternalOrderId;
                 $scope.ConsignmentWorkOrderStatus = response.data[0].ConsignmentWorkOrderStatus;
+                $scope.test="true";
                 $scope.ButtonText = "CREATING";                    
                 $timeout(function(){
+                   $scope.test="false";
                    $scope.ButtonText = "CREATE";    
                    alert("Service is successfully assigned")                   
                  },1000)
