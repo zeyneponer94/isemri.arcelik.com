@@ -364,12 +364,6 @@
             url: 'https://thworkorderfapp.azurewebsites.net/sorgula/' + x,
           }) 
           .then(function(response){ 
-
-            $scope.ButtonText = "QUERYING";                    
-            $timeout(function(){
-               $scope.ButtonText = "QUERY";    
-             },1000)
-             
             $scope.ConsignmentWorkOrderStatus = response.data[0].Status; 
             $http({
               method: "GET", 
@@ -381,6 +375,11 @@
             }) 
             .then(function(response){ 
               $scope.query_all();
+              $scope.ButtonText = "QUERYING";                    
+              $timeout(function(){
+                 $scope.ButtonText = "QUERY";    
+               },1000)
+               
             });  
           });     
       
