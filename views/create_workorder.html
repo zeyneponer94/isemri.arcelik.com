@@ -22,8 +22,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-route.js"></script>     
 
 
-    <body style="background-color:rgb(255, 255, 255);"  ng-app="App" ng-controller="Controller" ng-disabled="ButtonText == 'CREATING'">
-        <div class="container main-section">
+    <body style="background-color:rgb(255, 255, 255);"  ng-app="App" ng-controller="Controller">
+        <div class="container main-section" ng-disabled="all">
                 <header>
                     <div class="row" align="center">
                         <div class="col-md-12 col-sm-12 col-xs-12 ">
@@ -146,7 +146,7 @@
                                     class="form-control" placeholder="İş Emri Notu">                       
                                 </div> 
                                 <div class="form-group" align="center">                                                                                                                                                                                                                           
-                                    <button type="submit" class="btn btn-block btn-success" ng-click="create_workorder()" ng-disabled="form.$invalid">
+                                    <button ng-model="all" type="submit" class="btn btn-block btn-success" ng-click="create_workorder()" ng-disabled="form.$invalid">
                                         <span ng-show="ButtonText == 'CREATING'"><i class="glyphicon glyphicon-refresh spinning"></i></span>
                                         {{ ButtonText }}
                                     </button>    
