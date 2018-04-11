@@ -380,15 +380,15 @@
 
         $scope.ButtonText = "CREATE";
         $scope.test = "false";
+        $scope.all = false;
         
         $scope.create_workorder = function () 
         {       
-          
           var dlg = dialogs.confirm("Lütfen Onaylayınız!","Aşağıda belirtilen bilgiler ile iş emri oluşturma talebinizi gerçekleştirmeyi onaylıyor musunuz?".bold()+"<br>"+ ("  Müşteri adı = "+$scope.name_id+"<br>  Müşteri soyadı = "
           +$scope.surname_id+"<br>  Müşteri telefon numarası = "+$scope.phone_id+"<br>  Seçilen ürün = "+$scope.txtProductCode+"<br>  Seçilen iş emri türü = "
           +$scope.workorderSelect+"<br> Müşteri adresi = " + $scope.adres_id).italics());
 					dlg.result.then(function(btn){
-
+            $scope.all = true;            
             $scope.ButtonText = "CREATING";
             $scope.test = "true";
             
@@ -483,7 +483,8 @@
                 $timeout(function(){
                    $scope.test="false";
                    $scope.ButtonText = "CREATE";    
-                   alert("Service is successfully assigned")                   
+                   $scope.all = false;                                                  
+                   alert("Service is successfully assigned")  
                  },1000)
 
                 $http({
