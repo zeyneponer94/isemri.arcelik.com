@@ -513,9 +513,6 @@
 					    alert('İşlem Tamamlanamadı.');
 					});
         } 
-
-
-
     });
 
   
