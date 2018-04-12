@@ -379,8 +379,6 @@
         }
 
         $scope.ButtonText = "CREATE";
-        $scope.test = "false";
-        $scope.all = false;
         
         $scope.create_workorder = function () 
         {       
@@ -388,9 +386,7 @@
           +$scope.surname_id+"<br>  Müşteri telefon numarası = "+$scope.phone_id+"<br>  Seçilen ürün = "+$scope.txtProductCode+"<br>  Seçilen iş emri türü = "
           +$scope.workorderSelect+"<br> Müşteri adresi = " + $scope.adres_id).italics());
 					dlg.result.then(function(btn){
-            $scope.all = true;            
             $scope.ButtonText = "CREATING";
-            $scope.test = "true";
             
 
           $scope.jsonData = [{
@@ -478,12 +474,9 @@
             }).then(function (response) {
                 $scope.ExternalOrderId = response.data[0].ExternalOrderId;
                 $scope.ConsignmentWorkOrderStatus = response.data[0].ConsignmentWorkOrderStatus;
-                $scope.test="true";
                 $scope.ButtonText = "CREATING";                    
                 $timeout(function(){
-                   $scope.test="false";
                    $scope.ButtonText = "CREATE";    
-                   $scope.all = false;                                                  
                    alert("Service is successfully assigned")  
                  },1000)
 
