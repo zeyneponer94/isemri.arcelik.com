@@ -43,7 +43,7 @@
                         <li class="navbar"><a  href="#" ng-click="queryWorkOrder()"><i class="glyphicon glyphicon-search"></i> İŞ EMRİ SORGULA</a></li>                  
                     </ul>
                 </nav> 
-                <div class="panel-group" ng-show="create" ng-disabled="ButtonText == 'CREATING'">
+                <div class="panel-group" ng-show="create">
                     <form name="form" novalidate>                                                                                                    
                         <div class="panel panel-default">
                             <div class="panel-heading">MÜŞTERİ</div>
@@ -143,7 +143,7 @@
                                 </div>  
                                 <div class="form-group">
                                     <input type="text" id="isemri_notu" name="isemri_notu" 
-                                    class="form-control" placeholder="İş Emri Notu">                       
+                                    class="form-control" placeholder="İş Emri Notu" ng-disabled="ButtonText == 'CREATING'">                       
                                 </div> 
                                 <div class="form-group" align="center">                                                                                                                                                                                                                           
                                     <button type="submit" class="btn btn-block btn-success" ng-click="create_workorder()" ng-disabled="form.$invalid">
