@@ -1,14 +1,13 @@
-    app = angular.module('App', ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize']);
+    app = angular.module('App', ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask']);
 
     app.config(['$httpProvider', function ($httpProvider) {
       $httpProvider.defaults.useXDomain = true;
       delete $httpProvider.defaults.headers.common['X-Requested-With'];
     }]);
 
-    angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs,$sanitize,$timeout) {
-
+    angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter) {
           $scope.test="false";
-          $scope.ButtonText = "CREATE";        
+          $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
 
           $scope.workordertype = [];   
           var obj = { name: "Teklif Montaj",
@@ -49,8 +48,6 @@
             $scope.txtProductCode = query;
             $scope.show = false;
           }
-
-
 
       $scope.search = function(query) {
        
@@ -200,8 +197,8 @@
         $http({
           method: "GET", 
           url: 'https://thworkorderfapp.azurewebsites.net/api/workorderlist',
-          params: {name:$scope.name_id_query,
-                   surname:$scope.surname_id_query}          
+          params: {name: "" + $scope.name_id_query,
+                   surname: "" + $scope.surname_id_query}          
         }) 
         .then(function(response){  
           if(response.data[0]==null)
@@ -213,14 +210,6 @@
             var i = 0;
             while(response.data[i]!=null){
 
-                  $scope.workorderno = response.data[i][3];
-                  $http({
-                  method: "GET",
-                  url: 'https://thworkorderfapp.azurewebsites.net/sorgula/' + $scope.workorderno,
-                  }) 
-                .then(function(response){ 
-                    var j  = 0;
-                    while(response.data[j]!=null){
                       var obj = { 
                         no: response.data[i][3],
                         product:response.data[i][4],
@@ -228,15 +217,12 @@
                         customer: response.data[i][6],
                         point: response.data[i][7],
                         address: response.data[i][8],
-                        status: response.data[j].Status,
+                        status: response.data[i][9],
                         service: response.data[i][10],
                         DeliveryDate: response.data[i][11],
                         AppointmentDate: response.data[i][12]
                       };
-                      $scope.workorders.push(obj); 
-                      j++;                  
-                    }                               
-                  });    
+                      $scope.workorders.push(obj);                             
 
                 i++;
             }
@@ -263,13 +249,12 @@
           });           
       }
     
-
       $scope.query_all = function () {
         $http({
           method: "GET", 
           url: 'https://thworkorderfapp.azurewebsites.net/api/query_workorderlist'     
         }) 
-        .then(function(response){  
+        .then(function(response){
             if(response.data[0]==null)
               $scope.result = true;
             else
@@ -315,45 +300,52 @@
         }
         
         
-        $scope.delete_query = function(x) {       
+        $scope.delete_query = function(x) {
 
-          $scope.jsonData = [{
-            "orderId": "",
-            "consigntmentEntryId": "1",
-            "Status": "020",
-            "ERPOrderNo": "",
-            "InvoiceNo": "",
-            "InvoiceDate": "",
-            "InvoiceLink": "",
-            "CargoCompanyName": "",
-            "CargoNo": "",
-            "CargoLink": "",
-            "ReturnNo": "",
-            "WorkOrderNo": "" + x.no,
-            "ServicePartnerName": "",
-            "ServiceParterPhoneNumber": "",
-            "isRefundableFlag": "",
-            "ReturnComment": "",
-            "ReturnWorkOrderNo": ""
-            }
-            ]
-  
-           $scope.postData = angular.toJson($scope.jsonData, true);     
+          var dlg = dialogs.confirm("Lütfen Onaylayınız!","<br>"+ (x.no + "'lu iş emrini iptal etmek istediğinize emin misiniz?").italics());
+          
+					dlg.result.then(function(btn){
+              $scope.jsonData = [{
+                "orderId": "",
+                "consigntmentEntryId": "1",
+                "Status": "020",
+                "ERPOrderNo": "",
+                "InvoiceNo": "",
+                "InvoiceDate": "",
+                "InvoiceLink": "",
+                "CargoCompanyName": "",
+                "CargoNo": "",
+                "CargoLink": "",
+                "ReturnNo": "",
+                "WorkOrderNo": "" + x.no,
+                "ServicePartnerName": "",
+                "ServiceParterPhoneNumber": "",
+                "isRefundableFlag": "",
+                "ReturnComment": "",
+                "ReturnWorkOrderNo": ""
+                }
+                ]
+      
+              $scope.postData = angular.toJson($scope.jsonData, true);     
 
-          $http({
-            url: 'https://thworkorderfapp.azurewebsites.net/deletequery/',
-            method: "POST",
-            data: $scope.postData ,
-            headers: {            
-                      'Content-Type': 'application/json',
-                      'Cache-Control': 'no-cache',
-                      'servicetype': 'INTHEBOX1'
-                     }
-          }) 
-          .then(function(response){ 
-          });       
-          alert("İş Emri Başararıyla İptal Edildi.");
-          $scope.sorgula(x);   
+              $http({
+                url: 'https://thworkorderfapp.azurewebsites.net/deletequery/',
+                method: "POST",
+                data: $scope.postData ,
+                headers: {            
+                          'Content-Type': 'application/json',
+                          'Cache-Control': 'no-cache',
+                          'servicetype': 'INTHEBOX1'
+                        }
+              }) 
+              .then(function(response){ 
+                $scope.sorgula(x); 
+              });       
+              alert("İş Emri Başararıyla İptal Edildi.");              
+					},function(btn){
+					    alert('İşlem Tamamlanamadı.');
+          });
+          
         }
 
         $scope.sorgula = function(x) {
@@ -378,17 +370,18 @@
       
         }
 
-        $scope.ButtonText = "CREATE";
+        $scope.ButtonText = "İŞ EMRİ OLUŞTUR";
         
         $scope.create_workorder = function () 
         {       
           var dlg = dialogs.confirm("Lütfen Onaylayınız!","Aşağıda belirtilen bilgiler ile iş emri oluşturma talebinizi gerçekleştirmeyi onaylıyor musunuz?".bold()+"<br>"+ ("  Müşteri adı = "+$scope.name_id+"<br>  Müşteri soyadı = "
-          +$scope.surname_id+"<br>  Müşteri telefon numarası = "+$scope.phone_id+"<br>  Seçilen ürün = "+$scope.txtProductCode+"<br>  Seçilen iş emri türü = "
+          +$scope.surname_id+"<br>  Müşteri telefon numarası = "+$scope.phonenumber_3+"<br>  Seçilen ürün = "+$scope.txtProductCode+"<br>  Seçilen iş emri türü = "
           +$scope.workorderSelect+"<br> Müşteri adresi = " + $scope.adres_id).italics());
 					dlg.result.then(function(btn){
-            $scope.ButtonText = "CREATING";
+            $scope.ButtonText = "İŞ EMRİ OLUŞTURULUYOR";
             
-
+            $scope.dateVal = $filter('date')(new Date(), 'ss/MM/yyyy HH:mm:ss');
+            
           $scope.jsonData = [{
             "PK": "",
             "MainSourceApplicationProcces": "InnTheBox",
@@ -403,9 +396,9 @@
             "Note": "10",
             "Name": "" + $scope.name_id,
             "Surname": "" + $scope.surname_id,
-            "Phone1": "" + $scope.phone_id,
-            "Phone2": "",
-            "Phone3": "",
+            "Phone1": "" + $scope.phonenumber_3,
+            "Phone2": "" + $scope.phonenumber_1,
+            "Phone3": "" + $scope.phonenumber_2,
             "Email": "" + $scope.email_id,
             "TaxOffice": "",
             "TaxId": "",
@@ -418,7 +411,7 @@
             "ContactPerson": "" + $scope.satis_id,
             "ContactPhone": "" + $scope.satis_phone_id,
             "PreferredServiceShop": "",
-            "DeliveryDate": "13.02.2018 08:54:00",
+            "DeliveryDate": "" +  $scope.dateVal,
             "ExternalOrderId": "0",
             "InvoiceAcceptPhone": "" + $scope.name_id,
             "InvoiceAcceptName": "" + $scope.surname_id,
@@ -438,15 +431,15 @@
                         "WareHouseNeighborhood": "BATI",
                         "WareHouseDistrict": "PENDİK",
                         "WareHouseCity": "İSTANBUL",
-                        "ProductCode": "6211101000",
+                        "ProductCode": "" + $scope.txtProductCode,
                         "Product": "ARY-5500 E ÇAMAŞIR MAK.(Y-326) ÇİFT",
-                        "OperationType": "Montaj",
+                        "OperationType": "" + $scope.workorderSelect,
                         "ProductReturnCheck": "0",
                         "ExtraWarrantyType": "1",
                         "ProductExposeCheck": "0",
                         "SourceOrderStatus": "Approve",
                         "ProductBarcode": "1",
-                        "DetailNote": "Test satır 1",
+                        "DetailNote": "" + $scope.isemri_notu,
                         "ParoId": "1",
                         "InvoiceNr": "AAFF111SFFEWQ",
                         "InvoiceDate": "13.02.2018 08:54:00",
@@ -474,9 +467,9 @@
             }).then(function (response) {
                 $scope.ExternalOrderId = response.data[0].ExternalOrderId;
                 $scope.ConsignmentWorkOrderStatus = response.data[0].ConsignmentWorkOrderStatus;
-                $scope.ButtonText = "CREATING";                    
+                $scope.ButtonText = "İŞ EMRİ OLUŞTURULUYOR";                    
                 $timeout(function(){
-                   $scope.ButtonText = "CREATE";    
+                   $scope.ButtonText = "İŞ EMRİ OLUŞTUR";    
                    alert("Service is successfully assigned")  
                  },1000)
 
@@ -502,7 +495,6 @@
                 .then(function(response){ 
                 });
           });
-
 					},function(btn){
 					    alert('İşlem Tamamlanamadı.');
 					});

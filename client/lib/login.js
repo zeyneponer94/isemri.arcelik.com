@@ -1,7 +1,7 @@
 var testApp = angular.module("App", []);
 
-testApp.controller('Controller' , ['$scope','$http','$window', function ($scope, $http, $window) {
-    
+testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', function ($scope, $http, $window, $timeout) {
+    $scope.ButtonText = "GİRİŞ";
     $scope.submit = function () {    
         $http({
             method: "GET",        
@@ -9,15 +9,17 @@ testApp.controller('Controller' , ['$scope','$http','$window', function ($scope,
             params: {username:$scope.username, password:$scope.password}
         }). 
         success(function(data, status) { 
-            alert(data)
-            if(status == 200){
-                $scope.login();
-            }
+            $scope.ButtonText = "GİRİŞ YAPILIYOR";
+            $timeout(function(){
+                $scope.ButtonText = "GİRİŞ";    
+                if(status == 200){
+                    $scope.login();
+                }
+            },1000)            
         }).
         error(function(data, status) {
             alert(data);
         });
-
     };       
                                                                             
     $scope.login = function(){ 

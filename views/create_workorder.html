@@ -12,16 +12,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.8/angular-material.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-leaflet-directive/0.10.0/angular-leaflet-directive.min.js"></script>
     <script src="https://rawgithub.com/angular-ui/angular-ui/master/build/angular-ui.js"></script>
-    
 
+    <script src="lib/mask.js"></script>   
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.6.9/angular-sanitize.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js"></script>
     <script src="js/dialogs.js"></script>   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
     <script src="lib/workorder.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-route.js"></script>     
-
-
+    
     <body style="background-color:rgb(255, 255, 255);"  ng-app="App" ng-controller="Controller">
         <div class="container main-section">
                 <header>
@@ -31,51 +31,52 @@
                         </div>     
                         <div class="col-md-12 col-sm-12 col-xs-12 ">                                
                             <img src="images/grundig-logo-workorder.png">  
-                        </div>                             
+                        </div>         
+                        <div align="right">
+                            <button type="button" class="btn btn-primary" ng-click="logout()">
+                                <span class="glyphicon glyphicon-log-out"></span> Çıkış
+                            </button>
+                        </div>                    
                     </div>
-                    <div align="right">
-                        <button type="button" class="btn btn-default" ng-click="logout()" >Çıkış</button>                             
-                    </div>
-                </header>                            
-                <nav class="navbar navbar-default" style="background-color:rgb(255, 255, 255);">                        
-                    <ul class="nav navbar-nav" id="navbarid">
-                        <li class="navbar active"><a  href="#" ng-click="createWorkOrder()"><i class="glyphicon glyphicon-plus"></i> İŞ EMRİ OLUŞTUR</a></li>
-                        <li class="navbar"><a  href="#" ng-click="queryWorkOrder()"><i class="glyphicon glyphicon-search"></i> İŞ EMRİ SORGULA</a></li>                  
-                    </ul>
-                </nav> 
+                </header>              
+                <ul class="nav nav-tabs nav-justified" id="navbarid">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" ng-click="createWorkOrder()" style="color:rgb(65, 62, 62);"><i class="glyphicon glyphicon-plus"></i> İŞ EMRİ OLUŞTUR</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" ng-click="queryWorkOrder()" style="color:rgb(65, 62, 62);"><i class="glyphicon glyphicon-search"></i> İŞ EMRİ SORGULA</a>
+                    </li>
+                </ul>              
                 <div class="panel-group" ng-show="create">
-                    <form name="form" novalidate>                                                                                                    
+                    <form name="form" novalidate>     
                         <div class="panel panel-default">
                             <div class="panel-heading">MÜŞTERİ</div>
                             <div class="panel-body">
                                 <div class="col-sm-4">
                                     <div class="form-group">                                
                                         <input type="text" id="name_customer" name="name_customer" 
-                                        class="form-control" placeholder="Ad*" ng-model="name_id" required>
+                                            class="form-control" placeholder="Ad*" ng-model="name_id" required ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'">
                                     </div> 
-                                    <div class="form-group">                                                            
-                                        <input type="text" id="phoneNumber_1" name="phoneNumber_1" 
-                                        class="form-control" placeholder="(___) ___ __ __">
-                                    </div>  
+                                    <div class="form-group">                                                                            
+                                        <input class="form-control" type="text" id="phoneNumber_1" name="phoneNumber_1" ng-model="phonenumber_1" ui-mask="(999) 999-9999" placeholder="(___) ___-____" ui-mask-placeholder-char="-" ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'"/>
+                                    </div>                                     
                                 </div>   
                                 <div class="col-sm-4">
                                     <div class="form-group">                                                                
                                         <input type="text" id="surname_customer" name="surname_customer" 
-                                        class="form-control" placeholder="Soyad*" ng-model="surname_id" required>
-                                    </div>                                        
-                                    <div class="form-group">                                                                
-                                        <input type="text" id="phoneNumber_2" name="phoneNumber_2" 
-                                        class="form-control" placeholder="(___) ___ __ __">
-                                    </div>                                        
+                                            class="form-control" placeholder="Soyad*" ng-model="surname_id" required ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'">
+                                    </div> 
+                                    <div class="form-group">                                                                                                                        
+                                        <input class="form-control" type="text" id="phoneNumber_2" name="phoneNumber_2" ng-model="phonenumber_2" ui-mask="(999) 999-9999" placeholder="(___) ___-____" ui-mask-placeholder-char="-" ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'"/>    
+                                    </div>                                                                          
                                 </div>     
                                 <div class="col-sm-4"> 
-                                    <div class="form-group">                                                                                                
-                                        <input type="text" id="phoneNumber_3" name="phoneNumber_3" 
-                                        class="form-control" placeholder="(___) ___ __ __*"  ng-model="phone_id" required>
+                                    <div class="form-group"> 
+                                        <input class="form-control" type="text" id="phoneNumber_3" name="phoneNumber_3" ng-model="phonenumber_3" ui-mask="(999) 999-9999" placeholder="(___) ___-____*" ui-mask-placeholder-char="-" required ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'"/>                                                
                                     </div>                                                            
                                     <div class="form-group">                                                                                                
                                         <input type="text" id="email_customer" name="email_customer" 
-                                        class="form-control" placeholder="E-Posta Adresi*" ng-model="email_id" required> 
+                                            class="form-control" placeholder="E-Posta Adresi*" ng-model="email_id" required ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'"> 
                                     </div>   
                                 </div>
                             </div>
@@ -87,19 +88,19 @@
                                     <input type="text" class="form-control" id="txtProductCode"
                                             data-toggle="tooltip" data-placement="top" title="Ürün Kodu Giriniz*"
                                             ng-change="search(txtProductCode)" ng-minlength="5";
-                                            name="txtProductCode" ng-model="txtProductCode" placeholder="Ürün Kodu Giriniz*" />
+                                            name="txtProductCode" ng-model="txtProductCode" placeholder="Ürün Kodu Giriniz*" ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'"/>
                                     <div class="entry" ng-repeat="item in ResponseProductList | filter:txtProductCode | limitTo:10" ng-show="show">
                                         <span ng-click="fncProductChoose(item.name)">{{item.name}}</span>
                                     </div>
-                                </div>                        
+                                </div>           
                                 <div class="form-group">                                                                                                                                            
-                                    <select class="form-control" ng-model="workorderSelect" >
+                                    <select class="form-control" ng-model="workorderSelect" ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'">
                                         <option value="">İş Emri Türü Seçiniz *</option> 
                                         <option ng-repeat="option in workordertype" value="{{option.name}}">{{option.name}}</option>                    
                                     </select>
                                 </div>
                                 <div class="form-group">                                                                                                                                            
-                                    <select class="form-control">
+                                    <select class="form-control" ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'">
                                         <option value="">Satış Noktası Seçiniz</option> 
                                     </select>
                                 </div>                     
@@ -109,25 +110,25 @@
                             <div class="panel-heading">MÜŞTERİ ADRESİ</div>
                             <div class="panel-body">
                                 <div class="form-group">     
-                                    <select class="form-control" ng-model="provinceSelect" ng-change="choose_city()" required>
+                                    <select class="form-control" ng-model="provinceSelect" ng-change="choose_city()" required ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'">
                                         <option value="">Teslimat İli Seçiniz *</option> 
                                         <option ng-repeat="option in province" value="{{option.id}}">{{option.name}}</option>
                                     </select>                                                                                                               
                                 </div>                                                                                                                                                                                                                       
                                 <div class="form-group">                                                                                                                                            
-                                    <select class="form-control" ng-model="citySelect" ng-change="choose_area()" required>
+                                    <select class="form-control" ng-model="citySelect" ng-change="choose_area()" required ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'">
                                         <option value="">Teslimat İlçesi Seçiniz *</option>                                     
                                         <option ng-repeat="option in city" value="{{option.id}}">{{option.name}}</option>                                                        
                                     </select>
                                 </div>
                                 <div class="form-group">                                                                                                                                            
-                                    <select class="form-control" ng-model="areaSelect" required>
+                                    <select class="form-control" ng-model="areaSelect" required ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'">
                                         <option value="">Teslimat Alanı Seçiniz *</option> 
                                         <option ng-repeat="option in area" value="{{option.id}}">{{option.name}}</option>                                                                                                
                                     </select>
                                 </div> 
                                 <input type="text" id="adres_customer" name="adres_customer" 
-                                class="form-control" placeholder="Adres*" ng-model="adres_id" required>                      
+                                class="form-control" placeholder="Adres*" ng-model="adres_id" required ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'">                      
                             </div>   
                         </div>
                         <div class="panel panel-default">
@@ -135,28 +136,31 @@
                             <div class="panel-body">
                                 <div class="form-group">                                
                                     <input type="text" id="satis" name="satis" 
-                                    class="form-control" placeholder="Satış Yetkilisi" ng-model="satis_id">
+                                    class="form-control" placeholder="Satış Yetkilisi" ng-model="satis_id" ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'">
                                 </div> 
                                 <div class="form-group">                                                            
                                     <input type="text" id="phoneNumber" name="phoneNumber" 
-                                    class="form-control" placeholder="(___) ___ __ __"  ng-model="satis_phone_id">
+                                    class="form-control" placeholder="(___) ___ __ __"  ng-model="satis_phone_id" ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'">
                                 </div>  
                                 <div class="form-group">
-                                    <input type="text" id="isemri_notu" name="isemri_notu" 
-                                    class="form-control" placeholder="İş Emri Notu" ng-disabled="ButtonText == 'CREATING'">                       
+                                    <input type="text" id="isemri_notu" name="isemri_notu" ng-model="isemri_notu"
+                                    class="form-control" placeholder="İş Emri Notu" ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'">                       
                                 </div> 
                                 <div class="form-group" align="center">                                                                                                                                                                                                                           
-                                    <button type="submit" class="btn btn-block btn-success" ng-click="create_workorder()" ng-disabled="form.$invalid">
-                                        <span ng-show="ButtonText == 'CREATING'"><i class="glyphicon glyphicon-refresh spinning"></i></span>
+                                    <button type="submit" class="btn btn-block btn-primary" ng-click="create_workorder()" ng-disabled="form.$invalid || ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'">
+                                        <span ng-show="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'"><i class="glyphicon glyphicon-refresh spinning"></i></span>
                                         {{ ButtonText }}
                                     </button>    
                                 </div>                                                                                             
-                                <footer>&copy; 2018 Arçelik All rights reserved.</footer>   
+                                <div class=" last-part" align="center">
+                                    <p>Copyright © 2018 - Arçelik A.Ş. | Tüm Hakları Saklıdır</p>          
+                                </div>       
+                                           
                             </div>       
                         </div>    
                     </form>                      
                 </div>
-                <div class="panel-group" ng-show="query">
+                <div class="panel-group" ng-show="query" >
                     <form name="form_" novalidate>                                                                                                                            
                         <div class="panel panel-default">
                             <div class="panel-body">    
@@ -174,13 +178,12 @@
                                 </div> 
                                 <div class="col-sm-3">
                                     <div class="form-group">                                
-                                        <input type="text" id="phoneNumber_3_query" name="phoneNumber_3_query" 
-                                        class="form-control" placeholder="(___) ___ __ __"  ng-model="phone_id_query">
+                                        <input class="form-control" type="text" id="phoneNumber_3_query" name="phoneNumber_3_query" ng-model="phone_id_query" ui-mask="(999) 999-9999" placeholder="(___) ___-____" ui-mask-placeholder-char="-" />                                        
                                     </div> 
                                 </div>
                                 <div class="col-sm-3">
                                     <div class="form-group">   
-                                        <button type="button" class="btn btn-success" ng-click="query_workorder()"ng-disabled="form_.$invalid"><i class="glyphicon glyphicon-search"></i><b>ARA</b></button>                                
+                                        <button type="button" class="btn btn-primary" ng-click="query_workorder()"ng-disabled="form_.$invalid"><i class="glyphicon glyphicon-search"></i><b>ARA</b></button>                                
                                     </div> 
                                 </div>  
                             </div>  
@@ -220,15 +223,13 @@
                                     <td>{{ x.AppointmentDate }}</td> 
                                     <td>
                                         <button type="button" class="btn btn-danger" ng-click = "delete_query(x)"><i class="glyphicon glyphicon-remove"><b>SİL</b></i></button>
-                                        <button type="button" class="btn btn-primary" ng-click = "sorgula(x)"><b>SORGULA</b>
-                                        </button>                                        
-                                    
+                                        <button type="button" class="btn btn-primary" ng-click = "sorgula(x)"><b>SORGULA</b></button>                                        
                                     </td> 
                                 </tr>   
                             </tbody>
                             </table>
-                            <div class="form-group" align="center">                                                                                                                                        
-                                <button type="button" class="btn btn-success" ng-click="query_all()"><i class="glyphicon glyphicon-search"><b>TÜMÜNÜ YAZDIR</b></i></button>                                                                                                                                                              
+                            <div class="form-group" align="center">         
+                                <button type="button" class="btn btn-primary" ng-click="query_all()"><i class="glyphicon glyphicon-search"><b>SORGULA</b></i></button>                                                                                                                                                              
                             </div>  
                             <footer ng-show="result" align="center"> Sonuç bulunamadı</footer>
                         </div> 

@@ -2,8 +2,8 @@
     <head>
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/custom.css">
-        <link href="css/styles.css" type="text/css" rel="stylesheet">        
-        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="css/styles.css" type="text/css" rel="stylesheet">      
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">  
     </head>    
     <body style="background-color:#D3D3D3;">
             <div class="container main-section" ng-app="App">
@@ -17,25 +17,28 @@
                                     <img src="images/grundig-logo-2.png">
                                 </div>
                                 <div class="col-md-12 col-sm-12 col-xs-12 user-welcoming ">
-                                    <p>Altus ve Grundig İş Emri Girişine Hoşgeldiniz.</p>                                        
-                                    <p> Şifreniz ile güvenli giriş yapabilirsiniz.</p>
+                                    <font face="verdana">Altus ve Grundig İş Emri Girişine Hoşgeldiniz.</font>
+                                    <p></p>
+                                    <font face="verdana">Şifreniz ile güvenli giriş yapabilirsiniz.</font>
                                 </div>  
-                                <form name="form" novalidate>                                        
                                     <div class="col-md-12 col-sm-12 col-xs-12 user-login-box" ng-controller="Controller">
                                         <div class="form-group input-group">
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-user" ></i></span>
-                                            <input type="text" name="username" id="username" class="form-control" placeholder="Username" ng-model="username" required/>
+                                            <input name="username" id="username" class="form-control" placeholder="Kullanıcı Adı" ng-model="username" ng-disabled="ButtonText == 'GİRİŞ YAPILIYOR'" required/>
                                         </div>
                                         <div class="form-group input-group" >
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock" ></i></span>
-                                            <input type="password" name="password" id="password" class="form-control" placeholder="Password" ng-model="password" required/>
+                                            <input type="password" name="password" id="password" class="form-control" placeholder="Şifre" ng-model="password" ng-disabled="ButtonText == 'GİRİŞ YAPILIYOR'" required/>
                                         </div>
-                                        <button type="submit" class="btn btn-success" ng-disabled="form.$invalid" ng-click="submit()">Login</button> 
-                                        <!--<button type="button" class="btn btn-success" ng-click="register()">Not Registered Yet?</button> -->                                  
+                                        <!--<button type="button" class="btn btn-success" ng-click="register()">Not Registered Yet?</button> -->    
+                                        <button type="submit" class="btn btn-primary" ng-click="submit()" ng-disabled="form.$invalid || ButtonText == 'GİRİŞ YAPILIYOR'">
+                                            <span ng-show="ButtonText == 'GİRİŞ YAPILIYOR'"><i class="glyphicon glyphicon-refresh spinning"></i></span>
+                                            {{ ButtonText }}
+                                        </button> 
                                     </div>
                                 </form>
                                 <div class="col-md-12 col-sm-12 col-xs-12 last-part">
-                                    <p>© 2018 Arçelik All rights reserved.</p>
+                                    <p>Copyright © 2018 - Arçelik A.Ş. | Tüm Hakları Saklıdır</p>
                                 </div>
                             </div>
                         </div>
