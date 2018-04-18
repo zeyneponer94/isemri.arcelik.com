@@ -63,7 +63,7 @@
           url: 'https://thworkorderfapp.azurewebsites.net/product/' +  query,
           headers: {            
             'Content-Type': 'application/json',
-            'SessionToken': '0005A04B-43E3-4AE4-B51B-C7DF8C16A4A6',
+            'SessionToken': '18C2B291-2A5C-48B6-A669-46BABD878811',
             'Cache-Control': 'no-cache',
             'servicetype': 'INTHEBOX1'
            } 
@@ -102,7 +102,7 @@
           method: "GET",
           headers: {            
                     'Content-Type': 'application/json',
-                    'SessionToken': '0005A04B-43E3-4AE4-B51B-C7DF8C16A4A6',
+                    'SessionToken': '18C2B291-2A5C-48B6-A669-46BABD878811',
                     'Cache-Control': 'no-cache',
                     'servicetype': 'INTHEBOX1'
                    }
@@ -127,7 +127,7 @@
             url: 'https://thworkorderfapp.azurewebsites.net/Uavt_city/' + $scope.provinceSelect + '/0/0',
             headers: {            
               'Content-Type': 'application/json',
-              'SessionToken': '0005A04B-43E3-4AE4-B51B-C7DF8C16A4A6',
+              'SessionToken': '18C2B291-2A5C-48B6-A669-46BABD878811',
               'Cache-Control': 'no-cache',
               'servicetype': 'INTHEBOX1'
              }
@@ -152,7 +152,7 @@
             url: 'https://thworkorderfapp.azurewebsites.net/Uavt_area/' + $scope.provinceSelect + '/' + $scope.citySelect + '/0',
             headers: {            
               'Content-Type': 'application/json',
-              'SessionToken': '0005A04B-43E3-4AE4-B51B-C7DF8C16A4A6',
+              'SessionToken': '18C2B291-2A5C-48B6-A669-46BABD878811',
               'Cache-Control': 'no-cache',
               'servicetype': 'INTHEBOX1'
              }
