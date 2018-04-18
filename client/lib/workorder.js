@@ -1,5 +1,17 @@
     app = angular.module('App', ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask']);
-
+    app.directive('ngEnter', function () { 
+            return function (scope, element, attrs) {
+                element.bind("keydown keypress", function (event) {
+                    if (event.which === 13) {
+                        scope.$apply(function () {
+                            scope.$eval(attrs.ngEnter);
+                        });
+                        event.preventDefault();
+                    }
+                });
+           };
+    })
+          
     app.config(['$httpProvider', function ($httpProvider) {
       $httpProvider.defaults.useXDomain = true;
       delete $httpProvider.defaults.headers.common['X-Requested-With'];

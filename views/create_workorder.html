@@ -167,18 +167,18 @@
                                 <div class="col-sm-3">
                                     <div class="form-group">                                
                                         <input type="text" id="name_query" name="name_query" 
-                                        class="form-control" placeholder="Ad*" ng-model="name_id_query" required>
+                                        class="form-control" placeholder="Ad*" ng-model="name_id_query" ng-enter="query_workorder()" required>
                                     </div> 
                                 </div> 
                                 <div class="col-sm-3">
                                     <div class="form-group">                                
                                         <input type="text" id="surname_query" name="surname_query" 
-                                        class="form-control" placeholder="Soyad*" ng-model="surname_id_query" required>
+                                        class="form-control" placeholder="Soyad*" ng-model="surname_id_query" ng-enter="query_workorder()" required>
                                     </div> 
                                 </div> 
                                 <div class="col-sm-3">
                                     <div class="form-group">                                
-                                        <input class="form-control" type="text" id="phoneNumber_3_query" name="phoneNumber_3_query" ng-model="phone_id_query" ui-mask="(999) 999-9999" placeholder="(___) ___-____" ui-mask-placeholder-char="-" />                                        
+                                        <input class="form-control" type="text" id="phoneNumber_3_query" name="phoneNumber_3_query" ng-model="phone_id_query" ui-mask="(999) 999-9999" placeholder="(___) ___-____" ui-mask-placeholder-char="-" ng-enter="query_workorder()"/>                                        
                                     </div> 
                                 </div>
                                 <div class="col-sm-3">
@@ -222,9 +222,9 @@
                                     <td>{{ x.DeliveryDate }}</td>
                                     <td>{{ x.AppointmentDate }}</td> 
                                     <td>
-                                        <button type="button" class="btn btn-danger" ng-click="delete_query($index,x)" ng-disabled="DeleteText == 'SİLİNİYOR'">
+                                        <button type="button" class="btn btn-danger" ng-click="delete_query($index,x)" ng-disabled="DeleteText == 'SİLİNİYOR'">                                                
                                             <span ng-show="DeleteText == 'SİLİNİYOR' && showSpinning===$index"><i class="glyphicon glyphicon-refresh spinning"></i></span>
-                                            {{ DeleteText }}
+                                            <span>{{showSpinning===$index ? DeleteText : "SİL" }}</span>                                                     
                                         </button> 
                                         <button type="button" class="btn btn-primary" ng-click = "sorgula(x)">SORGULA</button>                                        
                                     </td> 
