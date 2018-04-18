@@ -8,7 +8,10 @@
     angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter) {
           $scope.test="false";
           $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
-
+          $scope.QueryText = "SORGULA";        
+          $scope.DeleteText = "SİL";
+          
+          
           $scope.workordertype = [];   
           var obj = { name: "Teklif Montaj",
                       id: 7  };            
@@ -263,30 +266,32 @@
             $scope.workorders = [];
             $scope.return_value = [];                    
             var i = 0;
-            while(response.data[i]!=null){
+            
+            $scope.QueryText = "SORGULANIYOR";                                          
+            $timeout(function(){
 
-                    $scope.workorderno = response.data[i][3];
-                    //var workorders_no = $scope.query_workorder_no($scope.workorderno);
+              $scope.QueryText = "SORGULA";  
+              while(response.data[i]!=null){
+                $scope.workorderno = response.data[i][3];
+                var obj = { 
+                  no: response.data[i][3],
+                  product:response.data[i][4],
+                  type: response.data[i][5],
+                  customer: response.data[i][6],
+                  point: response.data[i][7],
+                  address: response.data[i][8],
+                  status: response.data[i][9],
+                  service: response.data[i][10],
+                  DeliveryDate: response.data[i][11],
+                  AppointmentDate: response.data[i][12]
+                };
+                $scope.workorders.push(obj);            
+                i++; 
+              }  
 
-                  //  var j = 0;
-                  //  while(workorders_no.data[j]!=null){
-                      var obj = { 
-                        no: response.data[i][3],
-                        product:response.data[i][4],
-                        type: response.data[i][5],
-                        customer: response.data[i][6],
-                        point: response.data[i][7],
-                        address: response.data[i][8],
-                        status: response.data[i][9],
-                        service: response.data[i][10],
-                        DeliveryDate: response.data[i][11],
-                        AppointmentDate: response.data[i][12]
-                      };
-                      $scope.workorders.push(obj); 
-                   //   j++;
-                  //  }                    
-                    i++; 
-            }
+            },1000)
+
+
         });
 
 
@@ -300,7 +305,7 @@
         }
         
         
-        $scope.delete_query = function(x) {
+        $scope.delete_query = function($index,x) {
 
           var dlg = dialogs.confirm("Lütfen Onaylayınız!","<br>"+ (x.no + "'lu iş emrini iptal etmek istediğinize emin misiniz?").italics());
           
@@ -339,12 +344,18 @@
                         }
               }) 
               .then(function(response){ 
-                $scope.sorgula(x); 
+                $scope.showSpinning=$index;
+                $scope.DeleteText = "SİLİNİYOR";                    
+                $timeout(function(){
+                   $scope.DeleteText = "SİL";  
+                   $scope.sorgula(x);      
+                   alert("İş Emri Başararıyla İptal Edildi.");   
+                 },1000)
+
               });       
-              alert("İş Emri Başararıyla İptal Edildi.");              
 					},function(btn){
 					    alert('İşlem Tamamlanamadı.');
-          });
+          });""
           
         }
 
@@ -355,7 +366,13 @@
           }) 
           .then(function(response){ 
             $scope.ConsignmentWorkOrderStatus = response.data[0].Status; 
-            x.status = $scope.ConsignmentWorkOrderStatus;
+            if( x.status === $scope.ConsignmentWorkOrderStatus)
+              alert("İşlem Durumu Günceldir.")
+            else{
+              x.status = $scope.ConsignmentWorkOrderStatus;
+              alert("İşlem Durumu Başarıyla Güncellendi.")
+            }
+           
             $http({
               method: "GET", 
               url: 'https://thworkorderfapp.azurewebsites.net/api/updateworkorder',
