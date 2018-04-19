@@ -38,7 +38,8 @@ passport.use(new SamlStrategy(
   {
     issuer: config.auth.issuer,
     entryPoint: config.auth.entryPoint,
-    cert: config.auth.cert
+    cert: config.auth.cert,
+    callbackUrl: "https://thworkorder.azurewebsites.net/login/callback"          
 /*
     path: '/login/callback',
     realm: 'urn:node:app',
