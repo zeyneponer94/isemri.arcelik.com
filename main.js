@@ -20,7 +20,7 @@ app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash
 });
 
 //POST Methods, redirect to home successful login
-app.post('/login/callback', auth.authenticate('saml', { failureRedirect: '/workorder', failureFlash: true }), function(req, res) {
+app.post('/login/callback', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
    // res.send(req.isAuthenticated());
     res.send(req.isAuthenticated());
    // res.redirect('/workorder');
