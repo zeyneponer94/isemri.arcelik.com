@@ -11,6 +11,7 @@ var auth = require('./auth');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cookieSession = require('cookie-session');
+var passport = require('passport');
 
 
 
