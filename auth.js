@@ -42,32 +42,25 @@ passport.use(new SamlStrategy(
     cert:  config.auth.cert
   },
   function(profile, done) {
-
-    //return done(null, user);
-   /* 
-    console.log('Succesfully Profile' + profile);    
+    console.log('Succesfully Profile' + profile);
     if (!profile.email) {
-      console.log('No email found');
-      return done(new Error("No email found"), null);
+        return done(new Error("No email found"), null);
     }
-    process.nextTick(function () {
-      console.log('email found');      
-
-    });*/
-
-    findByEmail(profile.email, function(err, user) {
-      if (err) {
-        return done(err);
-      }
-      if (!user) {
-        console.log('push user');                
-        users.push(profile);
-        return done(null, profile);
-      }
-      return done(null, user);
-    })
-
-  }
+    process.nextTick(function() {
+        console.log('process.nextTick' + profile);
+        findByEmail(profile.email, function(err, user) {
+            if (err) {
+                return done(err);
+            }
+            if (!user) {
+                users.push(profile);
+                return done(null, profile);
+            }
+            console.log('Ending Method for profiling');
+            return done(null, user);
+        })
+    });
+}
 ));
 
 passport.protected = function protected(req, res, next) {
