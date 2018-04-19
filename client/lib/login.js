@@ -27,7 +27,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
             headers: {            
                 'Accept': 'application/json',                
                 'Content-Type': 'application/json',
-                'Authorization': 'SSWS ${00mhP-hnbCzY-FtzKnlls8zQqkdEn-0rlYwdTAvSke}'
+                'Authorization': 'SSWS 00mhP-hnbCzY-FtzKnlls8zQqkdEn-0rlYwdTAvSke'
             }
         }) 
         .then(function(response){ 
