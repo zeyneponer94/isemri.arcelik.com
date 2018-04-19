@@ -36,11 +36,10 @@ passport.deserializeUser(function(id, done) {
 
 passport.use(new SamlStrategy(
   {
-    issuer: config.auth.issuer,
-    entryPoint: config.auth.entryPoint,
-    cert: config.auth.cert,
-    callbackUrl: "https://thworkorder.azurewebsites.net/login/callback"          
-/*
+    path: '/login/callback',
+    entryPoint: config.auth.entryPoint,    
+    issuer: 'passport-saml',
+    /*
     path: '/login/callback',
     realm: 'urn:node:app',
     homeRealm: '', // specify an identity provider to avoid showing the idp selector
@@ -52,7 +51,7 @@ passport.use(new SamlStrategy(
   function(profile, done) {
 
     //return done(null, user);
-    
+   /* 
     console.log('Succesfully Profile' + profile);    
     if (!profile.email) {
       console.log('No email found');
@@ -60,18 +59,20 @@ passport.use(new SamlStrategy(
     }
     process.nextTick(function () {
       console.log('email found');      
-      findByEmail(profile.email, function(err, user) {
-        if (err) {
-          return done(err);
-        }
-        if (!user) {
-          console.log('push user');                
-          users.push(profile);
-          return done(null, profile);
-        }
-        return done(null, user);
-      })
-    });
+
+    });*/
+    
+    findByEmail(profile.email, function(err, user) {
+      if (err) {
+        return done(err);
+      }
+      if (!user) {
+        console.log('push user');                
+        users.push(profile);
+        return done(null, profile);
+      }
+      return done(null, user);
+    })
 
   }
 ));
