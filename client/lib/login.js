@@ -2,7 +2,39 @@ var testApp = angular.module("App", []);
 
 testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', function ($scope, $http, $window, $timeout) {
     $scope.ButtonText = "GİRİŞ";
-    $scope.submit = function () {    
+    $scope.submit = function () {
+
+        $scope.jsonData = {
+            "profile": {
+              "firstName": "Isaac",
+              "lastName": "Brock",
+              "email": "" + $scope.username,
+              "login": "" + $scope.username,
+              "mobilePhone": "555-415-1337"
+            },
+            "credentials": {
+              "password" : { "value": "" + $scope.password }
+            }
+          }
+  
+          $scope.postData = angular.toJson($scope.jsonData, true);   
+
+
+        $http({
+            url: 'https://thworkorderfapp.azurewebsites.net/okta_create',
+            method: "POST",
+            data: $scope.postData ,
+            headers: {            
+                'Accept': 'application/json',                
+                'Content-Type': 'application/json',
+                'Authorization': 'SSWS ${00mhP-hnbCzY-FtzKnlls8zQqkdEn-0rlYwdTAvSke}'
+            }
+        }) 
+        .then(function(response){ 
+            alert(response.profile.firstName);
+        }); 
+        
+        /*
         $http({
             method: "GET",        
             url: 'https://thworkorderfapp.azurewebsites.net/api/systemlogin',             
@@ -19,7 +51,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
         }).
         error(function(data, status) {
             alert(data);
-        });
+        });*/
     };       
                                                                             
     $scope.login = function(){ 
