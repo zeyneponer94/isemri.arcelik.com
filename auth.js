@@ -37,7 +37,6 @@ passport.deserializeUser(function(id, done) {
 passport.use(new SamlStrategy(
   {
     issuer: config.auth.issuer,
-  	callbackUrl: 'https://thworkorder.azurewebsites.net/login/callback',
     entryPoint: config.auth.entryPoint,
     cert: config.auth.cert
 /*
