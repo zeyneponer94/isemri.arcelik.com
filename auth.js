@@ -50,6 +50,9 @@ passport.use(new SamlStrategy(
     */
   },
   function(profile, done) {
+
+    return done(null, user);
+ /*   
     console.log('Succesfully Profile' + profile);    
     if (!profile.email) {
       console.log('No email found');
@@ -68,7 +71,8 @@ passport.use(new SamlStrategy(
         }
         return done(null, user);
       })
-    });
+    });*/
+
   }
 ));
 
