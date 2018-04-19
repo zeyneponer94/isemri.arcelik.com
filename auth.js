@@ -62,6 +62,7 @@ passport.use(new SamlStrategy(
           return done(err);
         }
         if (!user) {
+          console.log('push user');                
           users.push(profile);
           return done(null, profile);
         }
