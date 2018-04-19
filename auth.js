@@ -36,11 +36,13 @@ passport.deserializeUser(function(id, done) {
 
 passport.use(new SamlStrategy(
   {
+    path : config.auth.path,
     entryPoint: config.auth.entryPoint,    
     issuer: config.auth.issuer,
     cert:  config.auth.cert
   },
   function(profile, done) {
+    return done(new Error("No email found"), null);
     console.log('Succesfully Profile' + profile);
     if (!profile.email) {
         return done(new Error("No email found"), null);
