@@ -3,17 +3,17 @@ var testApp = angular.module("App", []);
 testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', function ($scope, $http, $window, $timeout) {
     $scope.ButtonText = "GİRİŞ";
     $scope.submit = function () {
-
+/*
         $scope.jsonData = {
             "profile": {
-              "firstName": "Isaac",
-              "lastName": "Brock",
-              "email": "" + $scope.username,
-              "login": "" + $scope.username,
-              "mobilePhone": "555-415-1337"
+              "firstName": "Zeynep",
+              "lastName": "Öner",
+              "email": "zeynep_oner@arcelik.com",
+              "login": "zeynep_oner@arcelik.com",
+              "mobilePhone": "538-924-74-89"
             },
             "credentials": {
-              "password" : { "value": "" + $scope.password }
+              "password" : { "value": "2014_Kerem"}
             }
           }
   
@@ -27,14 +27,22 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
             headers: {            
                 'Accept': 'application/json',                
                 'Content-Type': 'application/json',
-                'Authorization': 'SSWS 00mhP-hnbCzY-FtzKnlls8zQqkdEn-0rlYwdTAvSke'
+                'Authorization': '00mhP-hnbCzY-FtzKnlls8zQqkdEn-0rlYwdTAvSke'
             }
         }) 
-        .then(function(response){ 
-            alert(response.profile.firstName);
-        }); 
+        .then(
+            function (response) {
+              var data = response.data;
+              alert(data);
+              // not relevant
+            }, function (error) {
+              var data = error.data;
+              alert(data);
+              // not relevant
+        });
+*/
         
-        /*
+        
         $http({
             method: "GET",        
             url: 'https://thworkorderfapp.azurewebsites.net/api/systemlogin',             
@@ -51,7 +59,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
         }).
         error(function(data, status) {
             alert(data);
-        });*/
+        });
     };       
                                                                             
     $scope.login = function(){ 
