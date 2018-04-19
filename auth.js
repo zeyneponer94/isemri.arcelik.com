@@ -36,9 +36,10 @@ passport.deserializeUser(function(id, done) {
 
 passport.use(new SamlStrategy(
   {
-    path: '/login/callback',
+    callbackUrl: config.auth.callbackUrl,
     entryPoint: config.auth.entryPoint,    
-    issuer: 'passport-saml',
+    issuer: config.auth.issuer,
+    cert:  config.auth.cert
     /*
     path: '/login/callback',
     realm: 'urn:node:app',
@@ -61,7 +62,7 @@ passport.use(new SamlStrategy(
       console.log('email found');      
 
     });*/
-    
+
     findByEmail(profile.email, function(err, user) {
       if (err) {
         return done(err);
