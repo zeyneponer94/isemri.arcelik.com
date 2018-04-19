@@ -16,7 +16,7 @@ var passport = require('passport');
 
 
 //Lets call passport authenticate method to authenticate 
-app.get('/login', passport.authenticate, { failureRedirect: '/', failureFlash: true }), function(req, res) {
+app.get('/login', passport.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
     res.redirect('/');
 });
 
