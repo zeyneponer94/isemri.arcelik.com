@@ -11,9 +11,7 @@ var auth = require('./auth');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cookieSession = require('cookie-session');
-var passport = require('passport');
 
-/*
 //Lets call passport authenticate method to authenticate 
 app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
     res.redirect('/');
@@ -23,20 +21,7 @@ app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash
 app.post('/login/callback', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
     res.redirect('/workorder');
 });
-*/
 
-app.post('/login/callback',
-passport.authenticate('saml', { failureRedirect: '/', failureFlash: true }),
-function(req, res) {
-  res.redirect('/');
-}
-);
-app.get('/login',
-passport.authenticate('saml', { failureRedirect: '/', failureFlash: true }),
-function(req, res) {
-  res.redirect('/');
-}
-);
 //Get Methods
 app.get('/', auth.protected, function(req, res) {
     res.sendfile('views/login_page.html', {root: __dirname });       

@@ -38,17 +38,10 @@ passport.use(new SamlStrategy(
   {
     path : config.auth.path,
     entryPoint: config.auth.entryPoint,    
-    issuer: config.auth.issuer
-    },
+    issuer: config.auth.issuer,
+    cert:  config.auth.cert
+  },
   function(profile, done) {
-    findByEmail(profile.email, function(err, user) {
-      if (err) {
-        return done(err);
-      }
-      return done(null, user);
-    });
-  })
-    /*
     console.log('Succesfully Profile' + profile);
     if (!profile.email) {
         return done(new Error("No email found"), null);
@@ -66,7 +59,7 @@ passport.use(new SamlStrategy(
             console.log('Ending Method for profiling');
             return done(null, user);
         })
-    });*/
+    });
   }
 ));
 
