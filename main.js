@@ -28,12 +28,12 @@ app.post('/login/callback', function(req, res) {
 
 //Get Methods
 app.get('/', auth.protected, function(req, res) {
-    res.send("login");    
+    res.send("login2");    
     res.sendfile('views/login_page.html', {root: __dirname });       
 });
 
 app.get('/workorder', auth.protected, function(req, res) {
-    res.send("login/callback");        
+    res.send("login/callback2");        
     res.sendfile('views/create_workorder.html', {root: __dirname });   
 });
 
