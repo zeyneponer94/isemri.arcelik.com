@@ -42,14 +42,15 @@ passport.use(new SamlStrategy(
     cert:  config.auth.cert
   },
   function(profile, done) {
-    
+
+   
     console.log('Succesfully Profile' + profile);
     if (!profile.email) {
         return done(new Error("No email found"), null);
     }
     process.nextTick(function() {
         console.log('process.nextTick' + profile);
-        findByEmail(profile.email, function(err, user) {
+        findByEmail("26029554@arcelik.com", function(err, user) {
             if (err) {
                 return done(err);
             }
