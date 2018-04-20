@@ -19,7 +19,7 @@ passport.use(new SamlStrategy(
     {
       path: '/login/callback',
       entryPoint: 'https://arcelik.oktapreview.com/app/arelika_thworkorder_1/exkekmgyymcDj2lqE0h7/sso/saml',
-      issuer: 'passport-saml'
+      issuer: 'http://www.okta.com/exkekmgyymcDj2lqE0h7'
     },
     function(profile, done) {
       findByEmail(profile.email, function(err, user) {
