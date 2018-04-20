@@ -7,7 +7,7 @@ var fs = require('fs');
 var config = require('./config.json');
 
 
-var users = [{email: "26029554@arcelik.com"}];
+var users = [];
 
 function findByEmail(email, fn) {
   for (var i = 0, len = users.length; i < len; i++) {
@@ -66,6 +66,7 @@ passport.use(new SamlStrategy(
 ));
 
 passport.protected = function protected(req, res, next) {
+  return next();
   
   res.send(req.isAuthenticated());
   if (req.isAuthenticated()) {
