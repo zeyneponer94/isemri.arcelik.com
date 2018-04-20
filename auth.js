@@ -7,7 +7,7 @@ var fs = require('fs');
 var config = require('./config.json');
 
 
-var users = [];
+var users = [{email: "26029554@arcelik.com"}];
 
 function findByEmail(email, fn) {
   for (var i = 0, len = users.length; i < len; i++) {
@@ -50,7 +50,7 @@ passport.use(new SamlStrategy(
     }
     process.nextTick(function() {
         console.log('process.nextTick' + profile);
-        findByEmail("26029554@arcelik.com", function(err, user) {
+        findByEmail(profile.email, function(err, user) {
             if (err) {
                 return done(err);
             }
