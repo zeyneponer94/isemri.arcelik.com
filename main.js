@@ -12,40 +12,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cookieSession = require('cookie-session');
 
-var passport = require('passport');
-var SamlStrategy = require('passport-saml').Strategy;
-
-passport.use(new SamlStrategy(
-    {
-      path: '/login/callback',
-      entryPoint: 'https://arcelik.oktapreview.com/app/arelika_thworkorder_1/exkekmgyymcDj2lqE0h7/sso/saml',
-      issuer: 'http://www.okta.com/exkekmgyymcDj2lqE0h7'
-    },
-    function(profile, done) {
-      findByEmail(profile.email, function(err, user) {
-        if (err) {
-          return done(err);
-        }
-        return done(null, user);
-      });
-    })
-  );
-
-  app.post('/login/callback',
-  passport.authenticate('saml', { failureRedirect: '/', failureFlash: true }),
-  function(req, res) {
-    res.send('login/callback');
-  }
-);
-
-app.get('/login',
-passport.authenticate('saml', { failureRedirect: '/', failureFlash: true }),
-function(req, res) {
-  res.send('login');
-}
-);
-
-/*
 //Lets call passport authenticate method to authenticate 
 app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
     res.redirect('/');
@@ -64,7 +30,7 @@ app.get('/', auth.protected, function(req, res) {
 app.get('/workorder', auth.protected, function(req, res) {
     res.sendfile('views/create_workorder.html', {root: __dirname });   
 });
-*/
+
 app.get('/register' , function(req,res) {
     res.sendfile('views/register.html', {root: __dirname });   
 });
