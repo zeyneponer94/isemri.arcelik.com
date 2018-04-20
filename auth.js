@@ -42,7 +42,6 @@ passport.use(new SamlStrategy(
     cert:  config.auth.cert
   },
   function(profile, done) {
-
     console.log('Succesfully Profile' + profile);
     if (!profile.email) {
         return done(new Error("No email found"), null);
@@ -61,11 +60,10 @@ passport.use(new SamlStrategy(
             return done(null, user);
         })
     });
-}
+  }
 ));
 
 passport.protected = function protected(req, res, next) {
-  res.send(req.isAuthenticated())
   if (req.isAuthenticated()) {
       return next();
   }
