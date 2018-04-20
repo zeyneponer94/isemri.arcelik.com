@@ -26,11 +26,11 @@ app.post('/login/callback', passport.authenticate('saml', { failureRedirect: '/'
 });
 
 //Get Methods
-app.get('/', auth.protected, function(req, res) {
+app.get('/', passport.protected, function(req, res) {
     res.sendfile('views/login_page.html', {root: __dirname });       
 });
 
-app.get('/workorder', auth.protected, function(req, res) {
+app.get('/workorder', passport.protected, function(req, res) {
     res.sendfile('views/create_workorder.html', {root: __dirname });   
 });
 
