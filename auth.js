@@ -64,10 +64,13 @@ passport.use(new SamlStrategy(
 ));
 
 passport.protected = function protected(req, res, next) {
+  res.send("authenticated");
+  
   if (req.isAuthenticated()) {
-    return next();
+    //res.send("authenticated");
+    //return next();
   }
-  res.redirect('/login');
+ // res.redirect('/login');
 };
 
  exports = module.exports = passport;
