@@ -65,11 +65,11 @@ passport.use(new SamlStrategy(
 
 passport.protected = function protected(req, res, next) {
   
+  res.send(req.isAuthenticated());
   if (req.isAuthenticated()) {
-     res.redirect('/workorder');
-      //return next();
+      return next();
   }
-     res.redirect('/');
+  res.redirect('/login');
 };
 
  exports = module.exports = passport;
