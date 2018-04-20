@@ -65,8 +65,7 @@ passport.use(new SamlStrategy(
 ));
 
 passport.protected = function protected(req, res, next) {
-  return next();
-  
+  res.send(req.isAuthenticated())
   if (req.isAuthenticated()) {
       return next();
   }
