@@ -36,7 +36,7 @@ passport.deserializeUser(function(id, done) {
 
 passport.use(new SamlStrategy(
   {
-    path : config.auth.path,
+    callbackURL : config.auth.callbackURL,
     entryPoint: config.auth.entryPoint,    
     issuer: config.auth.issuer,
     cert:  config.auth.cert
