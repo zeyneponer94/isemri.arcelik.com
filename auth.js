@@ -42,7 +42,6 @@ passport.use(new SamlStrategy(
     cert:  config.auth.cert
   },
   function(profile, done) {
-    return done(new Error("No email found"), null);
     console.log('Succesfully Profile' + profile);
     if (!profile.email) {
         return done(new Error("No email found"), null);
