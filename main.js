@@ -16,24 +16,21 @@ var cookieSession = require('cookie-session');
 
 //Lets call passport authenticate method to authenticate 
 app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
-    res.send("login");
     res.redirect('/');
 });
 
 //POST Methods, redirect to home successful login
-app.post('/login/callback', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
-    res.send("login/callback");    
+app.post('/login/callback', function(req, res) {
+    res.send(req.isAuthenticated())
     res.redirect('/workorder');
 });
 
 //Get Methods
 app.get('/', auth.protected, function(req, res) {
-    res.send("login2");    
     res.sendfile('views/login_page.html', {root: __dirname });       
 });
 
 app.get('/workorder', auth.protected, function(req, res) {
-    res.send("login/callback2");        
     res.sendfile('views/create_workorder.html', {root: __dirname });   
 });
 
