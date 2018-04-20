@@ -43,7 +43,6 @@ passport.use(new SamlStrategy(
   },
   function(profile, done) {
 
-   
     console.log('Succesfully Profile' + profile);
     if (!profile.email) {
         return done(new Error("No email found"), null);
@@ -68,7 +67,6 @@ passport.use(new SamlStrategy(
 passport.protected = function protected(req, res, next) {
   return next();
   
-  res.send(req.isAuthenticated());
   if (req.isAuthenticated()) {
       return next();
   }
