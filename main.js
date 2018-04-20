@@ -34,14 +34,14 @@ passport.use(new SamlStrategy(
   app.post('/login/callback',
   passport.authenticate('saml', { failureRedirect: '/', failureFlash: true }),
   function(req, res) {
-    res.redirect('/');
+    res.send('login/callback');
   }
 );
 
 app.get('/login',
 passport.authenticate('saml', { failureRedirect: '/', failureFlash: true }),
 function(req, res) {
-  res.redirect('/');
+  res.send('login');
 }
 );
 
