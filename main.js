@@ -7,51 +7,10 @@ var express = require('express'),
     Console = require('console');
 var logFmt = require("logfmt");
 var path = require('path');
-//var auth = require('./auth');
+var auth = require('./auth');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cookieSession = require('cookie-session');
-var passport = require('passport');
-
-passport.use('./config.json', new SamlStrategy(new SamlStrategy(
-    {
-      callbackUrl : config.auth.callbackUrl,
-      entryPoint: config.auth.entryPoint,    
-      issuer: config.auth.issuer,
-      cert:  config.auth.cert
-    },
-    function(profile, done) {
-      console.log('Succesfully Profile' + profile);
-      if (!profile.email) {
-          return done(new Error("No email found"), null);
-      }
-      process.nextTick(function() {
-          console.log('process.nextTick' + profile);
-          findByEmail(profile.email, function(err, user) {
-              if (err) {
-                  return done(err);
-              }
-              if (!user) {
-                  users.push(profile);
-                  return done(null, profile);
-              }
-              console.log('Ending Method for profiling');
-              return done(null, user);
-          })
-      });
-    }
-  )), callback);
-
-  app.post('/login/callback',
-  function(req, res) {
-      var config = // extract config name somehow
-      passport.authenticate(config, { failureRedirect: '/', failureFlash: true })();
-  },
-  function(req, res) {
-    res.redirect('/');
-  }
-);
-
 /*
 //Lets call passport authenticate method to authenticate 
 app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
@@ -62,7 +21,20 @@ app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash
 app.post('/login/callback', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
     res.redirect('/workorder');
 });
+*/
 
+app.post('/login/callback',
+passport.authenticate('saml', { failureRedirect: '/', failureFlash: true }),
+function(req, res) {
+  res.redirect('/');
+}
+);
+app.get('/login',
+passport.authenticate('saml', { failureRedirect: '/', failureFlash: true }),
+function(req, res) {
+  res.redirect('/');
+}
+);
 //Get Methods
 app.get('/', auth.protected, function(req, res) {
     res.sendfile('views/login_page.html', {root: __dirname });       
@@ -75,7 +47,7 @@ app.get('/workorder', auth.protected, function(req, res) {
 app.get('/register' , function(req,res) {
     res.sendfile('views/register.html', {root: __dirname });   
 });
-*/
+
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieSession({secret: 'app_1'}));
