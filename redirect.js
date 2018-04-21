@@ -6,7 +6,7 @@ module.exports = {
         
 
 
-        res.send(req.body);
+        res.send(req.data);
         
 
         
