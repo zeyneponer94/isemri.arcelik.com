@@ -1,6 +1,5 @@
 var testApp = angular.module("App", ['Services','ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask']);
 
-
 testApp.directive('ngEnter', function () { 
         return function (scope, element, attrs) {
             element.bind("keydown keypress", function (event) {
@@ -12,12 +11,29 @@ testApp.directive('ngEnter', function () {
                 }
             });
        };
-})
-      
+});
+/*      
 testApp.config(['$httpProvider', function ($httpProvider) {
   $httpProvider.defaults.useXDomain = true;
   delete $httpProvider.defaults.headers.common['X-Requested-With'];
-}]);
+}]);*/
+
+var GuId = "";
+
+window.routes =
+{
+    "/": {
+        templateUrl: 'views/login_page.html', 
+        controller: 'Controller', 
+        requireLogin: false
+},
+    "/workorder": {
+        templateUrl: 'views/create_workorder.html', 
+        controller: 'workorder', 
+        requireLogin: true
+    }
+};
+
 
 angular.module('Services').service('SessionService', function(){
     var userIsAuthenticated = false;
@@ -51,28 +67,11 @@ testApp.config(['$routeProvider', function($routeProvider){
             }
         }
     });
-
 });
-
-
-window.routes =
-{
-    "/": {
-        templateUrl: 'views/login_page.html', 
-        controller: 'Controller', 
-        requireLogin: false
-},
-    "/workorder": {
-        templateUrl: 'views/create_workorder.html', 
-        controller: 'workorder', 
-        requireLogin: true
-    }
-};
 
 
 testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', function ($scope, $http, $window, $timeout) {
     $scope.ButtonText = "GİRİŞ";
-    $scope.GuId = "";
     $scope.submit = function () { 
         $http({
             url: 'https://thworkorderfapp.azurewebsites.net/GuId/' + $scope.username + '/' + $scope.password + '/1/1/1/1',
@@ -80,7 +79,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
         }) 
         success(function(data, status) { 
             alert(data[0].Message[0].Description);
-            $scope.GuId = data[0].GuId;
+            GuId = data[0].GuId;
         }).
         error(function(data, status) {
             alert("Request failed");
@@ -132,7 +131,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
 }]);
 
 
-angular.module('App').controller('workorder', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter) {
+testApp.controller('workorder', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter) {
       $scope.test="false";
       $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
       $scope.QueryText = "SORGULA";        
