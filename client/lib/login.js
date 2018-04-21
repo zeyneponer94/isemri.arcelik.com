@@ -1,5 +1,5 @@
 
-var testApp = angular.module("App", []);
+var testApp = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask']);
 
 angular.module("App", []).service('sharedProperties', function () {
     var GuId = '';
@@ -84,9 +84,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
 }]);
 
 
-var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask']);
-
-app.controller('workorder', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter) {
+testApp.controller('workorder', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter) {
     alert(sharedProperties.getProperty());
     $scope.test="false";
     $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
