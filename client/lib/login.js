@@ -37,13 +37,13 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
 
         $scope.jsonData = [{"SessionToken": ""+ GuId}]
   
-        $scope.postData = angular.toJson($scope.jsonData, true);     
+        //$scope.postData = angular.toJson($scope.jsonData, true);     
 
 
         $http({
             url: '/workorder',
             method: "POST",
-            data: $scope.postData
+            data: $scope.jsonData
         }). 
         success(function(data, status) { 
             var url = "https://thworkorder.azurewebsites.net/workorder";
