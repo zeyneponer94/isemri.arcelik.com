@@ -2,47 +2,21 @@ var testApp = angular.module("App", []);
 
 testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', function ($scope, $http, $window, $timeout) {
     $scope.ButtonText = "GİRİŞ";
-    $scope.submit = function () {
-/*
-        $scope.jsonData = {
-            "profile": {
-              "firstName": "Zeynep",
-              "lastName": "Öner",
-              "email": "zeynep_oner@arcelik.com",
-              "login": "zeynep_oner@arcelik.com",
-              "mobilePhone": "538-924-74-89"
-            },
-            "credentials": {
-              "password" : { "value": "2014_Kerem"}
-            }
-          }
-  
-          $scope.postData = angular.toJson($scope.jsonData, true);   
-
-
+    $scope.GuId = "";
+    $scope.submit = function () {   
         $http({
-            url: 'https://thworkorderfapp.azurewebsites.net/okta_create',
-            method: "POST",
-            data: $scope.postData ,
-            headers: {            
-                'Accept': 'application/json',                
-                'Content-Type': 'application/json',
-                'Authorization': '00mhP-hnbCzY-FtzKnlls8zQqkdEn-0rlYwdTAvSke'
-            }
+            url: 'https://thworkorderfapp.azurewebsites.net/GuId/' + $scope.username + '/' + $scope.password + '/1/1/1/1',
+            method: "GET"
         }) 
-        .then(
-            function (response) {
-              var data = response.data;
-              alert(data);
-              // not relevant
-            }, function (error) {
-              var data = error.data;
-              alert(data);
-              // not relevant
+        success(function(data, status) { 
+            alert(data[0].Message[0].Description);
+            $scope.GuId = data[0].GuId;
+        }).
+        error(function(data, status) {
+            alert("Request failed");
         });
-*/
         
-        
+        /*
         $http({
             method: "GET",        
             url: 'https://thworkorderfapp.azurewebsites.net/api/systemlogin',             
@@ -59,7 +33,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
         }).
         error(function(data, status) {
             alert(data);
-        });
+        });*/
     };       
                                                                             
     $scope.login = function(){ 
