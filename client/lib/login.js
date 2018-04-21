@@ -1,6 +1,66 @@
-var testApp = angular.module("App", []);
+var testApp = angular.module("App", ['ngRoute']);
+testApp.config(function ($routeProvider) {
+    $routeProvider
+        .when('/', {
+          template: 'This is protected main view.',
+          templateUrl: 'views/login_page.html',
+          controller: 'Controller'
+        })
+        .when('/login', {
+          template: '',
+          templateUrl: 'views/create_workorder.html',
+          controller: 'LoginCtrl'
+        })
+        .otherwise({
+          redirectTo: '/'
+        });
+  });
+testApp.controller('LoginCtrl', function ($scope, Auth, $location, $http) {
+    $scope.user = {};
+  
+    $scope.login = function () {
+      Auth.login($scope.user, function () {
+        $location.path('/');
+      }, function (e) {
+        // do some error handling.
+      });
+    };
+  });
 
-testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', function ($scope, $http, $window, $timeout) {
+testApp.factory('Auth', function ($rootScope, $window, $http) {
+    return {
+      login: function (user, successHandler, errorHandler) {
+        if (user.username == 'test' && user.password == 'test') { //request yolla
+          this.setLoggedInUser(user);
+          successHandler(user);
+        } else {
+          errorHandler(user);
+        }
+      },
+      getLoggedInUser: function () {
+        if ($rootScope.user === undefined || $rootScope.user == null) {
+          var userStr = $window.sessionStorage.getItem('user');
+          if (userStr) {
+            $rootScope.user = angular.fromJson(userStr);
+          }
+        }
+        return $rootScope.user;
+      },
+      isLoggedIn: function () {
+        return this.getLoggedInUser() != null;
+      },
+      setLoggedInUser: function (user) {
+        $rootScope.user = user;
+        if (user == null) {
+          $window.sessionStorage.removeItem('user');
+        } else {
+          $window.sessionStorage.setItem('user', angular.toJson($rootScope.user));
+        }
+      }
+    };
+  });
+  
+testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', function ($scope, $http, $window, $timeout, Auth, $location) {
     $scope.ButtonText = "GİRİŞ";
     $scope.GuId = "";
     $scope.submit = function () {   
@@ -60,6 +120,17 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
     }
 
 }]);
+
+testApp.run(['$window', '$rootScope', '$location', 'Auth', function ($window, $rootScope, $location, Auth) {
+    
+        $rootScope.$on("$routeChangeStart", function (event) {
+          if (!Auth.isLoggedIn() &&
+              $location.path() !== '/login') {
+            $location.path('/login');
+          }
+        });
+    }]);
+    
 
 
 
