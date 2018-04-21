@@ -72,8 +72,9 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
 
 }]);
 
-var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask']);
 
+var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask']);
+/*
 app.controller('workorder', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter) {
     $scope.test="false";
     $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
@@ -584,7 +585,7 @@ app.controller('workorder', function ($scope, $http, $window,dialogs,$sanitize,$
                   alert('İşlem Tamamlanamadı.');
               });
   } 
-});
+});*/
 
 
 
