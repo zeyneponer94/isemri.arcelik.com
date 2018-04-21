@@ -34,7 +34,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
                                          
     $scope.login = function(){ 
 
-        $http.post("/workorder",{SessionToken: ""+ GuId}). 
+        $http.get("/workorder",{SessionToken: ""+ GuId}). 
         success(function(data, status) { 
             var url = "https://thworkorder.azurewebsites.net/workorder";
             $window.location = url;

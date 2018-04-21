@@ -46,7 +46,7 @@ app.get('/', function(req, res) {
     res.sendfile('views/login_page.html', {root: __dirname });       
 });
  
-app.post('/workorder', function(req, res) {
+app.get('/workorder', function(req, res) {
     res.send(req.body.SessionToken);
     res.sendfile('views/create_workorder.html', {root: __dirname });  
 
