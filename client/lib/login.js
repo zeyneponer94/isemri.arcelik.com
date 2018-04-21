@@ -31,13 +31,10 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
             alert("Request failed");
         });
     };       
-                                                                            
+                                         
     $scope.login = function(){ 
-        $http({
-            url: '/workorder',
-            method: "GET",
-            params: {SessionToken: "" + GuId}     
-        }).
+        $http.get('/workorder', {params: {SessionToken: '' + GuId}}     
+        ).
         success(function(data, status) { 
             var url = "https://thworkorder.azurewebsites.net/workorder";
             $window.location = url;
