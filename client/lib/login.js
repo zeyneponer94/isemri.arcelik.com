@@ -121,250 +121,250 @@ app.controller('workorder', function ($scope, $http, $window,dialogs,$sanitize,$
       $scope.show = false;
     }
 
-$scope.search = function(query) {
- 
-  $scope.show = true;
+    $scope.search = function(query) {
+    
+    $scope.show = true;
 
-  $http({
-    async: true,
-    crossDomain: true,
-    method: "GET", 
-    url: 'https://thworkorderfapp.azurewebsites.net/product/' +  query,
-    headers: {            
-      'Content-Type': 'application/json',
-      'SessionToken': '18C2B291-2A5C-48B6-A669-46BABD878811',
-      'Cache-Control': 'no-cache',
-      'servicetype': 'INTHEBOX1'
-     } 
-  }) 
-  .then(function(response){ 
-
-    var i = 0;
-    while(response.data[""+i]!=null)
-    {
-      var obj = { 
-        name: response.data[""+i].ProductCode
-      };
-      
-      $scope.ResponseProductList.push(obj);  
-      i++;
-    } 
-
-    return $scope.ResponseProductList;
-
-  });   
-
-};
-
-
-  $scope.ExternalOrderId = "";
-  $scope.ConsignmentWorkOrderStatus = "";
-  $scope.workorderno = "";      
-  $scope.create = true;  
-  $scope.query = false;      
-
-
-  $http({
-    async: true,
-    crossDomain: true,  
-    url: 'https://thworkorderfapp.azurewebsites.net/Uavt_province',
-    method: "GET",
-    headers: {            
-              'Content-Type': 'application/json',
-              'SessionToken': '18C2B291-2A5C-48B6-A669-46BABD878811',
-              'Cache-Control': 'no-cache',
-              'servicetype': 'INTHEBOX1'
-             }
-  })
-  .then(function(response){ 
-    $scope.province = [];                    
-    var i = 0;
-    while(response.data[i]!=null)
-    {
-      var obj = { 
-        id: response.data[i].CityId,
-        name: response.data[i].City
-      };
-      $scope.province.push(obj);  
-      i++;
-    }
-  });
-
-  $scope.choose_city = function() {
     $http({
-      method: "GET", 
-      url: 'https://thworkorderfapp.azurewebsites.net/Uavt_city/' + $scope.provinceSelect + '/0/0',
-      headers: {            
+        async: true,
+        crossDomain: true,
+        method: "GET", 
+        url: 'https://thworkorderfapp.azurewebsites.net/product/' +  query,
+        headers: {            
         'Content-Type': 'application/json',
         'SessionToken': '18C2B291-2A5C-48B6-A669-46BABD878811',
         'Cache-Control': 'no-cache',
         'servicetype': 'INTHEBOX1'
-       }
+        } 
     }) 
     .then(function(response){ 
-        $scope.city = [];                    
+
         var i = 0;
-        while(response.data[i]!=null){
-          var obj = { 
-            id: response.data[i].DistrictId,
-            name: response.data[i].District
-          };
-          $scope.city.push(obj);  
-          i++;
-        }
-    });          
-  }  
-  
-  $scope.choose_area = function() {
+        while(response.data[""+i]!=null)
+        {
+        var obj = { 
+            name: response.data[""+i].ProductCode
+        };
+        
+        $scope.ResponseProductList.push(obj);  
+        i++;
+        } 
+
+        return $scope.ResponseProductList;
+
+    });   
+
+    };
+
+
+    $scope.ExternalOrderId = "";
+    $scope.ConsignmentWorkOrderStatus = "";
+    $scope.workorderno = "";      
+    $scope.create = true;  
+    $scope.query = false;      
+
+
     $http({
-      method: "GET", 
-      url: 'https://thworkorderfapp.azurewebsites.net/Uavt_area/' + $scope.provinceSelect + '/' + $scope.citySelect + '/0',
-      headers: {            
-        'Content-Type': 'application/json',
-        'SessionToken': '18C2B291-2A5C-48B6-A669-46BABD878811',
-        'Cache-Control': 'no-cache',
-        'servicetype': 'INTHEBOX1'
-       }
-    }) 
-    .then(function(response){ 
-        $scope.area = [];                    
-        var i = 0;
-        while(response.data[i]!=null){
-          var obj = { 
-            id: response.data[i].NeighborhoodId,
-            name: response.data[i].Neighborhood
-           };
-          $scope.area.push(obj);  
-          i++;
-        }
-    });          
-  }  
-
-  var header = document.getElementById("navbarid");
-  var bars = header.getElementsByClassName("navbar");
-  for (var i = 0; i < bars.length; i++) {
-    bars[i].addEventListener("click", function() {
-      var current = document.getElementsByClassName("active");
-      current[0].className = current[0].className.replace(" active", "");
-      this.className += " active";
-    });
-  }   
-
-  $scope.isActive = function (viewLocation) {
-    var active = (viewLocation === $location.path());
-    return active;
-  };
-
-  $scope.createWorkOrder = function () {
-    $scope.create = true;
-    $scope.query=false;
-  }
-
-  $scope.queryWorkOrder = function () {
-    $scope.create = false;
-    $scope.query=true;
- }
-
- $scope.query_workorder = function () {
-  $http({
-    method: "GET", 
-    url: 'https://thworkorderfapp.azurewebsites.net/api/workorderlist',
-    params: {name: "" + $scope.name_id_query,
-             surname: "" + $scope.surname_id_query}          
-  }) 
-  .then(function(response){  
-    if(response.data[0]==null)
-      $scope.result = true;
-    else
-      $scope.result = false;     
-
-      $scope.workorders = [];
-      var i = 0;
-      while(response.data[i]!=null){
-
-                var obj = { 
-                  no: response.data[i][3],
-                  product:response.data[i][4],
-                  type: response.data[i][5],
-                  customer: response.data[i][6],
-                  point: response.data[i][7],
-                  address: response.data[i][8],
-                  status: response.data[i][9],
-                  service: response.data[i][10],
-                  DeliveryDate: response.data[i][11],
-                  AppointmentDate: response.data[i][12]
-                };
-                $scope.workorders.push(obj);                             
-
-          i++;
-      }
-  });
-}
-
-
-$scope.query_workorder_no = function(work_order) {
-   var workorders_no = [];
-    $http({
+        async: true,
+        crossDomain: true,  
+        url: 'https://thworkorderfapp.azurewebsites.net/Uavt_province',
         method: "GET",
-        url: 'https://thworkorderfapp.azurewebsites.net/sorgula/' + work_order,
-    }) 
+        headers: {            
+                'Content-Type': 'application/json',
+                'SessionToken': '18C2B291-2A5C-48B6-A669-46BABD878811',
+                'Cache-Control': 'no-cache',
+                'servicetype': 'INTHEBOX1'
+                }
+    })
     .then(function(response){ 
-        var j  = 0;
-        while(response.data[j]!=null){
-          var obj = { 
-              status: response.data[j].Status
-          };
-          workorders_no.push(obj);
-          j++;                  
-        }    
-        return workorders_no;              
-    });           
-}
+        $scope.province = [];                    
+        var i = 0;
+        while(response.data[i]!=null)
+        {
+        var obj = { 
+            id: response.data[i].CityId,
+            name: response.data[i].City
+        };
+        $scope.province.push(obj);  
+        i++;
+        }
+    });
 
-$scope.query_all = function () {
-  $http({
-    method: "GET", 
-    url: 'https://thworkorderfapp.azurewebsites.net/query/0/0/0/0/0/0/' + ServiceShopCode,
-    headers: {            
-      'SessionToken': '86349521-046F-4E63-AC99-8BA1779C06CE'
-     }     
-  }) 
-  .then(function(response){
-      if(response.data[0]==null)
+    $scope.choose_city = function() {
+        $http({
+        method: "GET", 
+        url: 'https://thworkorderfapp.azurewebsites.net/Uavt_city/' + $scope.provinceSelect + '/0/0',
+        headers: {            
+            'Content-Type': 'application/json',
+            'SessionToken': '18C2B291-2A5C-48B6-A669-46BABD878811',
+            'Cache-Control': 'no-cache',
+            'servicetype': 'INTHEBOX1'
+        }
+        }) 
+        .then(function(response){ 
+            $scope.city = [];                    
+            var i = 0;
+            while(response.data[i]!=null){
+            var obj = { 
+                id: response.data[i].DistrictId,
+                name: response.data[i].District
+            };
+            $scope.city.push(obj);  
+            i++;
+            }
+        });          
+    }  
+    
+    $scope.choose_area = function() {
+        $http({
+        method: "GET", 
+        url: 'https://thworkorderfapp.azurewebsites.net/Uavt_area/' + $scope.provinceSelect + '/' + $scope.citySelect + '/0',
+        headers: {            
+            'Content-Type': 'application/json',
+            'SessionToken': '18C2B291-2A5C-48B6-A669-46BABD878811',
+            'Cache-Control': 'no-cache',
+            'servicetype': 'INTHEBOX1'
+        }
+        }) 
+        .then(function(response){ 
+            $scope.area = [];                    
+            var i = 0;
+            while(response.data[i]!=null){
+            var obj = { 
+                id: response.data[i].NeighborhoodId,
+                name: response.data[i].Neighborhood
+            };
+            $scope.area.push(obj);  
+            i++;
+            }
+        });          
+    }  
+
+    var header = document.getElementById("navbarid");
+    var bars = header.getElementsByClassName("navbar");
+    for (var i = 0; i < bars.length; i++) {
+        bars[i].addEventListener("click", function() {
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
+        });
+    }   
+
+    $scope.isActive = function (viewLocation) {
+        var active = (viewLocation === $location.path());
+        return active;
+    };
+
+    $scope.createWorkOrder = function () {
+        $scope.create = true;
+        $scope.query=false;
+    }
+
+    $scope.queryWorkOrder = function () {
+        $scope.create = false;
+        $scope.query=true;
+    }
+
+    $scope.query_workorder = function () {
+    $http({
+        method: "GET", 
+        url: 'https://thworkorderfapp.azurewebsites.net/api/workorderlist',
+        params: {name: "" + $scope.name_id_query,
+                surname: "" + $scope.surname_id_query}          
+    }) 
+    .then(function(response){  
+        if(response.data[0]==null)
         $scope.result = true;
-      else
-        $scope.result = false;       
+        else
+        $scope.result = false;     
 
-      $scope.workorders = [];
-      $scope.return_value = [];                    
-      var i = 0;
-      
-      $scope.QueryText = "SORGULANIYOR";                                          
-      $timeout(function(){
-
-        $scope.QueryText = "SORGULA";  
+        $scope.workorders = [];
+        var i = 0;
         while(response.data[i]!=null){
-          var obj = { 
-            no: response.data[i].PackageNr,
-            productCode : response.data[i].ProductCode,
-            product:response.data[i].Product,
-            customer: response.data[i].Name + " " + response.data[i].Surname ,
-            address: response.data[i].Address,
-            status: response.data[i].Status,
-            AppointmentDate: response.data[i].AppointmentDate
-          };
-          $scope.workorders.push(obj);            
-          i++; 
-        }  
 
-      },1000)
+                    var obj = { 
+                    no: response.data[i][3],
+                    product:response.data[i][4],
+                    type: response.data[i][5],
+                    customer: response.data[i][6],
+                    point: response.data[i][7],
+                    address: response.data[i][8],
+                    status: response.data[i][9],
+                    service: response.data[i][10],
+                    DeliveryDate: response.data[i][11],
+                    AppointmentDate: response.data[i][12]
+                    };
+                    $scope.workorders.push(obj);                             
+
+            i++;
+        }
+    });
+    }
 
 
-  });
+    $scope.query_workorder_no = function(work_order) {
+    var workorders_no = [];
+        $http({
+            method: "GET",
+            url: 'https://thworkorderfapp.azurewebsites.net/sorgula/' + work_order,
+        }) 
+        .then(function(response){ 
+            var j  = 0;
+            while(response.data[j]!=null){
+            var obj = { 
+                status: response.data[j].Status
+            };
+            workorders_no.push(obj);
+            j++;                  
+            }    
+            return workorders_no;              
+        });           
+    }
+
+    $scope.query_all = function () {
+    $http({
+        method: "GET", 
+        url: 'https://thworkorderfapp.azurewebsites.net/query/0/0/0/0/0/0/' + ServiceShopCode,
+        headers: {            
+        'SessionToken': '86349521-046F-4E63-AC99-8BA1779C06CE'
+        }     
+    }) 
+    .then(function(response){
+        if(response.data[0]==null)
+            $scope.result = true;
+        else
+            $scope.result = false;       
+
+        $scope.workorders = [];
+        $scope.return_value = [];                    
+        var i = 0;
+        
+        $scope.QueryText = "SORGULANIYOR";                                          
+        $timeout(function(){
+
+            $scope.QueryText = "SORGULA";  
+            while(response.data[i]!=null){
+            var obj = { 
+                no: response.data[i].PackageNr,
+                productCode : response.data[i].ProductCode,
+                product:response.data[i].Product,
+                customer: response.data[i].Name + " " + response.data[i].Surname ,
+                address: response.data[i].Address,
+                status: response.data[i].Status,
+                AppointmentDate: response.data[i].AppointmentDate
+            };
+            $scope.workorders.push(obj);            
+            i++; 
+            }  
+
+        },1000)
 
 
-  
-}
+    });
+
+
+    
+    }
 
 
   $scope.logout = function() {
