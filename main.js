@@ -10,7 +10,16 @@ var path = require('path');
 //var auth = require('./auth');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+app.use(express.bodyParser());
 var cookieSession = require('cookie-session');
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json());
+app.use(cookieSession({secret: 'app_1'}));
+app.use(connect.compress());
+app.use(express.session({ secret: "won't tell because it's secret"  }));
+app.use(express.logger());
+app.use(errorHandler());
 /*
 //Lets call passport authenticate method to authenticate 
 app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
@@ -37,7 +46,7 @@ app.get('/', function(req, res) {
 });
  
 app.all('/workorder', function(req, res) {
-    res.send(req.body);
+    res.send(req.body.SessionToken);
     res.sendfile('views/create_workorder.html', {root: __dirname });  
 
 });
@@ -45,13 +54,7 @@ app.get('/register' , function(req,res) {
     res.sendfile('views/register.html', {root: __dirname });   
 });
 
-app.use(cookieParser());
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(cookieSession({secret: 'app_1'}));
-app.use(connect.compress());
-app.use(express.session({ secret: "won't tell because it's secret"  }));
-app.use(express.logger());
-app.use(errorHandler());
+
 //app.use(auth.initialize());
 //app.use(auth.session());
 app.use(express.static(__dirname + '/client')); 
