@@ -35,7 +35,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
     $scope.login = function(){ 
 
 
-        $scope.jsonData = [{"SessionToken": ""+ GuId}]
+        $scope.jsonData = {"SessionToken": ""+ GuId}
   
         //$scope.postData = angular.toJson($scope.jsonData, true);     
 

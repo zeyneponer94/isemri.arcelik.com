@@ -6,7 +6,7 @@ module.exports = {
         
 
 
-        res.send(req.data);
+        res.send(JSON.stringify(req.data));
         
 
         
