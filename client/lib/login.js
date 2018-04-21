@@ -34,7 +34,17 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
                                          
     $scope.login = function(){ 
 
-        $http.get("/workorder",{SessionToken: ""+ GuId}). 
+
+        $scope.jsonData = [{"SessionToken": ""+ GuId}]
+  
+          $scope.postData = angular.toJson($scope.jsonData, true);     
+
+
+        $http({
+            url: '/workorder',
+            method: "POST",
+            data: $scope.postData
+        }). 
         success(function(data, status) { 
             var url = "https://thworkorder.azurewebsites.net/workorder";
             $window.location = url;
