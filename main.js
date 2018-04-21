@@ -47,14 +47,13 @@ app.get('/', function(req, res) {
     res.sendfile('views/login_page.html', {root: __dirname });       
 });
  
-/*
+
 app.get('/workorder', function(req, res) {
-    res.send(req.body.SessionToken);
     res.sendfile('views/create_workorder.html', {root: __dirname });  
 
-});*/
+});
 
-app.all('/workorder', (req, res) => redirect.Authentication(req, res))
+//app.all('/workorder', (req, res) => redirect.Authentication(req, res))
 
 
 app.get('/register' , function(req,res) {

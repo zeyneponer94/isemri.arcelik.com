@@ -19,10 +19,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js"></script>
     <script src="js/dialogs.js"></script>   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
-    <script src="lib/workorder.js"></script>
+    <script src="lib/login.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-route.js"></script>     
     
-    <body style="background-color:rgb(255, 255, 255);"  ng-app="App" ng-controller="workorder">
+    <body style="background-color:rgb(255, 255, 255);" ng-app="App" ng-controller="workorder">
         <div class="container main-section">
                 <header>
                     <div class="row" align="center">
@@ -197,14 +197,11 @@
                             <thead>
                                 <tr>
                                 <th>İş Emri No</th>
+                                <th>Ürün Kodu</th>                                
                                 <th>Ürün</th>
-                                <th>İş Emri Türü</th>
                                 <th>Müşteri</th>
-                                <th>Sevk Noktası</th>
                                 <th>Teslimat Adresi</th>
                                 <th>İş Emri Durumu</th>
-                                <th>At. Yet. Servis</th>
-                                <th>İş Teslimat Tarihi</th>
                                 <th>Plan. Randevu Tarihi</th>    
                                 <th></th>                
                                 </tr>
@@ -212,14 +209,11 @@
                             <tbody>
                                 <tr ng-repeat="x in workorders">
                                     <td>{{ x.no }}</td>
+                                    <td>{{ x.productCode }}</td>                                    
                                     <td>{{ x.product }}</td>
-                                    <td>{{ x.type }}</td>
                                     <td>{{ x.customer }}</td>
-                                    <td>{{ x.point }}</td>
                                     <td>{{ x.address }}</td>
                                     <td>{{ x.status }}</td>
-                                    <td>{{ x.service }}</td>
-                                    <td>{{ x.DeliveryDate }}</td>
                                     <td>{{ x.AppointmentDate }}</td> 
                                     <td>
                                         <button type="button" class="btn btn-danger" ng-click="delete_query($index,x)" ng-disabled="DeleteText == 'SİLİNİYOR'">                                                

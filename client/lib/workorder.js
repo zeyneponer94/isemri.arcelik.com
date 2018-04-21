@@ -267,7 +267,10 @@
       $scope.query_all = function () {
         $http({
           method: "GET", 
-          url: 'https://thworkorderfapp.azurewebsites.net/api/query_workorderlist'     
+          url: 'https://thworkorderfapp.azurewebsites.net/query/0/0/0/0/0/0/' + ServiceShopCode,
+          headers: {            
+            'SessionToken': '86349521-046F-4E63-AC99-8BA1779C06CE'
+           }     
         }) 
         .then(function(response){
             if(response.data[0]==null)
@@ -284,18 +287,14 @@
 
               $scope.QueryText = "SORGULA";  
               while(response.data[i]!=null){
-                $scope.workorderno = response.data[i][3];
                 var obj = { 
-                  no: response.data[i][3],
-                  product:response.data[i][4],
-                  type: response.data[i][5],
-                  customer: response.data[i][6],
-                  point: response.data[i][7],
-                  address: response.data[i][8],
-                  status: response.data[i][9],
-                  service: response.data[i][10],
-                  DeliveryDate: response.data[i][11],
-                  AppointmentDate: response.data[i][12]
+                  no: response.data[i].PackageNr,
+                  productCode : response.data[i].ProductCode,
+                  product:response.data[i].Product,
+                  customer: response.data[i].Name + " " + response.data[i].Surname ,
+                  address: response.data[i].Address,
+                  status: response.data[i].Status,
+                  AppointmentDate: response.data[i].AppointmentDate
                 };
                 $scope.workorders.push(obj);            
                 i++; 
