@@ -1,7 +1,7 @@
 
 var testApp = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask']);
 
-angular.module("App", []).service('sharedProperties', function () {
+testApp.service('sharedProperties', function () {
     var GuId = '';
     return {
         getProperty: function () {
@@ -12,6 +12,11 @@ angular.module("App", []).service('sharedProperties', function () {
         }
     };
 });
+
+testApp.config(['$httpProvider', function ($httpProvider) {
+    $httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+  }]);
 
 testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', function ($scope, $http, $window, $timeout) {
     $scope.ButtonText = "GİRİŞ";
