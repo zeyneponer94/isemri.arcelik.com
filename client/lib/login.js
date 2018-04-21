@@ -1,6 +1,6 @@
 
 var testApp = angular.module("App", []);
-var GuId = "";
+var GuId;
 testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', function ($scope, $http, $window, $timeout) {
     $scope.ButtonText = "GİRİŞ";
     $scope.submit = function () { 
@@ -75,6 +75,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
 var app = angular.module("App_workorder", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask']);
 
 app.controller('workorder', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter) {
+    alert(GuId);
     $scope.test="false";
     $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
     $scope.QueryText = "SORGULA";        
@@ -111,7 +112,7 @@ app.controller('workorder', function ($scope, $http, $window,dialogs,$sanitize,$
     $scope.workordertype.push(obj);  
     var obj = { name: "Klima Keşif",
                 id: 6  };            
-    $scope.workordertype.push(obj);  
+    $scope.workordertype.push(obj);      
     
 
     $scope.ResponseProductList = [];   
@@ -163,7 +164,7 @@ app.controller('workorder', function ($scope, $http, $window,dialogs,$sanitize,$
     $scope.create = true;  
     $scope.query = false;      
 
-
+        
     $http({
         async: true,
         crossDomain: true,  
