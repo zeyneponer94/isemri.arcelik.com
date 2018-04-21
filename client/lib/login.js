@@ -39,7 +39,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
         $http({
             url: '/workorder',
             method: 'POST',
-            body: JSON.stringify(jsonData),
+            body: JSON.stringify($scope.jsonData),
             headers: {'Content-Type': 'application/json'}            
         }). 
         success(function(data, status) { 
