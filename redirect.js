@@ -6,7 +6,7 @@ module.exports = {
         
 
 
-        res.send(req);
+        res.send("req");
         
 
         

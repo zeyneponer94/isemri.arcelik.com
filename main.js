@@ -11,7 +11,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cookieSession = require('cookie-session');
-var redirect = require('./redirect');
+var redirect = require('./redirect.js');
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
