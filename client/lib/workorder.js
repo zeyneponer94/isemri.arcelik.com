@@ -17,7 +17,7 @@
       delete $httpProvider.defaults.headers.common['X-Requested-With'];
     }]);
 
-    angular.module('App').controller('Controller', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter) {
+    angular.module('App').controller('workorder', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter) {
           $scope.test="false";
           $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
           $scope.QueryText = "SORGULA";        
