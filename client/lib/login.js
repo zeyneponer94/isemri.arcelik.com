@@ -1,4 +1,3 @@
-import { isNull } from "util";
 
 var testApp = angular.module("App", []);
 
@@ -15,7 +14,6 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
             {
                 alert("Request failed");                
             }
-
             else
             {
                 alert(data[0].Message[0].Description);
@@ -39,7 +37,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
             url: '/workorder',
             method: "GET",
             headers: {            
-                      'SessionToken': '' + GuId,
+                      'SessionToken': '' + GuId
                      }
         }).
         success(function(data, status) { 
