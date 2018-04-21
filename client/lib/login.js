@@ -1,9 +1,8 @@
 
 var testApp = angular.module("App", []);
-
+var GuId = "";
 testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', function ($scope, $http, $window, $timeout) {
     $scope.ButtonText = "GİRİŞ";
-    var GuId = "";
     $scope.submit = function () { 
         $http({
             url: 'https://thworkorderfapp.azurewebsites.net/GuId/' + $scope.username + '/' + $scope.password + '/1/1/1/1',
@@ -133,7 +132,7 @@ app.controller('workorder', function ($scope, $http, $window,dialogs,$sanitize,$
         url: 'https://thworkorderfapp.azurewebsites.net/product/' +  query,
         headers: {            
         'Content-Type': 'application/json',
-        'SessionToken': '18C2B291-2A5C-48B6-A669-46BABD878811',
+        'SessionToken': '' + GuId,
         'Cache-Control': 'no-cache',
         'servicetype': 'INTHEBOX1'
         } 
@@ -172,7 +171,7 @@ app.controller('workorder', function ($scope, $http, $window,dialogs,$sanitize,$
         method: "GET",
         headers: {            
                 'Content-Type': 'application/json',
-                'SessionToken': '18C2B291-2A5C-48B6-A669-46BABD878811',
+                'SessionToken': '' + GuId,
                 'Cache-Control': 'no-cache',
                 'servicetype': 'INTHEBOX1'
                 }
@@ -197,7 +196,7 @@ app.controller('workorder', function ($scope, $http, $window,dialogs,$sanitize,$
         url: 'https://thworkorderfapp.azurewebsites.net/Uavt_city/' + $scope.provinceSelect + '/0/0',
         headers: {            
             'Content-Type': 'application/json',
-            'SessionToken': '18C2B291-2A5C-48B6-A669-46BABD878811',
+            'SessionToken': '' + GuId,
             'Cache-Control': 'no-cache',
             'servicetype': 'INTHEBOX1'
         }
@@ -222,7 +221,7 @@ app.controller('workorder', function ($scope, $http, $window,dialogs,$sanitize,$
         url: 'https://thworkorderfapp.azurewebsites.net/Uavt_area/' + $scope.provinceSelect + '/' + $scope.citySelect + '/0',
         headers: {            
             'Content-Type': 'application/json',
-            'SessionToken': '18C2B291-2A5C-48B6-A669-46BABD878811',
+            'SessionToken': '' + GuId,
             'Cache-Control': 'no-cache',
             'servicetype': 'INTHEBOX1'
         }
@@ -327,7 +326,7 @@ app.controller('workorder', function ($scope, $http, $window,dialogs,$sanitize,$
         method: "GET", 
         url: 'https://thworkorderfapp.azurewebsites.net/query/0/0/0/0/0/0/' + ServiceShopCode,
         headers: {            
-        'SessionToken': '86349521-046F-4E63-AC99-8BA1779C06CE'
+        'SessionToken': '' + GuId
         }     
     }) 
     .then(function(response){
