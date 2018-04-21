@@ -32,11 +32,15 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
         });
     };       
                                          
-    $scope.login = function(){   
+    $scope.login = function(){ 
+
+        $scope.jsonData = [{"SessionToken": "" + GuId}]
         
         $http({
-            url: '/workorder/' + GuId,
-            method: "GET"
+            url: '/workorder',
+            method: 'POST',
+            body: JSON.stringify(jsonData),
+            headers: {'Content-Type': 'application/json'}            
         }). 
         success(function(data, status) { 
             var url = "https://thworkorder.azurewebsites.net/workorder";
