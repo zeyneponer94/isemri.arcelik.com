@@ -36,9 +36,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
         $http({
             url: '/workorder',
             method: "GET",
-            headers: {            
-                      'SessionToken': '' + GuId
-                     }
+            params: {SessionToken: "" + GuId}     
         }).
         success(function(data, status) { 
             var url = "https://thworkorder.azurewebsites.net/workorder";
