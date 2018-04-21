@@ -347,7 +347,7 @@
 
               $http({
                 url: 'https://thworkorderfapp.azurewebsites.net/deletequery/',
-                method: "GET",
+                method: "POST",
                 data: $scope.postData ,
                 headers: {            
                           'Content-Type': 'application/json',
