@@ -10,11 +10,12 @@ var path = require('path');
 //var auth = require('./auth');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-app.use(express.bodyParser());
 var cookieSession = require('cookie-session');
-app.use(cookieParser());
-app.use(bodyParser.urlencoded({ extended: true }))
+
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
+
+app.use(cookieParser());
 app.use(cookieSession({secret: 'app_1'}));
 app.use(connect.compress());
 app.use(express.session({ secret: "won't tell because it's secret"  }));
@@ -45,7 +46,7 @@ app.get('/', function(req, res) {
     res.sendfile('views/login_page.html', {root: __dirname });       
 });
  
-app.all('/workorder', function(req, res) {
+app.post('/workorder', function(req, res) {
     res.send(req.body.SessionToken);
     res.sendfile('views/create_workorder.html', {root: __dirname });  
 
