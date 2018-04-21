@@ -1,6 +1,18 @@
 
 var testApp = angular.module("App", []);
-var GuId;
+
+angular.module("App", []).service('sharedProperties', function () {
+    var GuId = '';
+    return {
+        getProperty: function () {
+            return GuId;
+        },
+        setProperty: function(value) {
+            GuId = value;
+        }
+    };
+});
+
 testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', function ($scope, $http, $window, $timeout) {
     $scope.ButtonText = "GİRİŞ";
     $scope.submit = function () { 
@@ -16,7 +28,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
             else
             {
                 alert(data[0].Message[0].Description);
-                GuId = data[0].GuId
+                sharedProperties.setProperty(data[0].GuId);
                 $scope.ButtonText = "GİRİŞ YAPILIYOR";
                 $timeout(function(){
                     $scope.ButtonText = "GİRİŞ";    
@@ -72,10 +84,10 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
 }]);
 
 
-var app = angular.module("App_workorder", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask']);
+var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask']);
 
 app.controller('workorder', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter) {
-    alert(GuId);
+    alert(sharedProperties.getProperty());
     $scope.test="false";
     $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
     $scope.QueryText = "SORGULA";        
