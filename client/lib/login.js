@@ -1,3 +1,5 @@
+import { isNull } from "util";
+
 var testApp = angular.module("App", []);
 
 testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', function ($scope, $http, $window, $timeout) {
@@ -9,15 +11,23 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
             method: "GET"
         }). 
         success(function(data, status) { 
-            alert(data[0].Message[0].Description);
-            GuId = data[0].GuId
-            $scope.ButtonText = "GİRİŞ YAPILIYOR";
-            $timeout(function(){
-                $scope.ButtonText = "GİRİŞ";    
-                if(status == 200){
-                    $scope.login();
-                }
-            },1000)  
+            if(data[0].ErrorDescription !== null)
+            {
+                alert("Request failed");                
+            }
+
+            else
+            {
+                alert(data[0].Message[0].Description);
+                GuId = data[0].GuId
+                $scope.ButtonText = "GİRİŞ YAPILIYOR";
+                $timeout(function(){
+                    $scope.ButtonText = "GİRİŞ";    
+                    if(status == 200){
+                        $scope.login();
+                    }
+                },1000)  
+            }
         }).
         error(function(data, status) {
             alert("Request failed");
@@ -31,7 +41,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
             headers: {            
                       'SessionToken': '' + GuId,
                      }
-        })
+        }).
         success(function(data, status) { 
             var url = "https://thworkorder.azurewebsites.net/workorder";
             $window.location = url;
