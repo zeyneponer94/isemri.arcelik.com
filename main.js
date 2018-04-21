@@ -37,7 +37,7 @@ app.get('/', function(req, res) {
 });
 
 
-app.post('/workorder', function(req, res) {
+app.get('/workorder', function(req, res) {
     res.send(req.body);
     res.sendfile('views/create_workorder.html', {root: __dirname });  
 
