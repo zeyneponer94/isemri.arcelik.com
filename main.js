@@ -11,6 +11,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cookieSession = require('cookie-session');
+var redirect = require('./redirect');
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
@@ -53,7 +54,7 @@ app.get('/workorder', function(req, res) {
 
 });*/
 
-app.all('/workorder', (req, res) => Authentication(req, res))
+app.post('/workorder', (req, res) => redirect.Authentication(req, res))
 
 
 app.get('/register' , function(req,res) {
@@ -76,19 +77,3 @@ app.listen(app.get('port'), function () {
 
 */
 
-module.exports = {
-    
-    
-    
-    Authentication : function(req, res){
-        
-
-
-        res.send(req.body);
-        
-
-        
-        
-    }
-
-};
