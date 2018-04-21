@@ -38,7 +38,7 @@ app.get('/', function(req, res) {
 
 
 app.get('/workorder', function(req, res) {
-    res.send(req.query.SessionToken);
+    res.send(req.params);
     res.sendfile('views/create_workorder.html', {root: __dirname });  
 
 });
