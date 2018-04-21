@@ -7,7 +7,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
         $http({
             url: 'https://thworkorderfapp.azurewebsites.net/GuId/' + $scope.username + '/' + $scope.password + '/1/1/1/1',
             method: "GET"
-        }) 
+        }). 
         success(function(data, status) { 
             alert(data[0].Message[0].Description);
             GuId = data[0].GuId
