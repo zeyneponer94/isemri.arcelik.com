@@ -42,7 +42,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
 
         $http({
             url: '/workorder',
-            method: "POST",
+            method: "GET",
             data: $scope.postData
         }). 
         success(function(data, status) { 

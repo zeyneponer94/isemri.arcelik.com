@@ -54,7 +54,7 @@ app.get('/workorder', function(req, res) {
 
 });*/
 
-app.all('/workorder', (req, res) => redirect.Authentication(req, res))
+app.get('/workorder', (req, res) => redirect.Authentication(req, res))
 
 
 app.get('/register' , function(req,res) {
