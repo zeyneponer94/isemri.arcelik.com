@@ -146,6 +146,8 @@ testApp.controller('workorder', ['$scope','$http','$window', '$timeout','sharing
     
     $scope.show = true;
 
+    alert($scope.GuId);
+    
     $http({
         async: true,
         crossDomain: true,
