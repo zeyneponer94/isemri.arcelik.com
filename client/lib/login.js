@@ -103,7 +103,6 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout','shari
 
 
 testApp.controller('workorder', ['sharing', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharing) {
-    $scope.sharing = sharing;
     $scope.test="false";
     $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
     $scope.QueryText = "SORGULA";        
@@ -200,7 +199,7 @@ testApp.controller('workorder', ['sharing', function ($scope, $http, $window,dia
         method: "GET",
         headers: {            
                 'Content-Type': 'application/json',
-                'SessionToken': '' + $scope.sharing.GuId,
+                'SessionToken': '' + sharing.GuId,
                 'Cache-Control': 'no-cache',
                 'servicetype': 'INTHEBOX1'
                 }
@@ -225,7 +224,7 @@ testApp.controller('workorder', ['sharing', function ($scope, $http, $window,dia
         url: 'https://thworkorderfapp.azurewebsites.net/Uavt_city/' + $scope.provinceSelect + '/0/0',
         headers: {            
             'Content-Type': 'application/json',
-            'SessionToken': '' + $scope.sharing.GuId,
+            'SessionToken': '' + sharing.GuId,
             'Cache-Control': 'no-cache',
             'servicetype': 'INTHEBOX1'
         }
@@ -250,7 +249,7 @@ testApp.controller('workorder', ['sharing', function ($scope, $http, $window,dia
         url: 'https://thworkorderfapp.azurewebsites.net/Uavt_area/' + $scope.provinceSelect + '/' + $scope.citySelect + '/0',
         headers: {            
             'Content-Type': 'application/json',
-            'SessionToken': '' + $scope.sharing.GuId,
+            'SessionToken': '' + sharing.GuId,
             'Cache-Control': 'no-cache',
             'servicetype': 'INTHEBOX1'
         }
@@ -355,7 +354,7 @@ testApp.controller('workorder', ['sharing', function ($scope, $http, $window,dia
         method: "GET", 
         url: 'https://thworkorderfapp.azurewebsites.net/query/0/0/0/0/0/0/' + ServiceShopCode,
         headers: {            
-        'SessionToken': '' + $scope.sharing.GuId
+        'SessionToken': '' + sharing.GuId
         }     
     }) 
     .then(function(response){
