@@ -39,18 +39,18 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout','share
             method: "GET"
         }). 
         then(function(response) { 
-            if(data.data[0].ErrorDescription !== null)
+            if(response.data[0].ErrorDescription !== null)
             {
                 alert("Request failed");                
             }
             else
             {
-                alert(data.data[0].Message[0].Description);
-                sharedProperties.setProperty(data.data[0].GuId);
+                alert(response.data[0].Message[0].Description);
+                sharedProperties.setProperty(response.data[0].GuId);
                 $scope.ButtonText = "GİRİŞ YAPILIYOR";
                 $timeout(function(){
                     $scope.ButtonText = "GİRİŞ";    
-                    if(status == 200){
+                    if(response.status == 200){
 
                         var url = "https://thworkorder.azurewebsites.net/workorder";
                         $window.location = url;
