@@ -13,7 +13,7 @@ testApp.directive('ngEnter', function () {
         });
    };
 })
-  
+/* 
 testApp.service('sharedProperties', function () {
     var GuId = '';
     return {
@@ -24,14 +24,22 @@ testApp.service('sharedProperties', function () {
             GuId = value;
         }
     };
-});
+});*/
+
+
+testApp.factory('sharing', function() {
+    return {
+      GuId: ''
+    };
+  });
 
 testApp.config(['$httpProvider', function ($httpProvider) {
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);
 
-testApp.controller('Controller' , ['$scope','$http','$window', '$timeout','sharedProperties', function ($scope, $http, $window, $timeout,sharedProperties) {
+testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', function ($scope, $http, $window, $timeout,sharing) {
+    $scope.sharing = sharing;
     $scope.ButtonText = "GİRİŞ";
     $scope.submit = function () { 
         $http({
@@ -46,7 +54,8 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout','share
             else
             {
                 alert(response.data[0].Message[0].Description);
-                sharedProperties.setProperty(response.data[0].GuId);
+                $scope.sharing = response.data[0].GuId;
+                //sharedProperties.setProperty(response.data[0].GuId);
                 $scope.ButtonText = "GİRİŞ YAPILIYOR";
                 $timeout(function(){
                     $scope.ButtonText = "GİRİŞ";    
@@ -93,8 +102,9 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout','share
 }]);
 
 
-testApp.controller('workorder', ['sharedProperties', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharedProperties) {
-    alert(sharedProperties.getProperty());
+testApp.controller('workorder', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharing) {
+    $scope.sharing = sharing;
+    alert(sharing);
     $scope.test="false";
     $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
     $scope.QueryText = "SORGULA";        
@@ -604,7 +614,7 @@ testApp.controller('workorder', ['sharedProperties', function ($scope, $http, $w
                   alert('İşlem Tamamlanamadı.');
               });
   } 
-}]);
+});
 
 
 
