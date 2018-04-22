@@ -193,7 +193,7 @@ testApp.controller('workorder', ['$scope','$http','$window', '$timeout', functio
         method: "GET",
         headers: {            
                 'Content-Type': 'application/json',
-                'SessionToken': '' + $scope.sharing.GuId,
+                'SessionToken': '' + this.sharing.GuId,
                 'Cache-Control': 'no-cache',
                 'servicetype': 'INTHEBOX1'
                 }
@@ -218,7 +218,7 @@ testApp.controller('workorder', ['$scope','$http','$window', '$timeout', functio
         url: 'https://thworkorderfapp.azurewebsites.net/Uavt_city/' + $scope.provinceSelect + '/0/0',
         headers: {            
             'Content-Type': 'application/json',
-            'SessionToken': '' + $scope.sharing.GuId,
+            'SessionToken': '' + this.sharing.GuId,
             'Cache-Control': 'no-cache',
             'servicetype': 'INTHEBOX1'
         }
@@ -243,7 +243,7 @@ testApp.controller('workorder', ['$scope','$http','$window', '$timeout', functio
         url: 'https://thworkorderfapp.azurewebsites.net/Uavt_area/' + $scope.provinceSelect + '/' + $scope.citySelect + '/0',
         headers: {            
             'Content-Type': 'application/json',
-            'SessionToken': '' + $scope.sharing.GuId,
+            'SessionToken': '' + this.sharing.GuId,
             'Cache-Control': 'no-cache',
             'servicetype': 'INTHEBOX1'
         }
