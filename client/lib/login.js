@@ -1,5 +1,5 @@
 
-var testApp = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask']);
+testApp = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask']);
 
 testApp.directive('ngEnter', function () { 
     return function (scope, element, attrs) {
@@ -31,7 +31,7 @@ testApp.config(['$httpProvider', function ($httpProvider) {
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
   }]);
 
-testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', function ($scope, $http, $window, $timeout) {
+angular.module('App').controller('Controller' , ['$scope','$http','$window', '$timeout', function ($scope, $http, $window, $timeout) {
     $scope.ButtonText = "GİRİŞ";
     $scope.submit = function () { 
         $http({
