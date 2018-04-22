@@ -29,7 +29,7 @@ testApp.config(['$httpProvider', function ($httpProvider) {
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);
 
-testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', function Controller($scope, $http, $window, $timeout,sharing) {
+testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'sharing', function Controller($scope, $http, $window, $timeout,sharing) {
     this.sharing = sharing;
     $scope.ButtonText = "GİRİŞ";
     $scope.submit = function () { 
@@ -93,7 +93,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
 }]);
 
 
-testApp.controller('workorder', ['$scope','$http','$window', '$timeout', function workorder($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharing) {
+testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'sharing', function workorder($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharing) {
     this.sharing = sharing;
     $scope.test="false";
     $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
