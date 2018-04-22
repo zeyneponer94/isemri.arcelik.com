@@ -15,7 +15,7 @@ testApp.directive('ngEnter', function () {
    };
 })
   
-angular.module("App", []).service('sharedProperties', function () {
+angular.module("App").service('sharedProperties', function () {
     var GuId = '';
     return {
         getProperty: function () {
