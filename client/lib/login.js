@@ -29,7 +29,7 @@ testApp.config(['$httpProvider', function ($httpProvider) {
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);
 
-testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'sharing', function Controller($scope, $http, $window, $timeout,sharing) {
+testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'sharing', '$rootScope', function Controller($scope, $http, $window, $timeout,sharing,$rootScope) {
     this.sharing = sharing;
     $scope.ButtonText = "GİRİŞ";
     $scope.submit = function () { 
@@ -45,6 +45,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'shar
             else
             {
                 alert(response.data[0].Message[0].Description);
+                $rootScope.GuId = response.data[0].GuId;
                 this.sharing = response.data[0].GuId;
                 //sharedProperties.setProperty(response.data[0].GuId);
                 $scope.ButtonText = "GİRİŞ YAPILIYOR";
@@ -93,9 +94,9 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'shar
 }]);
 
 
-testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'sharing', function workorder($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharing) {
+testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'sharing', '$rootScope', function workorder($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharing,$rootScope) {
     this.sharing = sharing;
-    alert(this.sharing);
+    alert($rootScope.GuId);
     $scope.test="false";
     $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
     $scope.QueryText = "SORGULA";        
