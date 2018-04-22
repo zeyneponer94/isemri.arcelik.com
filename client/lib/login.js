@@ -29,8 +29,8 @@ testApp.config(['$httpProvider', function ($httpProvider) {
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);
 
-testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', function ($scope, $http, $window, $timeout,sharing) {
-    $scope.sharing = sharing;
+testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', function Controller($scope, $http, $window, $timeout,sharing) {
+    this.sharing = sharing;
     $scope.ButtonText = "GİRİŞ";
     $scope.submit = function () { 
         $http({
@@ -45,7 +45,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
             else
             {
                 alert(response.data[0].Message[0].Description);
-                $scope.sharing.GuId = response.data[0].GuId;
+                this.sharing.GuId = response.data[0].GuId;
                 //sharedProperties.setProperty(response.data[0].GuId);
                 $scope.ButtonText = "GİRİŞ YAPILIYOR";
                 $timeout(function(){
@@ -93,8 +93,8 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
 }]);
 
 
-testApp.controller('workorder', ['$scope','$http','$window', '$timeout', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharing) {
-    $scope.sharing = sharing;
+testApp.controller('workorder', ['$scope','$http','$window', '$timeout', function workorder($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharing) {
+    this.sharing = sharing;
     $scope.test="false";
     $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
     $scope.QueryText = "SORGULA";        
@@ -145,7 +145,7 @@ testApp.controller('workorder', ['$scope','$http','$window', '$timeout', functio
     
     $scope.show = true;
 
-    alert($scope.sharing.GuId);
+    alert(this.sharing.GuId);
 
     $http({
         async: true,
@@ -154,7 +154,7 @@ testApp.controller('workorder', ['$scope','$http','$window', '$timeout', functio
         url: 'https://thworkorderfapp.azurewebsites.net/product/' +  query,
         headers: {            
         'Content-Type': 'application/json',
-        'SessionToken': '' + $scope.sharing.GuId,
+        'SessionToken': '' + this.sharing.GuId,
         'Cache-Control': 'no-cache',
         'servicetype': 'INTHEBOX1'
         } 
