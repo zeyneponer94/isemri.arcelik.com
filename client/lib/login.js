@@ -45,7 +45,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout','share
             }
             else
             {
-                alert(data[0].Message[0].Description);
+                alert(data.data[0].Message[0].Description);
                 sharedProperties.setProperty(data[0].GuId);
                 $scope.ButtonText = "GİRİŞ YAPILIYOR";
                 $timeout(function(){
