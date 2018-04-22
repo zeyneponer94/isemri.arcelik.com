@@ -1,6 +1,5 @@
 
 testApp = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask']);
-app = angular.module("App", []);
 
 testApp.directive('ngEnter', function () { 
     return function (scope, element, attrs) {
@@ -15,7 +14,7 @@ testApp.directive('ngEnter', function () {
    };
 })
   
-app.service('sharedProperties', function () {
+testApp.service('sharedProperties', function () {
     var GuId = '';
     return {
         getProperty: function () {
@@ -32,7 +31,7 @@ testApp.config(['$httpProvider', function ($httpProvider) {
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);
 
-app.controller('Controller' , ['$scope','$http','$window', '$timeout','sharedProperties', function ($scope, $http, $window, $timeout,sharedProperties) {
+testApp.controller('Controller' , ['$scope','$http','$window', '$timeout','sharedProperties', function ($scope, $http, $window, $timeout,sharedProperties) {
     $scope.ButtonText = "GİRİŞ";
     $scope.submit = function () { 
         $http({
