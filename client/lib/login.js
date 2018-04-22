@@ -38,7 +38,7 @@ testApp.config(['$httpProvider', function ($httpProvider) {
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);
 
-testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', function ($scope, $http, $window, $timeout,sharing) {
+testApp.controller('Controller' , ['$scope','$http','$window', '$timeout','sharing', function ($scope, $http, $window, $timeout,sharing) {
     $scope.sharing = sharing;
     $scope.ButtonText = "GİRİŞ";
     $scope.submit = function () { 
@@ -102,7 +102,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
 }]);
 
 
-testApp.controller('workorder', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharing) {
+testApp.controller('workorder',['sharing', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharing) {
     $scope.sharing = sharing;
     alert($scope.sharing.GuId);
     $scope.test="false";
@@ -614,7 +614,7 @@ testApp.controller('workorder', function ($scope, $http, $window,dialogs,$saniti
                   alert('İşlem Tamamlanamadı.');
               });
   } 
-});
+}]);
 
 
 
