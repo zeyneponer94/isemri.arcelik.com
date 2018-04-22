@@ -45,7 +45,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'shar
             else
             {
                 alert(response.data[0].Message[0].Description);
-                this.sharing.GuId = response.data[0].GuId;
+                this.sharing = response.data[0].GuId;
                 //sharedProperties.setProperty(response.data[0].GuId);
                 $scope.ButtonText = "GİRİŞ YAPILIYOR";
                 $timeout(function(){
@@ -145,7 +145,7 @@ testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'sharin
     
     $scope.show = true;
 
-    alert(this.sharing.GuId);
+    alert(this.sharing);
 
     $http({
         async: true,
@@ -154,7 +154,7 @@ testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'sharin
         url: 'https://thworkorderfapp.azurewebsites.net/product/' +  query,
         headers: {            
         'Content-Type': 'application/json',
-        'SessionToken': '' + this.sharing.GuId,
+        'SessionToken': '' + this.sharing,
         'Cache-Control': 'no-cache',
         'servicetype': 'INTHEBOX1'
         } 
@@ -193,7 +193,7 @@ testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'sharin
         method: "GET",
         headers: {            
                 'Content-Type': 'application/json',
-                'SessionToken': '' + this.sharing.GuId,
+                'SessionToken': '' + this.sharing,
                 'Cache-Control': 'no-cache',
                 'servicetype': 'INTHEBOX1'
                 }
@@ -218,7 +218,7 @@ testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'sharin
         url: 'https://thworkorderfapp.azurewebsites.net/Uavt_city/' + $scope.provinceSelect + '/0/0',
         headers: {            
             'Content-Type': 'application/json',
-            'SessionToken': '' + this.sharing.GuId,
+            'SessionToken': '' + this.sharing,
             'Cache-Control': 'no-cache',
             'servicetype': 'INTHEBOX1'
         }
@@ -243,7 +243,7 @@ testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'sharin
         url: 'https://thworkorderfapp.azurewebsites.net/Uavt_area/' + $scope.provinceSelect + '/' + $scope.citySelect + '/0',
         headers: {            
             'Content-Type': 'application/json',
-            'SessionToken': '' + this.sharing.GuId,
+            'SessionToken': '' + this.sharing,
             'Cache-Control': 'no-cache',
             'servicetype': 'INTHEBOX1'
         }
