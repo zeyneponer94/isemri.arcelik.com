@@ -1,9 +1,14 @@
 
 testApp = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask']);
 
-testApp.factory('sharing', function() {
-    var GuId = '';
-    return GuId;
+testApp.service('sharing', function() {
+    var GuId = '' ;
+    this.set = function (x) {
+        GuId = x;
+    }
+    this.get = function () {
+        return GuId;
+    }
 }); 
 
 
@@ -41,8 +46,8 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
             else
             {
                 alert(response.data[0].Message[0].Description);
-                sharing.GuId = response.data[0].GuId;
-                alert(sharing.GuId);
+                sharing.set(response.data[0].GuId);
+                alert(sharing.get());
                 $scope.ButtonText = "GİRİŞ YAPILIYOR";
                 $timeout(function(){
                     $scope.ButtonText = "GİRİŞ";    
@@ -136,6 +141,7 @@ testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'sharin
       $scope.show = false;
     }
 
+    alert(sharing.get());
     $scope.search = function(query) {
     
     $scope.show = true;
