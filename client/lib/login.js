@@ -15,7 +15,7 @@ testApp.directive('ngEnter', function () {
    };
 })
   
-angular.module("App").service('sharedProperties', function () {
+app.service('sharedProperties', function () {
     var GuId = '';
     return {
         getProperty: function () {
@@ -103,7 +103,7 @@ app.controller('Controller' , ['$scope','$http','$window', '$timeout','sharedPro
 }]);
 
 
-testApp.controller('workorder',['sharedProperties', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharedProperties) {
+testApp.controller('workorder', ['sharedProperties', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharedProperties) {
     alert(sharedProperties.getProperty());
     $scope.test="false";
     $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
