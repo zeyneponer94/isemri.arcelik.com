@@ -38,7 +38,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout','share
             url: 'https://thworkorderfapp.azurewebsites.net/GuId/' + $scope.username + '/' + $scope.password + '/1/1/1/1',
             method: "GET"
         }). 
-        then(function(data, status) { 
+        then(function(response) { 
             if(data.data[0].ErrorDescription !== null)
             {
                 alert("Request failed");                
