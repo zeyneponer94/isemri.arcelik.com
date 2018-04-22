@@ -1,6 +1,12 @@
 
 testApp = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask']);
 
+testApp.factory('sharing', function() {
+    return {
+      GuId: ''
+    };
+  });
+
 testApp.directive('ngEnter', function () { 
     return function (scope, element, attrs) {
         element.bind("keydown keypress", function (event) {
@@ -27,12 +33,6 @@ testApp.service('sharedProperties', function () {
 });*/
 
 
-testApp.factory('sharing', function() {
-    return {
-      GuId: ''
-    };
-  });
-
 testApp.config(['$httpProvider', function ($httpProvider) {
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
@@ -55,6 +55,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout','shari
             {
                 alert(response.data[0].Message[0].Description);
                 $scope.sharing.GuId = response.data[0].GuId;
+                alert($scope.sharing.GuId)
                 //sharedProperties.setProperty(response.data[0].GuId);
                 $scope.ButtonText = "GİRİŞ YAPILIYOR";
                 $timeout(function(){
@@ -102,9 +103,9 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout','shari
 }]);
 
 
-testApp.controller('workorder',['sharing', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharing) {
+testApp.controller('workorder', ['sharing', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharing) {
     $scope.sharing = sharing;
-    alert($scope.sharing);
+    alert($scope.sharing.GuId);
     $scope.test="false";
     $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
     $scope.QueryText = "SORGULA";        
