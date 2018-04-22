@@ -39,7 +39,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout','share
             method: "GET"
         }). 
         then(function(data, status) { 
-            if(data[0].ErrorDescription !== null)
+            if(data.data[0].ErrorDescription !== null)
             {
                 alert("Request failed");                
             }
