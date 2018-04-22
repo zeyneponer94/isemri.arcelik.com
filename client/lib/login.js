@@ -38,7 +38,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout','share
             url: 'https://thworkorderfapp.azurewebsites.net/GuId/' + $scope.username + '/' + $scope.password + '/1/1/1/1',
             method: "GET"
         }). 
-        success(function(data, status) { 
+        then(function(data, status) { 
             if(data[0].ErrorDescription !== null)
             {
                 alert("Request failed");                
@@ -59,9 +59,6 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout','share
                     }
                 },1000)  
             }
-        }).
-        error(function(data, status) {
-            alert("Request failed");
         });
     };       
                                          
@@ -78,24 +75,18 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout','share
             method: "POST",
             data: $scope.jsonData
         }). 
-        success(function(data, status) { 
+        then(function(data, status) { 
             var url = "https://thworkorder.azurewebsites.net/workorder";
             $window.location = url;
-        }).
-        error(function(data, status) {
-            alert("Request failed");
         });
     }
 
     $scope.register = function()
     {
         $http({method: 'GET', url: '/register'}).
-        success(function(data, status) { 
+        then(function(data, status) { 
             var url = "https://thworkorder.azurewebsites.net/register";
             $window.location = url;
-        }).
-        error(function(data, status) {
-            alert("Request failed");
         });
     }
 
