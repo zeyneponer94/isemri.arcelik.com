@@ -29,7 +29,7 @@ testApp.config(['$httpProvider', function ($httpProvider) {
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);
 
-testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'sharing', '$rootScope', function Controller($scope, $http, $window, $timeout,sharing,$rootScope) {
+testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', function Controller($scope, $http, $window, $timeout,sharing) {
     $scope.ButtonText = "GİRİŞ";
     $scope.submit = function () { 
         $http({
@@ -44,8 +44,8 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'shar
             else
             {
                 alert(response.data[0].Message[0].Description);
-                $rootScope.GuId = response.data[0].GuId;
-                alert($rootScope.GuId)
+                sharing.GuId = response.data[0].GuId;
+                alert(sharing.GuId);
                 $scope.ButtonText = "GİRİŞ YAPILIYOR";
                 $timeout(function(){
                     $scope.ButtonText = "GİRİŞ";    
@@ -93,7 +93,6 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'shar
 
 
 testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'sharing', '$rootScope', function workorder($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharing,$rootScope) {
-    alert($rootScope.GuId);
     $scope.test="false";
     $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
     $scope.QueryText = "SORGULA";        
@@ -152,7 +151,7 @@ testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'sharin
         url: 'https://thworkorderfapp.azurewebsites.net/product/' +  query,
         headers: {            
         'Content-Type': 'application/json',
-        'SessionToken': '' + $rootScope.GuId,
+        'SessionToken': '' + sharing.GuId,
         'Cache-Control': 'no-cache',
         'servicetype': 'INTHEBOX1'
         } 
@@ -191,12 +190,13 @@ testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'sharin
         method: "GET",
         headers: {            
                 'Content-Type': 'application/json',
-                'SessionToken': '' + this.sharing,
+                'SessionToken': '' + sharing.GuId,
                 'Cache-Control': 'no-cache',
                 'servicetype': 'INTHEBOX1'
                 }
     })
     .then(function(response){ 
+        alert(sharing.GuId);
         $scope.province = [];                    
         var i = 0;
         while(response.data[i]!=null)
