@@ -95,7 +95,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout','shari
 }]);
 
 
-testApp.controller('workorder', ['sharing', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharing) {
+testApp.controller('workorder', ['$scope','$http','$window', '$timeout','sharing', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharing) {
     $scope.test="false";
     $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
     $scope.QueryText = "SORGULA";        
