@@ -31,7 +31,7 @@ testApp.config(['$httpProvider', function ($httpProvider) {
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);
 
-testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', function Controller($scope, $http, $window, $timeout,sharing) {
+testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'sharing', function Controller($scope, $http, $window, $timeout,sharing) {
     $scope.ButtonText = "GİRİŞ";
     $scope.submit = function () { 
         $http({
