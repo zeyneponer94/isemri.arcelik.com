@@ -30,7 +30,6 @@ testApp.config(['$httpProvider', function ($httpProvider) {
 }]);
 
 testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'sharing', '$rootScope', function Controller($scope, $http, $window, $timeout,sharing,$rootScope) {
-    this.sharing = sharing;
     $scope.ButtonText = "GİRİŞ";
     $scope.submit = function () { 
         $http({
@@ -46,8 +45,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'shar
             {
                 alert(response.data[0].Message[0].Description);
                 $rootScope.GuId = response.data[0].GuId;
-                this.sharing = response.data[0].GuId;
-                //sharedProperties.setProperty(response.data[0].GuId);
+                alert($rootScope.GuId)
                 $scope.ButtonText = "GİRİŞ YAPILIYOR";
                 $timeout(function(){
                     $scope.ButtonText = "GİRİŞ";    
@@ -95,7 +93,6 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'shar
 
 
 testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'sharing', '$rootScope', function workorder($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharing,$rootScope) {
-    this.sharing = sharing;
     alert($rootScope.GuId);
     $scope.test="false";
     $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
@@ -147,7 +144,6 @@ testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'sharin
     
     $scope.show = true;
 
-    alert(this.sharing);
 
     $http({
         async: true,
@@ -156,7 +152,7 @@ testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'sharin
         url: 'https://thworkorderfapp.azurewebsites.net/product/' +  query,
         headers: {            
         'Content-Type': 'application/json',
-        'SessionToken': '' + this.sharing,
+        'SessionToken': '' + $rootScope.GuId,
         'Cache-Control': 'no-cache',
         'servicetype': 'INTHEBOX1'
         } 
