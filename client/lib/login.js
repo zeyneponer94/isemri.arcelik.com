@@ -103,8 +103,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout','shari
 
 
 testApp.controller('workorder', ['sharing', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharing) {
-    $scope.sharing_workorder = sharing;
-    alert($scope.sharing_workorder.GuId)
+    $scope.sharing = sharing;
     $scope.test="false";
     $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
     $scope.QueryText = "SORGULA";        
