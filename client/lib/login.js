@@ -1,5 +1,6 @@
 
 testApp = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask']);
+app = angular.module("App", []);
 
 testApp.directive('ngEnter', function () { 
     return function (scope, element, attrs) {
@@ -29,9 +30,9 @@ testApp.service('sharedProperties', function () {
 testApp.config(['$httpProvider', function ($httpProvider) {
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
-  }]);
+}]);
 
-angular.module('App').controller('Controller' , ['$scope','$http','$window', '$timeout', function ($scope, $http, $window, $timeout) {
+app.controller('Controller' , ['$scope','$http','$window', '$timeout', function ($scope, $http, $window, $timeout) {
     $scope.ButtonText = "GİRİŞ";
     $scope.submit = function () { 
         $http({
