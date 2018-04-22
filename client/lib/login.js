@@ -1,15 +1,19 @@
 
 testApp = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask']);
 
-testApp.service('sharing', function() {
+testApp.factory('sharing', function() {
 
-    var shared = {
+    var sharing = {
         GuId: ''
     }
-    return shared;
+    return sharing;
   });
-
-
+  
+  var app = angular.module('myApp', ['otherApp']);
+  
+  app.controller('myCtrl', function($scope, myService) {
+    $scope.shared = myService; 
+  });
   
 
 
@@ -32,8 +36,8 @@ testApp.config(['$httpProvider', function ($httpProvider) {
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);
 
-testApp.controller('Controller' , ['$scope','$http','$window', '$timeout','sharing', function ($scope, $http, $window, $timeout,sharing) {
-    $scope.sharing = sharing;
+testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', function ($scope, $http, $window, $timeout,sharing) {
+    $scope.shared = sharing;
     $scope.ButtonText = "GİRİŞ";
     $scope.submit = function () { 
         $http({
@@ -48,7 +52,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout','shari
             else
             {
                 alert(response.data[0].Message[0].Description);
-                $scope.sharing.GuId = response.data[0].GuId;
+                $scope.shared.GuId = response.data[0].GuId;
                 //sharedProperties.setProperty(response.data[0].GuId);
                 $scope.ButtonText = "GİRİŞ YAPILIYOR";
                 $timeout(function(){
@@ -96,8 +100,8 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout','shari
 }]);
 
 
-testApp.controller('workorder', ['$scope','$http','$window', '$timeout','sharing', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharing) {
-    $scope.sharing = sharing;
+testApp.controller('workorder', ['$scope','$http','$window', '$timeout', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharing) {
+    $scope.shared = sharing;
     $scope.test="false";
     $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
     $scope.QueryText = "SORGULA";        
@@ -157,7 +161,7 @@ testApp.controller('workorder', ['$scope','$http','$window', '$timeout','sharing
         url: 'https://thworkorderfapp.azurewebsites.net/product/' +  query,
         headers: {            
         'Content-Type': 'application/json',
-        'SessionToken': '' + $scope.sharing.GuId,
+        'SessionToken': '' + $scope.shared.GuId,
         'Cache-Control': 'no-cache',
         'servicetype': 'INTHEBOX1'
         } 
