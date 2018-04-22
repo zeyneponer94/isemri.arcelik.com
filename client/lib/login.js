@@ -54,7 +54,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
             else
             {
                 alert(response.data[0].Message[0].Description);
-                $scope.sharing = response.data[0].GuId;
+                $scope.sharing.GuId = response.data[0].GuId;
                 //sharedProperties.setProperty(response.data[0].GuId);
                 $scope.ButtonText = "GİRİŞ YAPILIYOR";
                 $timeout(function(){
@@ -104,7 +104,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
 
 testApp.controller('workorder', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharing) {
     $scope.sharing = sharing;
-    alert(sharing);
+    alert($scope.sharing.GuId);
     $scope.test="false";
     $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
     $scope.QueryText = "SORGULA";        
@@ -162,7 +162,7 @@ testApp.controller('workorder', function ($scope, $http, $window,dialogs,$saniti
         url: 'https://thworkorderfapp.azurewebsites.net/product/' +  query,
         headers: {            
         'Content-Type': 'application/json',
-        'SessionToken': '' + GuId,
+        'SessionToken': '' + $scope.sharing.GuId,
         'Cache-Control': 'no-cache',
         'servicetype': 'INTHEBOX1'
         } 
@@ -201,7 +201,7 @@ testApp.controller('workorder', function ($scope, $http, $window,dialogs,$saniti
         method: "GET",
         headers: {            
                 'Content-Type': 'application/json',
-                'SessionToken': '' + GuId,
+                'SessionToken': '' + $scope.sharing.GuId,
                 'Cache-Control': 'no-cache',
                 'servicetype': 'INTHEBOX1'
                 }
@@ -226,7 +226,7 @@ testApp.controller('workorder', function ($scope, $http, $window,dialogs,$saniti
         url: 'https://thworkorderfapp.azurewebsites.net/Uavt_city/' + $scope.provinceSelect + '/0/0',
         headers: {            
             'Content-Type': 'application/json',
-            'SessionToken': '' + GuId,
+            'SessionToken': '' + $scope.sharing.GuId,
             'Cache-Control': 'no-cache',
             'servicetype': 'INTHEBOX1'
         }
@@ -251,7 +251,7 @@ testApp.controller('workorder', function ($scope, $http, $window,dialogs,$saniti
         url: 'https://thworkorderfapp.azurewebsites.net/Uavt_area/' + $scope.provinceSelect + '/' + $scope.citySelect + '/0',
         headers: {            
             'Content-Type': 'application/json',
-            'SessionToken': '' + GuId,
+            'SessionToken': '' + $scope.sharing.GuId,
             'Cache-Control': 'no-cache',
             'servicetype': 'INTHEBOX1'
         }
@@ -356,7 +356,7 @@ testApp.controller('workorder', function ($scope, $http, $window,dialogs,$saniti
         method: "GET", 
         url: 'https://thworkorderfapp.azurewebsites.net/query/0/0/0/0/0/0/' + ServiceShopCode,
         headers: {            
-        'SessionToken': '' + GuId
+        'SessionToken': '' + $scope.sharing.GuId
         }     
     }) 
     .then(function(response){
