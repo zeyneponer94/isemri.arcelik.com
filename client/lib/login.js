@@ -15,7 +15,7 @@ testApp.directive('ngEnter', function () {
    };
 })
   
-testApp.service('sharedProperties', function () {
+angular.module("App", []).service('sharedProperties', function () {
     var GuId = '';
     return {
         getProperty: function () {
@@ -32,7 +32,7 @@ testApp.config(['$httpProvider', function ($httpProvider) {
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);
 
-app.controller('Controller' , ['$scope','$http','$window', '$timeout', function ($scope, $http, $window, $timeout) {
+app.controller('Controller' , ['$scope','$http','$window', '$timeout','sharedProperties', function ($scope, $http, $window, $timeout,sharedProperties) {
     $scope.ButtonText = "GİRİŞ";
     $scope.submit = function () { 
         $http({
@@ -103,7 +103,7 @@ app.controller('Controller' , ['$scope','$http','$window', '$timeout', function 
 }]);
 
 
-testApp.controller('workorder', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter) {
+testApp.controller('workorder',['sharedProperties', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharedProperties) {
     alert(sharedProperties.getProperty());
     $scope.test="false";
     $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
@@ -614,7 +614,7 @@ testApp.controller('workorder', function ($scope, $http, $window,dialogs,$saniti
                   alert('İşlem Tamamlanamadı.');
               });
   } 
-});
+}]);
 
 
 
