@@ -3,18 +3,11 @@ testApp = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
 
 testApp.factory('sharing', function() {
 
-    var sharing = {
+    return {
         GuId: ''
-    }
-    return sharing;
-  });
-  
-  var app = angular.module('myApp', ['otherApp']);
-  
-  app.controller('myCtrl', function($scope, myService) {
-    $scope.shared = myService; 
-  });
-  
+    };
+
+}); 
 
 
 testApp.directive('ngEnter', function () { 
@@ -37,7 +30,7 @@ testApp.config(['$httpProvider', function ($httpProvider) {
 }]);
 
 testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', function ($scope, $http, $window, $timeout,sharing) {
-    $scope.shared = sharing;
+    $scope.sharing = sharing;
     $scope.ButtonText = "GİRİŞ";
     $scope.submit = function () { 
         $http({
@@ -52,7 +45,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
             else
             {
                 alert(response.data[0].Message[0].Description);
-                $scope.shared.GuId = response.data[0].GuId;
+                $scope.sharing.GuId = response.data[0].GuId;
                 //sharedProperties.setProperty(response.data[0].GuId);
                 $scope.ButtonText = "GİRİŞ YAPILIYOR";
                 $timeout(function(){
@@ -101,7 +94,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', funct
 
 
 testApp.controller('workorder', ['$scope','$http','$window', '$timeout', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharing) {
-    $scope.shared = sharing;
+    $scope.sharing = sharing;
     $scope.test="false";
     $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
     $scope.QueryText = "SORGULA";        
@@ -152,7 +145,7 @@ testApp.controller('workorder', ['$scope','$http','$window', '$timeout', functio
     
     $scope.show = true;
 
-    alert(sharing.GuId);
+    alert($scope.sharing.GuId);
 
     $http({
         async: true,
@@ -161,7 +154,7 @@ testApp.controller('workorder', ['$scope','$http','$window', '$timeout', functio
         url: 'https://thworkorderfapp.azurewebsites.net/product/' +  query,
         headers: {            
         'Content-Type': 'application/json',
-        'SessionToken': '' + $scope.shared.GuId,
+        'SessionToken': '' + $scope.sharing.GuId,
         'Cache-Control': 'no-cache',
         'servicetype': 'INTHEBOX1'
         } 
