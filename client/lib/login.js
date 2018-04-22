@@ -1,11 +1,17 @@
 
 testApp = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask']);
 
-testApp.factory('sharing', function() {
-    return {
-      GuId: ''
-    };
+testApp.service('sharing', function() {
+
+    var shared = {
+        GuId: ''
+    }
+    return shared;
   });
+
+
+  
+
 
 testApp.directive('ngEnter', function () { 
     return function (scope, element, attrs) {
@@ -19,18 +25,6 @@ testApp.directive('ngEnter', function () {
         });
    };
 })
-/* 
-testApp.service('sharedProperties', function () {
-    var GuId = '';
-    return {
-        getProperty: function () {
-            return GuId;
-        },
-        setProperty: function(value) {
-            GuId = value;
-        }
-    };
-});*/
 
 
 testApp.config(['$httpProvider', function ($httpProvider) {
@@ -54,7 +48,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout','shari
             else
             {
                 alert(response.data[0].Message[0].Description);
-                $scope.sharing.GuId = response.data[0].GuId;
+                $scope.sharing.shared.GuId = response.data[0].GuId;
                 //sharedProperties.setProperty(response.data[0].GuId);
                 $scope.ButtonText = "GİRİŞ YAPILIYOR";
                 $timeout(function(){
@@ -104,7 +98,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout','shari
 
 testApp.controller('workorder', ['sharing', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharing) {
     $scope.sharing = sharing;
-    alert($scope.sharing.GuId);
+    alert($scope.sharing.shared.GuId);
     $scope.test="false";
     $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
     $scope.QueryText = "SORGULA";        
