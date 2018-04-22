@@ -2,11 +2,8 @@
 testApp = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask']);
 
 testApp.factory('sharing', function() {
-
-    return {
-        GuId: ''
-    };
-
+    var GuId = '';
+    return GuId;
 }); 
 
 
