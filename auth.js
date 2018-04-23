@@ -1,11 +1,7 @@
-var passport = require('passport');
-var SamlStrategy = require('passport-saml').Strategy;
-var util = require('util')
-var wsfedsaml2 = require('./client/lib/passport-wsfed-saml2/index').Strategy
-var fs = require('fs');
-
-var config = require('./config.json');
-
+var passport = require('passport'),
+	fs = require('fs'),
+  SamlStrategy = require('passport-saml').Strategy,
+  config = require('./config.json');
 
 var users = [];
 
@@ -17,6 +13,34 @@ function findByEmail(email, fn) {
     }
   }
   return fn(null, null);
+}
+
+function convertCertificate (cert) {
+    //Certificate must be in this specific format or else the function won't accept it
+    var beginCert = "-----BEGIN CERTIFICATE-----";
+    var endCert = "-----END CERTIFICATE-----";
+
+    cert = cert.replace("\n", "");
+    cert = cert.replace(beginCert, "");
+    cert = cert.replace(endCert, "");
+
+    var result = beginCert;
+    while (cert.length > 0) {
+
+        if (cert.length > 64) {
+            result += "\n" + cert.substring(0, 64);
+            cert = cert.substring(64, cert.length);
+        }
+        else {
+            result += "\n" + cert;
+            cert = "";
+        }
+    }
+
+    if (result[result.length ] != "\n")
+        result += "\n";
+    result += endCert + "\n";
+    return result;
 }
 
 // Passport session setup.
@@ -36,39 +60,36 @@ passport.deserializeUser(function(id, done) {
 
 passport.use(new SamlStrategy(
   {
-    callbackURL : config.auth.callbackURL,
-    entryPoint: config.auth.entryPoint,    
     issuer: config.auth.issuer,
-    cert:  config.auth.cert
+  	path: '/login/callback',
+    entryPoint: config.auth.entryPoint,
+    cert: fs.readFileSync(config.auth.cert, 'utf-8'),
+	signatureAlgorithm: 'sha256'
   },
   function(profile, done) {
-    console.log('Succesfully Profile' + profile);
     if (!profile.email) {
-        return done(new Error("No email found"), null);
+      return done(new Error("No email found"), null);
     }
-    process.nextTick(function() {
-        console.log('process.nextTick' + profile);
-        findByEmail(profile.email, function(err, user) {
-            if (err) {
-                return done(err);
-            }
-            if (!user) {
-                users.push(profile);
-                return done(null, profile);
-            }
-            console.log('Ending Method for profiling');
-            return done(null, user);
-        })
+    process.nextTick(function () {
+      findByEmail(profile.email, function(err, user) {
+        if (err) {
+          return done(err);
+        }
+        if (!user) {
+          users.push(profile);
+          return done(null, profile);
+        }
+        return done(null, user);
+      })
     });
   }
 ));
 
 passport.protected = function protected(req, res, next) {
   if (req.isAuthenticated()) {
-      return next();
+    return next();
   }
   res.redirect('/login');
 };
 
  exports = module.exports = passport;
-

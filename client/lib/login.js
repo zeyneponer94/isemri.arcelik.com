@@ -47,7 +47,6 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'shar
             {
                 alert(response.data[0].Message[0].Description);
                 sharing.set(response.data[0].GuId);
-                alert(sharing.get());
                 $scope.ButtonText = "GİRİŞ YAPILIYOR";
                 $timeout(function(){
                     $scope.ButtonText = "GİRİŞ";    
@@ -94,7 +93,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'shar
 }]);
 
 
-testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'sharing', '$rootScope', function workorder($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharing,$rootScope) {
+testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'sharing', function workorder($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharing) {
     $scope.test="false";
     $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
     $scope.QueryText = "SORGULA";        

@@ -7,7 +7,7 @@ var express = require('express'),
     Console = require('console');
 var logFmt = require("logfmt");
 var path = require('path');
-//var auth = require('./auth');
+var auth = require('./auth');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cookieSession = require('cookie-session');
@@ -22,10 +22,10 @@ app.use(connect.compress());
 app.use(express.session({ secret: "won't tell because it's secret"  }));
 app.use(express.logger());
 app.use(errorHandler());
-/*
+
 //Lets call passport authenticate method to authenticate 
 app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
-    res.redirect('/');
+    res.redirect('/workorder');
 });
 
 //POST Methods, redirect to home successful login
@@ -40,8 +40,8 @@ app.get('/', auth.protected, function(req, res) {
 
 app.get('/workorder', auth.protected, function(req, res) {
     res.sendfile('views/create_workorder.html', {root: __dirname });   
-});*/
-
+});
+/*
 //Get Methods
 app.get('/', function(req, res) {
     res.sendfile('views/login_page.html', {root: __dirname });       
@@ -51,7 +51,7 @@ app.get('/', function(req, res) {
 app.get('/workorder', function(req, res) {
     res.sendfile('views/create_workorder.html', {root: __dirname });  
 
-});
+});*/
 
 //app.all('/workorder', (req, res) => redirect.Authentication(req, res))
 
