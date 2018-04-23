@@ -49,7 +49,7 @@
         "okta-auth": "^0.1.4",
         "passport": "^0.2.2",
         "passport-azure-ad": "3.0.8",
-        "passport-saml": "^0.15.0",
+        "passport-saml": "git://github.com/pawanvshah/passport-saml.git",
         "passport-wsfed-saml2": "^3.0.10",
         "pg": "*",
         "q": "*",
