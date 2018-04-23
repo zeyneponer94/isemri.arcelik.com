@@ -13,19 +13,24 @@ var bodyParser = require('body-parser');
 var cookieSession = require('cookie-session');
 var redirect = require('./redirect.js');
 
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json());
 
-app.use(cookieParser());
-app.use(cookieSession({secret: 'app_1'}));
-app.use(connect.compress());
-app.use(express.session({ secret: "won't tell because it's secret"  }));
+
+
 app.use(express.logger());
+app.use(connect.compress());
+app.use(express.cookieParser());
+app.use(express.bodyParser());
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json());
 app.use(errorHandler());
+app.use(express.session({ secret: "won't tell because it's secret"  }));
+app.use(auth.initialize());
+app.use(auth.session());
+
 
 //Lets call passport authenticate method to authenticate 
 app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
-    res.redirect('/workorder');
+    res.redirect('/');
 });
 
 //POST Methods, redirect to home successful login
