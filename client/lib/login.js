@@ -1,9 +1,7 @@
 
 testApp = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask']);
 
-
-
-app.factory('FactoryService', function ($http, sharedSession) {
+testApp.factory('FactoryService', function ($http, sharedSession) {
 
     var service = {}
     service.product = function (Url,query) {
