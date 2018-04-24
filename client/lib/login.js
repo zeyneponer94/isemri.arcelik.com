@@ -11,7 +11,6 @@ testApp.service('sharing', function() {
     }
 }); 
 
-
 testApp.directive('ngEnter', function () { 
     return function (scope, element, attrs) {
         element.bind("keydown keypress", function (event) {
@@ -85,8 +84,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'shar
     {
         $http({method: 'GET', url: '/login'}).
         then(function(data, status) { 
-            var url = "https://thworkorder.azurewebsites.net/login";
-            $window.location = url;
+
         });
     }
 

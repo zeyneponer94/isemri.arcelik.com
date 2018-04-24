@@ -48,7 +48,6 @@ app.get('/workorder', auth.protected, function(req, res) {
 });
 
 
-
 //Get Methods
 app.get('/', function(req, res) {
     res.sendfile('views/home.html', {root: __dirname });       
