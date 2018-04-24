@@ -1,15 +1,10 @@
 
 testApp = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask']);
 
-testApp.service('sharing', function() {
-    var GuId = '' ;
-    this.set = function (x) {
-        GuId = x;
-    }
-    this.get = function () {
-        return GuId;
-    }
-}); 
+testApp.factory('FactoryService', function (sharedSession) {
+    var GuId = sharedSession.getSessionValue("GuId");  
+    return GuId; 
+});
 
 testApp.directive('ngEnter', function () { 
     return function (scope, element, attrs) {
@@ -30,7 +25,7 @@ testApp.config(['$httpProvider', function ($httpProvider) {
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);
 
-testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'sharing', function Controller($scope, $http, $window, $timeout,sharing) {
+testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'FactoryService', 'sharedSession', function Controller($scope, $http, $window, $timeout, FactoryService, sharedSession) {
     $scope.ButtonText = "GİRİŞ";
     $scope.submit = function () { 
         $http({
@@ -45,7 +40,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'shar
             else
             {
                 alert(response.data[0].Message[0].Description);
-                sharing.set(response.data[0].GuId);
+                $scope.GuId = response.data[0].GuId;
                 $scope.ButtonText = "GİRİŞ YAPILIYOR";
                 $timeout(function(){
                     $scope.ButtonText = "GİRİŞ";    
@@ -66,13 +61,13 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'shar
 
         $scope.jsonData = {"SessionToken": ""+ GuId}
   
-        //$scope.postData = angular.toJson($scope.jsonData, true);     
+        $scope.postData = angular.toJson($scope.jsonData, true);     
 
 
         $http({
             url: '/workorder',
             method: "POST",
-            data: $scope.jsonData
+            data: $scope.postData
         }). 
         then(function(data, status) { 
             var url = "https://thworkorder.azurewebsites.net/workorder";
@@ -82,10 +77,10 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'shar
 
     $scope.okta = function()
     {
-        $http({method: 'GET', url: '/login'}).
+     /*   $http({method: 'GET', url: '/login'}).
         then(function(data, status) { 
 
-        });
+        });*/
     }
 
     $scope.register = function()
@@ -100,7 +95,9 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'shar
 }]);
 
 
-testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'sharing', function workorder($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharing) {
+testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'FactoryService', 'sharedSession', function workorder($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,FactoryService,sharedSession) {
+    $scope.GuId = sharedSession.getSessionValue("GuId");  
+    alert($scope.GuId);
     $scope.test="false";
     $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
     $scope.QueryText = "SORGULA";        
@@ -160,7 +157,7 @@ testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'sharin
         url: 'https://thworkorderfapp.azurewebsites.net/product/' +  query,
         headers: {            
         'Content-Type': 'application/json',
-        'SessionToken': '' + sharing.GuId,
+        'SessionToken': '' ,
         'Cache-Control': 'no-cache',
         'servicetype': 'INTHEBOX1'
         } 
@@ -199,7 +196,7 @@ testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'sharin
         method: "GET",
         headers: {            
                 'Content-Type': 'application/json',
-                'SessionToken': '' + sharing.GuId,
+                'SessionToken': '',
                 'Cache-Control': 'no-cache',
                 'servicetype': 'INTHEBOX1'
                 }
@@ -225,7 +222,7 @@ testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'sharin
         url: 'https://thworkorderfapp.azurewebsites.net/Uavt_city/' + $scope.provinceSelect + '/0/0',
         headers: {            
             'Content-Type': 'application/json',
-            'SessionToken': '' + this.sharing,
+            'SessionToken': '',
             'Cache-Control': 'no-cache',
             'servicetype': 'INTHEBOX1'
         }
@@ -250,7 +247,7 @@ testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'sharin
         url: 'https://thworkorderfapp.azurewebsites.net/Uavt_area/' + $scope.provinceSelect + '/' + $scope.citySelect + '/0',
         headers: {            
             'Content-Type': 'application/json',
-            'SessionToken': '' + this.sharing,
+            'SessionToken': '',
             'Cache-Control': 'no-cache',
             'servicetype': 'INTHEBOX1'
         }

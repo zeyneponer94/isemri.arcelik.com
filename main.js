@@ -27,6 +27,7 @@ app.use(express.session({ secret: "won't tell because it's secret"  }));
 app.use(auth.initialize());
 app.use(auth.session());
 
+/*
 
 //Lets call passport authenticate method to authenticate 
 app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
@@ -51,7 +52,13 @@ app.get('/workorder', auth.protected, function(req, res) {
 //Get Methods
 app.get('/', function(req, res) {
     res.sendfile('views/home.html', {root: __dirname });       
+});*/
+
+//Get Methods
+app.get('/', function(req, res) {
+    res.sendfile('views/login_page.html', {root: __dirname });       
 });
+
  /*
 
 app.get('/workorder', function(req, res) {
