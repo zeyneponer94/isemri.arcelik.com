@@ -1,11 +1,32 @@
 
 testApp = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask']);
 
-testApp.factory('FactoryService', function (sharedSession) {
-    var GuId = sharedSession.getSessionValue("GuId");  
-    return GuId; 
-});
 
+
+app.factory('FactoryService', function ($http, sharedSession) {
+
+    var service = {}
+    service.product = function (Url,query) {
+        //var GuId = parseLocation(window.location.search)['GUID'];
+        var GuId = sharedSession.getSessionValue("GuId");
+        var Request = {
+            async: true,
+            crossDomain: true,
+            method: "GET", 
+            url: Url +  query,
+            headers: {            
+            'Content-Type': 'application/json',
+            'SessionToken': '' + GuId,
+            'Cache-Control': 'no-cache',
+            'servicetype': 'INTHEBOX1'
+            }
+        } 
+        return $http(Request);
+    }
+
+    return service;
+
+});
 testApp.directive('ngEnter', function () { 
     return function (scope, element, attrs) {
         element.bind("keydown keypress", function (event) {
@@ -56,7 +77,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'Fact
         });
     };       
                                          
-    $scope.login = function(){ 
+$scope.login = function(){ 
 
 
         $scope.jsonData = {"SessionToken": ""+ GuId}
@@ -75,7 +96,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'Fact
         });
     }
 
-    $scope.okta = function()
+$scope.okta = function()
     {
      /*   $http({method: 'GET', url: '/login'}).
         then(function(data, status) { 
@@ -96,8 +117,6 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'Fact
 
 
 testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'FactoryService', 'sharedSession', function workorder($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,FactoryService,sharedSession) {
-    $scope.GuId = FactoryService;  
-    alert($scope.GuId);
     $scope.test="false";
     $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
     $scope.QueryText = "SORGULA";        
@@ -144,40 +163,29 @@ testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'Factor
       $scope.show = false;
     }
 
-    alert(sharing.get());
     $scope.search = function(query) {
     
     $scope.show = true;
 
+    Url: 'https://thworkorderfapp.azurewebsites.net/product/';
 
-    $http({
-        async: true,
-        crossDomain: true,
-        method: "GET", 
-        url: 'https://thworkorderfapp.azurewebsites.net/product/' +  query,
-        headers: {            
-        'Content-Type': 'application/json',
-        'SessionToken': '' ,
-        'Cache-Control': 'no-cache',
-        'servicetype': 'INTHEBOX1'
-        } 
-    }) 
-    .then(function(response){ 
 
-        var i = 0;
-        while(response.data[""+i]!=null)
-        {
-        var obj = { 
-            name: response.data[""+i].ProductCode
-        };
+    FactoryService.setTable(Url,query).then(function(response){ 
+
+                var i = 0;
+                while(response.data[""+i]!=null)
+                {
+                var obj = { 
+                    name: response.data[""+i].ProductCode
+                };
+                
+                $scope.ResponseProductList.push(obj);  
+                i++;
+                } 
         
-        $scope.ResponseProductList.push(obj);  
-        i++;
-        } 
-
-        return $scope.ResponseProductList;
-
-    });   
+                return $scope.ResponseProductList;
+        
+    });  
 
     };
 
