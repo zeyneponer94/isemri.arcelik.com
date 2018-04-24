@@ -96,7 +96,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'Fact
 
 
 testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'FactoryService', 'sharedSession', function workorder($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,FactoryService,sharedSession) {
-    $scope.GuId = sharedSession.getSessionValue("GuId");  
+    $scope.GuId = FactoryService;  
     alert($scope.GuId);
     $scope.test="false";
     $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
