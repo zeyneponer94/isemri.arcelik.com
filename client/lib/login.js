@@ -81,6 +81,13 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'shar
         });
     }
 
+    $scope.okta = function()
+    {
+        $http({method: 'GET', url: '/login'}).
+        then(function(data, status) { 
+        });
+    }
+
     $scope.register = function()
     {
         $http({method: 'GET', url: '/register'}).

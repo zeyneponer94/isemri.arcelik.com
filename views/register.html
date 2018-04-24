@@ -22,22 +22,27 @@
                                         <div class="col-md-12 col-sm-12 col-xs-12 user-login-box">
                                             <div class="form-group input-group">
                                                 <span class="input-group-addon"><i class="glyphicon glyphicon-pencil" ></i></span>                                                    
-                                                <input type="text" name="first_name" id="first_name_id" class="form-control" placeholder="First Name" required/>
+                                                <input type="text" name="first_name" ng-model="first_name" id="first_name_id" class="form-control" placeholder="İsim" required/>
                                             </div>
                                             <div class="form-group input-group" >
                                                 <span class="input-group-addon"><i class="glyphicon glyphicon-pencil" ></i></span>                                                                                                        
-                                                <input type="text" name="surname" id="surname_id" class="form-control" placeholder="Surname" required/>
+                                                <input type="text" name="surname" ng-model="surname" id="surname_id" class="form-control" placeholder="Soyisim" required/>
                                             </div>
                                             <div class="form-group input-group">
-                                                <span class="input-group-addon"><i class="glyphicon glyphicon-user" ></i></span>                                                                                                        
-                                                <input type="text" name="username" id="username_id" class="form-control" placeholder="Username" required/>
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope" ></i></span>                                                                                                        
+                                                <input type="text" name="email" ng-model="email" id="email_id" class="form-control" placeholder="E-Mail" required/>
                                             </div>
                                             <div class="form-group input-group" >
-                                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock" ></i></span>                                                                                                        
-                                                <input type="password" name="password" id="password_id" class="form-control" placeholder="Password" required/>
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-phone" ></i></span>       
+                                                <input class="form-control" type="text" id="phone_id" name="phone" ng-model="phone" ui-mask="(999) 999-9999" placeholder="(___) ___-____" ui-mask-placeholder-char="-" required/>                                                
                                             </div>
-                                            <button type="submit" class="btn btn-default" ng-click="register()" ng-disabled="form.$invalid">Register</button> 
-                                            <button type="button" class="btn btn-default" ng-click="back()">Back</button>                                             
+                                            <div class="form-group">                                                
+                                                <button type="submit" class="btn btn-primary" ng-click="register()" ng-disabled="form.$invalid">Register</button> 
+                                            </div>    
+                                            <div class="form-group">                                                                                                
+                                                <button type="button" class="btn btn-primary" ng-click="back()">Back</button>     
+                                            </div>                                                
+                                            </div>                                                  
                                         </div> 
                                     </form>
                                     <div class="col-md-12 col-sm-12 col-xs-12 last-part">
@@ -49,19 +54,45 @@
                     </div>
             <script src="lib/angular.min.js"></script>                 
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+            <script src="lib/mask.js"></script>               
             <script>
-            var testApp = angular.module("App", []);
-            testApp.controller('Controller' , ['$scope','$window', function ($scope, $window) {
+            var testApp = angular.module("App", ['ui.mask']);
+            testApp.controller('Controller' , ['$scope','$window', '$http', function ($scope, $window, $http) {
 
                 $scope.back = function()
                 {
-                    var url = "https://thworkorder.azurewebsites.net";
-                    $window.location = url;
+                  /*  var url = "https://thworkorder.azurewebsites.net";
+                    $window.location = url;*/
                 }
                 $scope.register = function()
                 {
-                    var url = "https://thworkorder.azurewebsites.net";
-                    $window.location = url;
+
+                    $scope.jsonData = {
+                            "profile": {
+                                "firstName": "" + $scope.first_name,
+                                "lastName": "" + $scope.surname,
+                                "email": "" + $scope.email,
+                                "login": "" + $scope.email,
+                                "mobilePhone": "" + $scope.phone
+                            }
+                    }
+                            
+
+                    $scope.postData = angular.toJson($scope.jsonData, true);     
+
+                    $http({
+                        method: "POST", 
+                        url: 'https://thworkorderfapp.azurewebsites.net/okta_create',
+                        data: $scope.postData ,
+                        headers: {            
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json',
+                            'Authorization': 'SSWS 00mhP-hnbCzY-FtzKnlls8zQqkdEn-0rlYwdTAvSke'
+                        }
+                    }) 
+                    .then(function(response){ 
+                        alert(response);
+                    });   
                 }
             }]);
             </script>
