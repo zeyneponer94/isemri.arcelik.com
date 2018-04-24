@@ -75,26 +75,26 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'Fact
         });
     };       
                                          
-$scope.login = function(){ 
+    $scope.login = function(){ 
 
 
-        $scope.jsonData = {"SessionToken": ""+ GuId}
-  
-        $scope.postData = angular.toJson($scope.jsonData, true);     
+            $scope.jsonData = {"SessionToken": ""+ GuId}
+    
+            $scope.postData = angular.toJson($scope.jsonData, true);     
 
 
-        $http({
-            url: '/workorder',
-            method: "POST",
-            data: $scope.postData
-        }). 
-        then(function(data, status) { 
-            var url = "https://thworkorder.azurewebsites.net/workorder";
-            $window.location = url;
-        });
-    }
+            $http({
+                url: '/workorder',
+                method: "POST",
+                data: $scope.postData
+            }). 
+            then(function(data, status) { 
+                var url = "https://thworkorder.azurewebsites.net/workorder";
+                $window.location = url;
+            });
+        }
 
-$scope.okta = function()
+    $scope.okta = function()
     {
      /*   $http({method: 'GET', url: '/login'}).
         then(function(data, status) { 
