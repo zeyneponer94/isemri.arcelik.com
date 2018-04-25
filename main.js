@@ -48,19 +48,22 @@ app.get('/workorder', auth.protected, function(req, res) {
     res.sendfile('views/create_workorder.html', {root: __dirname });   
 });
 
-/*
 
+/*
 //Get Methods
 app.get('/', function(req, res) {
     res.sendfile('views/login_page.html', {root: __dirname });       
 });
 
-
-
 app.get('/workorder', function(req, res) {
     res.sendfile('views/create_workorder.html', {root: __dirname });  
 
 });*/
+
+//Get Methods
+app.get('/', function(req, res) {
+    res.sendfile('views/login_page.html', {root: __dirname });       
+});
 
 //Get Methods
 app.get('/home', function(req, res) {
