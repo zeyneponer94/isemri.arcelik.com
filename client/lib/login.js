@@ -13,11 +13,11 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
         });
    };
 })
-
+/*
 .config(['$httpProvider', function ($httpProvider) {
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
-}])
+}])*/
 
 // .config(['$qProvider', function ($qProvider) {
 //     $qProvider.errorOnUnhandledRejections(false);
@@ -38,17 +38,17 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
 
 });
 
-app.config(function ($routeProvider) {
-   $routeProvider.when('/', {
-       templateUrl: 'views/login_page.html',
-       controller: 'Controller'
-   }).when('/workorder', {
-       templateUrl: 'views/create_workorder.html',
-       controller: 'workorder'
-   }).otherwise({
-       redirectTo: "/"
-   });
-});   
+    app.config(function ($routeProvider) {
+        $routeProvider.when('/', {
+            templateUrl: '../../views/login_page.html',
+            controller: 'Controller'
+        }).when('/workorder', {
+            templateUrl: '../../views/create_workorder.html',
+            controller: 'workorder'
+        }).otherwise({
+            redirectTo: "/"
+        });
+    });   
 
     app.controller('Controller' , ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter', 'sharedSession', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharedSession) {
             $scope.GuId = '';
