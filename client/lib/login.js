@@ -1,11 +1,5 @@
 
 testApp = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask']);
-testApp.run(function ($rootScope) {
-    $rootScope.$on('scope.stored', function (event, data) {
-        console.log("scope.stored", data);
-    });
-});
-
 
 testApp.directive('ngEnter', function () { 
     return function (scope, element, attrs) {
@@ -26,8 +20,15 @@ testApp.config(['$httpProvider', function ($httpProvider) {
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);
 
-testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'Scopes', '$rootScope', function ($scope, $http, $window, $timeout, Scopes,$rootScope) {
-    Scopes.store('Controller', $scope);
+
+testApp.factory('Holder', function () {
+    return {
+        GuId: ''
+    };
+});
+
+
+testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', '$rootScope', function ($scope, $http, $window, $timeout,$rootScope) {
     $scope.ButtonText = "GİRİŞ";
     $scope.submit = function () { 
         $http({
@@ -42,7 +43,12 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'Scop
             else
             {
                 alert(response.data[0].Message[0].Description);
-                $scope.GuId = response.data[0].GuId;
+                $rootScope.$emit("GuIdchanged",  response.data[0].GuId);    
+                var destroyHandler = $rootScope.$on("GuIdchanged", function(event, GuId) {
+                    $scope.GuId = GuId;
+                });
+                $scope.$on('$destroy', destroyHandler);
+
                 $scope.ButtonText = "GİRİŞ YAPILIYOR";
                 $timeout(function(){
                     $scope.ButtonText = "GİRİŞ";    
@@ -99,9 +105,9 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'Scop
 }]);
 
 
-testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'Scopes', '$rootScope', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,Scopes,$rootScope) {
-    Scopes.store('workorder', $scope);    
-    $scope.GuId = Scopes.get('Controller').GuId;
+testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'Holder', '$rootScope', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,Holder,$rootScope) {
+    $scope.Holder = Holder;
+    $scope.GuId = $scope.Holder.GuId;
     alert($scope.GuId);
     $scope.test="false";
     $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
@@ -616,19 +622,6 @@ testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'Scopes
               });
   } 
 }]);
-
-
-testApp.factory('Scopes', function ($rootScope) {
-    var mem = {};
-    return {
-        store: function (key, value) {
-            mem[key] = value;
-        },
-        get: function (key) {
-            return mem[key];
-        }
-    };
-});
 
 
 
