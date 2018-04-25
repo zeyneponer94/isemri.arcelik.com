@@ -95,9 +95,9 @@ angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.
 
     $scope.okta = function()
     {
-        $http({method: 'GET', url: '/'}).
+        $http({method: 'GET', url: '/login'}).
         then(function(data, status) { 
-            var url = "https://thworkorder.azurewebsites.net/";
+            var url = "https://thworkorder.azurewebsites.net/login";
             $window.location = url;
         });
     }
