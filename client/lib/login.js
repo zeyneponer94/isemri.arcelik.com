@@ -15,6 +15,30 @@ angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.
 })
 
 
+
+.factory("sharedContext", function() {
+    var context = [];
+    var addData = function(key, value) {
+      var data = {
+        key: key,
+        value: value
+      };
+      context.push(data);
+    }
+    var getData = function(key) {
+      var data = _.find(context, {
+        key: key
+      });
+      return data;
+    }
+  
+    return {
+      addData: addData,
+      getData: getData
+    }
+  })
+
+
 .config(['$httpProvider', function ($httpProvider) {
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
@@ -38,7 +62,7 @@ angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.
         };
 })
 
-.controller('Controller' , ['$scope','$http','$window', '$timeout', 'Data', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,Data) {
+.controller('Controller' , ['$scope','$http','$window', '$timeout', 'Data','sharedContext', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,Data,sharedContext) {
     $scope.GuId = '';
     $scope.ButtonText = "GİRİŞ";
 
@@ -59,6 +83,8 @@ angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.
             else
             {
                 alert(response.data[0].Message[0].Description);
+                debugger;
+                sharedContext.addData("GUID", response.data[0].GuId)
                 Data.setGuId(response.data[0].GuId);
                 $scope.ButtonText = "GİRİŞ YAPILIYOR";
                 $timeout(function(){
@@ -122,13 +148,14 @@ angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.
 }])
 
 
-.controller('workorder', ['$scope','$http','$window', '$timeout', 'Data', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,Data) {
+.controller('workorder', ['$scope','$http','$window', '$timeout', 'Data','sharedContext', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,Data,sharedContext) {
 
   /*  $scope.$watch(function () { return Data.getGuId(); }, function (newValue, oldValue) {
         if (newValue !== oldValue) $scope.GuId = newValue;
     });*/
 
-    alert(Data.getGuId());
+    alert(sharedContext.getData("GUID").value);
+    // alert(Data.getGuId());
 
     $scope.test="false";
     $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
