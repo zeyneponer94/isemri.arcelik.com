@@ -39,7 +39,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', '$Dat
     $scope.ButtonText = "GİRİŞ";
 
     $scope.$watch('GuId', function (newValue, oldValue) {
-        if (newValue !== oldValue) Data.setFirstName(newValue);
+        if (newValue !== oldValue) Data.setGuId(newValue);
     });
 
     $scope.submit = function () { 
@@ -115,7 +115,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', '$Dat
 
 testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'Data', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,Data) {
 
-    $scope.$watch(function () { return Data.getFirstName(); }, function (newValue, oldValue) {
+    $scope.$watch(function () { return Data.getGuId(); }, function (newValue, oldValue) {
         if (newValue !== oldValue) $scope.GuId = newValue;
     });
 
