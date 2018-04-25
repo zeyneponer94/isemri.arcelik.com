@@ -97,13 +97,12 @@ angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.
     {
 
         $http({
-            url: '/',
+            url: 'https://thworkorderfapp.azurewebsites.net/login',
             method: "GET"
         }). 
         then(function(response) { 
 
         });
-
         
     }
 
