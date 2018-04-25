@@ -1,5 +1,5 @@
 
-testApp = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask']);
+testApp = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask','CalService']);
 
 testApp.directive('ngEnter', function () { 
     return function (scope, element, attrs) {
