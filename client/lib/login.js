@@ -1,7 +1,7 @@
 
-testApp = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask','CalService']);
+angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask'])
 
-testApp.directive('ngEnter', function () { 
+.directive('ngEnter', function () { 
     return function (scope, element, attrs) {
         element.bind("keydown keypress", function (event) {
             if (event.which === 13) {
@@ -15,12 +15,12 @@ testApp.directive('ngEnter', function () {
 })
 
 
-testApp.config(['$httpProvider', function ($httpProvider) {
+.config(['$httpProvider', function ($httpProvider) {
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
-}]);
+}])
 
-testApp.factory('Data', function () {
+.service('Data', function () {
         var data = {
             GuId: ''
         };
@@ -32,9 +32,9 @@ testApp.factory('Data', function () {
                 data.GuId = GuId;
             }
         };
-});
+})
 
-testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'Data', function ($scope, $http, $window, $timeout, Data) {
+.controller('Controller' , ['$scope','$http','$window', '$timeout', 'Data', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,Data) {
     $scope.GuId = '';
     $scope.ButtonText = "GİRİŞ";
 
@@ -109,10 +109,10 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'Data
         });
     }
 
-}]);
+}])
 
 
-testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'Data', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,Data) {
+.controller('workorder', ['$scope','$http','$window', '$timeout', 'Data', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,Data) {
 
   /*  $scope.$watch(function () { return Data.getGuId(); }, function (newValue, oldValue) {
         if (newValue !== oldValue) $scope.GuId = newValue;

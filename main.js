@@ -27,7 +27,7 @@ app.use(express.session({ secret: "won't tell because it's secret"  }));
 app.use(auth.initialize());
 app.use(auth.session());
 
-/*
+
 
 //Lets call passport authenticate method to authenticate 
 app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
@@ -49,10 +49,8 @@ app.get('/workorder', auth.protected, function(req, res) {
 });
 
 
-//Get Methods
-app.get('/', function(req, res) {
-    res.sendfile('views/home.html', {root: __dirname });       
-});*/
+
+/*
 
 //Get Methods
 app.get('/', function(req, res) {
@@ -66,16 +64,15 @@ app.get('/workorder', function(req, res) {
 
 });
 
-//app.all('/workorder', (req, res) => redirect.Authentication(req, res))
-
+//Get Methods
+app.get('/', function(req, res) {
+    res.sendfile('views/home.html', {root: __dirname });       
+});*/
 
 app.get('/register' , function(req,res) {
     res.sendfile('views/register.html', {root: __dirname });   
 });
 
-
-//app.use(auth.initialize());
-//app.use(auth.session());
 app.use(express.static(__dirname + '/client')); 
 var currentPort = app.listen(process.env.PORT || 3000);
 
