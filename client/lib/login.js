@@ -97,7 +97,7 @@ angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.
     {
 
         $http({
-            url: '/login',
+            url: '/',
             method: "GET"
         }). 
         then(function(response) { 
