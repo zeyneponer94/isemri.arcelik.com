@@ -34,13 +34,13 @@ testApp.factory('Data', function () {
         };
 });
 
-testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', '$Data', function ($scope, $http, $window, $timeout, Data) {
+testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'Data', function ($scope, $http, $window, $timeout, Data) {
     $scope.GuId = '';
     $scope.ButtonText = "GİRİŞ";
 
-    $scope.$watch('GuId', function (newValue, oldValue) {
+   /* $scope.$watch('GuId', function (newValue, oldValue) {
         if (newValue !== oldValue) Data.setGuId(newValue);
-    });
+    });*/
 
     $scope.submit = function () { 
         $http({
@@ -55,8 +55,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', '$Dat
             else
             {
                 alert(response.data[0].Message[0].Description);
-            
-
+                Data.setGuId(response.data[0].GuId);
                 $scope.ButtonText = "GİRİŞ YAPILIYOR";
                 $timeout(function(){
                     $scope.ButtonText = "GİRİŞ";    
@@ -115,9 +114,11 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', '$Dat
 
 testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'Data', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,Data) {
 
-    $scope.$watch(function () { return Data.getGuId(); }, function (newValue, oldValue) {
+  /*  $scope.$watch(function () { return Data.getGuId(); }, function (newValue, oldValue) {
         if (newValue !== oldValue) $scope.GuId = newValue;
-    });
+    });*/
+
+    alert(Data.getGuId());
 
     $scope.test="false";
     $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
