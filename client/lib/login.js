@@ -145,8 +145,9 @@ angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.
   /*  $scope.$watch(function () { return Data.getGuId(); }, function (newValue, oldValue) {
         if (newValue !== oldValue) $scope.GuId = newValue;
     });*/
-debugger;
-    alert(sharedSession.getSessionValue("GuID"));
+    debugger;
+    console.log(sharedSession.getSessionValue("GuID"));
+    // alert(sharedSession.getSessionValue("GuID"));
     // alert(Data.getGuId());
 
     $scope.test="false";
