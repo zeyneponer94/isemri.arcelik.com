@@ -106,8 +106,9 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', '$roo
 
 
 testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'Holder', '$rootScope', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,Holder,$rootScope) {
-    $scope.Holder = Holder;
-    alert($scope.Holder);
+    var seccion1 = this;
+    seccion1.Holder = Holder;
+    alert(seccion1.Holder);
 
     $scope.test="false";
     $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
@@ -155,7 +156,6 @@ testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'Holder
       $scope.show = false;
     }
 
-    alert(sharing.get());
     $scope.search = function(query) {
     
     $scope.show = true;
@@ -213,7 +213,6 @@ testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'Holder
                 }
     })
     .then(function(response){ 
-        alert(sharing.GuId);
         $scope.province = [];                    
         var i = 0;
         while(response.data[i]!=null)
@@ -363,7 +362,7 @@ testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'Holder
         method: "GET", 
         url: 'https://thworkorderfapp.azurewebsites.net/query/0/0/0/0/0/0/' + ServiceShopCode,
         headers: {            
-        'SessionToken': '' + sharing.GuId
+        'SessionToken': ''
         }     
     }) 
     .then(function(response){
