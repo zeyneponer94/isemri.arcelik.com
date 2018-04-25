@@ -96,9 +96,8 @@ angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.
     $scope.okta = function()
     {
 
-
         $http({
-            url: 'https://thworkorderfapp.azurewebsites.net/login',
+            url: '/',
             method: "GET"
         }). 
         then(function(response) { 
