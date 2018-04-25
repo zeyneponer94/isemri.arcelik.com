@@ -27,6 +27,8 @@ app.use(express.session({ secret: "won't tell because it's secret"  }));
 app.use(auth.initialize());
 app.use(auth.session());
 
+var cors = new EnableCorsAttribute("*", "*", "*");
+config.EnableCors(cors);
 
 
 //Lets call passport authenticate method to authenticate 
