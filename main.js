@@ -48,8 +48,6 @@ app.get('/workorder', auth.protected, function(req, res) {
     res.sendfile('views/create_workorder.html', {root: __dirname });   
 });
 
-
-
 /*
 
 //Get Methods
