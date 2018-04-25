@@ -44,9 +44,25 @@ angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }])
 
-.config(['$qProvider', function ($qProvider) {
-    $qProvider.errorOnUnhandledRejections(false);
-}])
+// .config(['$qProvider', function ($qProvider) {
+//     $qProvider.errorOnUnhandledRejections(false);
+// }])
+
+
+.service('sharedSession', function () {
+    var hashtable = {};
+
+    return {
+        setSessionValue: function (key, value) {
+            hashtable[key] = value;
+        },
+        getSessionValue: function (key) {
+            return hashtable[key];
+        }
+    };
+
+})
+
 
 .service('Data', function () {
         var data = {
@@ -62,7 +78,7 @@ angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.
         };
 })
 
-.controller('Controller' , ['$scope','$http','$window', '$timeout', 'Data','sharedContext', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,Data,sharedContext) {
+.controller('Controller' , ['$scope','$http','$window', '$timeout', 'Data','sharedSession', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,Data,sharedSession) {
     $scope.GuId = '';
     $scope.ButtonText = "GİRİŞ";
 
@@ -84,8 +100,10 @@ angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.
             {
                 alert(response.data[0].Message[0].Description);
                 debugger;
-                sharedContext.addData("GUID", response.data[0].GuId)
-                Data.setGuId(response.data[0].GuId);
+                sharedSession.setSessionValue("GuID", response.data[0].GuId);
+                
+                //sharedContext.addData("GUID", response.data[0].GuId)
+                // Data.setGuId(response.data[0].GuId);
                 $scope.ButtonText = "GİRİŞ YAPILIYOR";
                 $timeout(function(){
                     $scope.ButtonText = "GİRİŞ";    
@@ -148,13 +166,13 @@ angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.
 }])
 
 
-.controller('workorder', ['$scope','$http','$window', '$timeout', 'Data','sharedContext', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,Data,sharedContext) {
+.controller('workorder', ['$scope','$http','$window', '$timeout', 'Data','sharedSession', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,Data,sharedSession) {
 
   /*  $scope.$watch(function () { return Data.getGuId(); }, function (newValue, oldValue) {
         if (newValue !== oldValue) $scope.GuId = newValue;
     });*/
 
-    alert(sharedContext.getData("GUID").value);
+    alert(sharedSession.getSessionValue("GuID"));
     // alert(Data.getGuId());
 
     $scope.test="false";
