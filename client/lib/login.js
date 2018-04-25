@@ -1,30 +1,12 @@
 
 testApp = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask']);
-
-testApp.factory('FactoryService', function ($http, sharedSession) {
-
-    var service = {}
-    service.product = function (Url,query) {
-        //var GuId = parseLocation(window.location.search)['GUID'];
-        var GuId = sharedSession.getSessionValue("GuId");
-        var Request = {
-            async: true,
-            crossDomain: true,
-            method: "GET", 
-            url: Url +  query,
-            headers: {            
-            'Content-Type': 'application/json',
-            'SessionToken': '' + GuId,
-            'Cache-Control': 'no-cache',
-            'servicetype': 'INTHEBOX1'
-            }
-        } 
-        return $http(Request);
-    }
-
-    return service;
-
+testApp.run(function ($rootScope) {
+    $rootScope.$on('scope.stored', function (event, data) {
+        console.log("scope.stored", data);
+    });
 });
+
+
 testApp.directive('ngEnter', function () { 
     return function (scope, element, attrs) {
         element.bind("keydown keypress", function (event) {
@@ -44,7 +26,8 @@ testApp.config(['$httpProvider', function ($httpProvider) {
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);
 
-testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'FactoryService', 'sharedSession', function Controller($scope, $http, $window, $timeout, FactoryService, sharedSession) {
+testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'Scopes',  function ($scope, $http, $window, $timeout, Scopes) {
+    Scopes.store('Controller', $scope);
     $scope.ButtonText = "GİRİŞ";
     $scope.submit = function () { 
         $http({
@@ -65,8 +48,11 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'Fact
                     $scope.ButtonText = "GİRİŞ";    
                     if(response.status == 200){
 
-                        var url = "https://thworkorder.azurewebsites.net/workorder";
-                        $window.location = url;
+                        $http({method: 'GET', url: '/workorder'}).
+                        then(function(data, status) { 
+                            var url = "https://thworkorder.azurewebsites.net/workorder";
+                            $window.location = url;
+                        });
     
                        // $scope.login();
                     }
@@ -78,28 +64,27 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'Fact
     $scope.login = function(){ 
 
 
-            $scope.jsonData = {"SessionToken": ""+ GuId}
-    
-            $scope.postData = angular.toJson($scope.jsonData, true);     
+        $scope.jsonData = {"SessionToken": ""+ GuId}
+  
+        //$scope.postData = angular.toJson($scope.jsonData, true);     
 
 
-            $http({
-                url: '/workorder',
-                method: "POST",
-                data: $scope.postData
-            }). 
-            then(function(data, status) { 
-                var url = "https://thworkorder.azurewebsites.net/workorder";
-                $window.location = url;
-            });
-        }
+        $http({
+            url: '/workorder',
+            method: "POST",
+            data: $scope.jsonData
+        }). 
+        then(function(data, status) { 
+            var url = "https://thworkorder.azurewebsites.net/workorder";
+            $window.location = url;
+        });
+    }
 
     $scope.okta = function()
     {
-     /*   $http({method: 'GET', url: '/login'}).
+        $http({method: 'GET', url: '/login'}).
         then(function(data, status) { 
-
-        });*/
+        });
     }
 
     $scope.register = function()
@@ -114,7 +99,10 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'Fact
 }]);
 
 
-testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'FactoryService', 'sharedSession', function workorder($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,FactoryService,sharedSession) {
+testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'Scopes',  function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,Scopes) {
+    Scopes.store('workorder', $scope);    
+    $scope.GuId = Scopes.get('Controller').GuId;
+    alert($scope.GuId);
     $scope.test="false";
     $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
     $scope.QueryText = "SORGULA";        
@@ -161,29 +149,40 @@ testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'Factor
       $scope.show = false;
     }
 
+    alert(sharing.get());
     $scope.search = function(query) {
     
     $scope.show = true;
 
-    Url: 'https://thworkorderfapp.azurewebsites.net/product/';
 
+    $http({
+        async: true,
+        crossDomain: true,
+        method: "GET", 
+        url: 'https://thworkorderfapp.azurewebsites.net/product/' +  query,
+        headers: {            
+        'Content-Type': 'application/json',
+        'SessionToken': '' ,
+        'Cache-Control': 'no-cache',
+        'servicetype': 'INTHEBOX1'
+        } 
+    }) 
+    .then(function(response){ 
 
-    FactoryService.setTable(Url,query).then(function(response){ 
-
-                var i = 0;
-                while(response.data[""+i]!=null)
-                {
-                var obj = { 
-                    name: response.data[""+i].ProductCode
-                };
-                
-                $scope.ResponseProductList.push(obj);  
-                i++;
-                } 
+        var i = 0;
+        while(response.data[""+i]!=null)
+        {
+        var obj = { 
+            name: response.data[""+i].ProductCode
+        };
         
-                return $scope.ResponseProductList;
-        
-    });  
+        $scope.ResponseProductList.push(obj);  
+        i++;
+        } 
+
+        return $scope.ResponseProductList;
+
+    });   
 
     };
 
@@ -202,7 +201,7 @@ testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'Factor
         method: "GET",
         headers: {            
                 'Content-Type': 'application/json',
-                'SessionToken': '',
+                'SessionToken': '' ,
                 'Cache-Control': 'no-cache',
                 'servicetype': 'INTHEBOX1'
                 }
@@ -228,7 +227,7 @@ testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'Factor
         url: 'https://thworkorderfapp.azurewebsites.net/Uavt_city/' + $scope.provinceSelect + '/0/0',
         headers: {            
             'Content-Type': 'application/json',
-            'SessionToken': '',
+            'SessionToken': '' ,
             'Cache-Control': 'no-cache',
             'servicetype': 'INTHEBOX1'
         }
@@ -618,6 +617,18 @@ testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'Factor
   } 
 }]);
 
+
+testApp.factory('Scopes', function ($rootScope) {
+    var mem = {};
+    return {
+        store: function (key, value) {
+            mem[key] = value;
+        },
+        get: function (key) {
+            return mem[key];
+        }
+    };
+});
 
 
 
