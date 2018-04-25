@@ -13,9 +13,6 @@ var bodyParser = require('body-parser');
 var cookieSession = require('cookie-session');
 var redirect = require('./redirect.js');
 
-
-
-
 app.use(express.logger());
 app.use(connect.compress());
 app.use(express.cookieParser());
@@ -26,9 +23,6 @@ app.use(errorHandler());
 app.use(express.session({ secret: "won't tell because it's secret"  }));
 app.use(auth.initialize());
 app.use(auth.session());
-
-var cors = new EnableCorsAttribute("*", "*", "*");
-config.EnableCors(cors);
 
 
 //Lets call passport authenticate method to authenticate 
