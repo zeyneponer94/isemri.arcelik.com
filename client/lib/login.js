@@ -107,8 +107,8 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', '$roo
 
 testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'Holder', '$rootScope', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,Holder,$rootScope) {
     $scope.Holder = Holder;
-    $scope.GuId = $scope.Holder.GuId;
-    alert($scope.GuId);
+    alert($scope.Holder);
+
     $scope.test="false";
     $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
     $scope.QueryText = "SORGULA";        
