@@ -20,16 +20,28 @@ testApp.config(['$httpProvider', function ($httpProvider) {
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);
 
-
-testApp.factory('Holder', function () {
-    return {
-        GuId: ''
-    };
+testApp.factory('Data', function () {
+        var data = {
+            GuId: ''
+        };
+        return {
+            getGuId: function () {
+                return data.GuId;
+            },
+            setGuId: function (GuId) {
+                data.GuId = GuId;
+            }
+        };
 });
 
-
-testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', '$rootScope', function ($scope, $http, $window, $timeout,$rootScope) {
+testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', '$Data', function ($scope, $http, $window, $timeout, Data) {
+    $scope.GuId = '';
     $scope.ButtonText = "GİRİŞ";
+
+    $scope.$watch('GuId', function (newValue, oldValue) {
+        if (newValue !== oldValue) Data.setFirstName(newValue);
+    });
+
     $scope.submit = function () { 
         $http({
             url: 'https://thworkorderfapp.azurewebsites.net/GuId/' + $scope.username + '/' + $scope.password + '/1/1/1/1',
@@ -43,11 +55,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', '$roo
             else
             {
                 alert(response.data[0].Message[0].Description);
-                $rootScope.$emit("GuIdchanged",  response.data[0].GuId);    
-                var destroyHandler = $rootScope.$on("GuIdchanged", function(event, GuId) {
-                    $scope.GuId = GuId;
-                });
-                $scope.$on('$destroy', destroyHandler);
+            
 
                 $scope.ButtonText = "GİRİŞ YAPILIYOR";
                 $timeout(function(){
@@ -105,10 +113,11 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', '$roo
 }]);
 
 
-testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'Holder', '$rootScope', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,Holder,$rootScope) {
-    var seccion1 = this;
-    seccion1.Holder = Holder;
-    alert(seccion1.Holder);
+testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'Data', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,Data) {
+
+    $scope.$watch(function () { return Data.getFirstName(); }, function (newValue, oldValue) {
+        if (newValue !== oldValue) $scope.GuId = newValue;
+    });
 
     $scope.test="false";
     $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
@@ -160,6 +169,7 @@ testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'Holder
     
     $scope.show = true;
 
+    alert($scope.GuId);
 
     $http({
         async: true,
