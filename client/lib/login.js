@@ -95,11 +95,20 @@ angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.
 
     $scope.okta = function()
     {
-        $http({method: 'GET', url: '/login'}).
-        then(function(data, status) { 
-            var url = "https://thworkorder.azurewebsites.net/login";
+
+
+        $http({
+            url: 'https://thworkorderfapp.azurewebsites.net/login',
+            method: "GET"
+        }). 
+        then(function(response) { 
+
+            var url = "https://thworkorder.azurewebsites.net";
             $window.location = url;
+
         });
+
+        
     }
 
     $scope.register = function()
