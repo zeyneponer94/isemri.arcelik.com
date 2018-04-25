@@ -14,31 +14,6 @@ angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.
    };
 })
 
-
-
-.factory("sharedContext", function() {
-    var context = [];
-    var addData = function(key, value) {
-      var data = {
-        key: key,
-        value: value
-      };
-      context.push(data);
-    }
-    var getData = function(key) {
-      var data = _.find(context, {
-        key: key
-      });
-      return data;
-    }
-  
-    return {
-      addData: addData,
-      getData: getData
-    }
-  })
-
-
 .config(['$httpProvider', function ($httpProvider) {
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
@@ -64,21 +39,21 @@ angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.
 })
 
 
-.service('Data', function () {
-        var data = {
-            GuId: ''
-        };
-        return {
-            getGuId: function () {
-                return data.GuId;
-            },
-            setGuId: function (GuId) {
-                data.GuId = GuId;
-            }
-        };
-})
+// .service('Data', function () {
+//         var data = {
+//             GuId: ''
+//         };
+//         return {
+//             getGuId: function () {
+//                 return data.GuId;
+//             },
+//             setGuId: function (GuId) {
+//                 data.GuId = GuId;
+//             }
+//         };
+// })
 
-.controller('Controller' , ['$scope','$http','$window', '$timeout', 'Data','sharedSession', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,Data,sharedSession) {
+.controller('Controller' , ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter', 'sharedSession', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharedSession) {
     $scope.GuId = '';
     $scope.ButtonText = "GİRİŞ";
 
@@ -99,7 +74,6 @@ angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.
             else
             {
                 alert(response.data[0].Message[0].Description);
-                debugger;
                 sharedSession.setSessionValue("GuID", response.data[0].GuId);
                 
                 //sharedContext.addData("GUID", response.data[0].GuId)
@@ -166,12 +140,12 @@ angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.
 }])
 
 
-.controller('workorder', ['$scope','$http','$window', '$timeout', 'Data','sharedSession', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,Data,sharedSession) {
+.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter', 'sharedSession', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharedSession) {
 
   /*  $scope.$watch(function () { return Data.getGuId(); }, function (newValue, oldValue) {
         if (newValue !== oldValue) $scope.GuId = newValue;
     });*/
-
+debugger;
     alert(sharedSession.getSessionValue("GuID"));
     // alert(Data.getGuId());
 
