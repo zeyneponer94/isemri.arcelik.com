@@ -20,6 +20,10 @@ angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }])
 
+.config(['$qProvider', function ($qProvider) {
+    $qProvider.errorOnUnhandledRejections(false);
+}])
+
 .service('Data', function () {
         var data = {
             GuId: ''
