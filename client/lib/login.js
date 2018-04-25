@@ -26,7 +26,7 @@ testApp.config(['$httpProvider', function ($httpProvider) {
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);
 
-testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'Scopes',  function ($scope, $http, $window, $timeout, Scopes) {
+testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'Scopes', '$rootScope', function ($scope, $http, $window, $timeout, Scopes,$rootScope) {
     Scopes.store('Controller', $scope);
     $scope.ButtonText = "GİRİŞ";
     $scope.submit = function () { 
@@ -99,7 +99,7 @@ testApp.controller('Controller' , ['$scope','$http','$window', '$timeout', 'Scop
 }]);
 
 
-testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'Scopes',  function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,Scopes) {
+testApp.controller('workorder', ['$scope','$http','$window', '$timeout', 'Scopes', '$rootScope', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,Scopes,$rootScope) {
     Scopes.store('workorder', $scope);    
     $scope.GuId = Scopes.get('Controller').GuId;
     alert($scope.GuId);
