@@ -126,7 +126,6 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
 
     app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter', 'sharedSession', '$cookieStore', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharedSession,$cookieStore) {
 
-
             $http({
                 url: 'https://thworkorderfapp.azurewebsites.net/GuId/C9003074/lG75bktu/1/1/1/1',
                 method: "GET"
@@ -136,9 +135,9 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
                 {
                     alert("Request failed");                
                 }
-                else
+                else 
                 {
-                    alert(response.data[0].GuId);
+                    $scope.GuId = response.data[0].GuId;                    
                 }
             });
     
@@ -192,7 +191,6 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
             
             $scope.show = true;
 
-            alert($scope.GuId);
 
             $http({
                 async: true,

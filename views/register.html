@@ -92,6 +92,15 @@
                     }) 
                     .then(function(response){ 
                         alert(response);
+                        $http({
+                            url: '/',
+                            method: "GET",
+                        }). 
+                        then(function(data, status) { 
+                            var url = "https://thworkorder.azurewebsites.net/";
+                            $window.location = url;
+                        });
+
                     });   
                 }
             }]);
