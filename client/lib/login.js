@@ -36,6 +36,7 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
 });
 
     app.config(function ($routeProvider) {
+        $locationProvider.html5Mode(true);        
         $routeProvider.when('/', {
             templateUrl: '../views/login_page.html',
             controller: 'Controller'
