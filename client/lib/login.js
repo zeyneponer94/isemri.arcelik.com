@@ -36,19 +36,18 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
 });
 
     app.config(function ($routeProvider) {
-        $locationProvider.html5Mode(true);        
         $routeProvider.when('/', {
-            templateUrl: '../views/login_page.html',
+            templateUrl: '/views/login_page.html',
             controller: 'Controller'
         }).when('/workorder', {
-            templateUrl: '../views/create_workorder.html',
+            templateUrl: '/views/create_workorder.html',
             controller: 'workorder'
         }).otherwise({
             redirectTo: "/"
         });
     });   
 
-    app.controller('Controller' , ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter', 'sharedSession', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharedSession) {
+    app.controller('Controller' , ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter', 'sharedSession', '$location', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharedSession,$location) {
             $scope.GuId = '';
             $scope.ButtonText = "GİRİŞ";
 
@@ -70,12 +69,12 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
                         $timeout(function(){
                             $scope.ButtonText = "GİRİŞ";    
                             if(response.status == 200){
-                                var url = "https://thworkorder.azurewebsites.net/workorder";
-                                $window.location = url;                          
+                                $location.path("/workorder");                 
                               /*  
                                 $http({method: 'GET', url: '/workorder'}).
                                 then(function(data, status) { 
-
+                                    var url = "https://thworkorder.azurewebsites.net/workorder";
+                                    $window.location = url;         
                                 });*/
             
                             // $scope.login();
