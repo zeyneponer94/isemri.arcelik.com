@@ -19,9 +19,6 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }])*/
 
-// .config(['$qProvider', function ($qProvider) {
-//     $qProvider.errorOnUnhandledRejections(false);
-// }])
 
 
 .service('sharedSession', function () {
@@ -40,10 +37,10 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
 
     app.config(function ($routeProvider) {
         $routeProvider.when('/', {
-            templateUrl: '../../views/login_page.html',
+            templateUrl: 'views/login_page.html',
             controller: 'Controller'
         }).when('/workorder', {
-            templateUrl: '../../views/create_workorder.html',
+            templateUrl: 'views/create_workorder.html',
             controller: 'workorder'
         }).otherwise({
             redirectTo: "/"
@@ -54,7 +51,7 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
             $scope.GuId = '';
             $scope.ButtonText = "GİRİŞ";
 
-            $scope.submit = function () { 
+            $scope.submit = function (page) { 
                 $http({
                     url: 'https://thworkorderfapp.azurewebsites.net/GuId/' + $scope.username + '/' + $scope.password + '/1/1/1/1',
                     method: "GET"
@@ -75,12 +72,13 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
                         $timeout(function(){
                             $scope.ButtonText = "GİRİŞ";    
                             if(response.status == 200){
-
+                                $location.path(page);                                
+                              /*  
                                 $http({method: 'GET', url: '/workorder'}).
                                 then(function(data, status) { 
                                     var url = "https://thworkorder.azurewebsites.net/workorder";
                                     $window.location = url;
-                                });
+                                });*/
             
                             // $scope.login();
                             }

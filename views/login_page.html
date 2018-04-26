@@ -50,9 +50,9 @@
                                             <input type="password" name="password" id="password" class="form-control" placeholder="Şifre" ng-model="password" ng-disabled="ButtonText == 'GİRİŞ YAPILIYOR'" required/>
                                         </div>
                                         <!--<button type="button" class="btn btn-success" ng-click="register()">Not Registered Yet?</button> -->    
-                                        <button type="submit" class="btn btn-primary" ng-click="submit()" ng-disabled="form.$invalid || ButtonText == 'GİRİŞ YAPILIYOR'">
+                                        <button type="submit" class="btn btn-primary" ng-click="submit(/workorder)" ng-disabled="form.$invalid || ButtonText == 'GİRİŞ YAPILIYOR'">
                                             <span ng-show="ButtonText == 'GİRİŞ YAPILIYOR'"><i class="glyphicon glyphicon-refresh spinning"></i></span>
-                                            {{ ButtonText }}
+                                            {{ ButtonText }}<li><a href="#/cnt">
                                         </button> 
                                     </div>
                                 </form>
@@ -62,7 +62,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
+            </div>
+            <div ng-view></div>                
  <!--       <script src="lib/angular.min.js"></script>  
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
         <script src="lib/login.js"></script>   -->
