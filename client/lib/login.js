@@ -47,7 +47,7 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
         });
     });   
 
-    app.controller('Controller' , ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter', 'sharedSession', '$location', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharedSession,$location) {
+    app.controller('Controller' , ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter', 'sharedSession', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharedSession) {
             $scope.GuId = '';
             $scope.ButtonText = "GİRİŞ";
 
@@ -65,14 +65,10 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
                     {
                         alert(response.data[0].Message[0].Description);
                         sharedSession.setSessionValue("GuID", response.data[0].GuId);
-                        
-                        //sharedContext.addData("GUID", response.data[0].GuId)
-                        // Data.setGuId(response.data[0].GuId);
                         $scope.ButtonText = "GİRİŞ YAPILIYOR";
                         $timeout(function(){
                             $scope.ButtonText = "GİRİŞ";    
                             if(response.status == 200){
-                                $location.path(page);      
                                 var url = "https://thworkorder.azurewebsites.net/workorder";
                                 $window.location = url;                          
                               /*  
