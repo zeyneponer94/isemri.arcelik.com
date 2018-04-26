@@ -18,6 +18,7 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.6.9/angular-sanitize.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>    
     <script src="js/dialogs.js"></script>   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
     <script src="angular-route/angular-route.js"></script>        
@@ -50,9 +51,9 @@
                                             <input type="password" name="password" id="password" class="form-control" placeholder="Şifre" ng-model="password" ng-disabled="ButtonText == 'GİRİŞ YAPILIYOR'" required/>
                                         </div>
                                         <!--<button type="button" class="btn btn-success" ng-click="register()">Not Registered Yet?</button> -->    
-                                        <button type="submit" class="btn btn-primary" ng-click="submit(/workorder)" ng-disabled="form.$invalid || ButtonText == 'GİRİŞ YAPILIYOR'">
+                                        <button type="submit" class="btn btn-primary" ng-click="submit('/workorder')" ng-disabled="form.$invalid || ButtonText == 'GİRİŞ YAPILIYOR'">
                                             <span ng-show="ButtonText == 'GİRİŞ YAPILIYOR'"><i class="glyphicon glyphicon-refresh spinning"></i></span>
-                                            {{ ButtonText }}<li><a href="#/cnt">
+                                            {{ ButtonText }}
                                         </button> 
                                     </div>
                                 </form>
