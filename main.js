@@ -24,7 +24,7 @@ app.use(express.session({ secret: "won't tell because it's secret"  }));
 app.use(auth.initialize());
 app.use(auth.session());
 
-/*
+
 //Lets call passport authenticate method to authenticate 
 app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
     res.redirect('/');
@@ -42,7 +42,7 @@ app.get('/', auth.protected, function(req, res) {
 
 app.get('/workorder', auth.protected, function(req, res) {
     res.sendfile('views/create_workorder.html', {root: __dirname });   
-});*/
+});
 
 
 //Get Methods

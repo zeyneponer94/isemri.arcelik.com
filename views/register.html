@@ -61,8 +61,14 @@
 
                 $scope.back = function()
                 {
-                  /*  var url = "https://thworkorder.azurewebsites.net";
-                    $window.location = url;*/
+                    $http({
+                        url: '/',
+                        method: "GET",
+                    }). 
+                    then(function(data, status) { 
+                        var url = "https://thworkorder.azurewebsites.net/";
+                        $window.location = url;
+                    });
                 }
                 $scope.register = function()
                 {

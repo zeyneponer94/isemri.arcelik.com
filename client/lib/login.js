@@ -104,7 +104,7 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
             {
 
                 $http({
-                    url: 'https://thworkorderfapp.azurewebsites.net/login',
+                    url: '/',
                     method: "GET"
                 }). 
                 then(function(response) { 
