@@ -1,5 +1,5 @@
 
-var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask','ngRoute'])
+var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask','ngRoute', 'ngCookies'])
 
 .directive('ngEnter', function () { 
     return function (scope, element, attrs) {
@@ -34,7 +34,7 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
     };
 
 });
-
+/*
     app.config(function ($routeProvider) {
         $routeProvider.when('/', {
             templateUrl: '/views/login_page.html',
@@ -45,9 +45,9 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
         }).otherwise({
             redirectTo: "/"
         });
-    });   
+    });   */
 
-    app.controller('Controller' , ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter', 'sharedSession', '$location', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharedSession,$location) {
+    app.controller('Controller' , ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter', 'sharedSession', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharedSession) {
             $scope.GuId = '';
             $scope.ButtonText = "GİRİŞ";
 
@@ -64,19 +64,15 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
                     else
                     {
                         alert(response.data[0].Message[0].Description);
-                        sharedSession.setSessionValue("GuID", response.data[0].GuId);
                         $scope.ButtonText = "GİRİŞ YAPILIYOR";
                         $timeout(function(){
                             $scope.ButtonText = "GİRİŞ";    
                             if(response.status == 200){
-                                $location.path("/workorder");                 
-                              /*  
                                 $http({method: 'GET', url: '/workorder'}).
                                 then(function(data, status) { 
                                     var url = "https://thworkorder.azurewebsites.net/workorder";
                                     $window.location = url;         
-                                });*/
-            
+                                });
                             // $scope.login();
                             }
                         },1000)  
@@ -128,7 +124,7 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
     }]);
 
 
-    app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter', 'sharedSession', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharedSession) {
+    app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter', 'sharedSession', '$cookieStore', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharedSession,$cookieStore) {
 
 
             alert(sharedSession.getSessionValue("GuID"));
@@ -192,7 +188,7 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
                 url: 'https://thworkorderfapp.azurewebsites.net/product/' +  query,
                 headers: {            
                 'Content-Type': 'application/json',
-                'SessionToken': '' ,
+                'SessionToken': '' + $scope.GuId ,
                 'Cache-Control': 'no-cache',
                 'servicetype': 'INTHEBOX1'
                 } 
@@ -231,7 +227,7 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
                 method: "GET",
                 headers: {            
                         'Content-Type': 'application/json',
-                        'SessionToken': '' ,
+                        'SessionToken': '' + $scope.GuId,
                         'Cache-Control': 'no-cache',
                         'servicetype': 'INTHEBOX1'
                         }
@@ -256,7 +252,7 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
                 url: 'https://thworkorderfapp.azurewebsites.net/Uavt_city/' + $scope.provinceSelect + '/0/0',
                 headers: {            
                     'Content-Type': 'application/json',
-                    'SessionToken': '' ,
+                    'SessionToken': '' + $scope.GuId,
                     'Cache-Control': 'no-cache',
                     'servicetype': 'INTHEBOX1'
                 }
@@ -281,7 +277,7 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
                 url: 'https://thworkorderfapp.azurewebsites.net/Uavt_area/' + $scope.provinceSelect + '/' + $scope.citySelect + '/0',
                 headers: {            
                     'Content-Type': 'application/json',
-                    'SessionToken': '',
+                    'SessionToken': '' + $scope.GuId,
                     'Cache-Control': 'no-cache',
                     'servicetype': 'INTHEBOX1'
                 }
@@ -386,7 +382,7 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
                 method: "GET", 
                 url: 'https://thworkorderfapp.azurewebsites.net/query/0/0/0/0/0/0/' + ServiceShopCode,
                 headers: {            
-                'SessionToken': ''
+                'SessionToken': '' + $scope.GuId
                 }     
             }) 
             .then(function(response){
