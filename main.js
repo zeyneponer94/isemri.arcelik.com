@@ -46,7 +46,7 @@ app.get('/workorder', auth.protected, function(req, res) {
 
 
 //Get Methods
-app.get('/', function(req, res) {
+app.get('/home', function(req, res) {
     res.sendfile('views/home.html', {root: __dirname });       
 });
 

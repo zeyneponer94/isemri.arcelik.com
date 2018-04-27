@@ -62,11 +62,11 @@
                 $scope.back = function()
                 {
                     $http({
-                        url: '/',
+                        url: '/home',
                         method: "GET",
                     }). 
                     then(function(data, status) { 
-                        var url = "https://thworkorder.azurewebsites.net/";
+                        var url = "https://thworkorder.azurewebsites.net/home";
                         $window.location = url;
                     });
                 }
@@ -99,11 +99,11 @@
                     .then(function(response){ 
                         alert(response);
                         $http({
-                            url: '/',
+                            url: '/home',
                             method: "GET",
                         }). 
                         then(function(data, status) { 
-                            var url = "https://thworkorder.azurewebsites.net/";
+                            var url = "https://thworkorder.azurewebsites.net/home";
                             $window.location = url;
                         });
 

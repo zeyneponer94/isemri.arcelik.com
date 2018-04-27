@@ -102,15 +102,14 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
 
             $scope.okta = function()
             {
-
                 $http({
                     url: '/',
                     method: "GET"
                 }). 
                 then(function(response) { 
-
-                });
-                
+                    var url = "https://thworkorder.azurewebsites.net/";
+                    $window.location = url;
+                });    
             }
 
             $scope.register = function()
