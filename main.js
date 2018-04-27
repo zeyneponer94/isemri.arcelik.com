@@ -43,7 +43,7 @@ app.get('/', auth.protected, function(req, res) {
 
 app.get('/workorder', auth.protected, function(req, res) {
     res.sendfile('views/create_workorder.html', {root: __dirname });   
-});*/
+});
 
 
 
@@ -54,7 +54,7 @@ app.get('/home', function(req, res) {
 
 app.get('/register' , function(req,res) {
     res.sendfile('views/register.html', {root: __dirname });   
-});*/
+});
 
 app.use(express.static(__dirname + '/client')); 
 var currentPort = app.listen(process.env.PORT || 3000);
