@@ -37,7 +37,7 @@
         "cookie-session": "^2.0.0-beta.3",
         "core-js": "^2.4.1",
         "cors": "^2.8.4",
-        "express": "^3.5.3",
+        "express": "^3.5.0",
         "express-error-handler": "*",
         "express-session": "^1.15.6",
         "form-data": "^2.3.2",
@@ -50,7 +50,6 @@
         "passport": "^0.2.0",
         "passport-azure-ad": "3.0.8",
         "passport-saml": "git://github.com/pawanvshah/passport-saml.git",
-        "passport-wsfed-saml2": "^3.0.10",
         "pg": "*",
         "q": "*",
         "request": "^2.83.0",
@@ -58,12 +57,7 @@
         "semantic-ui-css": "^2.2.12",
         "serve-favicon": "*",
         "typescript": "~2.4.2",
-        "typings": "^1.0.4",
-        "xml-crypto": "https://github.com/auth10/xml-crypto/tarball/master",
-        "xml2js": "^0.1.x",
-        "xmldom": "^0.1.27",
-        "xpath": "^0.0.27",
-        "zone.js": "^0.8.14"
+        "typings": "^1.0.4"
     },
     "devDependencies": {
         "@angular/cli": "1.6.8",
