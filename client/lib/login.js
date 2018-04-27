@@ -1,5 +1,5 @@
 
-var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask','ngRoute'])
+var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask'])
 //'ngCookies'
 
 .directive('ngEnter', function () { 
@@ -34,7 +34,7 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
         }
     };
 
-});
+})
 /*
     app.config(function ($routeProvider) {
         $routeProvider.when('/', {
@@ -48,7 +48,7 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
         });
     });   */
 
-    app.controller('Controller' , ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter', 'sharedSession', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharedSession) {
+.controller('Controller' , ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter', 'sharedSession', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharedSession) {
             $scope.GuId = '';
             $scope.ButtonText = "GİRİŞ";
 
@@ -121,10 +121,10 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
                 });
             }
 
-    }]);
+}])
 
 
-    app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter', 'sharedSession', '$cookieStore', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharedSession,$cookieStore) {
+ .controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter', 'sharedSession', '$cookieStore', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharedSession,$cookieStore) {
 
             $http({
                 url: 'https://thworkorderfapp.azurewebsites.net/GuId/C9003074/lG75bktu/1/1/1/1',
@@ -651,7 +651,8 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
                         alert('İşlem Tamamlanamadı.');
                     });
         } 
-    }]);
+    
+}]);
 
 
 
