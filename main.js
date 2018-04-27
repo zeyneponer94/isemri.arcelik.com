@@ -27,7 +27,8 @@ app.use(auth.session());
 
 //Lets call passport authenticate method to authenticate 
 app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
-    res.redirect('/');
+    res.send("here");
+    //res.redirect('/');
 });
 
 //POST Methods, redirect to home successful login
