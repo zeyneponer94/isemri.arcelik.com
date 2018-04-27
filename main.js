@@ -15,8 +15,9 @@ var redirect = require('./redirect.js');
 
 app.use(express.logger());
 app.use(connect.compress());
-app.use(express.cookieParser());
-app.use(express.bodyParser());
+app.use(cookieParser());
+app.use(bodyParser());
+app.use(cookieSession({secret: 'app_1'}));
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json());
 app.use(errorHandler());
