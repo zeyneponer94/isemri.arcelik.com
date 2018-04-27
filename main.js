@@ -41,7 +41,7 @@ app.post('/login/callback', auth.authenticate('saml', { failureRedirect: '/', fa
 app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function (req, res) {
   res.redirect('/');
 }
-
+);
 /*
 
 //Lets call passport authenticate method to authenticate 
