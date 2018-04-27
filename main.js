@@ -50,11 +50,6 @@ app.get('/home', function(req, res) {
     res.sendfile('views/home.html', {root: __dirname });       
 });
 
-app.get('/workorder', function(req, res) {
-    res.sendfile('views/create_workorder.html', {root: __dirname });  
-
-});
-
 app.get('/register' , function(req,res) {
     res.sendfile('views/register.html', {root: __dirname });   
 });
