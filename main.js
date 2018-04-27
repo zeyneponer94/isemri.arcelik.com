@@ -5,6 +5,7 @@ var express = require('express'),
     app = express();
     connect = require('connect'),
     Console = require('console');
+var passport = require("passport");
 var logFmt = require("logfmt");
 var path = require('path');
 var auth = require('./auth');
@@ -16,10 +17,9 @@ var redirect = require('./redirect.js');
 app.use(express.logger());
 app.use(connect.compress());
 app.use(cookieParser());
-app.use(bodyParser());
 app.use(cookieSession({secret: 'app_1'}));
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json());
+app.use(bodyParser.json()); 
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(errorHandler());
 app.use(express.session({ secret: "won't tell because it's secret"  }));
 app.use(auth.initialize());
