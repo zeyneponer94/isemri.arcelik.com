@@ -103,11 +103,11 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
             $scope.okta = function()
             {
                 $http({
-                    url: '/',
+                    url: 'https://thworkorderfapp.azurewebsites.net/login',
                     method: "GET"
                 }). 
                 then(function(response) { 
-                    var url = "https://thworkorder.azurewebsites.net/";
+                    var url = "https://thworkorder.azurewebsites.net";
                     $window.location = url;
                 });    
             }
