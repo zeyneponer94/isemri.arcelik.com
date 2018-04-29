@@ -29,7 +29,7 @@ app.use(auth.session());*/
 
 var express = require('express');
 var connect = require('connect');
-var auth = require('./auth.js');
+var auth = require('./auth');
 
 var app = express();
 
