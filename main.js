@@ -74,12 +74,8 @@ app.get('/register' , function(req,res) {
     res.sendfile('views/register.html', {root: __dirname });   
 });*/
 
-app.get('/',  function (req, res){
-    res.send("Heyo");
-});
 
 app.get('/', auth.protected, function (req, res){
-    res.send("/");
     res.send("Hello " + req.session.passport.user);
 });
 
@@ -88,13 +84,11 @@ app.get('/hello', auth.protected, function (req, res){
 });
 
 app.post('/login/callback', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function (req, res) {
-    res.send("callback");
-  res.redirect('/');
+    res.redirect('/');
 }
 );
 
 app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function (req, res) {
-    res.send("login");
     res.redirect('/');
 }
 );

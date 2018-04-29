@@ -1,7 +1,7 @@
 {
 	"auth": {
-		"entryPoint": "https://arcelik.oktapreview.com/app/arelika_thworkorder_1/exkekmgyymcDj2lqE0h7/sso/saml",
+		"entryPoint": "https://arcelik.oktapreview.com/app/arelika_thworkorderloca_1/exkes2udku24CKNIL0h7/sso/saml",
 		"cert": "okta.cert",
-		"issuer": "http://www.okta.com/exkekmgyymcDj2lqE0h7"
+		"issuer": "http://www.okta.com/exkes2udku24CKNIL0h7"
 	}
 }
