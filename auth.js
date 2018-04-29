@@ -1,7 +1,7 @@
-var passport = require('passport');
-var fs = require('fs');
-var SamlStrategy = require('passport-saml').Strategy;
-var config = require('./config.json');
+var passport = require('passport'),
+	fs = require('fs'),
+  SamlStrategy = require('passport-saml').Strategy,
+  config = require('./config.json');
 
 var users = [];
 

@@ -47,18 +47,13 @@ app.configure(function() {
 
 
 //Lets call passport authenticate method to authenticate 
-app.get('/login', auth.authenticate('saml', { failureRedirect: '/fail', failureFlash: true }), function(req, res) {
+app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
     res.redirect('/');
 });
 
 //POST Methods, redirect to home successful login
-app.post('/login/callback', auth.authenticate('saml', { failureRedirect: '/fail', failureFlash: true }), function(req, res) {
-    res.send("callback");
+app.post('/login/callback', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
     res.redirect('/workorder');
-});
-
-app.get('/fail', function(req, res) {
-   res.send("fail");   
 });
 
 
