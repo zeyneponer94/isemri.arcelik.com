@@ -30,6 +30,7 @@ app.use(auth.session());*/
 var express = require('express');
 var connect = require('connect');
 var auth = require('./auth');
+var passport = require("passport");
 
 var app = express();
 
@@ -46,14 +47,19 @@ app.configure(function() {
 
 
 //Lets call passport authenticate method to authenticate 
-app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
+app.get('/login', auth.authenticate('saml', { failureRedirect: '/fail', failureFlash: true }), function(req, res) {
     res.redirect('/');
 });
 
 //POST Methods, redirect to home successful login
-app.post('/login/callback', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
+app.post('/login/callback', auth.authenticate('saml', { failureRedirect: '/fail', failureFlash: true }), function(req, res) {
     res.redirect('/workorder');
 });
+
+app.get('/fail', function(req, res) {
+   res.send("fail");   
+});
+
 
 //Get Methods
 app.get('/', auth.protected, function(req, res) {
@@ -72,8 +78,6 @@ app.get('/home', function(req, res) {
 app.get('/register' , function(req,res) {
     res.sendfile('views/register.html', {root: __dirname });   
 });
-
-
 
 app.use(express.static(__dirname + '/client')); 
 var currentPort = app.listen(process.env.PORT || 3000);

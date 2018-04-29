@@ -20,8 +20,6 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }])
 
-
-
 .service('sharedSession', function () {
     var hashtable = {};
 
@@ -103,12 +101,14 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
             $scope.okta = function()
             {
                 $http({
-                    url: 'https://thworkorderfapp.azurewebsites.net/login',
+                    url: '/',
                     method: "GET"
                 }). 
                 then(function(response) { 
-                    var url = "https://thworkorder.azurewebsites.net";
+
+                    var url = "https://thworkorder.azurewebsites.net/login";
                     $window.location = url;
+
                 });    
             }
 
@@ -124,7 +124,7 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
 }])
 
 
- .controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter', 'sharedSession', '$cookieStore', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharedSession,$cookieStore) {
+ .controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter', 'sharedSession', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharedSession) {
 
             $http({
                 url: 'https://thworkorderfapp.azurewebsites.net/GuId/C9003074/lG75bktu/1/1/1/1',
