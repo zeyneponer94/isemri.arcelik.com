@@ -81,7 +81,7 @@ app.get('/', auth.protected, function (req, res){
 });
 
 app.get('/hello', auth.protected, function (req, res){
-    res.end("Hello World!");
+    res.send("Hello World!");
 });
 
 app.post('/login/callback', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function (req, res) {
