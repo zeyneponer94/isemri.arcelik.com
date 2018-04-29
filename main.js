@@ -75,7 +75,7 @@ app.get('/register' , function(req,res) {
 
 
 
-//app.use(express.static(__dirname + '/client')); 
+app.use(express.static(__dirname + '/client')); 
 var currentPort = app.listen(process.env.PORT || 3000);
 
 /*
