@@ -84,11 +84,13 @@ app.get('/hello', auth.protected, function (req, res){
 });
 
 app.post('/login/callback', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function (req, res) {
+    res.send(req.isAuthenticated());
     res.redirect('/');
 }
 );
 
 app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function (req, res) {
+    res.send(req.isAuthenticated());    
     res.redirect('/');
 }
 );
