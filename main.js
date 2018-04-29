@@ -76,7 +76,7 @@ app.get('/register' , function(req,res) {
 
 
 app.get('/', auth.protected, function (req, res){
-    res.send(req.statusMessage);
+    res.send("/");
     res.end("Hello " + req.session.passport.user);
 });
 
@@ -91,7 +91,8 @@ app.post('/login/callback', auth.authenticate('saml', { failureRedirect: '/', fa
 );
 
 app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function (req, res) {
-  res.redirect('/');
+    res.send("login");
+    res.redirect('/');
 }
 );
 
