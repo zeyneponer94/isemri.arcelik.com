@@ -74,10 +74,13 @@ app.get('/register' , function(req,res) {
     res.sendfile('views/register.html', {root: __dirname });   
 });*/
 
+app.get('/',  function (req, res){
+    res.send("Heyo");
+});
 
 app.get('/', auth.protected, function (req, res){
     res.send("/");
-    res.end("Hello " + req.session.passport.user);
+    res.send("Hello " + req.session.passport.user);
 });
 
 app.get('/hello', auth.protected, function (req, res){
