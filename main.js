@@ -1,10 +1,9 @@
-var express = require('express'),
+/*var express = require('express'),
     http = require('http'),
     request = require('request'),
     errorHandler = require('express-error-handler'),
     app = express();
-    connect = require('connect'),
-    Console = require('console');
+    connect = require('connect');
 var passport = require("passport");
 var logFmt = require("logfmt");
 var path = require('path');
@@ -13,6 +12,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cookieSession = require('cookie-session');
 var redirect = require('./redirect.js');
+
+
 
 app.use(express.logger());
 app.use(connect.compress());
@@ -23,7 +24,24 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(errorHandler());
 app.use(express.session({ secret: "won't tell because it's secret"  }));
 app.use(auth.initialize());
-app.use(auth.session());
+app.use(auth.session());*/
+
+
+var express = require('express');
+var connect = require('connect');
+var auth = require('./auth');
+
+var app = express();
+
+app.configure(function() {
+    app.use(express.logger());
+    app.use(connect.compress());
+    app.use(express.cookieParser());
+    app.use(express.bodyParser());
+    app.use(express.session({ secret: "won't tell because it's secret"  }));
+    app.use(auth.initialize());
+    app.use(auth.session());
+});
 
 
 /*
@@ -75,7 +93,7 @@ app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash
 }
 );
 
-app.use(express.static(__dirname + '/client')); 
+//app.use(express.static(__dirname + '/client')); 
 var currentPort = app.listen(process.env.PORT || 3000);
 
 /*
