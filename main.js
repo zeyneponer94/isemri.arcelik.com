@@ -44,7 +44,7 @@ app.configure(function() {
 });
 
 
-/*
+
 //Lets call passport authenticate method to authenticate 
 app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
     res.redirect('/');
@@ -64,7 +64,6 @@ app.get('/workorder', auth.protected, function(req, res) {
     res.sendfile('views/create_workorder.html', {root: __dirname });   
 });
 
-
 //Get Methods
 app.get('/home', function(req, res) {
     res.sendfile('views/home.html', {root: __dirname });       
@@ -72,28 +71,9 @@ app.get('/home', function(req, res) {
 
 app.get('/register' , function(req,res) {
     res.sendfile('views/register.html', {root: __dirname });   
-});*/
-
-
-app.get('/', auth.protected, function (req, res){
-    res.send("Hello " + req.session.passport.user);
 });
 
-app.get('/hello', auth.protected, function (req, res){
-    res.send("Hello World!");
-});
 
-app.post('/login/callback', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function (req, res) {
-    res.send(req.isAuthenticated());
-    res.redirect('/');
-}
-);
-
-app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function (req, res) {
-    res.send(req.isAuthenticated());    
-    res.redirect('/');
-}
-);
 
 //app.use(express.static(__dirname + '/client')); 
 var currentPort = app.listen(process.env.PORT || 3000);
