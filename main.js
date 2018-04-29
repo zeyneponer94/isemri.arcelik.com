@@ -30,7 +30,7 @@ app.use(auth.session());*/
 var express = require('express');
 var connect = require('connect');
 var auth = require('./auth');
-var passport = require("passport");
+var path = require('path');
 
 var app = express();
 
