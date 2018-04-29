@@ -58,7 +58,8 @@
         "semantic-ui-css": "^2.2.12",
         "serve-favicon": "*",
         "typescript": "~2.4.2",
-        "typings": "^1.0.4"
+        "typings": "^1.0.4",
+        "xml-crypto": "^0.10.1"
     },
     "devDependencies": {
         "@angular/cli": "1.6.8",
