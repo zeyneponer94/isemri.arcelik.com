@@ -1,3 +1,6 @@
+
+
+
 /*var express = require('express'),
     http = require('http'),
     request = require('request'),
@@ -56,13 +59,13 @@ app.post('/login/callback', auth.authenticate('saml', { failureRedirect: '/', fa
     res.redirect('/workorder');
 });
 
-
 //Get Methods
 app.get('/', auth.protected, function(req, res) {
     res.sendfile('views/login_page.html', {root: __dirname });       
 });
 
 app.get('/workorder', auth.protected, function(req, res) {
+    res.cookie('user', '' + req.session.passport.user, { maxAge: 900000, httpOnly: false });       
     res.sendfile('views/create_workorder.html', {root: __dirname });   
 });
 

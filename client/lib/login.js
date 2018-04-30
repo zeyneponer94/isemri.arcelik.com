@@ -1,6 +1,5 @@
 
-var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask'])
-//'ngCookies'
+var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSanitize','ui.mask','ngCookies'])
 
 .directive('ngEnter', function () { 
     return function (scope, element, attrs) {
@@ -124,8 +123,11 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngRoute','ngSani
 }])
 
 
- .controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter', 'sharedSession', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharedSession) {
+ .controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter', 'sharedSession','$cookies', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharedSession,$cookies) {
 
+            $scope.cookieValue = $cookies.get('user');
+            alert($scope.cookieValue);
+            
             $http({
                 url: 'https://thworkorderfapp.azurewebsites.net/GuId/C9003074/lG75bktu/1/1/1/1',
                 method: "GET"
