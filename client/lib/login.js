@@ -369,7 +369,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             $scope.query_all = function () {
             $http({
                 method: "GET", 
-                url: 'https://thworkorderfapp.azurewebsites.net/query/0/0/0/0/0/0/' + $scope.ServiceShopCode,
+                url: 'https://thworkorderfapp.azurewebsites.net/query/' + $scope.ServiceShopCode,
                 headers: {            
                 'SessionToken': '' + $scope.GuId
                 }     
