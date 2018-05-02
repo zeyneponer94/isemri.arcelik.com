@@ -14,10 +14,11 @@ app.directive('ngEnter', function () {
    };
 });
 
+/*
 app.config(['$httpProvider', function ($httpProvider) {
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
-}]);
+}]);*/
 
 app.controller('Controller' , ['$scope','$http','$window', function ($scope, $http, $window) {
  /*            $scope.GuId = '';
@@ -506,7 +507,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             var dlg = dialogs.confirm("Lütfen Onaylayınız!","Aşağıda belirtilen bilgiler ile iş emri oluşturma talebinizi gerçekleştirmeyi onaylıyor musunuz?".bold()+"<br>"+ ("  Müşteri adı = "+$scope.name_id+"<br>  Müşteri soyadı = "
             +$scope.surname_id+"<br>  Müşteri telefon numarası = "+$scope.phonenumber_3+"<br>  Seçilen ürün = "+$scope.txtProductCode+"<br>  Seçilen iş emri türü = "
             +$scope.workorderSelect+"<br> Müşteri adresi = " + $scope.adres_id).italics());
-                    dlg.result.then(function(btn){
+            dlg.result.then(function(btn){
             $scope.ButtonText = "İŞ EMRİ OLUŞTURULUYOR";
             
             $scope.dateVal = $filter('date')(new Date(), 'ss/MM/yyyy HH:mm:ss');
