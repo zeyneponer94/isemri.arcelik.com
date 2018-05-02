@@ -1,7 +1,7 @@
 
-var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngSanitize','ui.mask','ngCookies'])
+var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngSanitize','ui.mask','ngCookies']);
 
-.directive('ngEnter', function () { 
+app.directive('ngEnter', function () { 
     return function (scope, element, attrs) {
         element.bind("keydown keypress", function (event) {
             if (event.which === 13) {
@@ -12,14 +12,14 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngSanitize','ui.
             }
         });
    };
-})
+});
 
-.config(['$httpProvider', function ($httpProvider) {
+app.config(['$httpProvider', function ($httpProvider) {
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
-}])
+}]);
 
-.controller('Controller' , ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter) {
+app.controller('Controller' , ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter) {
             $scope.GuId = '';
             $scope.ButtonText = "GİRİŞ";
 
@@ -94,10 +94,10 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngSanitize','ui.
                 });
             }
 
-}])
+}]);
 
 
- .controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter','$cookies', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,$cookies) {
+ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter','$cookies', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,$cookies) {
 
             $scope.cookieValue = $cookies.get('user');
             alert($scope.cookieValue);
