@@ -102,7 +102,6 @@ app.controller('Controller' , ['$scope','$http','$window', function ($scope, $ht
  app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter','$cookies', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,$cookies) {
 
             $scope.cookieValue = $cookies.get('user');
-            alert($scope.cookieValue);
             
             $http({
                 url: 'https://thworkorderfapp.azurewebsites.net/GuId/C9003074/lG75bktu/1/1/1/1',
@@ -116,7 +115,7 @@ app.controller('Controller' , ['$scope','$http','$window', function ($scope, $ht
                 else 
                 {
                     $scope.GuId = response.data[0].GuId;  
-                    $scope.ServiceShopCode = response[0].ServiceShopCode;                  
+                    $scope.ServiceShopCode = response.data[0].ServiceShopCode;                  
                 }
             });
     
