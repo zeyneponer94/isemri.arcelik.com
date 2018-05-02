@@ -1,5 +1,5 @@
 
-var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngSanitize','ui.mask','ngCookies']);
+var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngSanitize','ui.mask','ngRoute', 'ngCookies']);
 
 app.directive('ngEnter', function () { 
     return function (scope, element, attrs) {
