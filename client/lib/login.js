@@ -20,7 +20,7 @@ app.config(['$httpProvider', function ($httpProvider) {
 }]);
 
 app.controller('Controller' , ['$scope','$http','$window', function ($scope, $http, $window) {
-  /*            $scope.GuId = '';
+ /*            $scope.GuId = '';
             $scope.ButtonText = "GİRİŞ";
 
             $scope.submit = function (page) { 
@@ -72,6 +72,8 @@ app.controller('Controller' , ['$scope','$http','$window', function ($scope, $ht
                 });
             }
  */
+            alert("sdzd");
+
             $scope.okta = function()
             {
                 $http({
