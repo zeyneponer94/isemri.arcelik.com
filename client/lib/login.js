@@ -14,11 +14,10 @@ app.directive('ngEnter', function () {
    };
 });
 
-/*
 app.config(['$httpProvider', function ($httpProvider) {
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
-}]);*/
+}]);
 
 app.controller('Controller' , ['$scope','$http','$window', function ($scope, $http, $window) {
  /*            $scope.GuId = '';
@@ -369,7 +368,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             $scope.query_all = function () {
             $http({
                 method: "GET", 
-                url: 'https://thworkorderfapp.azurewebsites.net/query/' + $scope.ServiceShopCode,
+                url: 'https://thworkorderfapp.azurewebsites.net/query/0/0/0/0/0/0/' + $scope.ServiceShopCode,
                 headers: {            
                 'SessionToken': '' + $scope.GuId
                 }     
