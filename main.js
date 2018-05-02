@@ -65,6 +65,7 @@ app.get('/', auth.protected, function(req, res) {
 });
 
 app.get('/workorder', auth.protected, function(req, res) {
+    res.send(req.session);
     res.cookie('user', '' + req.session.passport.user, { maxAge: 900000, httpOnly: false });       
     res.sendfile('views/create_workorder.html', {root: __dirname });   
 });
