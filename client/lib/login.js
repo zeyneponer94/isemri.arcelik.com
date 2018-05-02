@@ -19,8 +19,8 @@ app.config(['$httpProvider', function ($httpProvider) {
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);
 
-app.controller('Controller' , ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter) {
-            $scope.GuId = '';
+app.controller('Controller' , ['$scope','$http','$window', function ($scope, $http, $window) {
+  /*            $scope.GuId = '';
             $scope.ButtonText = "GİRİŞ";
 
             $scope.submit = function (page) { 
@@ -51,7 +51,8 @@ app.controller('Controller' , ['$scope','$http','$window', 'dialogs','$sanitize'
                     }
                 });
             };       
-                                                
+ */
+ /*                                                
             $scope.login = function(){ 
 
 
@@ -70,7 +71,7 @@ app.controller('Controller' , ['$scope','$http','$window', 'dialogs','$sanitize'
                     $window.location = url;
                 });
             }
-
+ */
             $scope.okta = function()
             {
                 $http({
