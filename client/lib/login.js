@@ -210,16 +210,14 @@ app.controller('Controller' , ['$scope','$http','$window', function ($scope, $ht
 
                 
             $http({
-                async: true,
-                crossDomain: true,  
                 url: 'https://thworkorderfapp.azurewebsites.net/Uavt_province',
-                method: "GET",
-                headers: {            
+                method: "GET"
+         /*       headers: {            
                         'Content-Type': 'application/json',
                         'SessionToken': '' + $scope.GuId,
                         'Cache-Control': 'no-cache',
                         'servicetype': 'INTHEBOX1'
-                        }
+                        }*/
             })
             .then(function(response){ 
                 $scope.province = [];                    
