@@ -90,13 +90,13 @@
                                     <input type="text" class="form-control" id="txtProductCode"
                                             data-toggle="tooltip" data-placement="top" title="Ürün Kodu Giriniz*"
                                             ng-change="search(txtProductCode)" ng-minlength="5";
-                                            name="txtProductCode" ng-model="txtProductCode" placeholder="Ürün Kodu Giriniz*" ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'"/>
+                                            name="txtProductCode" ng-model="txtProductCode" placeholder="Ürün Kodu Giriniz*" required ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'"/>
                                     <div class="entry" ng-repeat="item in ResponseProductList | filter:txtProductCode | limitTo:10" ng-show="show">
                                         <span ng-click="fncProductChoose(item.name)">{{item.name}}</span>
                                     </div>
                                 </div>           
                                 <div class="form-group">                                                                                                                                            
-                                    <select class="form-control" ng-model="workorderSelect" ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'">
+                                    <select class="form-control" ng-model="workorderSelect" required ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'">
                                         <option value="">İş Emri Türü Seçiniz *</option> 
                                         <option ng-repeat="option in workordertype" value="{{option.name}}">{{option.name}}</option>                    
                                     </select>
