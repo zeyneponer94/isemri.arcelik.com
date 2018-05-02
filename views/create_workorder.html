@@ -74,7 +74,7 @@
                                 </div>     
                                 <div class="col-sm-4"> 
                                     <div class="form-group"> 
-                                        <input class="form-control" type="text" id="phoneNumber_3" name="phoneNumber_3" ng-model="phonenumber_3" ui-mask="(999) 999-9999" placeholder="(___) ___-____*" ui-mask-placeholder-char="-" required ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'"/>                                                
+                                        <input class="form-control" type="text" id="phoneNumber_3" name="phoneNumber_3" ng-model="phonenumber_3" required ui-mask="(999) 999-9999" placeholder="(___) ___-____*" ui-mask-placeholder-char="-" ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'"/>                                                
                                     </div>                                                            
                                     <div class="form-group">                                                                                                
                                         <input type="text" id="email_customer" name="email_customer" 
@@ -109,7 +109,7 @@
                             </div>   
                         </div>
                         <div class="panel panel-default">
-                            <div class="panel-heading">MÜŞTERİ ADRESİ</div>
+                          <div class="panel-heading">MÜŞTERİ ADRESİ</div>
                             <div class="panel-body">
                                 <div class="form-group">     
                                     <select class="form-control" ng-model="provinceSelect" ng-change="choose_city()" required ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'">

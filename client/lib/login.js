@@ -99,7 +99,7 @@ app.controller('Controller' , ['$scope','$http','$window', function ($scope, $ht
 }]);
 
 
- app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter','$cookies', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,$cookies) {
+app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter','$cookies', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,$cookies) {
 
             $scope.cookieValue = $cookies.get('user');
             
@@ -236,13 +236,13 @@ app.controller('Controller' , ['$scope','$http','$window', function ($scope, $ht
             $scope.choose_city = function() {
                 $http({
                 method: "GET", 
-                url: 'https://thworkorderfapp.azurewebsites.net/Uavt_city/' + $scope.provinceSelect + '/0/0',
-                headers: {            
+                url: 'https://thworkorderfapp.azurewebsites.net/Uavt_city/' + $scope.provinceSelect + '/0/0'
+         /*       headers: {            
                     'Content-Type': 'application/json',
                     'SessionToken': '' + $scope.GuId,
                     'Cache-Control': 'no-cache',
                     'servicetype': 'INTHEBOX1'
-                }
+                }*/
                 }) 
                 .then(function(response){ 
                     $scope.city = [];                    
@@ -261,13 +261,13 @@ app.controller('Controller' , ['$scope','$http','$window', function ($scope, $ht
             $scope.choose_area = function() {
                 $http({
                 method: "GET", 
-                url: 'https://thworkorderfapp.azurewebsites.net/Uavt_area/' + $scope.provinceSelect + '/' + $scope.citySelect + '/0',
-                headers: {            
+                url: 'https://thworkorderfapp.azurewebsites.net/Uavt_area/' + $scope.provinceSelect + '/' + $scope.citySelect + '/0'
+          /*      headers: {            
                     'Content-Type': 'application/json',
                     'SessionToken': '' + $scope.GuId,
                     'Cache-Control': 'no-cache',
                     'servicetype': 'INTHEBOX1'
-                }
+                }*/
                 }) 
                 .then(function(response){ 
                     $scope.area = [];                    
