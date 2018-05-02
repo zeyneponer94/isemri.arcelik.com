@@ -72,7 +72,6 @@ app.controller('Controller' , ['$scope','$http','$window', function ($scope, $ht
                 });
             }
  */
-            alert("sdzd");
 
             $scope.okta = function()
             {
