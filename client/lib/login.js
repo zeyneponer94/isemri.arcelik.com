@@ -19,33 +19,7 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngSanitize','ui.
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }])
 
-.service('sharedSession', function () {
-    var hashtable = {};
-
-    return {
-        setSessionValue: function (key, value) {
-            hashtable[key] = value;
-        },
-        getSessionValue: function (key) {
-            return hashtable[key];
-        }
-    };
-
-})
-/*
-    app.config(function ($routeProvider) {
-        $routeProvider.when('/', {
-            templateUrl: '/views/login_page.html',
-            controller: 'Controller'
-        }).when('/workorder', {
-            templateUrl: '/views/create_workorder.html',
-            controller: 'workorder'
-        }).otherwise({
-            redirectTo: "/"
-        });
-    });   */
-
-.controller('Controller' , ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter', 'sharedSession', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharedSession) {
+.controller('Controller' , ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter) {
             $scope.GuId = '';
             $scope.ButtonText = "GİRİŞ";
 
@@ -123,7 +97,7 @@ var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngSanitize','ui.
 }])
 
 
- .controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter', 'sharedSession','$cookies', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,sharedSession,$cookies) {
+ .controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter','$cookies', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,$cookies) {
 
             $scope.cookieValue = $cookies.get('user');
             alert($scope.cookieValue);
