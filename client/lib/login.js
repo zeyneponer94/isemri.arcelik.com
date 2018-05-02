@@ -115,7 +115,8 @@ app.controller('Controller' , ['$scope','$http','$window', function ($scope, $ht
                 }
                 else 
                 {
-                    $scope.GuId = response.data[0].GuId;                    
+                    $scope.GuId = response.data[0].GuId;  
+                    $scope.ServiceShopCode = response[0].ServiceShopCode;                  
                 }
             });
     
@@ -311,39 +312,40 @@ app.controller('Controller' , ['$scope','$http','$window', function ($scope, $ht
             }
 
             $scope.query_workorder = function () {
-            $http({
-                method: "GET", 
-                url: 'https://thworkorderfapp.azurewebsites.net/api/workorderlist',
-                params: {name: "" + $scope.name_id_query,
-                        surname: "" + $scope.surname_id_query}          
-            }) 
-            .then(function(response){  
-                if(response.data[0]==null)
-                $scope.result = true;
-                else
-                $scope.result = false;     
 
-                $scope.workorders = [];
-                var i = 0;
-                while(response.data[i]!=null){
-
-                            var obj = { 
-                            no: response.data[i][3],
-                            product:response.data[i][4],
-                            type: response.data[i][5],
-                            customer: response.data[i][6],
-                            point: response.data[i][7],
-                            address: response.data[i][8],
-                            status: response.data[i][9],
-                            service: response.data[i][10],
-                            DeliveryDate: response.data[i][11],
-                            AppointmentDate: response.data[i][12]
-                            };
-                            $scope.workorders.push(obj);                             
-
-                    i++;
-                }
-            });
+                $http({
+                    method: "GET", 
+                    url: 'https://thworkorderfapp.azurewebsites.net/query/' + $scope.phone_id_query + '/' +  $scope.name_id_query + '/' +  $scope.surname_id_query + '/0/0/0/' + $scope.ServiceShopCode,
+                    headers: {            
+                    'SessionToken': '' + $scope.GuId
+                    }     
+                }) 
+                .then(function(response){
+                    if(response.data[0]==null)
+                        $scope.result = true;
+                    else
+                        $scope.result = false;       
+    
+                    $scope.workorders = [];
+                    $scope.return_value = [];                    
+                    var i = 0;
+                        
+                        while(response.data[i]!=null){
+                        var obj = { 
+                            no: response.data[i].PackageNr,
+                            productCode : response.data[i].ProductCode,
+                            product:response.data[i].Product,
+                            customer: response.data[i].Name + " " + response.data[i].Surname ,
+                            address: response.data[i].Address,
+                            status: response.data[i].Status,
+                            AppointmentDate: response.data[i].AppointmentDate
+                        };
+                        $scope.workorders.push(obj);            
+                        i++; 
+                        }  
+    
+                });
+    
             }
 
 
@@ -369,7 +371,7 @@ app.controller('Controller' , ['$scope','$http','$window', function ($scope, $ht
             $scope.query_all = function () {
             $http({
                 method: "GET", 
-                url: 'https://thworkorderfapp.azurewebsites.net/query/0/0/0/0/0/0/' + ServiceShopCode,
+                url: 'https://thworkorderfapp.azurewebsites.net/query/0/0/0/0/0/0/' + $scope.ServiceShopCode,
                 headers: {            
                 'SessionToken': '' + $scope.GuId
                 }     
