@@ -340,10 +340,12 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                     $scope.workorders = [];
                     $scope.return_value = [];                    
                     var i = 0;
-                        
+                     
                         while(response.data[i]!=null){
                         var obj = { 
                             no: response.data[i].PackageNr,
+                            ServiceShopCode : response.data[i].ServiceShopCode,
+                            ServiceShop : response.data[i].ServiceShop,
                             productCode : response.data[i].ProductCode,
                             product:response.data[i].Product,
                             customer: response.data[i].Name + " " + response.data[i].Surname ,
@@ -378,7 +380,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                     return workorders_no;              
                 });           
             }
-
+/*
             $scope.query_all = function () {
             $http({
                 method: "GET", 
@@ -422,7 +424,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
 
             
-            }
+            }*/
 
 
         $scope.logout = function() {
@@ -609,7 +611,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 {
                     $scope.ExternalOrderId = response.data[0].ExternalOrderId;
                     $scope.ConsignmentWorkOrderStatus = response.data[0].ConsignmentWorkOrderStatus;
-                    alert("Service is successfully assigned");                      
+                    alert("Servis başarıyla oluşturuldu. Oluşturulan paket numaranız: " + $scope.ExternalOrderId) + " Servis Numaranız: " + response.data[0].ServiceShopCode;                      
 
                 }
 

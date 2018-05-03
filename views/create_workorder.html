@@ -200,6 +200,8 @@
                             <thead>
                                 <tr>
                                 <th>İş Emri No</th>
+                                <th>Servis Kodu</th>
+                                <th>Servis Açıklaması</th>
                                 <th>Ürün Kodu</th>                                
                                 <th>Ürün</th>
                                 <th>Müşteri</th>
@@ -208,10 +210,12 @@
                                 <th>Plan. Randevu Tarihi</th>    
                                 <th></th>                
                                 </tr>
-                            </thead>
+                            </thead> 
                             <tbody>
                                 <tr ng-repeat="x in workorders">
                                     <td>{{ x.no }}</td>
+                                    <td>{{ x.ServiceShopCode }}</td>
+                                    <td>{{ x.ServiceShop }}</td>                                    
                                     <td>{{ x.productCode }}</td>                                    
                                     <td>{{ x.product }}</td>
                                     <td>{{ x.customer }}</td>
