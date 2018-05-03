@@ -136,7 +136,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             $scope.test="false";
             $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
             $scope.QueryText = "SORGULA";        
-            $scope.DeleteText = "SİL";
+            $scope.DeleteText = "İPTAL";
             
             
             $scope.workordertype = [];   
@@ -345,7 +345,6 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                         var obj = { 
                             no: response.data[i].PackageNr,
                             ServiceShopCode : response.data[i].ServiceShopCode,
-                            ServiceShop : response.data[i].ServiceShop,
                             productCode : response.data[i].ProductCode,
                             product:response.data[i].Product,
                             customer: response.data[i].Name + " " + response.data[i].Surname ,
@@ -473,9 +472,9 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 }) 
                 .then(function(response){ 
                 $scope.showSpinning=$index;
-                $scope.DeleteText = "SİLİNİYOR";                    
+                $scope.DeleteText = "İPTAL EDİLİYOR";                    
                 $timeout(function(){
-                    $scope.DeleteText = "SİL";  
+                    $scope.DeleteText = "İPTAL";  
                     $scope.sorgula(x);      
                     alert("İş Emri Başararıyla İptal Edildi.");   
                 },1000)

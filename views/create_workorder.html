@@ -200,8 +200,7 @@
                             <thead>
                                 <tr>
                                 <th>İş Emri No</th>
-                                <th>Servis Kodu</th>
-                                <th>Servis Açıklaması</th>
+                                <th>Servis</th>
                                 <th>Ürün Kodu</th>                                
                                 <th>Ürün</th>
                                 <th>Müşteri</th>
@@ -215,7 +214,6 @@
                                 <tr ng-repeat="x in workorders">
                                     <td>{{ x.no }}</td>
                                     <td>{{ x.ServiceShopCode }}</td>
-                                    <td>{{ x.ServiceShop }}</td>                                    
                                     <td>{{ x.productCode }}</td>                                    
                                     <td>{{ x.product }}</td>
                                     <td>{{ x.customer }}</td>
@@ -223,9 +221,9 @@
                                     <td>{{ x.status }}</td>
                                     <td>{{ x.AppointmentDate }}</td> 
                                     <td>
-                                        <button type="button" class="btn btn-danger" ng-click="delete_query($index,x)" ng-disabled="DeleteText == 'SİLİNİYOR'">                                                
-                                            <span ng-show="DeleteText == 'SİLİNİYOR' && showSpinning===$index"><i class="glyphicon glyphicon-refresh spinning"></i></span>
-                                            <span>{{showSpinning===$index ? DeleteText : "SİL" }}</span>                                                     
+                                        <button type="button" class="btn btn-danger" ng-click="delete_query($index,x)" ng-disabled="DeleteText == 'İPTAL EDİLİYOR'">                                                
+                                            <span ng-show="DeleteText == 'İPTAL EDİLİYOR' && showSpinning===$index"><i class="glyphicon glyphicon-refresh spinning"></i></span>
+                                            <span>{{showSpinning===$index ? DeleteText : "İPTAL" }}</span>                                                     
                                         </button> 
                                         <button type="button" class="btn btn-primary" ng-click = "sorgula(x)">SORGULA</button>                                        
                                     </td> 
