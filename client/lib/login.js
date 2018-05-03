@@ -322,6 +322,9 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 $scope.query=true;
             }
 
+            $scope.SearchText = "ARA";  
+        
+
             $scope.query_workorder = function () {
 
                 $http({
@@ -332,30 +335,39 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                     }     
                 }) 
                 .then(function(response){
-                    if(response.data[0]==null)
-                        $scope.result = true;
-                    else
-                        $scope.result = false;       
-    
-                    $scope.workorders = [];
-                    $scope.return_value = [];                    
-                    var i = 0;
-                     
+
+
+                    $scope.SearchText = "ARIYOR";                    
+                    $timeout(function(){
+                        $scope.SearchText = "ARA";  
+
+                        if(response.data[0]==null)
+                            $scope.result = true;
+                        else
+                            $scope.result = false;       
+
+                        $scope.workorders = [];
+                        $scope.return_value = [];                    
+                        var i = 0;
+                        
                         while(response.data[i]!=null){
-                        var obj = { 
-                            no: response.data[i].PackageNr,
-                            ServiceShopCode : response.data[i].ServiceShopCode,
-                            productCode : response.data[i].ProductCode,
-                            product:response.data[i].Product,
-                            customer: response.data[i].Name + " " + response.data[i].Surname ,
-                            address: response.data[i].Address,
-                            status: response.data[i].Status,
-                            AppointmentDate: response.data[i].AppointmentDate
-                        };
-                        $scope.workorders.push(obj);            
-                        i++; 
+                            var obj = { 
+                                no: response.data[i].PackageNr,
+                                ServiceShopCode : response.data[i].ServiceShopCode,
+                                productCode : response.data[i].ProductCode,
+                                product:response.data[i].Product,
+                                customer: response.data[i].Name + " " + response.data[i].Surname ,
+                                address: response.data[i].Address,
+                                status: response.data[i].Status,
+                                AppointmentDate: response.data[i].AppointmentDate
+                            };
+                            $scope.workorders.push(obj);            
+                            i++; 
                         }  
-    
+
+                    },1000)
+
+
                 });
     
             }

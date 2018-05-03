@@ -186,7 +186,10 @@
                                 </div>
                                 <div class="col-sm-3">
                                     <div class="form-group">   
-                                        <button type="button" class="btn btn-primary" ng-click="query_workorder()"ng-disabled="form_.$invalid"><i class="glyphicon glyphicon-search"></i>ARA</button>                                
+                                        <button type="button" class="btn btn-primary" ng-click="query_workorder()" ng-disabled="form_.$invalid || SearchText == 'ARIYOR'">                                                
+                                            <span ng-show="SearchText == 'ARIYOR'"><i class="glyphicon glyphicon-refresh spinning"></i></span>
+                                            {{ SearchText }}
+                                        </button> 
                                     </div> 
                                 </div>  
                             </div>  
