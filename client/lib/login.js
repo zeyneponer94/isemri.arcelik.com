@@ -615,28 +615,6 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                     $scope.ButtonText = "İŞ EMRİ OLUŞTUR";    
                     alert("Service is successfully assigned")  
                 },1000)
-
-                $http({
-                    method: "GET", 
-                    url: 'https://thworkorderfapp.azurewebsites.net/api/createworkorder',
-                    params: {
-                    name:""+$scope.name_id,
-                    surname:""+$scope.surname_id,
-                    phone:""+$scope.phone_id,
-                    no:""+$scope.ExternalOrderId,
-                    product:""+$scope.txtProductCode,
-                    workorder:""+$scope.workorderSelect,
-                    customer:"Test",
-                    point:""+$scope.provinceSelect,
-                    address:""+$scope.adres_id,
-                    status: ""+$scope.ConsignmentWorkOrderStatus,
-                    service:"Test",
-                    DeliveryDate:"2018-02-10",
-                    AppointmentDate:"2018-02-15"
-                    }          
-                }) 
-                .then(function(response){ 
-                });
             });
                     },function(btn){
                         alert('İşlem Tamamlanamadı.');
