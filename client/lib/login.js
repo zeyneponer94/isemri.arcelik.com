@@ -525,8 +525,6 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             dlg.result.then(function(btn){
             $scope.ButtonText = "İŞ EMRİ OLUŞTURULUYOR";
 
-
-            var description = "";
             $http({
                 async: true,
                 crossDomain: true,
@@ -540,7 +538,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 } 
             }) 
             .then(function(response){ 
-                description =  response.data[0].ProductDescription;
+                $scope.description =  response.data[0].ProductDescription;
             });   
 
             
@@ -579,7 +577,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                       "MainSourceOrderProcessStatus": "100",
                       "WareHouseType": "1",
                       "ProductCode": "" + $scope.txtProductCode,
-                      "Product": "" + description, 
+                      "Product": "" + $scope.description, 
                       "OperationType": "" + $scope.workorderSelect,
                       "SourceOrderStatus": "100",
                       "DetailNote": "" +  $scope.isemri_notu
