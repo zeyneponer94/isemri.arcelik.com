@@ -50,12 +50,12 @@ app.configure(function() {
 
 
 //Lets call passport authenticate method to authenticate 
-app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
+app.get('/login', auth.authenticate('saml', { failureRedirect: '/fail', failureFlash: true }), function(req, res) {
     res.redirect('/workorder');
 });
 
 //POST Methods, redirect to home successful login
-app.post('/login/callback', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
+app.post('/login/callback', auth.authenticate('saml', { failureRedirect: '/fail', failureFlash: true }), function(req, res) {
     res.redirect('/workorder');
 });
 
@@ -69,6 +69,11 @@ app.get('/workorder', auth.protected, function(req, res) {
     res.sendfile('views/create_workorder.html', {root: __dirname });   
 });
 
+app.get('/fail', function(req, res) {
+    res.send("Request Failed");       
+});
+
+/*
 //Get Methods
 app.get('/home', function(req, res) {
     res.sendfile('views/home.html', {root: __dirname });       
@@ -77,7 +82,7 @@ app.get('/home', function(req, res) {
 app.get('/register' , function(req,res) {
     res.sendfile('views/register.html', {root: __dirname });   
 });
-
+*/
 app.use(express.static(__dirname + '/client')); 
 var currentPort = app.listen(process.env.PORT || 3000);
 
