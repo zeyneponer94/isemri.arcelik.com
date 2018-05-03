@@ -514,74 +514,51 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             
             $scope.dateVal = $filter('date')(new Date(), 'ss/MM/yyyy HH:mm:ss');
             
-            $scope.jsonData = [{
-            "PK": "",
-            "MainSourceApplicationProcces": "InnTheBox",
-            "SourceApplication": "InnTheBox",
-            "MainSourceOrderProccesId": "InnTheBox1",
-            "SourceOrderId": "InnTheBox1",
-            "MainSourceProccesStatus": "Approve",
-            "SourceStatus": "Approve",
-            "DealerCode": "" + $scope.ServiceShopCode,
-            "AsistDealerCode": "" + $scope.ServiceShopCode,
-            "AsistBranchDealerCode": "" + $scope.ServiceShopCode,
-            "Note": "10",
-            "Name": "" + $scope.name_id,
-            "Surname": "" + $scope.surname_id,
-            "Phone1": "" + $scope.phonenumber_3,
-            "Phone2": "" + $scope.phonenumber_1,
-            "Phone3": "" + $scope.phonenumber_2,
-            "Email": "" + $scope.email_id,
-            "TaxOffice": "",
-            "TaxId": "",
-            "Tckn": "",
-            "Address": "" + $scope.adres_id,
-            "Neighborhood": "" + $scope.areaSelect,
-            "District": "" + $scope.citySelect,
-            "City": "" + $scope.provinceSelect,
-            "Urgent": "0",
-            "ContactPerson": "" + $scope.satis_id,
-            "ContactPhone": "" + $scope.satis_phone_id,
-            "PreferredServiceShop": "",
-            "DeliveryDate": "" +  $scope.dateVal,
-            "ExternalOrderId": "0",
-            "InvoiceAcceptPhone": "" + $scope.name_id,
-            "InvoiceAcceptName": "" + $scope.surname_id,
-            "InvoiceAcceptSurname": "" + $scope.phone_id,
-            "ProductOrderDetail": 
-                        [{
-                        "ConsignmentId":"1",
-                        "MainSourceOrderProcessId": "1",
-                        "SourceOrderId": "" + $scope.phone_id,
-                        "PK": "",
-                        "R_Counter": "1",
-                        "SS_R_Counter": "1",
-                        "MainSourceOrderProcessStatus": "Approve",
-                        "WareHouseCode": "12457",
-                        "WareHouseType": "1",
-                        "WareHouseAddress": "Depo Adresi",
-                        "WareHouseNeighborhood": "BATI",
-                        "WareHouseDistrict": "PENDİK",
-                        "WareHouseCity": "İSTANBUL",
-                        "ProductCode": "" + $scope.txtProductCode,
-                        "Product": "ARY-5500 E ÇAMAŞIR MAK.(Y-326) ÇİFT",
-                        "OperationType": "" + $scope.workorderSelect,
-                        "ProductReturnCheck": "0",
-                        "ExtraWarrantyType": "1",
-                        "ProductExposeCheck": "0",
-                        "SourceOrderStatus": "Approve",
-                        "ProductBarcode": "1",
-                        "DetailNote": "" + $scope.isemri_notu,
-                        "ParoId": "1",
-                        "InvoiceNr": "AAFF111SFFEWQ",
-                        "InvoiceDate": "13.02.2018 08:54:00",
-                        "MaliId": "1",
-                        "NaceId": "1",
-                        "SectorId": "1",
-                        "CrmKey": "1"
-            }]
+            $scope.jsonData =
+            
+            [
+                {
+                  "MainSourceApplicationProcces": "InnTheBox",
+                  "SourceApplication": "InnTheBox",
+                  "MainSourceProccesStatus": "100",
+                  "SourceStatus": "100",
+                  "DealerCode": "" + $scope.ServiceShopCode,
+                  "Note": "" +  $scope.isemri_notu,
+                  "Name": "" + $scope.name_id,
+                  "Surname": "" + $scope.surname_id,
+                  "Phone1": "" + $scope.phonenumber_3,
+                  "Phone2": "" + $scope.phonenumber_2,
+                  "Phone3": "" + $scope.phonenumber_1,
+                  "Email": ""+ $scope.email_id,
+                  "Address": "" + $scope.adres_id,
+                  "Neighborhood": "" + $scope.areaSelect,
+                  "District": "" + $scope.citySelect,
+                  "City": "" + $scope.provinceSelect,
+                  "Urgent": "0",
+                  "ContactPerson": "" + $scope.satis_id,
+                  "ContactPhone": "" + $scope.satis_phone_id,
+                  "DeliveryDate": "" + $scope.dateVal,
+                  "InvoiceAcceptPhone": "" + $scope.phonenumber_3,
+                  "InvoiceAcceptName": "" + $scope.name_id,
+                  "InvoiceAcceptSurname": "" + $scope.surname_id,
+                  "ProductOrderDetail": [
+                    {
+                      "ConsignmentId": "1",
+                      "MainSourceOrderProcessStatus": "100",
+                      "WareHouseType": "1",
+                      "ProductCode": "" + $scope.txtProductCode,
+                      "Product": "ARY-5500 E ÇAMAŞIR MAK.(Y-326) ÇİFT",
+                      "OperationType": "" + $scope.workorderSelect,
+                      "SourceOrderStatus": "100",
+                      "DetailNote": "" +  $scope.isemri_notu
+                    }
+                  ]
+                }
+              ]
+            
+        
                         
-            }]
+ 
 
             $scope.postData = angular.toJson($scope.jsonData, true);                
 
@@ -597,17 +574,28 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                         'servicetype': 'INTHEBOX1'
                         }
             }).then(function (response) {
-                $scope.ExternalOrderId = response.data[0].ExternalOrderId;
-                $scope.ConsignmentWorkOrderStatus = response.data[0].ConsignmentWorkOrderStatus;
-                $scope.ButtonText = "İŞ EMRİ OLUŞTURULUYOR";                    
-                $timeout(function(){
-                    $scope.ButtonText = "İŞ EMRİ OLUŞTUR";    
-                    alert("Service is successfully assigned")  
-                },1000)
+
+                if(response.data[0].ErrorCode != "0")
+                {
+                    alert(ErrorDescription);
+
+                }
+
+                else
+                {
+                    $scope.ExternalOrderId = response.data[0].ExternalOrderId;
+                    $scope.ConsignmentWorkOrderStatus = response.data[0].ConsignmentWorkOrderStatus;
+                    $scope.ButtonText = "İŞ EMRİ OLUŞTURULUYOR";                    
+                    $timeout(function(){
+                        $scope.ButtonText = "İŞ EMRİ OLUŞTUR";    
+                        alert("Service is successfully assigned")  
+                    },1000)
+                }
+
             });
-                    },function(btn){
-                        alert('İşlem Tamamlanamadı.');
-                    });
+            },function(btn){
+                alert('İşlem Tamamlanamadı.');
+            });
         } 
     
 }]);
