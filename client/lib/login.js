@@ -103,10 +103,9 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
             //$scope.cookieValue = $cookies.get('user');
 
-
             $http({
                 method: "GET", 
-                url: 'https://thworkorderfapp.azurewebsites.net/bayikodu/' + $cookies.get('user'),
+                url: 'https://thworkorderfapp.azurewebsites.net/bayikodu/w40040.5@arcelik.com',
                 headers: {            
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
@@ -129,7 +128,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 else 
                 {
                     $scope.GuId = response.data[0].GuId;  
-                    $scope.ServiceShopCode = response.data[0].ServiceShopCode;                                      
+                    $scope.ServiceShopCode = response.data[0].profile.dealerID;                                      
                 }
             });
     
