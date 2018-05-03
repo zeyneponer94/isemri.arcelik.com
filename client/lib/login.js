@@ -113,6 +113,8 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 }
             }) 
             .then(function(response){ 
+                $scope.ServiceShopCode = response.data[0].profile.dealerID;                                                      
+            
             });   
 
             
@@ -128,7 +130,6 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 else 
                 {
                     $scope.GuId = response.data[0].GuId;  
-                    $scope.ServiceShopCode = response.data[0].profile.dealerID;                                      
                 }
             });
     
