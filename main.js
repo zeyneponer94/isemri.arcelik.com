@@ -51,7 +51,7 @@ app.configure(function() {
 
 //Lets call passport authenticate method to authenticate 
 app.get('/login', auth.authenticate('saml', { failureRedirect: '/', failureFlash: true }), function(req, res) {
-    res.redirect('/');
+    res.redirect('/workorder');
 });
 
 //POST Methods, redirect to home successful login
