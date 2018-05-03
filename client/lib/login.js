@@ -481,7 +481,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 });       
                     },function(btn){
                         alert('İşlem Tamamlanamadı.');
-            });""
+            });
             
         }
 
@@ -498,17 +498,6 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 x.status = $scope.ConsignmentWorkOrderStatus;
                 alert("İşlem Durumu Başarıyla Güncellendi.")
             }
-            
-            $http({
-                method: "GET", 
-                url: 'https://thworkorderfapp.azurewebsites.net/api/updateworkorder',
-                params: {
-                no: ""+x.no,
-                status: ""+$scope.ConsignmentWorkOrderStatus
-                }          
-            }) 
-            .then(function(response){ 
-            });  
             });     
 
         }
