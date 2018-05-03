@@ -543,6 +543,12 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
             
             $scope.dateVal = $filter('date')(new Date(), 'ss/MM/yyyy HH:mm:ss');
+
+            if(angular.isDefined($scope.phonenumber_2)) $scope.phonenumber_2 = "";
+            else if(!angular.isDefined($scope.phonenumber_1)) $scope.phonenumber_1 = "";
+            else if(!angular.isDefined($scope.satis_id)) $scope.satis_id = "";
+            else if(!angular.isDefined($scope.satis_phone_id)) $scope.satis_phone_id = "";
+            else if(!angular.isDefined($scope.isemri_notu)) $scope.isemri_notu = "";
             
             $scope.jsonData =
             
