@@ -107,7 +107,6 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             $http({
                 method: "POST", 
                 url: 'https://thworkorderfapp.azurewebsites.net/api/v1/users/me',
-                data: $scope.postData ,
                 headers: {            
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
