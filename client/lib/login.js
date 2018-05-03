@@ -101,7 +101,23 @@ app.controller('Controller' , ['$scope','$http','$window', function ($scope, $ht
 
 app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter','$cookies', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,$cookies) {
 
-            $scope.cookieValue = $cookies.get('user');
+            //$scope.cookieValue = $cookies.get('user');
+
+
+            $http({
+                method: "POST", 
+                url: 'https://thworkorderfapp.azurewebsites.net/api/v1/users/me',
+                data: $scope.postData ,
+                headers: {            
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': 'SSWS 00mhP-hnbCzY-FtzKnlls8zQqkdEn-0rlYwdTAvSke'
+                }
+            }) 
+            .then(function(response){ 
+                alert(response);
+            });   
+
             
             $http({
                 url: 'https://thworkorderfapp.azurewebsites.net/GuId/C9003074/lG75bktu/1/1/1/1',
