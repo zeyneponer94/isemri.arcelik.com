@@ -596,7 +596,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
                 if(response.data[0].ErrorCode != "0")
                 {
-                    alert(ErrorDescription);
+                    alert(response.data[0].ErrorDescription);
 
                 }
 
