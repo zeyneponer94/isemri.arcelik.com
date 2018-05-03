@@ -106,7 +106,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
             $http({
                 method: "GET", 
-                url: 'https://thworkorderfapp.azurewebsites.net/api/v1/users/me',
+                url: 'https://arcelik.oktapreview.com/api/v1/users/me',
                 headers: {            
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
