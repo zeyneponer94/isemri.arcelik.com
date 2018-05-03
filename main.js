@@ -61,7 +61,7 @@ app.post('/login/callback', auth.authenticate('saml', { failureRedirect: '/fail'
 
 //Get Methods
 app.get('/', auth.protected, function(req, res) {
-    res.sendfile('views/login_page.html', {root: __dirname });       
+    res.sendfile('views/create_workorder.html', {root: __dirname });   
 });
 
 app.get('/workorder', auth.protected, function(req, res) {
