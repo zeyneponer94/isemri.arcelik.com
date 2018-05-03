@@ -105,7 +105,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
             $http({
                 method: "GET", 
-                url: 'https://thworkorderfapp.azurewebsites.net/bayikodu/' + $cookies.get('user'),
+                url: 'https://thworkorderfapp.azurewebsites.net/bayikodu/w40040.5@arcelik.com',
                 headers: {            
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
