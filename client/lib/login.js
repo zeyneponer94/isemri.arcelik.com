@@ -202,7 +202,8 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 while(response.data[""+i]!=null)
                 {
                 var obj = { 
-                    name: response.data[""+i].ProductCode
+                    name: response.data[""+i].ProductCode,
+                    description : response.data[""+i].ProductDescription
                 };
                 
                 $scope.ResponseProductList.push(obj);  
@@ -547,7 +548,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                       "MainSourceOrderProcessStatus": "100",
                       "WareHouseType": "1",
                       "ProductCode": "" + $scope.txtProductCode,
-                      "Product": "ARY-5500 E ÇAMAŞIR MAK.(Y-326) ÇİFT",
+                      "Product": "ARY-5500 E ÇAMAŞIR MAK.(Y-326) ÇİFT", 
                       "OperationType": "" + $scope.workorderSelect,
                       "SourceOrderStatus": "100",
                       "DetailNote": "" +  $scope.isemri_notu
