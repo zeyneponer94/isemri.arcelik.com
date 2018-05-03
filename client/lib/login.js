@@ -113,7 +113,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 }
             }) 
             .then(function(response){ 
-                $scope.ServiceShopCode = response.data.profile.dealerID;                                                      
+                $scope.dealerID = response.data.profile.dealerID;                                                      
             
             });   
 
@@ -326,7 +326,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
                 $http({
                     method: "GET", 
-                    url: 'https://thworkorderfapp.azurewebsites.net/query/' + $scope.phone_id_query + '/' +  $scope.name_id_query + '/' +  $scope.surname_id_query + '/0/0/0/' + $scope.ServiceShopCode,
+                    url: 'https://thworkorderfapp.azurewebsites.net/query/' + $scope.phone_id_query + '/' +  $scope.name_id_query + '/' +  $scope.surname_id_query + '/0/0/0/' + $scope.dealerID,
                     headers: {            
                     'SessionToken': '' + $scope.GuId
                     }     
@@ -437,7 +437,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
             var dlg = dialogs.confirm("Lütfen Onaylayınız!","<br>"+ (x.no + "'lu iş emrini iptal etmek istediğinize emin misiniz?").italics());
             
-                    dlg.result.then(function(btn){
+             dlg.result.then(function(btn){
                 $scope.jsonData = [{
                 "orderId": "",
                 "consigntmentEntryId": "1",
