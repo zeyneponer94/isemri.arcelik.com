@@ -202,8 +202,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 while(response.data[""+i]!=null)
                 {
                 var obj = { 
-                    name: response.data[""+i].ProductCode,
-                    description : response.data[""+i].ProductDescription
+                    name: response.data[""+i].ProductCode
                 };
                 
                 $scope.ResponseProductList.push(obj);  
@@ -512,6 +511,25 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             +$scope.workorderSelect+"<br> Müşteri adresi = " + $scope.adres_id).italics());
             dlg.result.then(function(btn){
             $scope.ButtonText = "İŞ EMRİ OLUŞTURULUYOR";
+
+
+            $scope.description = "";
+            $http({
+                async: true,
+                crossDomain: true,
+                method: "GET", 
+                url: 'https://thworkorderfapp.azurewebsites.net/product/' +  $scope.txtProductCode,
+                headers: {            
+                'Content-Type': 'application/json',
+                'SessionToken': '' + $scope.GuId ,
+                'Cache-Control': 'no-cache',
+                'servicetype': 'INTHEBOX1'
+                } 
+            }) 
+            .then(function(response){ 
+                $scope.description =  response.data[0].ProductDescription;
+            });   
+
             
             $scope.dateVal = $filter('date')(new Date(), 'ss/MM/yyyy HH:mm:ss');
             
@@ -548,7 +566,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                       "MainSourceOrderProcessStatus": "100",
                       "WareHouseType": "1",
                       "ProductCode": "" + $scope.txtProductCode,
-                      "Product": "ARY-5500 E ÇAMAŞIR MAK.(Y-326) ÇİFT", 
+                      "Product": "" + $scope.description, 
                       "OperationType": "" + $scope.workorderSelect,
                       "SourceOrderStatus": "100",
                       "DetailNote": "" +  $scope.isemri_notu
