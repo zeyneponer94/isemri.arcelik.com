@@ -594,6 +594,11 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                         }
             }).then(function (response) {
 
+                $scope.ButtonText = "İŞ EMRİ OLUŞTURULUYOR";                    
+                $timeout(function(){
+                    $scope.ButtonText = "İŞ EMRİ OLUŞTUR";    
+                },1000)
+
                 if(response.data[0].ErrorCode != "0")
                 {
                     alert(response.data[0].ErrorDescription);
@@ -604,11 +609,8 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 {
                     $scope.ExternalOrderId = response.data[0].ExternalOrderId;
                     $scope.ConsignmentWorkOrderStatus = response.data[0].ConsignmentWorkOrderStatus;
-                    $scope.ButtonText = "İŞ EMRİ OLUŞTURULUYOR";                    
-                    $timeout(function(){
-                        $scope.ButtonText = "İŞ EMRİ OLUŞTUR";    
-                        alert("Service is successfully assigned")  
-                    },1000)
+                    alert("Service is successfully assigned")                      
+
                 }
 
             });
