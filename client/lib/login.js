@@ -609,7 +609,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 {
                     $scope.ExternalOrderId = response.data[0].ExternalOrderId;
                     $scope.ConsignmentWorkOrderStatus = response.data[0].ConsignmentWorkOrderStatus;
-                    alert("Service is successfully assigned")                      
+                    alert("Service is successfully assigned");                      
 
                 }
 
