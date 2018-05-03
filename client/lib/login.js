@@ -554,7 +554,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                   "SourceApplication": "InnTheBox",
                   "MainSourceProccesStatus": "100",
                   "SourceStatus": "100",
-                  "DealerCode": "" + $scope.ServiceShopCode,
+                  "DealerCode": "" + $scope.dealerID,
                   "Note": "" +  $scope.isemri_notu,
                   "Name": "" + $scope.name_id,
                   "Surname": "" + $scope.surname_id,
