@@ -113,8 +113,8 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 }
             }) 
             .then(function(response){ 
-                $scope.dealerID = response.data.profile.dealerID;                                                      
-            
+                $scope.dealerID = response.data.profile.dealerID;    
+                $scope.id = response.data.id;                                                  
             });   
 
             
@@ -439,8 +439,32 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
 
         $scope.logout = function() {
-            var url = "https://thworkorder.azurewebsites.net";
-            $window.location = url;
+
+            $http({
+                method: "DELETE", 
+                url: 'https://thworkorderfapp.azurewebsites.net/delete_session/' + $scope.id,
+                headers: {            
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': 'SSWS 00mhP-hnbCzY-FtzKnlls8zQqkdEn-0rlYwdTAvSke'
+                }
+            }) 
+            .then(function(response){ 
+                alert(response);
+      /*          $http({
+                    url: 'https://thworkorderfapp.azurewebsites.net/login',
+                    method: "GET"
+                }). 
+                then(function(response) { 
+    
+                    var url = "https://thworkorder.azurewebsites.net/login";
+                    $window.location = url;
+    
+                });    */
+            });  
+
+
+            
         }
         
         
