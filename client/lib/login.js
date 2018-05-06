@@ -439,6 +439,8 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
         $scope.logout = function() {
 
+            var id;
+
             $http({
                 method: "GET", 
                 url: 'https://thworkorderfapp.azurewebsites.net/bayikodu/w40040.5@arcelik.com',
@@ -449,12 +451,12 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 }
             }) 
             .then(function(response){ 
-                $scope.id = response.data.id;                                                  
+                id = response.data.id;                                                  
             });   
 
             $http({
                 method: "DELETE", 
-                url: 'https://thworkorderfapp.azurewebsites.net/delete_session/' + $scope.id,
+                url: 'https://thworkorderfapp.azurewebsites.net/delete_session/' + id,
                 headers: {            
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
