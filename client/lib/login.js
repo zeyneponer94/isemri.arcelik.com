@@ -114,7 +114,6 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             }) 
             .then(function(response){ 
                 $scope.dealerID = response.data.profile.dealerID;    
-                $scope.id = response.data.id;                                                  
             });   
 
             
@@ -439,6 +438,19 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
 
         $scope.logout = function() {
+
+            $http({
+                method: "GET", 
+                url: 'https://thworkorderfapp.azurewebsites.net/bayikodu/w40040.5@arcelik.com',
+                headers: {            
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': 'SSWS 00mhP-hnbCzY-FtzKnlls8zQqkdEn-0rlYwdTAvSke'
+                }
+            }) 
+            .then(function(response){ 
+                $scope.id = response.data.id;                                                  
+            });   
 
             $http({
                 method: "DELETE", 
