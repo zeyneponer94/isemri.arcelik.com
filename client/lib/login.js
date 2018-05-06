@@ -451,34 +451,30 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 }
             }) 
             .then(function(response){ 
-                id = response.data.id;                                                  
-            });   
-
-            $http({
-                method: "DELETE", 
-                url: 'https://thworkorderfapp.azurewebsites.net/delete_session/' + id,
-                headers: {            
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'Authorization': 'SSWS 00mhP-hnbCzY-FtzKnlls8zQqkdEn-0rlYwdTAvSke'
-                }
-            }) 
-            .then(function(response){ 
-                alert(response);
-      /*          $http({
-                    url: 'https://thworkorderfapp.azurewebsites.net/login',
-                    method: "GET"
-                }). 
-                then(function(response) { 
-    
-                    var url = "https://thworkorder.azurewebsites.net/login";
-                    $window.location = url;
-    
-                });    */
-            });  
-
-
-            
+                id = response.data.id;     
+                $http({
+                    method: "DELETE", 
+                    url: 'https://thworkorderfapp.azurewebsites.net/delete_session/' + id,
+                    headers: {            
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'Authorization': 'SSWS 00mhP-hnbCzY-FtzKnlls8zQqkdEn-0rlYwdTAvSke'
+                    }
+                }) 
+                .then(function(response){ 
+                    alert(response);
+          /*          $http({
+                        url: 'https://thworkorderfapp.azurewebsites.net/login',
+                        method: "GET"
+                    }). 
+                    then(function(response) { 
+        
+                        var url = "https://thworkorder.azurewebsites.net/login";
+                        $window.location = url;
+        
+                    });    */
+                });                                               
+            });             
         }
         
         
