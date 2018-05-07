@@ -450,7 +450,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 }) 
                 .then(function(response){ 
                     alert(response);
-                    $http({
+           /*         $http({
                         url: 'https://thworkorderfapp.azurewebsites.net/login',
                         method: "GET"
                     }). 
@@ -459,7 +459,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                         var url = "https://thworkorder.azurewebsites.net/login";
                         $window.location = url;
         
-                    });    
+                    });    */
                 });                                               
                   
         }
