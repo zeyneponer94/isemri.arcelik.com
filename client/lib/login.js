@@ -438,24 +438,10 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
 
         $scope.logout = function() {
- /*
-            var id;
-
-            //404 not found diyor çünkü bu session ile girmedim
-            $http({
-                method: "GET", 
-                url: 'https://thworkorderfapp.azurewebsites.net/bayikodu/w40040.5@arcelik.com',
-                headers: {            
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'Authorization': 'SSWS 00mhP-hnbCzY-FtzKnlls8zQqkdEn-0rlYwdTAvSke'
-                }
-            }) 
-            .then(function(response){ 
-                id = response.data.id;     
+    
                 $http({
                     method: "DELETE", 
-                    url: 'https://thworkorderfapp.azurewebsites.net/delete_session/' + id,
+                    url: 'https://thworkorderfapp.azurewebsites.net/delete_session/' + $cookies.get('sessionID'),
                     headers: {            
                         'Accept': 'application/json',
                         'Content-Type': 'application/json',
@@ -475,7 +461,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
         
                     });    
                 });                                               
-            });            */ 
+                  
         }
         
         
