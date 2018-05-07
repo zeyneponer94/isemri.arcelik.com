@@ -441,6 +441,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
             var id;
 
+            //404 not found diyor çünkü bu session ile girmedim
             $http({
                 method: "GET", 
                 url: 'https://thworkorderfapp.azurewebsites.net/bayikodu/w40040.5@arcelik.com',
