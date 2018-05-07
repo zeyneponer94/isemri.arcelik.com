@@ -438,7 +438,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
 
         $scope.logout = function() {
-
+/*
             var id;
 
             //404 not found diyor çünkü bu session ile girmedim
@@ -464,7 +464,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 }) 
                 .then(function(response){ 
                     alert(response);
-          /*          $http({
+                    $http({
                         url: 'https://thworkorderfapp.azurewebsites.net/login',
                         method: "GET"
                     }). 
@@ -473,9 +473,9 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                         var url = "https://thworkorder.azurewebsites.net/login";
                         $window.location = url;
         
-                    });    */
+                    });    
                 });                                               
-            });             
+            });            */ 
         }
         
         
