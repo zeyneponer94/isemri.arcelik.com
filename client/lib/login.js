@@ -438,12 +438,13 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
 
         $scope.logout = function() {
+                $scope.SessionId = $cookies.get('sessionID');
 
-                alert($cookies.get('sessionID'));
+                alert($scope.SessionId);
     
                 $http({
                     method: "DELETE", 
-                    url: 'https://thworkorderfapp.azurewebsites.net/delete_session/' + $cookies.get('sessionID'),
+                    url: 'https://thworkorderfapp.azurewebsites.net/delete_session/' + $scope.SessionId,
                     headers: {            
                         'Accept': 'application/json',
                         'Content-Type': 'application/json',
