@@ -438,6 +438,8 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
 
         $scope.logout = function() {
+
+                alert($cookies.get('sessionID'));
     
                 $http({
                     method: "DELETE", 
