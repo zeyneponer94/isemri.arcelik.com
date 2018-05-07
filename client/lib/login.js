@@ -390,7 +390,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                     return workorders_no;              
                 });           
             }
-/*
+ /*
             $scope.query_all = function () {
             $http({
                 method: "GET", 
@@ -438,7 +438,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
 
         $scope.logout = function() {
-/*
+ /*
             var id;
 
             //404 not found diyor çünkü bu session ile girmedim
