@@ -29,7 +29,7 @@ app.post('/login/callback', auth.authenticate('saml', { failureRedirect: '/fail'
 
 //Get Methods
 app.get('/', auth.protected, function(req, res) {
-    res.send(req.user);
+    //res.send(req.user);
     res.cookie('user', '' + req.user.nameID, { maxAge: 900000, httpOnly: false });           
     res.sendfile('views/create_workorder.html', {root: __dirname });   
 });
