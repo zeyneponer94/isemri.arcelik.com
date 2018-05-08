@@ -443,7 +443,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 alert($scope.SessionId);
     
                 $http({
-                    method: "DELETE", 
+                    method: "GET", 
                     url: 'https://thworkorderfapp.azurewebsites.net/delete_session/' + $scope.SessionId,
                     headers: {            
                         'Accept': 'application/json',
