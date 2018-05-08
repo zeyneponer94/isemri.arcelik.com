@@ -443,7 +443,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 alert($scope.SessionId);
     
                 $http({
-                    method: "GET", 
+                    method: "DELETE", 
                     url: 'https://thworkorderfapp.azurewebsites.net/delete_session/' + $scope.SessionId,
                     headers: {            
                         'Accept': 'application/json',
@@ -451,7 +451,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                         'Authorization': 'SSWS 00mhP-hnbCzY-FtzKnlls8zQqkdEn-0rlYwdTAvSke'
                     }
                 }) 
-                .then(function(response){ 
+                .success(function(response){ 
                     alert(response);
            /*         $http({
                         url: 'https://thworkorderfapp.azurewebsites.net/login',
@@ -462,7 +462,19 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                         var url = "https://thworkorder.azurewebsites.net/login";
                         $window.location = url;
                     });    */
-                });                                               
+                })
+                .error(function(response){ 
+                    alert(response);
+                    $http({
+                        url: 'https://thworkorderfapp.azurewebsites.net/login',
+                        method: "GET"
+                    }). 
+                    then(function(response) { 
+        
+                        var url = "https://thworkorder.azurewebsites.net/login";
+                        $window.location = url;
+                    });    
+                })                                           
                   
         }
         
