@@ -461,7 +461,6 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
         
                         var url = "https://thworkorder.azurewebsites.net/login";
                         $window.location = url;
-        
                     });    */
                 });                                               
                   
