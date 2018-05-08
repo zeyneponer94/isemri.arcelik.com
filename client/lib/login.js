@@ -451,19 +451,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                         'Authorization': 'SSWS 00mhP-hnbCzY-FtzKnlls8zQqkdEn-0rlYwdTAvSke'
                     }
                 }) 
-                .success(function(response){ 
-                    alert(response);
-           /*         $http({
-                        url: 'https://thworkorderfapp.azurewebsites.net/login',
-                        method: "GET"
-                    }). 
-                    then(function(response) { 
-        
-                        var url = "https://thworkorder.azurewebsites.net/login";
-                        $window.location = url;
-                    });    */
-                })
-                .error(function(response){ 
+                .then(function(response){ 
                     alert(response);
                     $http({
                         url: 'https://thworkorderfapp.azurewebsites.net/login',
@@ -474,7 +462,20 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                         var url = "https://thworkorder.azurewebsites.net/login";
                         $window.location = url;
                     });    
-                })                                           
+                }, function(error){
+                    alert(error);
+
+                    $http({
+                        url: 'https://thworkorderfapp.azurewebsites.net/login',
+                        method: "GET"
+                    }). 
+                    then(function(response) { 
+        
+                        var url = "https://thworkorder.azurewebsites.net/login";
+                        $window.location = url;
+                    });    
+
+                });                                               
                   
         }
         
