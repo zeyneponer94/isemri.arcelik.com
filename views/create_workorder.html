@@ -94,8 +94,8 @@
                                             ng-change="search(txtProductCode)" ng-minlength="5";
                                             name="txtProductCode" ng-model="txtProductCode" placeholder="Ürün Kodu Giriniz*" required ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'"/>
                                     <div class="entry" ng-repeat="item in ResponseProductList | filter:txtProductCode | limitTo:10" ng-show="show">
-                                        {{item.name}}
-                                        <!--<span ng-click="fncProductChoose(item.name)">{{item.name}}</span>-->
+                                     <!--   {{item.name}}-->
+                                        <span ng-click="fncProductChoose(item.name)">{{item.name}}</span>
                                     </div>
                                 </div>           
                                 <div class="form-group">                                                                                                                                            
