@@ -174,14 +174,15 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             $scope.ResponseProductList = [];   
 
             $scope.fncProductChoose = function(query) {
-            $scope.txtProductCode = query;
-            $scope.show = false;
+                $scope.txtProductCode = query;
+                $scope.show = false;
             }
 
             $scope.search = function(query) {
             
             $scope.show = true;
-
+            $scope.ResponseProductList = [];   
+            
 
             $http({
                 async: true,
