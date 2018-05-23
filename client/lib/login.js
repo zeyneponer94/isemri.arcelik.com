@@ -14,6 +14,17 @@ app.directive('ngEnter', function () {
    };
 });
 
+app.factory('multipleProduct', function() {
+    return {
+        getAll: function () {
+            return jsonData;
+        },
+        updateData: function(newData) {
+            jsonData = newData;
+        }
+    }
+});
+
 app.config(['$httpProvider', function ($httpProvider) {
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
@@ -644,6 +655,36 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                   ]
                 }
               ]
+
+              var amount = $scope.choices.length;
+
+              alert(amount);
+
+              if(amount > 1)
+              {
+                var i = 0;
+
+                while(amount!=0)
+                {
+                    amount = amount-1;                    
+                    $scope.jsonData.ProductOrderDetail.push(
+                        {
+                            "ConsignmentId": "1",
+                            "MainSourceOrderProcessStatus": "100",
+                            "WareHouseType": "1",
+                            "ProductCode": "" + $scope.choices[i].txtProductCode,
+                            "Product": "" + $scope.choices[i].description, 
+                            "OperationType": "" + $scope.choices[i].workorderSelect,
+                            "SourceOrderStatus": "100",
+                            "DetailNote": "" +  $scope.choices[i].isemri_notu
+                          }
+                    );
+                    multipleProduct.updateData($scope.jsonData);
+
+                }
+
+
+              }
             
         
                         
