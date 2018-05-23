@@ -113,11 +113,12 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
             //$scope.cookieValue = $cookies.get('user');
 
-            $scope.choices = [{id: 'choice1', name: 'choice1'}];
+
+            $scope.choices = [{txtProductCode: '' + $scope.txtProductCode, workorderSelect: '' + $scope.workorderSelect, isemri_notu: '' + $scope.isemri_notu}];
             
             $scope.addNewChoice = function() {
               var newItemNo = $scope.choices.length+1;
-              $scope.choices.push({'id' : 'choice' + newItemNo, 'name' : 'choice' + newItemNo});
+              $scope.choices.push({'product' : $scope.txtProductCode, 'type' : $scope.workorderSelect, 'isemri_notu' : $scope.isemri_notu});
             };
             
             $scope.removeNewChoice = function() {
@@ -612,8 +613,6 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             if(!angular.isDefined($scope.satis_phone_id)) $scope.satis_phone_id = "";
             if(!angular.isDefined($scope.isemri_notu)) $scope.isemri_notu = "";
             
-            alert($scope.choices[0].workorderSelect)
-            alert($scope.choices[0])
             
             $scope.jsonData =
             
@@ -651,7 +650,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                       "Product": "" + $scope.choices[0].description, 
                       "OperationType": "" + $scope.choices[0].workorderSelect,
                       "SourceOrderStatus": "100",
-                      "DetailNote": "" +  $scope.isemri_notu
+                      "DetailNote": "" +  $scope.choices[0].isemri_notu
                     }
                   ]
                 }
