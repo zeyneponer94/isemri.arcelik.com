@@ -65,7 +65,7 @@
           }
 
       $scope.search = function(query) {
-       
+        $scope.ResponseProductList = [];           
         $scope.show = true;
 
         $http({

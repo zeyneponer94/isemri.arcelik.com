@@ -364,10 +364,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                             $scope.workorders.push(obj);            
                             i++; 
                         }  
-
                     },1000)
-
-
                 });
     
             }
