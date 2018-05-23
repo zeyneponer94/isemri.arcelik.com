@@ -91,12 +91,10 @@
             
             $scope.ResponseProductList.push(obj);  
             i++;
-          } 
-
+          }
           return $scope.ResponseProductList;
-  
+
         });   
-  
       };
 
 
