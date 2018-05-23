@@ -671,7 +671,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                             "MainSourceOrderProcessStatus": "100",
                             "WareHouseType": "1",
                             "ProductCode": "" + $scope.choices[i].txtProductCode,
-                            "Product": "" + $scope.choices[i].description, 
+                            "Product": "" + $scope.description, 
                             "OperationType": "" + $scope.choices[i].workorderSelect,
                             "SourceOrderStatus": "100",
                             "DetailNote": "" +  $scope.choices[i].isemri_notu
