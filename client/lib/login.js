@@ -646,9 +646,9 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                       "ConsignmentId": "1",
                       "MainSourceOrderProcessStatus": "100",
                       "WareHouseType": "1",
-                      "ProductCode": "" + $scope.txtProductCode,
-                      "Product": "" + $scope.description, 
-                      "OperationType": "" + $scope.workorderSelect,
+                      "ProductCode": "" + $scope.choices[0].txtProductCode,
+                      "Product": "" + $scope.choices[0].description, 
+                      "OperationType": "" + $scope.choices[0].workorderSelect,
                       "SourceOrderStatus": "100",
                       "DetailNote": "" +  $scope.isemri_notu
                     }
@@ -662,9 +662,9 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
               if(amount > 1)
               {
-                var i = 0;
+                var i = 1;
 
-                while(amount!=0)
+                while(amount!=1)
                 {
                     amount = amount-1;                    
                     $scope.jsonData.ProductOrderDetail.push(
