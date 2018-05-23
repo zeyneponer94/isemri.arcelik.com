@@ -683,13 +683,8 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
                 }
 
-
               }
             
-        
-                        
- 
-
             $scope.postData = angular.toJson($scope.jsonData, true);                
 
             $http({
