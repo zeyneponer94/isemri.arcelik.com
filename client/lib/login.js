@@ -114,7 +114,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             //$scope.cookieValue = $cookies.get('user');
 
 
-            $scope.choices = [{txtProductCode: '' + $scope.txtProductCode, workorderSelect: '' + $scope.workorderSelect, isemri_notu: '' + $scope.isemri_notu}];
+            $scope.choices = [{product: '' + $scope.txtProductCode, type: '' + $scope.workorderSelect, isemri_notu: '' + $scope.isemri_notu}];
             
             $scope.addNewChoice = function() {
               var newItemNo = $scope.choices.length+1;
@@ -646,9 +646,9 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                       "ConsignmentId": "1",
                       "MainSourceOrderProcessStatus": "100",
                       "WareHouseType": "1",
-                      "ProductCode": "" + $scope.choices[0].txtProductCode,
-                      "Product": "" + $scope.choices[0].description, 
-                      "OperationType": "" + $scope.choices[0].workorderSelect,
+                      "ProductCode": "" + $scope.choices[0].product,
+                      "Product": "" + $scope.description, 
+                      "OperationType": "" + $scope.choices[0].type,
                       "SourceOrderStatus": "100",
                       "DetailNote": "" +  $scope.choices[0].isemri_notu
                     }
@@ -670,9 +670,9 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                             "ConsignmentId": "1",
                             "MainSourceOrderProcessStatus": "100",
                             "WareHouseType": "1",
-                            "ProductCode": "" + $scope.choices[i].txtProductCode,
+                            "ProductCode": "" + $scope.choices[i].product,
                             "Product": "" + $scope.description, 
-                            "OperationType": "" + $scope.choices[i].workorderSelect,
+                            "OperationType": "" + $scope.choices[i].type,
                             "SourceOrderStatus": "100",
                             "DetailNote": "" +  $scope.choices[i].isemri_notu
                           }
@@ -682,7 +682,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 }
 
               }
-            
+            $scope.jsonData = multipleProduct.getAll();
             $scope.postData = angular.toJson($scope.jsonData, true);                
 
             $http({
