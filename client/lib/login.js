@@ -1,5 +1,4 @@
-
-var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngSanitize','ui.mask', 'ngRoute','ngCookies']);
+var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngSanitize','ui.mask', 'ngRoute','ngCookies','dynamicFieldsPlugin']);
 
 app.directive('ngEnter', function () { 
     return function (scope, element, attrs) {
@@ -113,7 +112,6 @@ app.controller('Controller' , ['$scope','$http','$window', function ($scope, $ht
 app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter','$cookies', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,$cookies) {
 
             //$scope.cookieValue = $cookies.get('user');
-
 
             $scope.choices = [{id: 'choice1', name: 'choice1'}];
             
@@ -614,6 +612,9 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             if(!angular.isDefined($scope.satis_phone_id)) $scope.satis_phone_id = "";
             if(!angular.isDefined($scope.isemri_notu)) $scope.isemri_notu = "";
             
+            alert($scope.choices[0].workorderSelect)
+            alert($scope.choices[0])
+            
             $scope.jsonData =
             
             [
@@ -657,8 +658,6 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
               ]
 
               var amount = $scope.choices.length;
-
-              alert(amount);
 
               if(amount > 1)
               {
