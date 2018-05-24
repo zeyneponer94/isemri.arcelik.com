@@ -117,9 +117,9 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             
             $scope.addNewChoice = function() {
               var newItemNo = $scope.choices.length+1;
-              alert($scope.txtProductCode)
-              alert($scope.workorderSelect)
-              alert($scope.isemri_notu)
+              alert($scope.choices[0].txtProductCode)
+              alert($scope.choices[0].workorderSelect)
+              alert($scope.choices[0].isemri_notu)
               $scope.choices.push({'product' : $scope.txtProductCode, 'type' : $scope.workorderSelect, 'isemri_notu' : $scope.isemri_notu});
             };
             
