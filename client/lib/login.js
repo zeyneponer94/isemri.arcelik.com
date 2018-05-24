@@ -113,14 +113,11 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
             //$scope.cookieValue = $cookies.get('user');
 
-            $scope.choices = [{product: '' + $scope.txtProductCode, type: '' + $scope.workorderSelect, isemri_notu: '' + $scope.isemri_notu}];
+            $scope.choices = [{id: '1'}];
             
             $scope.addNewChoice = function() {
               var newItemNo = $scope.choices.length+1;
-              alert($scope.choices[0].txtProductCode)
-              alert($scope.choices[0].workorderSelect)
-              alert($scope.choices[0].isemri_notu)
-              $scope.choices.push({'product' : $scope.txtProductCode, 'type' : $scope.workorderSelect, 'isemri_notu' : $scope.isemri_notu});
+              $scope.choices.push({'id' : ''+newItemNo});
             };
             
             $scope.removeNewChoice = function() {
