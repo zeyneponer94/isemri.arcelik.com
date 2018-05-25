@@ -696,7 +696,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 while(amount!=1)
                 {
                     amount = amount-1;                    
-                    $scope.postData.ProductOrderDetail.push(
+                    $scope.postData["ProductOrderDetail"].push(
                         {
                             "ConsignmentId": "1",
                             "MainSourceOrderProcessStatus": "100",
