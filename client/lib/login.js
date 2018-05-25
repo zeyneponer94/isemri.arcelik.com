@@ -587,7 +587,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             +$scope.workorderSelect+"<br> Müşteri adresi = " + $scope.adres_id).italics());
             dlg.result.then(function(btn){
             $scope.ButtonText = "İŞ EMRİ OLUŞTURULUYOR";
-
+            $scope.description = "";
             $http({
                 async: true,
                 crossDomain: true,
@@ -601,6 +601,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 } 
             }) 
             .then(function(response){ 
+                alert(response.data[0])
                 $scope.description =  response.data[0].ProductDescription;
             });   
 
@@ -646,11 +647,11 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                       "ConsignmentId": "1",
                       "MainSourceOrderProcessStatus": "100",
                       "WareHouseType": "1",
-                      "ProductCode": "" + $scope.choices[0].product,
+                      "ProductCode": "" + $scope.choices[0].txtProductCode,
                       "Product": "" + $scope.description, 
-                      "OperationType": "" + $scope.choices[0].type,
+                      "OperationType": "" + $scope.choices[0].workorderSelect,
                       "SourceOrderStatus": "100",
-                      "DetailNote": "" +  $scope.choices[0].isemri_notu
+                      "DetailNote": "" +  $scope.isemri_notu
                     }
                   ]
                 }
@@ -670,11 +671,11 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                             "ConsignmentId": "1",
                             "MainSourceOrderProcessStatus": "100",
                             "WareHouseType": "1",
-                            "ProductCode": "" + $scope.choices[i].product,
+                            "ProductCode": "" + $scope.choices[i].txtProductCode,
                             "Product": "" + $scope.description, 
-                            "OperationType": "" + $scope.choices[i].type,
+                            "OperationType": "" + $scope.choices[i].workorderSelect,
                             "SourceOrderStatus": "100",
-                            "DetailNote": "" +  $scope.choices[i].isemri_notu
+                            "DetailNote": "" +  $scope.isemri_notu
                           }
                     );
                     multipleProduct.updateData($scope.jsonData);
