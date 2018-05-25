@@ -588,22 +588,38 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             dlg.result.then(function(btn){
             $scope.ButtonText = "İŞ EMRİ OLUŞTURULUYOR";
             $scope.description = "";
-            $http({
-                async: true,
-                crossDomain: true,
-                method: "GET", 
-                url: 'https://thworkorderfapp.azurewebsites.net/product/' +  $scope.txtProductCode,
-                headers: {            
-                'Content-Type': 'application/json',
-                'SessionToken': '' + $scope.GuId ,
-                'Cache-Control': 'no-cache',
-                'servicetype': 'INTHEBOX1'
-                } 
-            }) 
-            .then(function(response){ 
-                alert(response.data[0])
-                $scope.description =  response.data[0].ProductDescription;
-            });   
+
+            var productamount = $scope.choices.length;
+            
+            if(productamount > 1)
+            {
+                var i = 0;
+            
+                while(productamount!=0)
+                {
+                    
+                    $http({
+                        async: true,
+                        crossDomain: true,
+                        method: "GET", 
+                        url: 'https://thworkorderfapp.azurewebsites.net/product/' +  $scope.choices[i].txtProductCode,
+                        headers: {            
+                        'Content-Type': 'application/json',
+                        'SessionToken': '' + $scope.GuId ,
+                        'Cache-Control': 'no-cache',
+                        'servicetype': 'INTHEBOX1'
+                        } 
+                    }) 
+                    .then(function(response){ 
+                        $scope.choices[i].description =  response.data[0].ProductDescription;
+                    });   
+
+                }
+
+            }
+
+
+
 
             
             $scope.dateVal = $filter('date')(new Date(), 'ss/MM/yyyy HH:mm:ss');
@@ -648,7 +664,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                       "MainSourceOrderProcessStatus": "100",
                       "WareHouseType": "1",
                       "ProductCode": "" + $scope.choices[0].txtProductCode,
-                      "Product": "" + $scope.description, 
+                      "Product": "" + $scope.choices[0].description, 
                       "OperationType": "" + $scope.choices[0].workorderSelect,
                       "SourceOrderStatus": "100",
                       "DetailNote": "" +  $scope.isemri_notu
@@ -656,6 +672,8 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                   ]
                 }
               ]
+
+              $scope.postData = angular.toJson($scope.jsonData, true);                              
 
               var amount = $scope.choices.length;
 
@@ -666,25 +684,24 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 while(amount!=1)
                 {
                     amount = amount-1;                    
-                    $scope.jsonData.ProductOrderDetail.push(
+                    $scope.postData.ProductOrderDetail.push(
                         {
                             "ConsignmentId": "1",
                             "MainSourceOrderProcessStatus": "100",
                             "WareHouseType": "1",
                             "ProductCode": "" + $scope.choices[i].txtProductCode,
-                            "Product": "" + $scope.description, 
+                            "Product": "" + $scope.choices[i].description, 
                             "OperationType": "" + $scope.choices[i].workorderSelect,
                             "SourceOrderStatus": "100",
                             "DetailNote": "" +  $scope.isemri_notu
                           }
                     );
-                    multipleProduct.updateData($scope.jsonData);
+                    multipleProduct.updateData($scope.postData);
 
                 }
 
               }
-            $scope.jsonData = multipleProduct.getAll();
-            $scope.postData = angular.toJson($scope.jsonData, true);                
+            $scope.postData = multipleProduct.getAll();
 
             $http({
                 async: true,
