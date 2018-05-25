@@ -582,20 +582,17 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
         
         $scope.create_workorder = function () 
         {   
-            var code = []    
-            var workorder = []
+            var array = []    
             var val;
             for (val of $scope.choices) {
-                code.push(val.txtProductCode);
-                workorder.push(val.workorderSelect);
+                array.push(val.txtProductCode + " " + val.workorderSelect + "<br>");
             }
 
 
 
             
             var dlg = dialogs.confirm("Lütfen Onaylayınız!","Aşağıda belirtilen bilgiler ile iş emri oluşturma talebinizi gerçekleştirmeyi onaylıyor musunuz?".bold()+"<br>"+ ("  Müşteri adı = "+$scope.name_id+"<br>  Müşteri soyadı = "
-            +$scope.surname_id+"<br>  Müşteri telefon numarası = "+$scope.phonenumber_3+"<br>  Seçilen ürün = "+code.toString()+"<br>  Seçilen iş emri türü = "
-            +workorder.toString()+"<br> Müşteri adresi = " + $scope.adres_id).italics());
+            +$scope.surname_id+"<br>  Müşteri telefon numarası = "+$scope.phonenumber_3+"<br>  Seçilen ürün-işemri türü = "+array.toString() +"<br> Müşteri adresi = " + $scope.adres_id).italics());
             dlg.result.then(function(btn){
             $scope.ButtonText = "İŞ EMRİ OLUŞTURULUYOR";
             $scope.description = "";
