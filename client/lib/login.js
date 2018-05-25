@@ -597,6 +597,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             
                 while(productamount!=0)
                 {
+                    productamount = productamount-1;                                        
                     
                     $http({
                         async: true,
