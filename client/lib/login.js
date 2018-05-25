@@ -116,6 +116,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             $scope.choices = [{id: '1'}];
             
             $scope.addNewChoice = function() {
+              alert($scope.choices[0])
               var newItemNo = $scope.choices.length+1;
               $scope.choices.push({'id' : ''+newItemNo});
             };
