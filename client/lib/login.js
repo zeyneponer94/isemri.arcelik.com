@@ -101,8 +101,10 @@ app.controller('Controller' , ['$scope','$http','$window', function ($scope, $ht
 
 app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter','$cookies', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,$cookies) {
 
-            //$scope.cookieValue = $cookies.get('user');
-
+    
+            $scope.cookieValue = $cookies.get('user');
+            alert($scope.cookieValue);
+            
             $scope.choices = [{id: '1', description: ''}];
             
             $scope.addNewChoice = function() {
@@ -267,7 +269,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             $scope.choose_city = function() {
                 $http({
                 method: "GET", 
-                url: 'https://thworkorderfapp.azurewebsites.net/Uavt_city/' + $scope.provinceSelect.id + '/0/0'
+                url: 'https://thworkorderfapp.azurewebsites.net/Uavt_city/' + $scope.provinceSelect[id] + '/0/0'
          /*       headers: {            
                     'Content-Type': 'application/json',
                     'SessionToken': '' + $scope.GuId,
