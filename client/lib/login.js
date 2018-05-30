@@ -658,25 +658,24 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                   "InvoiceAcceptPhone": "" + $scope.phonenumber_3,
                   "InvoiceAcceptName": "" + $scope.name_id,
                   "InvoiceAcceptSurname": "" + $scope.surname_id,
-                  "ProductOrderDetail": [
-                    {
-                      "ConsignmentId": "1",
-                      "MainSourceOrderProcessStatus": "100",
-                      "WareHouseType": "1",
-                      "ProductCode": "" + $scope.choices[0].txtProductCode,
-                      "Product": "" + $scope.choices[0].description, 
-                      "OperationType": "" + $scope.choices[0].workorderSelect,
-                      "SourceOrderStatus": "100",
-                      "DetailNote": "" +  $scope.isemri_notu
-                    }
-                  ]
+                  "ProductOrderDetail": []
                 }
               ]
 
-              $scope.postData = angular.toJson($scope.jsonData, true);      
               
-              alert( $scope.postData[ProductOrderDetail])
-              
+             
+              var obj = {
+                "ConsignmentId": "1",
+                "MainSourceOrderProcessStatus": "100",
+                "WareHouseType": "1",
+                "ProductCode": "" + $scope.choices[0].txtProductCode,
+                "Product": "" + $scope.choices[0].description, 
+                "OperationType": "" + $scope.choices[0].workorderSelect,
+                "SourceOrderStatus": "100",
+                "DetailNote": "" +  $scope.isemri_notu
+              }
+
+              $scope.jsonData[ProductOrderDetail].push(obj);
 
               var amount = $scope.choices.length;
 
@@ -687,7 +686,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 while(amount!=1)
                 {
                     amount = amount-1;        
-                    $scope.postData.ProductOrderDetail = [$scope.postData[ProductOrderDetail],          
+                    $scope.jsonData[ProductOrderDetail].push(          
                     {
                         "ConsignmentId": "1",
                         "MainSourceOrderProcessStatus": "100",
@@ -697,16 +696,16 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                         "OperationType": "" + $scope.choices[i].workorderSelect,
                         "SourceOrderStatus": "100",
                         "DetailNote": "" +  $scope.isemri_notu
-                    }
-                    ] 
+                    })
                     
-                    alert($scope.postData);
-
+    
                     i++;
 
                 }
 
               }
+
+              $scope.postData = angular.toJson($scope.jsonData, true);                    
 
             $http({
                 async: true,
