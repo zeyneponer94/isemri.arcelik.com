@@ -682,6 +682,10 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 }
               ]
 
+
+
+
+
               $scope.postData = angular.toJson($scope.jsonData, true);                              
 
               var amount = $scope.choices.length;
@@ -692,8 +696,24 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
                 while(amount!=1)
                 {
-                    amount = amount-1;                    
-                    $scope.postData["ProductOrderDetail"].push(
+                    amount = amount-1;        
+                    $scope.postData.ProductOrderDetail[i] = 
+                    
+                    {
+                        "ConsignmentId": "1",
+                        "MainSourceOrderProcessStatus": "100",
+                        "WareHouseType": "1",
+                        "ProductCode": "" + $scope.choices[i].txtProductCode,
+                        "Product": "" + $scope.choices[i].description, 
+                        "OperationType": "" + $scope.choices[i].workorderSelect,
+                        "SourceOrderStatus": "100",
+                        "DetailNote": "" +  $scope.isemri_notu
+                      }
+
+                      alert(JSON.stringify(postData));
+                      
+
+            /*        $scope.postData["ProductOrderDetail"].push(
                         {
                             "ConsignmentId": "1",
                             "MainSourceOrderProcessStatus": "100",
@@ -704,7 +724,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                             "SourceOrderStatus": "100",
                             "DetailNote": "" +  $scope.isemri_notu
                           }
-                    );
+                    );*/
                     multipleProduct.updateData($scope.postData);
 
                 }
