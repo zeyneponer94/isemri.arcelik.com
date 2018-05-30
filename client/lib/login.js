@@ -585,7 +585,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             var array = []    
             var val;
             for (val of $scope.choices) {
-                array.push(val.txtProductCode + " " + val.workorderSelect + "<br>");
+                array.push(val.txtProductCode + "-" + val.workorderSelect + " ");
             }
 
 
