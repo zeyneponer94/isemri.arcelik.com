@@ -662,6 +662,8 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 }
               ]
 
+              alert($scope.jsonData[SourceStatus])
+
               
              
               var obj = {
