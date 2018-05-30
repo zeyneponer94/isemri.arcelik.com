@@ -102,8 +102,8 @@ app.controller('Controller' , ['$scope','$http','$window', function ($scope, $ht
 app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter','$cookies', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,$cookies) {
 
     
-            $scope.cookieValue = $cookies.get('user');
-            alert($scope.cookieValue);
+            $scope.username_cookie = $cookies.get('username');
+            $scope.email_cookie = $cookies.get('email');            
             
             $scope.choices = [{id: '1', description: ''}];
             

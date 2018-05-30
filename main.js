@@ -31,9 +31,9 @@ app.post('/login/callback', auth.authenticate('saml', { failureRedirect: '/fail'
 //Get Methods
 app.get('/', auth.protected, function(req, res) {
     //res.cookie('sessionID', '' + req.sessionID, { maxAge: 900000, httpOnly: false }); 
-    res.send(req.user);              
-    //res.cookie('user', '' + req.user.nameID, { maxAge: 900000, httpOnly: false });           
-    //res.sendfile('views/create_workorder.html', {root: __dirname });   
+    res.cookie('username', '' + req.user.username, { maxAge: 900000, httpOnly: false });    
+    res.cookie('email', '' + req.user.email, { maxAge: 900000, httpOnly: false });               
+    res.sendfile('views/create_workorder.html', {root: __dirname });   
 });
 
 /*
