@@ -191,8 +191,8 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
             $scope.ResponseProductList = [];   
 
-            $scope.fncProductChoose = function(query) {
-                $scope.txtProductCode = query;
+            $scope.fncProductChoose = function(query,choice) {
+                $scope.choices[choice.id].txtProductCode = query;
                 $scope.show = false;
             }
 
