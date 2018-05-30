@@ -197,7 +197,6 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             }
 
             $scope.search = function(query) {
-            alert(query);
             $scope.show = true;
             $scope.ResponseProductList = [];   
             
@@ -219,7 +218,6 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 var i = 0;
                 while(response.data[""+i]!=null)
                 {
-                    alert(response.data[""+i].ProductDescription);                    
                 var obj = { 
                     name: response.data[""+i].ProductCode,
                     description: response.data[""+i].ProductDescription
