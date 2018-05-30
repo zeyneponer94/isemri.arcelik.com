@@ -688,8 +688,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 while(amount!=1)
                 {
                     amount = amount-1;        
-                    $scope.postData.ProductOrderDetail += 
-                    
+                    $scope.postData.ProductOrderDetail = [$scope.postData.ProductOrderDetail,          
                     {
                         "ConsignmentId": "1",
                         "MainSourceOrderProcessStatus": "100",
@@ -699,40 +698,12 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                         "OperationType": "" + $scope.choices[i].workorderSelect,
                         "SourceOrderStatus": "100",
                         "DetailNote": "" +  $scope.isemri_notu
-                      }
+                    }
+                    ] 
+                    
+                    alert($scope.postData);
 
-                      alert($scope.postData);
-
-                      $scope.postData.ProductOrderDetail.push(
-                      
-                      {
-                          "ConsignmentId": "1",
-                          "MainSourceOrderProcessStatus": "100",
-                          "WareHouseType": "1",
-                          "ProductCode": "" + $scope.choices[i].txtProductCode,
-                          "Product": "" + $scope.choices[i].description, 
-                          "OperationType": "" + $scope.choices[i].workorderSelect,
-                          "SourceOrderStatus": "100",
-                          "DetailNote": "" +  $scope.isemri_notu
-                        });
-
-                        alert($scope.postData);
-                        
-                        i++;
-                      
-
-            /*        $scope.postData["ProductOrderDetail"].push(
-                        {
-                            "ConsignmentId": "1",
-                            "MainSourceOrderProcessStatus": "100",
-                            "WareHouseType": "1",
-                            "ProductCode": "" + $scope.choices[i].txtProductCode,
-                            "Product": "" + $scope.choices[i].description, 
-                            "OperationType": "" + $scope.choices[i].workorderSelect,
-                            "SourceOrderStatus": "100",
-                            "DetailNote": "" +  $scope.isemri_notu
-                          }
-                    );*/
+                    i++;
 
                 }
 
