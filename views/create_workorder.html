@@ -95,7 +95,7 @@
                                     <div class="form-group">                                
                                         <input type="text" class="form-control" id="txtProductCode"
                                             data-toggle="tooltip" data-placement="top" title="10 Haneli Ürün Kodu Giriniz*"
-                                            ng-change="search(txtProductCode)" ng-minlength="5";
+                                            ng-change="search(choice.txtProductCode)" ng-minlength="5";
                                             name="txtProductCode" ng-model="choice.txtProductCode" placeholder="Ürün Kodu Giriniz*" required ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'"/>
                                         <div class="entry" ng-repeat="item in ResponseProductList | filter:choice.txtProductCode | limitTo:10" ng-show="show">
                                             <span ng-click="fncProductChoose(item.name)">{{item.name}}</span>
