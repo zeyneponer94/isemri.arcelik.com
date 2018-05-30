@@ -101,7 +101,11 @@ app.controller('Controller' , ['$scope','$http','$window', function ($scope, $ht
 
 app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter','$cookies', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,$cookies) {
 
-    
+            $scope.provinceSelect = JSON.parse($scope.provinceSelect);
+            $scope.citySelect = JSON.parse($scope.citySelect);
+            $scope.areaSelect = JSON.parse($scope.areaSelect);
+            
+
             $scope.username_cookie = $cookies.get('username');
             $scope.email_cookie = $cookies.get('email');            
             
