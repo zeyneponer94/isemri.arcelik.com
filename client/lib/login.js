@@ -103,7 +103,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
             //$scope.cookieValue = $cookies.get('user');
 
-            $scope.choices = [{id: '1'}];
+            $scope.choices = [{id: '1', description: ''}];
             
             $scope.addNewChoice = function() {
               alert($scope.choices[0])
