@@ -662,7 +662,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 }
               ]
 
-              alert($scope.jsonData[SourceStatus])
+              alert($scope.jsonData[0].SourceStatus)
 
               
              
@@ -677,7 +677,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 "DetailNote": "" +  $scope.isemri_notu
               }
 
-              $scope.jsonData[ProductOrderDetail].push(obj);
+              $scope.jsonData[0].ProductOrderDetail.push(obj);
 
               var amount = $scope.choices.length;
 
@@ -688,7 +688,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 while(amount!=1)
                 {
                     amount = amount-1;        
-                    $scope.jsonData[ProductOrderDetail].push(          
+                    $scope.jsonData[0].ProductOrderDetail.push(          
                     {
                         "ConsignmentId": "1",
                         "MainSourceOrderProcessStatus": "100",
