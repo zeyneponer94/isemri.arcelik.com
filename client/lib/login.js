@@ -267,7 +267,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             $scope.choose_city = function() {
                 $http({
                 method: "GET", 
-                url: 'https://thworkorderfapp.azurewebsites.net/Uavt_city/' + $scope.provinceSelect + '/0/0'
+                url: 'https://thworkorderfapp.azurewebsites.net/Uavt_city/' + $scope.provinceSelect.id + '/0/0'
          /*       headers: {            
                     'Content-Type': 'application/json',
                     'SessionToken': '' + $scope.GuId,
@@ -292,7 +292,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             $scope.choose_area = function() {
                 $http({
                 method: "GET", 
-                url: 'https://thworkorderfapp.azurewebsites.net/Uavt_area/' + $scope.provinceSelect + '/' + $scope.citySelect + '/0'
+                url: 'https://thworkorderfapp.azurewebsites.net/Uavt_area/' + $scope.provinceSelect.id + '/' + $scope.citySelect.id + '/0'
           /*      headers: {            
                     'Content-Type': 'application/json',
                     'SessionToken': '' + $scope.GuId,
@@ -646,9 +646,9 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                   "Phone3": "" + $scope.phonenumber_1,
                   "Email": ""+ $scope.email_id,
                   "Address": "" + $scope.adres_id,
-                  "Neighborhood": "" + $scope.areaSelect,
-                  "District": "" + $scope.citySelect,
-                  "City": "" + $scope.provinceSelect,
+                  "Neighborhood": "" + $scope.areaSelect.id,
+                  "District": "" + $scope.citySelect.id,
+                  "City": "" + $scope.provinceSelect.id,
                   "Urgent": "0",
                   "ContactPerson": "" + $scope.satis_id,
                   "ContactPhone": "" + $scope.satis_phone_id,
