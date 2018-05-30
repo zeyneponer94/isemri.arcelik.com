@@ -220,7 +220,8 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 while(response.data[""+i]!=null)
                 {
                 var obj = { 
-                    name: response.data[""+i].ProductCode
+                    name: response.data[""+i].ProductCode,
+                    description: response.data[""+i].ProductDescription
                 };
                 
                 $scope.ResponseProductList.push(obj);  
