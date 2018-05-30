@@ -269,7 +269,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             $scope.choose_city = function() {
                 $http({
                 method: "GET", 
-                url: 'https://thworkorderfapp.azurewebsites.net/Uavt_city/' + $scope.provinceSelect[id] + '/0/0'
+                url: 'https://thworkorderfapp.azurewebsites.net/Uavt_city/' + $scope.provinceSelect.id + '/0/0'
          /*       headers: {            
                     'Content-Type': 'application/json',
                     'SessionToken': '' + $scope.GuId,
