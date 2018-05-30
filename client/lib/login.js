@@ -710,7 +710,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                         "DetailNote": "" +  $scope.isemri_notu
                       }
 
-                      alert(JSON.stringify(postData));
+                      alert(JSON.stringify($scope.postData));
                       
 
             /*        $scope.postData["ProductOrderDetail"].push(
