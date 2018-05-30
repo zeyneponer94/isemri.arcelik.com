@@ -13,16 +13,6 @@ app.directive('ngEnter', function () {
    };
 });
 
-app.factory('multipleProduct', function() {
-    return {
-        getAll: function () {
-            return jsonData;
-        },
-        updateData: function(newData) {
-            jsonData = newData;
-        }
-    }
-});
 
 app.config(['$httpProvider', function ($httpProvider) {
     $httpProvider.defaults.useXDomain = true;
@@ -621,6 +611,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                     }) 
                     .then(function(response){ 
                         $scope.choices[i].description =  response.data[0].ProductDescription;
+                        i++;
                     });   
 
                 }
@@ -710,7 +701,24 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                         "DetailNote": "" +  $scope.isemri_notu
                       }
 
-                      alert(JSON.stringify($scope.postData));
+                      alert($scope.postData);
+
+                      $scope.postData.ProductOrderDetail.push(
+                      
+                      {
+                          "ConsignmentId": "1",
+                          "MainSourceOrderProcessStatus": "100",
+                          "WareHouseType": "1",
+                          "ProductCode": "" + $scope.choices[i].txtProductCode,
+                          "Product": "" + $scope.choices[i].description, 
+                          "OperationType": "" + $scope.choices[i].workorderSelect,
+                          "SourceOrderStatus": "100",
+                          "DetailNote": "" +  $scope.isemri_notu
+                        });
+
+                        alert($scope.postData);
+                        
+                        i++;
                       
 
             /*        $scope.postData["ProductOrderDetail"].push(
@@ -725,12 +733,10 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                             "DetailNote": "" +  $scope.isemri_notu
                           }
                     );*/
-                    multipleProduct.updateData($scope.postData);
 
                 }
 
               }
-            $scope.postData = multipleProduct.getAll();
 
             $http({
                 async: true,
