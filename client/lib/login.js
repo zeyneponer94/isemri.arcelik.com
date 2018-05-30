@@ -197,7 +197,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             }
 
             $scope.search = function(query) {
-            
+            alert(query);
             $scope.show = true;
             $scope.ResponseProductList = [];   
             
