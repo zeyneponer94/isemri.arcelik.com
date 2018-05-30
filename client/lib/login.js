@@ -106,7 +106,6 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             $scope.choices = [{id: '1', description: ''}];
             
             $scope.addNewChoice = function() {
-              alert($scope.choices[0])
               var newItemNo = $scope.choices.length+1;
               $scope.choices.push({'id' : ''+newItemNo});
             };
@@ -661,9 +660,6 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                   "ProductOrderDetail": []
                 }
               ]
-
-              alert($scope.jsonData[0].SourceStatus)
-
               
              
               var obj = {
@@ -707,7 +703,8 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
               }
 
-              $scope.postData = angular.toJson($scope.jsonData, true);                    
+              $scope.postData = angular.toJson($scope.jsonData, true);   
+                               
 
             $http({
                 async: true,
