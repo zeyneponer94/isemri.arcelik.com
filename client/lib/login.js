@@ -271,7 +271,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             $scope.choose_city = function() {
                 $http({
                 method: "GET", 
-                url: 'https://thworkorderfapp.azurewebsites.net/Uavt_city/' + $scope.provinceSelect.id + '/0/0'
+                url: 'https://thworkorderfapp.azurewebsites.net/Uavt_city/' + JSON.parse($scope.provinceSelect).id + '/0/0'
          /*       headers: {            
                     'Content-Type': 'application/json',
                     'SessionToken': '' + $scope.GuId,
@@ -296,7 +296,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             $scope.choose_area = function() {
                 $http({
                 method: "GET", 
-                url: 'https://thworkorderfapp.azurewebsites.net/Uavt_area/' + $scope.provinceSelect.id + '/' + $scope.citySelect.id + '/0'
+                url: 'https://thworkorderfapp.azurewebsites.net/Uavt_area/' + JSON.parse($scope.provinceSelect).id + '/' + JSON.parse($scope.citySelect).id + '/0'
           /*      headers: {            
                     'Content-Type': 'application/json',
                     'SessionToken': '' + $scope.GuId,
