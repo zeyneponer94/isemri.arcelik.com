@@ -673,13 +673,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 }
               ]
 
-              alert( $scope.jsonData.ProductOrderDetail[0])
-
-
-
-
-
-              $scope.postData = angular.toJson($scope.jsonData, true);        
+              $scope.postData = angular.toJson($scope.jsonData, true);      
               
               alert( $scope.postData.ProductOrderDetail[0])
               
