@@ -675,7 +675,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
               $scope.postData = angular.toJson($scope.jsonData, true);      
               
-              alert( $scope.postData.ProductOrderDetail[0])
+              alert( $scope.postData[ProductOrderDetail])
               
 
               var amount = $scope.choices.length;
@@ -687,7 +687,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 while(amount!=1)
                 {
                     amount = amount-1;        
-                    $scope.postData.ProductOrderDetail = [$scope.postData.ProductOrderDetail[0],          
+                    $scope.postData.ProductOrderDetail = [$scope.postData[ProductOrderDetail],          
                     {
                         "ConsignmentId": "1",
                         "MainSourceOrderProcessStatus": "100",
