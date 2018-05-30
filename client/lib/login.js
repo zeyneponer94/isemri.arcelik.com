@@ -219,11 +219,11 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 var i = 0;
                 while(response.data[""+i]!=null)
                 {
+                    alert(response.data[""+i].ProductDescription);                    
                 var obj = { 
                     name: response.data[""+i].ProductCode,
                     description: response.data[""+i].ProductDescription
                 };
-                
                 $scope.ResponseProductList.push(obj);  
                 i++;
                 } 
