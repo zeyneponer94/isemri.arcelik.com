@@ -377,12 +377,13 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                                 no: response.data[i].PackageNr,
                                 ServiceShopCode : response.data[i].ServiceShopCode,
                                 productCode : response.data[i].ProductCode,
-                                product:response.data[i].ProductDescription,
+                                product:response.data[i].Product,
                                 customer: response.data[i].Name + " " + response.data[i].Surname ,
                                 address: response.data[i].Address,
                                 status: response.data[i].Status,
                                 AppointmentDate: response.data[i].AppointmentDate
                             };
+                            alert()
                             $scope.workorders.push(obj);            
                             i++; 
                         }  
