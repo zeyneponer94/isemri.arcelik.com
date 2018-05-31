@@ -376,7 +376,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                                 no: response.data[i].PackageNr,
                                 ServiceShopCode : response.data[i].ServiceShopCode,
                                 productCode : response.data[i].ProductCode,
-                                product:response.data[i].Product,
+                                product:response.data[i].ProductDescription,
                                 customer: response.data[i].Name + " " + response.data[i].Surname ,
                                 address: response.data[i].Address,
                                 status: response.data[i].Status,
