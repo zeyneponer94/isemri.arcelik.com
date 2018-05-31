@@ -107,7 +107,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             $scope.username_cookie = $cookies.get('username');
             $scope.email_cookie = $cookies.get('email');            
             
-            $scope.choices = [{id: '1', description: ''}];
+            $scope.choices = [{id: '1'}];
             
             $scope.addNewChoice = function() {
               var newItemNo = $scope.choices.length+1;
@@ -195,8 +195,9 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
             $scope.ResponseProductList = [];   
 
-            $scope.fncProductChoose = function(query,choice) {
-                $scope.choices[choice.id].txtProductCode = query;
+            $scope.fncProductChoose = function(query,description) {
+                $scope.choices[$scope.choices.length - 1].txtProductCode = query;                
+                $scope.choices[$scope.choices.length - 1].description = description;
                 $scope.show = false;
             }
 
@@ -591,7 +592,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             dlg.result.then(function(btn){
             $scope.ButtonText = "İŞ EMRİ OLUŞTURULUYOR";
             $scope.description = "";
-
+/*
             var productamount = $scope.choices.length;
         
                 var i = 0;
@@ -617,7 +618,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                         i++;
                     });   
 
-                }
+                }*/
 
 
 
