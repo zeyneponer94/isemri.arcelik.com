@@ -614,6 +614,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                     }) 
                     .then(function(response){ 
                         $scope.choices[i].description =  response.data[0].ProductDescription;
+                        alert($scope.choices[i].description)
                         i++;
                     });   
 
