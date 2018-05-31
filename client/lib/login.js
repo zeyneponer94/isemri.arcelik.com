@@ -593,9 +593,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             $scope.description = "";
 
             var productamount = $scope.choices.length;
-            
-            if(productamount > 1)
-            {
+        
                 var i = 0;
             
                 while(productamount!=0)
@@ -621,7 +619,6 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
                 }
 
-            }
 
 
 
