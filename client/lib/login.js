@@ -99,7 +99,7 @@ app.controller('Controller' , ['$scope','$http','$window', function ($scope, $ht
 }]);
 
 
-app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter','$cookies', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,$cookies) {
+app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter','$cookies', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,$cookies) {  
 
            
             
@@ -383,7 +383,6 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                                 status: response.data[i].Status,
                                 AppointmentDate: response.data[i].AppointmentDate
                             };
-                            alert()
                             $scope.workorders.push(obj);            
                             i++; 
                         }  
@@ -393,7 +392,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             }
 
 
-            $scope.query_workorder_no = function(work_order) {
+          $scope.query_workorder_no = function(work_order) {
             var workorders_no = [];
                 $http({
                     method: "GET",
@@ -411,7 +410,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                     return workorders_no;              
                 });           
             }
- /*
+        /*
             $scope.query_all = function () {
             $http({
                 method: "GET", 
@@ -455,7 +454,8 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
 
             
-            }*/
+            }
+        */
 
 
         $scope.logout = function() {
@@ -593,7 +593,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             dlg.result.then(function(btn){
             $scope.ButtonText = "İŞ EMRİ OLUŞTURULUYOR";
             $scope.description = "";
-/*
+         /*
             var productamount = $scope.choices.length;
         
                 var i = 0;
