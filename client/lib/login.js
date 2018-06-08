@@ -595,11 +595,11 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
         {   
 
             
-        if (validateEmail($scope.email_id)) {
-           alert(email + " is valid :)");
-        } else {
-           alert(email + " is not valid :(");
-        }
+            if (validateEmail($scope.email_id)) {
+                alert($scope.email_id + " is valid :)");
+            } else {
+                alert($scope.email_id + " is not valid :(");
+            }
         
 
             var array = []    
