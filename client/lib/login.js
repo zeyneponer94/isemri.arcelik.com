@@ -109,6 +109,8 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
     then(function(response) { 
     });    */
 
+
+      
             
 
             $scope.username_cookie = $cookies.get('username');
@@ -583,9 +585,23 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
         }
 
         $scope.ButtonText = "İŞ EMRİ OLUŞTUR";
+
+        function validateEmail(email) {
+            var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+         }
         
         $scope.create_workorder = function () 
         {   
+
+            
+        if (validateEmail($scope.email_id)) {
+           alert(email + " is valid :)");
+        } else {
+           alert(email + " is not valid :(");
+        }
+        
+
             var array = []    
             var val;
             for (val of $scope.choices) {
