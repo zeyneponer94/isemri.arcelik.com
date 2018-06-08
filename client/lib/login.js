@@ -691,7 +691,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                     amount = amount-1;        
                     $scope.jsonData[0].ProductOrderDetail.push(          
                     {
-                        "ConsignmentId": "1",
+                        "ConsignmentId": "" + (i+1),
                         "MainSourceOrderProcessStatus": "100",
                         "WareHouseType": "1",
                         "ProductCode": "" + $scope.choices[i].txtProductCode,
@@ -700,9 +700,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                         "SourceOrderStatus": "100",
                         "DetailNote": "" +  $scope.isemri_notu
                     })
-                    
-                    alert($scope.choices[i].description)
-    
+                        
                     i++;
 
                 }
