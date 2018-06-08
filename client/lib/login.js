@@ -101,22 +101,6 @@ app.controller('Controller' , ['$scope','$http','$window', function ($scope, $ht
 
 app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter','$cookies', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,$cookies) {  
 
-           
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", "client/lib/test.txt", false);
-    rawFile.onreadystatechange = function ()
-    {
-        if(rawFile.readyState === 4)
-        {
-            if(rawFile.status === 200 || rawFile.status == 0)
-            {
-                var allText = rawFile.responseText;
-                alert(allText);
-            }
-        }
-    }
-    rawFile.send(null);
-
 
     $http({
         url: '/decrypt',
