@@ -738,6 +738,8 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                     $scope.ButtonText = "İŞ EMRİ OLUŞTUR";    
                 },1000)
 
+                //sql responslarını alert etme!!
+
                 if(response.data[0].ErrorCode != "0")
                 {
                     alert(response.data[0].ErrorDescription);

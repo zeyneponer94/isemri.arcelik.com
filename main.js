@@ -38,14 +38,15 @@ app.post('/login/callback', auth.authenticate('saml', { failureRedirect: '/fail'
     res.redirect('/');
 });
 
-
+/*
 app.get('/decrypt', auth.protected, function(req, res) {
 
    
 
-});    
+});   */ 
 //Get Methods
 app.get('/', auth.protected, function(req, res) {
+
     var username = req.user.username;
     var cipher = crypto.createCipher(algorithm,password)
     var crypted = cipher.update(username,'utf8','hex')
@@ -59,7 +60,7 @@ app.get('/', auth.protected, function(req, res) {
         }
     });
 
-
+//send get request from login.js to /decrypt 
     var decipher = crypto.createDecipher(algorithm,password)
     var dec = decipher.update(text,'hex','utf8')
     dec += decipher.final('utf8');  
