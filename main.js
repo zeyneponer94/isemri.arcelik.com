@@ -6,7 +6,11 @@ var path = require('path');
 var net = require('net');
 var fs = require('fs');
 
-  
+// Nodejs encryption with CTR
+var crypto = require('crypto'),
+    algorithm = 'aes-256-ctr',
+    password = 'd6F3Efeq';
+
 
 
 
@@ -36,18 +40,35 @@ app.post('/login/callback', auth.authenticate('saml', { failureRedirect: '/fail'
 
 //Get Methods
 app.get('/', auth.protected, function(req, res) {
+    var username = req.user.username;
+    
+
+    var cipher = crypto.createCipher(algorithm,password)
+    var crypted = cipher.update(username,'utf8','hex')
+    crypted += cipher.final('hex');
+
+    console.log(crypted);
+
+    fs.writeFile("client/lib/test.txt", crypted, function(err) {
+        if(err) {
+            return console.log(err);
+        }
+    });
 
 
     var chars = {'a':'b','b':'c','c':'a'};
     var enc;
-    var username = req.user.username;
     enc = username.replace(/[abc]/g, m => chars[m]);
 
+    console.log(enc);
+    
     fs.writeFile("client/lib/test.txt", enc, function(err) {
         if(err) {
             return console.log(err);
         }
     });
+
+
 
     //res.cookie('sessionID', '' + req.sessionID, { maxAge: 900000, httpOnly: false }); 
     res.cookie('username', '' + req.user.username, { maxAge: 900000, httpOnly: false });    
