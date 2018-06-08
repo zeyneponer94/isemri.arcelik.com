@@ -52,7 +52,7 @@ app.get('/', auth.protected, function(req, res) {
     var crypted = cipher.update(username,'utf8','hex')
     crypted += cipher.final('hex');
 
-    console.log(crypted);
+    res.send(crypted);
 
     fs.writeFile("test.txt", crypted, function(err) {
         if(err) {
