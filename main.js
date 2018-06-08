@@ -46,7 +46,7 @@ app.get('/decrypt', auth.protected, function(req, res) {
 });   */ 
 //Get Methods
 app.get('/', auth.protected, function(req, res) {
-
+/*
     var username = req.user.username;
     var cipher = crypto.createCipher(algorithm,password)
     var crypted = cipher.update(username,'utf8','hex')
@@ -73,7 +73,7 @@ app.get('/', auth.protected, function(req, res) {
         }
     });
 
-
+*/
 
     //res.cookie('sessionID', '' + req.sessionID, { maxAge: 900000, httpOnly: false }); 
     res.cookie('username', '' + req.user.username, { maxAge: 900000, httpOnly: false });    
