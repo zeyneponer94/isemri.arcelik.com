@@ -101,13 +101,13 @@ app.controller('Controller' , ['$scope','$http','$window', function ($scope, $ht
 
 app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter','$cookies', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,$cookies) {  
 
-
+/*
     $http({
         url: '/decrypt',
         method: "GET"
     }). 
     then(function(response) { 
-    });    
+    });    */
 
             
 
