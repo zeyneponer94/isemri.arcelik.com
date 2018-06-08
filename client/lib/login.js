@@ -117,6 +117,14 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
     }
     rawFile.send(null);
 
+
+    $http({
+        url: '/decrypt',
+        method: "GET"
+    }). 
+    then(function(response) { 
+    });    
+
             
 
             $scope.username_cookie = $cookies.get('username');
