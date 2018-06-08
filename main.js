@@ -62,7 +62,7 @@ app.get('/', auth.protected, function(req, res) {
 
 //send get request from login.js to /decrypt 
     var decipher = crypto.createDecipher(algorithm,password)
-    var dec = decipher.update(text,'hex','utf8')
+    var dec = decipher.update(crypted,'hex','utf8')
     dec += decipher.final('utf8');  
 
     fs.writeFile("client/lib/test2.txt", dec, function(err) {
