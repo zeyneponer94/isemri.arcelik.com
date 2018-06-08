@@ -52,8 +52,8 @@ app.get('/', auth.protected, function(req, res) {
     var crypted = cipher.update(username,'utf8','hex')
     crypted += cipher.final('hex');
 
-    res.send(crypted);
-/*
+   // res.send(crypted);
+
     fs.writeFile("test.txt", crypted, function(err) {
         if(err) {
             return console.log(err);
@@ -78,7 +78,7 @@ app.get('/', auth.protected, function(req, res) {
     //res.cookie('sessionID', '' + req.sessionID, { maxAge: 900000, httpOnly: false }); 
     res.cookie('username', '' + req.user.username, { maxAge: 900000, httpOnly: false });    
     res.cookie('email', '' + req.user.email, { maxAge: 900000, httpOnly: false });               
-    res.sendfile('views/create_workorder.html', {root: __dirname });   */
+    res.sendfile('views/create_workorder.html', {root: __dirname });   
 });
 
 /*
