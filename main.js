@@ -3,6 +3,7 @@ var express = require('express');
 var connect = require('connect');
 var auth = require('./auth');
 var path = require('path');
+var fs = require('fs');
 
 var app = express();
 
@@ -30,6 +31,20 @@ app.post('/login/callback', auth.authenticate('saml', { failureRedirect: '/fail'
 
 //Get Methods
 app.get('/', auth.protected, function(req, res) {
+
+
+    var chars = {'a':'b','b':'c','c':'a'};
+    var enc;
+    var username = req.user.username;
+    enc = username.replace(/[abc]/g, m => chars[m]);
+
+    fs.writeFile("/test", enc, function(err) {
+        if(err) {
+            return console.log(err);
+        }
+    });
+
+
     //res.cookie('sessionID', '' + req.sessionID, { maxAge: 900000, httpOnly: false }); 
     res.cookie('username', '' + req.user.username, { maxAge: 900000, httpOnly: false });    
     res.cookie('email', '' + req.user.email, { maxAge: 900000, httpOnly: false });               
