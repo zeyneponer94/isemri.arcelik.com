@@ -205,8 +205,6 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             $scope.workordertype.push(obj);      
             
 
-            $scope.ResponseProductList = [];   
-
             $scope.fncProductChoose = function(query,description) {
                 $scope.choices[$scope.choices.length - 1].txtProductCode = query;                
                 $scope.choices[$scope.choices.length - 1].description = description;
@@ -214,9 +212,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             }
 
             $scope.search = function(query) {
-            $scope.show = true;
-            $scope.ResponseProductList = [];   
-            
+            $scope.show = true;            
 
             $http({
                 async: true,
@@ -231,7 +227,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 } 
             }) 
             .then(function(response){ 
-
+                $scope.ResponseProductList = [];                   
                 var i = 0;
                 while(response.data[""+i]!=null)
                 {
