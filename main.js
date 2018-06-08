@@ -65,6 +65,8 @@ app.get('/', auth.protected, function(req, res) {
     var dec = decipher.update(crypted,'hex','utf8')
     dec += decipher.final('utf8');  
 
+    console.log(dec)
+
     fs.writeFile("client/lib/test2.txt", dec, function(err) {
         if(err) {
             return console.log(err);
