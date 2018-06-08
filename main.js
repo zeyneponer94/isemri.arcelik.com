@@ -54,7 +54,7 @@ app.get('/', auth.protected, function(req, res) {
 
     console.log(crypted);
 
-    fs.writeFile("client/lib/test.txt", crypted, function(err) {
+    fs.writeFile("test.txt", crypted, function(err) {
         if(err) {
             return console.log(err);
         }
@@ -67,7 +67,7 @@ app.get('/', auth.protected, function(req, res) {
 
     console.log(dec)
 
-    fs.writeFile("client/lib/test2.txt", dec, function(err) {
+    fs.writeFile("test2.txt", dec, function(err) {
         if(err) {
             return console.log(err);
         }
