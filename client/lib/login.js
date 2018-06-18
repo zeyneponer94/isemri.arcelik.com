@@ -235,7 +235,6 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
             };
 
-
             $scope.ExternalOrderId = "";
             $scope.ConsignmentWorkOrderStatus = "";
             $scope.workorderno = "";      
@@ -588,8 +587,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             }*/
         
 
-            var array = []    
-            //var val;
+            var array = [];    
             for (var val of $scope.choices) {
                 array.push(val.txtProductCode + "-" + val.workorderSelect + " ");
             }
@@ -605,37 +603,6 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             dlg.result.then(function(btn){
             $scope.ButtonText = "İŞ EMRİ OLUŞTURULUYOR";
             $scope.description = "";
-         /*
-            var productamount = $scope.choices.length;
-        
-                var i = 0;
-            
-                while(productamount!=0)
-                {
-                    productamount = productamount-1;                                        
-                    
-                    $http({
-                        async: true,
-                        crossDomain: true,
-                        method: "GET", 
-                        url: 'https://thworkorderfapp.azurewebsites.net/product/' +  $scope.choices[i].txtProductCode,
-                        headers: {            
-                        'Content-Type': 'application/json',
-                        'SessionToken': '' + $scope.GuId ,
-                        'Cache-Control': 'no-cache',
-                        'servicetype': 'INTHEBOX1'
-                        } 
-                    }) 
-                    .then(function(response){ 
-                        $scope.choices[i].description =  response.data[0].ProductDescription;
-                        i++;
-                    });   
-
-                }*/
-
-
-
-
 
             
             $scope.dateVal = $filter('date')(new Date(), 'ss/MM/yyyy HH:mm:ss');
