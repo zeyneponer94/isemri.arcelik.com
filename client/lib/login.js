@@ -103,10 +103,6 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
 
 
-            $scope.username_cookie = $cookies.get('username');
-            $scope.email_cookie = $cookies.get('email');            
-
-
             $scope.SessionId = $cookies.get('sessionID');
                             
             $http({
@@ -120,7 +116,10 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             }) 
             .then(function(response){ 
 
-                alert(response);
+                $scope.displayName = response.data.profile.displayName;
+                $scope.organization = response.data.profile.organization;
+                $scope.title = response.data.profile.title;
+                $scope.email = response.data.profile.email;
    
             });
             
