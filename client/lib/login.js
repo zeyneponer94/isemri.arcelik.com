@@ -105,6 +105,25 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
             $scope.username_cookie = $cookies.get('username');
             $scope.email_cookie = $cookies.get('email');            
+
+
+            $scope.SessionId = $cookies.get('sessionID');
+            
+                
+            $http({
+                method: "GET", 
+                url: 'https://thworkorderfapp.azurewebsites.net/get_session/' + $scope.SessionId,
+                headers: {            
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': 'SSWS 00mhP-hnbCzY-FtzKnlls8zQqkdEn-0rlYwdTAvSke'
+                }
+            }) 
+            .then(function(response){ 
+
+                alert(response);
+   
+            });
             
 
 
@@ -458,7 +477,6 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
         $scope.logout = function() {
                 $scope.SessionId = $cookies.get('sessionID');
 
-                alert($scope.SessionId);
     
                 $http({
                     method: "DELETE", 
