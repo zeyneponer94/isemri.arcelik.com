@@ -108,12 +108,10 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
 
             $scope.SessionId = $cookies.get('sessionID');
-            
-            alert($scope.SessionId);
-                
+                            
             $http({
                 method: "GET", 
-                url: 'https://thworkorderfapp.azurewebsites.net/get_session/' + $scope.SessionId,
+                url: 'https://thworkorderfapp.azurewebsites.net/bayikodu/' + $scope.username_cookie,
                 headers: {            
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
