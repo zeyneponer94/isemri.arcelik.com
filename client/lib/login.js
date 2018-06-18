@@ -101,17 +101,7 @@ app.controller('Controller' , ['$scope','$http','$window', function ($scope, $ht
 
 app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter','$cookies', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,$cookies) {  
 
-/*
-    $http({
-        url: '/decrypt',
-        method: "GET"
-    }). 
-    then(function(response) { 
-    });    */
 
-
-      
-            
 
             $scope.username_cookie = $cookies.get('username');
             $scope.email_cookie = $cookies.get('email');            
@@ -599,8 +589,8 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
         
 
             var array = []    
-            var val;
-            for (val of $scope.choices) {
+            //var val;
+            for (var val of $scope.choices) {
                 array.push(val.txtProductCode + "-" + val.workorderSelect + " ");
             }
 
