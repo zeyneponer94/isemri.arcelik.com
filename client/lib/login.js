@@ -109,6 +109,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
             $scope.SessionId = $cookies.get('sessionID');
             
+            alert($scope.SessionId);
                 
             $http({
                 method: "GET", 
