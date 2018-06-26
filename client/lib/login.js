@@ -364,7 +364,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
         
 
             $scope.query_workorder = function () {
-
+                $scope.SearchText = "ARIYOR";                                    
                 $http({
                     method: "GET", 
                     url: 'https://thworkorderfapp.azurewebsites.net/query/' + $scope.phone_id_query + '/' +  $scope.name_id_query + '/' +  $scope.surname_id_query + '/0/0/0/' + $scope.dealerID,
@@ -373,10 +373,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                     }     
                 }) 
                 .then(function(response){
-
-
-                    $scope.SearchText = "ARIYOR";                    
-                    $timeout(function(){
+                    //$timeout(function(){
                         $scope.SearchText = "ARA";  
 
                         if(response.data[0]==null)
@@ -402,7 +399,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                             $scope.workorders.push(obj);            
                             i++; 
                         }  
-                    },500)
+                    //},500)
                 });
     
             }
