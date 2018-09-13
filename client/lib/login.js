@@ -1,4 +1,4 @@
-var app = angular.module("App", ['ui.bootstrap','dialogs.main','ngSanitize','ui.mask', 'ngRoute','ngCookies']);
+var app = angular.module('App', ['ui.bootstrap','dialogs.main','ngSanitize','ui.mask', 'ngRoute','ngCookies']);
 
 app.directive('ngEnter', function () { 
     return function (scope, element, attrs) {
@@ -19,94 +19,18 @@ app.config(['$httpProvider', function ($httpProvider) {
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);
 
-app.controller('Controller' , ['$scope','$http','$window', function ($scope, $http, $window) {
- /*            $scope.GuId = '';
-            $scope.ButtonText = "GİRİŞ";
-
-            $scope.submit = function (page) { 
-                $http({
-                    url: 'https://thworkorderfapp.azurewebsites.net/GuId/' + $scope.username + '/' + $scope.password + '/1/1/1/1',
-                    method: "GET"
-                }). 
-                then(function(response) { 
-                    if(response.data[0].ErrorDescription !== null)
-                    {
-                        alert("Request failed");                
-                    }
-                    else
-                    {
-                        alert(response.data[0].Message[0].Description);
-                        $scope.ButtonText = "GİRİŞ YAPILIYOR";
-                        $timeout(function(){
-                            $scope.ButtonText = "GİRİŞ";    
-                            if(response.status == 200){
-                                $http({method: 'GET', url: '/workorder'}).
-                                then(function(data, status) { 
-                                    var url = "https://thworkorder.azurewebsites.net/workorder";
-                                    $window.location = url;         
-                                });
-                            // $scope.login();
-                            }
-                        },1000)  
-                    }
-                });
-            };       
- */
- /*                                                
-            $scope.login = function(){ 
-
-
-                $scope.jsonData = {"SessionToken": ""+ GuId}
-        
-                //$scope.postData = angular.toJson($scope.jsonData, true);     
-
-
-                $http({
-                    url: '/workorder',
-                    method: "POST",
-                    data: $scope.jsonData
-                }). 
-                then(function(data, status) { 
-                    var url = "https://thworkorder.azurewebsites.net/workorder";
-                    $window.location = url;
-                });
-            }
- */
-
-            $scope.okta = function()
-            {
-                $http({
-                    url: 'https://thworkorderfapp.azurewebsites.net/login',
-                    method: "GET"
-                }). 
-                then(function(response) { 
-
-                    var url = "https://thworkorder.azurewebsites.net/login";
-                    $window.location = url;
-
-                });    
-            }
-
-            $scope.register = function()
-            {
-                $http({method: 'GET', url: '/register'}).
-                then(function(data, status) { 
-                    var url = "https://thworkorder.azurewebsites.net/register";
-                    $window.location = url;
-                });
-            }
-
-}]);
-
 
 app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','$timeout','$filter','$cookies', function ($scope, $http, $window,dialogs,$sanitize,$timeout,$filter,$cookies) {  
 
 
-
             $scope.SessionId = $cookies.get('sessionID');
             $scope.username_cookie = $cookies.get('username');
-            
+            $scope.displayName = "";
+            $scope.organization = "";
+            $scope.title = "";
+            $scope.email = "";
                             
+            
             $http({
                 method: "GET", 
                 url: 'https://thworkorderfapp.azurewebsites.net/bayikodu/' + $scope.username_cookie,
@@ -124,7 +48,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 $scope.email = response.data.profile.email;
    
             });
-            
+           
 
 
 
@@ -264,12 +188,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             $http({
                 url: 'https://thworkorderfapp.azurewebsites.net/Uavt_province',
                 method: "GET"
-         /*       headers: {            
-                        'Content-Type': 'application/json',
-                        'SessionToken': '' + $scope.GuId,
-                        'Cache-Control': 'no-cache',
-                        'servicetype': 'INTHEBOX1'
-                        }*/
+
             })
             .then(function(response){ 
                 $scope.province = [];                    
@@ -289,12 +208,6 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 $http({
                 method: "GET", 
                 url: 'https://thworkorderfapp.azurewebsites.net/Uavt_city/' + JSON.parse($scope.provinceSelect).id + '/0/0'
-         /*       headers: {            
-                    'Content-Type': 'application/json',
-                    'SessionToken': '' + $scope.GuId,
-                    'Cache-Control': 'no-cache',
-                    'servicetype': 'INTHEBOX1'
-                }*/
                 }) 
                 .then(function(response){ 
                     $scope.city = [];                    
@@ -314,12 +227,6 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 $http({
                 method: "GET", 
                 url: 'https://thworkorderfapp.azurewebsites.net/Uavt_area/' + JSON.parse($scope.provinceSelect).id + '/' + JSON.parse($scope.citySelect).id + '/0'
-          /*      headers: {            
-                    'Content-Type': 'application/json',
-                    'SessionToken': '' + $scope.GuId,
-                    'Cache-Control': 'no-cache',
-                    'servicetype': 'INTHEBOX1'
-                }*/
                 }) 
                 .then(function(response){ 
                     $scope.area = [];                    
@@ -405,7 +312,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             }
 
 
-          $scope.query_workorder_no = function(work_order) {
+        $scope.query_workorder_no = function(work_order) {
             var workorders_no = [];
                 $http({
                     method: "GET",
@@ -422,53 +329,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                     }    
                     return workorders_no;              
                 });           
-            }
-        /*
-            $scope.query_all = function () {
-            $http({
-                method: "GET", 
-                url: 'https://thworkorderfapp.azurewebsites.net/query/0/0/0/0/0/0/' + $scope.ServiceShopCode,
-                headers: {            
-                'SessionToken': '' + $scope.GuId
-                }     
-            }) 
-            .then(function(response){
-                if(response.data[0]==null)
-                    $scope.result = true;
-                else
-                    $scope.result = false;       
-
-                $scope.workorders = [];
-                $scope.return_value = [];                    
-                var i = 0;
-                
-                $scope.QueryText = "SORGULANIYOR";                                          
-                $timeout(function(){
-
-                    $scope.QueryText = "SORGULA";  
-                    while(response.data[i]!=null){
-                    var obj = { 
-                        no: response.data[i].PackageNr,
-                        productCode : response.data[i].ProductCode,
-                        product:response.data[i].Product,
-                        customer: response.data[i].Name + " " + response.data[i].Surname ,
-                        address: response.data[i].Address,
-                        status: response.data[i].Status,
-                        AppointmentDate: response.data[i].AppointmentDate
-                    };
-                    $scope.workorders.push(obj);            
-                    i++; 
-                    }  
-
-                },1000)
-
-
-            });
-
-
-            
-            }
-        */
+        }
 
 
         $scope.logout = function() {
@@ -561,8 +422,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 },1000)
 
                 });       
-                    },function(btn){
-                        alert('İşlem Tamamlanamadı.');
+                },function(btn){
             });
             
         }
@@ -585,36 +445,26 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
         }
 
         $scope.ButtonText = "İŞ EMRİ OLUŞTUR";
-/*
-        function validateEmail(email) {
-            var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            return re.test(email);
-         }*/
-        
-        $scope.create_workorder = function () 
-        {   
 
-            /*
-            if (validateEmail($scope.email_id)) {
-                alert($scope.email_id + " is valid :)");
-            } else {
-                alert($scope.email_id + " is not valid :(");
-            }*/
         
+        $scope.create_workorder = function (){   
 
             var array = [];    
-            for (var val of $scope.choices) {
-                array.push(val.txtProductCode + "-" + val.workorderSelect + " ");
-            }
+
+            angular.forEach($scope.choices,function(value,index){
+                array.push(value.txtProductCode + "-" + value.workorderSelect + " ");                
+            })
+
 
             $scope.provinceSelect = JSON.parse($scope.provinceSelect);
             $scope.citySelect = JSON.parse($scope.citySelect);
             $scope.areaSelect = JSON.parse($scope.areaSelect);
 
-
+            if(!angular.isDefined($scope.phonenumber_2)) $scope.phonenumber_2 = "";
+            if(!angular.isDefined($scope.phonenumber_1)) $scope.phonenumber_1 = "";
             
             var dlg = dialogs.confirm("Lütfen Onaylayınız!","Aşağıda belirtilen bilgiler ile iş emri oluşturma talebinizi gerçekleştirmeyi onaylıyor musunuz?".bold()+"<br>"+ ("  Müşteri adı = "+$scope.name_id+"<br>  Müşteri soyadı = "
-            +$scope.surname_id+"<br>  Müşteri telefon numarası = "+$scope.phonenumber_3+"<br>  Seçilen ürün-işemri türü = "+array.toString() +"<br> Müşteri İl = " + $scope.provinceSelect.name + "<br> Müşteri İlçe = " + $scope.citySelect.name + "<br> Müşteri Mahalle = " + $scope.areaSelect.name + "<br> Müşteri Tam Adres = " + $scope.adres_id).italics());
+            +$scope.surname_id+"<br>  Müşteri telefon numaraları = "+$scope.phonenumber_3+","+$scope.phonenumber_2+","+$scope.phonenumber_1+"<br>  Seçilen ürün-işemri türü = "+array.toString() +"<br> Müşteri İl = " + $scope.provinceSelect.name + "<br> Müşteri İlçe = " + $scope.citySelect.name + "<br> Müşteri Mahalle = " + $scope.areaSelect.name + "<br> Müşteri Tam Adres = " + $scope.adres_id).italics());
             dlg.result.then(function(btn){
             $scope.ButtonText = "İŞ EMRİ OLUŞTURULUYOR";
             $scope.description = "";
@@ -622,8 +472,6 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             
             $scope.dateVal = $filter('date')(new Date(), 'ss/MM/yyyy HH:mm:ss');
 
-            if(angular.isDefined($scope.phonenumber_2)) $scope.phonenumber_2 = "";
-            if(!angular.isDefined($scope.phonenumber_1)) $scope.phonenumber_1 = "";
             if(!angular.isDefined($scope.satis_id)) $scope.satis_id = "";
             if(!angular.isDefined($scope.satis_phone_id)) $scope.satis_phone_id = "";
             if(!angular.isDefined($scope.isemri_notu)) $scope.isemri_notu = "";
@@ -701,46 +549,42 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
               }
 
-              $scope.postData = angular.toJson($scope.jsonData, true);   
-                               
+                $scope.postData = angular.toJson($scope.jsonData, true);   
 
-            $http({
-                async: true,
-                crossDomain: true,  
-                url: 'https://thworkorderfapp.azurewebsites.net/myproxy',
-                method: "POST",
-                data: $scope.postData ,
-                headers: {            
+                $http({
+                    async: true,
+                    crossDomain: true,  
+                    url: 'https://thworkorderfapp.azurewebsites.net/myproxy',
+                    method: "POST",
+                    data: $scope.postData ,
+                    headers: {            
                         'Content-Type': 'application/json',
                         'Cache-Control': 'no-cache',
                         'servicetype': 'INTHEBOX1'
-                        }
-            }).then(function (response) {
+                    }
+                }).then(function (response) {
 
-                $scope.ButtonText = "İŞ EMRİ OLUŞTURULUYOR";                    
-                $timeout(function(){
-                    $scope.ButtonText = "İŞ EMRİ OLUŞTUR";    
-                },1000)
+                    $scope.ButtonText = "İŞ EMRİ OLUŞTURULUYOR";                    
+                    $timeout(function(){
+                        $scope.ButtonText = "İŞ EMRİ OLUŞTUR";    
+                    },1000)
 
-                //sql responslarını alert etme!!
 
-                if(response.data[0].ErrorCode != "0")
-                {
-                    alert(response.data[0].ErrorDescription);
+                    if(response.data[0].ErrorCode != "0")
+                    {
+                        alert(response.data[0].ErrorDescription);
+                    }
+                    else
+                    {
+                        $scope.ExternalOrderId = response.data[0].ExternalOrderId;
+                        $scope.ConsignmentWorkOrderStatus = response.data[0].ConsignmentWorkOrderStatus;
+                        alert("Servis başarıyla oluşturuldu. Oluşturulan paket numaranız: " + $scope.ExternalOrderId) + " Servis Numaranız: " + response.data[0].ServiceShopCode;    
+                    }
+                });
 
-                }
 
-                else
-                {
-                    $scope.ExternalOrderId = response.data[0].ExternalOrderId;
-                    $scope.ConsignmentWorkOrderStatus = response.data[0].ConsignmentWorkOrderStatus;
-                    alert("Servis başarıyla oluşturuldu. Oluşturulan paket numaranız: " + $scope.ExternalOrderId) + " Servis Numaranız: " + response.data[0].ServiceShopCode;                      
-
-                }
-
-            });
             },function(btn){
-                alert('İşlem Tamamlanamadı.');
+
             });
         } 
     

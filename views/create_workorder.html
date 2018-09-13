@@ -1,29 +1,30 @@
 ﻿
 <html>
     <head>
-        <title>İş Emri Portalı</title>            
+        <title>İş Emri Portalı</title>      
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/custom.css">
-        <link rel="stylesheet" href="css/dialogs.css">       
+        <link rel="stylesheet" href="css/dialogs.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>  
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
     <script src="/angular-cookies/angular-cookies.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-animate.min.js"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-animate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-aria.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.8/angular-material.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-leaflet-directive/0.10.0/angular-leaflet-directive.min.js"></script>
     <script src="https://rawgithub.com/angular-ui/angular-ui/master/build/angular-ui.js"></script>
 
-    <script src="lib/mask.js"></script>       
+    <script src="lib/mask.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.6.9/angular-sanitize.js"></script>
 
     <script src="angular-bootstrap/ui-bootstrap.js"></script>
     <script src="angular-bootstrap/ui-bootstrap.min.js"></script>
-    <script src="angular-bootstrap/ui-bootstrap-tpls.min.js"></script>    
-    <script src="js/dialogs.js"></script>   
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
-    <script src="angular-route/angular-route.js"></script>    
+    <script src="angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="js/dialogs.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="angular-route/angular-route.js"></script>
     <script src="lib/login.js"></script>
 
     <body style="background-color:rgb(255, 255, 255);" ng-app="App" ng-controller="workorder">
@@ -31,22 +32,24 @@
                 <header>
                     <div class="row" align="center">
                         <div class="col-md-12 col-sm-12 col-xs-12 ">
-                            <img src="images/altus-logo-workorder.png" vspace="10">    
+                            <img src="images/altus-logo-workorder.png" vspace="10">
                         </div>     
-                        <div class="col-md-12 col-sm-12 col-xs-12 ">                                
-                            <img src="images/grundig-logo-workorder.png">  
+                        <div class="col-md-12 col-sm-12 col-xs-12 ">
+                            <img src="images/grundig-logo-workorder.png">
                         </div>         
                 <!--        <div align="right">
                             <button type="button" class="btn btn-primary" ng-click="logout()">
                                 <span class="glyphicon glyphicon-log-out"></span> ÇIKIŞ
                             </button>                                                        
                         </div>                  
-                    </div> -->
-                    <div class="row" align="right">
-                        <button type="button" class="btn btn-primary">
-                        <span></span>
-                            {{displayName}} <br> {{organization}} <br> {{title}} <br> {{email}} <br>    
-                        </button>         
+                    </div> --> 
+
+                    <div class="row" align="right">        
+                     <button type="button" class="btn btn-primary" ng-disabled="true">
+                       <span>
+                            {{displayName}} <br> {{organization}} <br> {{title}} <br> {{email}} <br> {{displayName2}}
+                        </span>
+                    </button>        
                     </div>
                 </header>              
                 <ul class="nav nav-tabs nav-justified" id="navbarid">
@@ -66,15 +69,18 @@
                                     <div class="form-group">                                
                                         <input type="text" id="name_customer" name="name_customer" 
                                             class="form-control" placeholder="Ad*" ng-model="name_id" required ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'">
+                                            <span style="color:Red" ng-show="form.name_customer.$error.required&&form.name_customer.$dirty">Lütfen İsim Alanını Doldurunuz</span>
                                     </div> 
                                     <div class="form-group">                                                                
                                         <input type="text" id="surname_customer" name="surname_customer" 
                                             class="form-control" placeholder="Soyad*" ng-model="surname_id" required ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'">
+                                            <span style="color:Red" ng-show="form.surname_customer.$error.required&&form.surname_customer.$dirty">Lütfen Soyisim Alanını Doldurunuz</span>
                                     </div>                                   
                                 </div>   
                                 <div class="col-sm-4">
                                     <div class="form-group"> 
-                                        <input class="form-control" type="text" id="phoneNumber_3" name="phoneNumber_3" ng-model="phonenumber_3" required ui-mask="(999) 999-9999" placeholder="(5xx) xxx-xxxx*" ui-mask-placeholder-char="-" ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'"/>                                                
+                                        <input class="form-control" type="text" id="phoneNumber_3" name="phoneNumber_3" ng-model="phonenumber_3" required ui-mask="(999) 999-9999" placeholder="(___) ___-____*" ui-mask-placeholder-char="-" ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'"/>
+                                        <span style="color:Red" ng-show="form.phoneNumber_3.$error.required&&form.phoneNumber_3.$dirty">Lütfen Telefon Alanını Doldurunuz</span>                                                
                                     </div>     
                                     <div class="form-group">                                                                                                                        
                                         <input class="form-control" type="text" id="phoneNumber_2" name="phoneNumber_2" ng-model="phonenumber_2" ui-mask="(999) 999-9999" placeholder="(___) ___-____" ui-mask-placeholder-char="-" ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'"/>    
@@ -86,7 +92,8 @@
                                         </div>                
                                     <div class="form-group">                                                                                                
                                         <input type="text" id="email_customer" name="email_customer" 
-                                            class="form-control" placeholder="abc@example.com*" ng-model="email_id" required ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'"> 
+                                            class="form-control" placeholder="abc@example.com*" ng-model="email_id" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'"> 
+                                            <span style="color:Red" ng-show="form.email_customer.$error.required&&form.email_customer.$error.pattern&&form.email_customer.$dirty">Lütfen Geçerli Eposta Giriniz</span>
                                     </div>   
                                 </div>
                             </div>
@@ -97,33 +104,35 @@
                                 <div align="right">
                                     <button type="button" class="btn btn-primary" ng-show="showAddChoice(choice)" ng-click="addNewChoice()"><i class="glyphicon glyphicon-plus"></i>&nbsp;EKLE</button>                                                                                          
                                 </div>    
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <div class="form-group">                                
                                         <input type="text" class="form-control" id="txtProductCode"
                                             data-toggle="tooltip" data-placement="top" title="10 Haneli Ürün Kodu Giriniz*"
                                             ng-change="search(choice.txtProductCode)" ng-minlength="5";
                                             name="txtProductCode" ng-model="choice.txtProductCode" placeholder="Ürün Kodu Giriniz*" required ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'"/>
+                                            <span style="color:Red" ng-show="form.txtProductCode.$error.required&&form.txtProductCode.$dirty">Lütfen 10 Haneli Ürün Kodu Giriniz</span>                                                 
                                         <div class="entry" ng-repeat="item in ResponseProductList | filter:choice.txtProductCode | limitTo:10" ng-show="show">
                                             <span ng-click="fncProductChoose(item.name,item.description)">{{item.description + '-' + item.name}}</span>
                                         </div>
                                     </div>                            
                                 </div>   
-                               <div class="col-sm-3">
+                               <div class="col-sm-4">
                                     <div class="form-group"> 
-                                        <select class="form-control" ng-model="choice.workorderSelect" required ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'">
+                                        <select class="form-control" name= "workorderSelect" ng-model="choice.workorderSelect" required ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'">
                                             <option value="">İş Emri Türü Seçiniz *</option> 
                                             <option ng-repeat="option in workordertype" value="{{option.name}}">{{option.name}}</option>                    
-                                        </select>                    
+                                        </select>
+                                        <span style="color:Red" ng-show="form.workorderSelect.$error.required&&form.workorderSelect.$dirty">Lütfen İş Emri Türü Seçiniz</span>                                                                                         
                                     </div>                                                                    
                                 </div>     
-                                <div class="col-sm-3"> 
+                      <!--          <div class="col-sm-3"> 
                                     <div class="form-group">                                                                            
                                         <select class="form-control" ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'">
                                             <option value="">Satış Noktası Seçiniz</option> 
                                         </select>                  
                                   </div>                
-                                </div>
-                                <div class="col-sm-3">
+                                </div> -->
+                                <div class="col-sm-4">
                                     <div class="form-group">                                
                                         <button type="button" class="btn btn-primary" ng-click="removeNewChoice()"><i class="glyphicon glyphicon-remove"></i>&nbsp;SİL</button>                                                                                                                                      
                                     </div>                            
@@ -134,25 +143,30 @@
                           <div class="panel-heading">MÜŞTERİ ADRESİ</div>
                             <div class="panel-body">   
                                 <div class="form-group">     
-                                    <select class="form-control" ng-model="provinceSelect" ng-change="choose_city()" required ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'">
+                                    <select class="form-control" name="provinceSelect" ng-model="provinceSelect" ng-change="choose_city()" required ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'">
                                         <option value="">Teslimat İli Seçiniz *</option> 
                                         <option ng-repeat="option in province" value="{{ {'id':option.id, 'name': option.name} }}">{{option.name}}</option>
-                                    </select>                                                                                                               
+                                    </select>
+                                    <span style="color:Red" ng-show="form.provinceSelect.$error.required&&form.provinceSelect.$dirty">Lütfen İl Seçiniz</span>                                                                                                                        
                                 </div>                                                                                                                                                                                                                       
                                 <div class="form-group">                                                                                                                                            
-                                    <select class="form-control" ng-model="citySelect" ng-change="choose_area()" required ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'">
+                                    <select class="form-control" name="citySelect" ng-model="citySelect" ng-change="choose_area()" required ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'">
                                         <option value="">Teslimat İlçesi Seçiniz *</option>                                     
                                         <option ng-repeat="option in city" value="{{ {'id':option.id, 'name': option.name} }}">{{option.name}}</option>                                                        
                                     </select>
+                                    <span style="color:Red" ng-show="form.citySelect.$error.required&&form.citySelect.$dirty">Lütfen İlçe Seçiniz</span>   
                                 </div>
                                 <div class="form-group">                                                                                                                                            
-                                    <select class="form-control" ng-model="areaSelect" required ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'">
+                                    <select class="form-control" name="areaSelect" ng-model="areaSelect" required ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'">
                                         <option value="">Teslimat Mahallesi Seçiniz *</option> 
                                         <option ng-repeat="option in area" value="{{ {'id':option.id, 'name': option.name} }}">{{option.name}}</option>                                                                                                
                                     </select>
+                                    <span style="color:Red" ng-show="form.areaSelect.$error.required&&form.areaSelect.$dirty">Lütfen Mahalle Seçiniz</span>   
                                 </div> 
+                               
                                 <input type="text" id="adres_customer" name="adres_customer" 
-                                class="form-control" placeholder="Adres*" ng-model="adres_id" required ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'">                      
+                                class="form-control" placeholder="Adres*" ng-model="adres_id" required ng-disabled="ButtonText == 'İŞ EMRİ OLUŞTURULUYOR'">    
+                                <span style="color:Red" ng-show="form.adres_customer.$error.required&&form.adres_customer.$dirty">Lütfen Adres Bilgisini Giriniz</span>                     
                             </div>   
                         </div>
                         <div class="panel panel-default">
