@@ -32,7 +32,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             
             $http({
                 method: "GET", 
-                url: link.test.bayikodu + $scope.username_cookie,
+                url: link.test.url + "bayikodu/" + $scope.username_cookie,
                 headers: {            
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
             $http({
                 method: "GET", 
-                url: link.test.dealerID,
+                url: link.test.url + "bayikodu/w40040.5@arcelik.com",
                 headers: {            
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
@@ -82,7 +82,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             
             $http({
                 method: "GET",
-                url: link.test.GuId
+                url: link.test.url + "GuId/C9003074/lG75bktu/1/1/1/1"
             }). 
             then(function(response) { 
                 if(response.data[0].ErrorDescription !== null)
@@ -147,7 +147,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 async: true,
                 crossDomain: true,
                 method: "GET", 
-                url: link.test.product +  query,
+                url: link.test.url + "product/" +  query,
                 headers: {            
                 'Content-Type': 'application/json',
                 'SessionToken': '' + $scope.GuId ,
@@ -182,7 +182,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
                 
             $http({
-                url: link.test.Uavt_province,
+                url: link.test.url + "Uavt_province",
                 method: "GET"
 
             })
@@ -203,7 +203,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             $scope.choose_city = function() {
                 $http({
                 method: "GET", 
-                url: link.test.Uavt_city + JSON.parse($scope.provinceSelect).id + '/0/0'
+                url: link.test.url + "Uavt_city/" + JSON.parse($scope.provinceSelect).id + "/0/0"
                 }) 
                 .then(function(response){ 
                     $scope.city = [];                    
@@ -222,7 +222,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             $scope.choose_area = function() {
                 $http({
                 method: "GET", 
-                url: link.test.Uavt_area + JSON.parse($scope.provinceSelect).id + '/' + JSON.parse($scope.citySelect).id + '/0'
+                url: link.test.url + "Uavt_area/" + JSON.parse($scope.provinceSelect).id + "/" + JSON.parse($scope.citySelect).id + "/0"
                 }) 
                 .then(function(response){ 
                     $scope.area = [];                    
@@ -270,7 +270,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 $scope.SearchText = "ARIYOR";                                    
                 $http({
                     method: "GET", 
-                    url: link.test.query + $scope.phone_id_query + '/' +  $scope.name_id_query + '/' +  $scope.surname_id_query + '/0/0/0/' + $scope.dealerID,
+                    url: link.test.url + "query/" + $scope.phone_id_query + "/" +  $scope.name_id_query + "/" +  $scope.surname_id_query + "/0/0/0/" + $scope.dealerID,
                     headers: {            
                     'SessionToken': '' + $scope.GuId
                     }     
@@ -312,7 +312,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             var workorders_no = [];
                 $http({
                     method: "GET",
-                    url: link.test.sorgula + work_order,
+                    url: link.test.url + "sorgula/" + work_order,
                 }) 
                 .then(function(response){ 
                     var j  = 0;
@@ -358,7 +358,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 $scope.postData = angular.toJson($scope.jsonData, true);     
 
                 $http({
-                url: link.test.deletequery,
+                url: link.test.url + "deletequery/",
                 method: "POST",
                 data: $scope.postData ,
                 headers: {            
@@ -385,7 +385,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
         $scope.sorgula = function(x) {
             $http({
             method: "GET",
-            url: link.test.sorgula + x.no,
+            url: link.test.url + "sorgula/" + x.no,
             }) 
             .then(function(response){ 
             $scope.ConsignmentWorkOrderStatus = response.data[0].Status; 
@@ -509,7 +509,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 $http({
                     async: true,
                     crossDomain: true,  
-                    url: link.test.myproxy,
+                    url: link.test.url + "/myproxy",
                     method: "POST",
                     data: $scope.postData ,
                     headers: {            
