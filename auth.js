@@ -60,10 +60,10 @@ passport.deserializeUser(function(id, done) {
 
 passport.use(new SamlStrategy(
   {
-    issuer: config.auth.issuer,
+    issuer: config.auth.test.issuer,
   	path: '/login/callback',
-    entryPoint: config.auth.entryPoint,
-    cert: fs.readFileSync(config.auth.cert, 'utf-8'),
+    entryPoint: config.auth.test.entryPoint,
+    cert: fs.readFileSync(config.auth.test.cert, 'utf-8'),
 	signatureAlgorithm: 'sha256'
   },
   function(profile, done) {
