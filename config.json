@@ -1,16 +1,7 @@
 {
 	"auth": {
-		"test": {
-			"entryPoint": "https://arcelik.oktapreview.com/app/arelika_thworkorder_1/exkekmgyymcDj2lqE0h7/sso/saml",
+     		"entryPoint": "https://arcelik.oktapreview.com/app/arelika_thworkorder_1/exkekmgyymcDj2lqE0h7/sso/saml",
 			"cert": "okta.cert",
-			"issuer": "http://www.okta.com/exkekmgyymcDj2lqE0h7",
-			"yetkiliservis_city":"https://thworkorderfapp.azurewebsites.net/GuId/C9003074/lG75bktu/1/1/1/1"
-		},
-		"prod": {
-			"entryPoint":"",
-			"cert": "",
-			"issuer":"",
-			"yetkiliservis_city":""
-		}
+			"issuer": "http://www.okta.com/exkekmgyymcDj2lqE0h7"
 	}
 }
