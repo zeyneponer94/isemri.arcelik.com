@@ -32,7 +32,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             
             $http({
                 method: "GET", 
-                url: link.test.url + "bayikodu/" + $scope.username_cookie,
+                url: 'https://thworkorderfapp.azurewebsites.net/bayikodu/' + $scope.username_cookie,
                 headers: {            
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
@@ -44,7 +44,22 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 $scope.organization = response.data.profile.organization;
                 $scope.title = response.data.profile.title;
                 $scope.email = response.data.profile.email;
-   
+            });
+
+                        
+            $http({
+                method: "GET",
+                url: 'https://thworkorderfapp.azurewebsites.net/GuId/C9003074/lG75bktu/1/1/1/1'
+            }). 
+            then(function(response) {        
+                if(response.data[0].ErrorDescription !== null)
+                {
+                    alert("Request failed");                
+                }
+                else 
+                {
+                    $scope.GuId = response.data[0].GuId;  
+                }
             });
            
 
@@ -68,7 +83,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
             $http({
                 method: "GET", 
-                url: link.test.url + "bayikodu/w40040.5@arcelik.com",
+                url: 'https://thworkorderfapp.azurewebsites.net/bayikodu/w40040.5@arcelik.com',
                 headers: {            
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
@@ -76,24 +91,9 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 }
             }) 
             .then(function(response){ 
-                $scope.dealerID = response.data.profile.dealerID;    
+                $scope.dealerID = response.data.profile.dealerID;  
             });   
 
-            
-            $http({
-                method: "GET",
-                url: link.test.url + "GuId/C9003074/lG75bktu/1/1/1/1"
-            }). 
-            then(function(response) { 
-                if(response.data[0].ErrorDescription !== null)
-                {
-                    alert("Request failed");                
-                }
-                else 
-                {
-                    $scope.GuId = response.data[0].GuId;  
-                }
-            });
     
             $scope.test="false";
             $scope.ButtonText = "İŞ EMRİ OLUŞTUR";        
@@ -147,7 +147,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 async: true,
                 crossDomain: true,
                 method: "GET", 
-                url: link.test.url + "product/" +  query,
+                url: 'https://thworkorderfapp.azurewebsites.net/product/' +  query,
                 headers: {            
                 'Content-Type': 'application/json',
                 'SessionToken': '' + $scope.GuId ,
@@ -182,9 +182,8 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
                 
             $http({
-                url: link.test.url + "Uavt_province",
+                url: 'https://thworkorderfapp.azurewebsites.net/Uavt_province',
                 method: "GET"
-
             })
             .then(function(response){ 
                 $scope.province = [];                    
@@ -203,7 +202,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             $scope.choose_city = function() {
                 $http({
                 method: "GET", 
-                url: link.test.url + "Uavt_city/" + JSON.parse($scope.provinceSelect).id + "/0/0"
+                url: 'https://thworkorderfapp.azurewebsites.net/Uavt_city/' + JSON.parse($scope.provinceSelect).id + '/0/0'
                 }) 
                 .then(function(response){ 
                     $scope.city = [];                    
@@ -222,7 +221,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             $scope.choose_area = function() {
                 $http({
                 method: "GET", 
-                url: link.test.url + "Uavt_area/" + JSON.parse($scope.provinceSelect).id + "/" + JSON.parse($scope.citySelect).id + "/0"
+                url: 'https://thworkorderfapp.azurewebsites.net/Uavt_area/' + JSON.parse($scope.provinceSelect).id + '/' + JSON.parse($scope.citySelect).id + '/0'
                 }) 
                 .then(function(response){ 
                     $scope.area = [];                    
@@ -270,7 +269,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 $scope.SearchText = "ARIYOR";                                    
                 $http({
                     method: "GET", 
-                    url: link.test.url + "query/" + $scope.phone_id_query + "/" +  $scope.name_id_query + "/" +  $scope.surname_id_query + "/0/0/0/" + $scope.dealerID,
+                    url: 'https://thworkorderfapp.azurewebsites.net/query/' + $scope.phone_id_query + '/' +  $scope.name_id_query + '/' +  $scope.surname_id_query + '/0/0/0/' + $scope.dealerID,
                     headers: {            
                     'SessionToken': '' + $scope.GuId
                     }     
@@ -312,7 +311,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
             var workorders_no = [];
                 $http({
                     method: "GET",
-                    url: link.test.url + "sorgula/" + work_order,
+                    url: 'https://thworkorderfapp.azurewebsites.net/sorgula/' + work_order,
                 }) 
                 .then(function(response){ 
                     var j  = 0;
@@ -358,7 +357,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 $scope.postData = angular.toJson($scope.jsonData, true);     
 
                 $http({
-                url: link.test.url + "deletequery/",
+                url: 'https://thworkorderfapp.azurewebsites.net/deletequery/',
                 method: "POST",
                 data: $scope.postData ,
                 headers: {            
@@ -385,7 +384,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
         $scope.sorgula = function(x) {
             $http({
             method: "GET",
-            url: link.test.url + "sorgula/" + x.no,
+            url: 'https://thworkorderfapp.azurewebsites.net/sorgula/' + x.no,
             }) 
             .then(function(response){ 
             $scope.ConsignmentWorkOrderStatus = response.data[0].Status; 
@@ -509,7 +508,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
                 $http({
                     async: true,
                     crossDomain: true,  
-                    url: link.test.url + "/myproxy",
+                    url: 'https://thworkorderfapp.azurewebsites.net/myproxy',
                     method: "POST",
                     data: $scope.postData ,
                     headers: {            
