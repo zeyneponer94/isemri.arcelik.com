@@ -1,5 +1,5 @@
 var app = angular.module('App', ['ui.bootstrap','dialogs.main','ngSanitize','ui.mask', 'ngRoute','ngCookies']);
-
+var config = require('../config.json');
 app.directive('ngEnter', function () { 
     return function (scope, element, attrs) {
         element.bind("keydown keypress", function (event) {
@@ -85,7 +85,7 @@ app.controller('workorder', ['$scope','$http','$window', 'dialogs','$sanitize','
 
             
             $http({
-                url: 'https://thworkorderfapp.azurewebsites.net/GuId/C9003074/lG75bktu/1/1/1/1',
+                url: config.auth.test.yetkiliservis_city,
                 method: "GET"
             }). 
             then(function(response) { 
